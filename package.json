@@ -1,0 +1,13 @@
+{
+  "name": "element-package",
+  "private": true,
+  "dependencies": {
+    "chartist": "^0.11.4",
+    "normalize.css": "^8.0.1"
+  },
+  "version": "1.0.0",
+  "description": "package for element.app",
+  "main": "index.js",
+  "author": "kuyenda <cocoon.co.up@gmail.com>",
+  "license": "MIT"
+}
