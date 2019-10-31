@@ -1,0 +1,45 @@
+@mixin et-animation($type, $time) {
+    animation-duration: $time;
+
+    @if $type==1 {
+        animation-timing-function: cubic-bezier(0, .75, 0, 1);
+    }
+
+    @else if $type==2 {
+        animation-timing-function: cubic-bezier(.25, .1, 0, 1);
+    }
+
+}
+
+@mixin et-transition($type, $time) {
+    transition: $time;
+
+    @if $type==1 {
+        transition-timing-function: cubic-bezier(0, .75, 0, 1);
+    }
+
+    @else if $type==2 {
+        transition-timing-function: cubic-bezier(.25, .1, 0, 1);
+    }
+
+    @else if $type==3 {
+        transition-timing-function: cubic-bezier(1, 0, .5, 1);
+    }
+
+}
+
+@mixin link-animation {
+    transition: all .1s ease-in;
+
+}
+
+@mixin stroke($color: #000, $size: 1px) {
+    text-shadow: -#{$size} -#{$size} 0 $color,
+    0 -#{$size} 0 $color,
+    #{$size} -#{$size} 0 $color,
+    #{$size} 0 0 $color,
+    #{$size} #{$size} 0 $color,
+    0 #{$size} 0 $color,
+    -#{$size} #{$size} 0 $color,
+    -#{$size} 0 0 $color;
+}

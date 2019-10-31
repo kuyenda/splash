@@ -1,0 +1,20 @@
+<% provide(:title, "Account Setting") %>
+<section class="bg-gray0">
+  <div class="container overflow-hidden">
+    <div class="row mx-auto justify-content-center align-items-center" style="max-width: 800px;height: 100vh">
+      <div class="col-9 col-sm-8 col-md-7 col-lg-6 pt-3 pb-4 px-md-4 bg-white overflow-hidden">
+        <h1 class="f7 mb-4 underline gray6">Profile</h1>
+        <%= flash_form_error @user, class: 'alert alert-danger' %>
+        <%= form_for(@user) do |f| %>
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+          <%= f.submit "Submit" %>
+          <!-- <div class="avatar d-inline-block">
+            <%= gravatar_for @user, size: 32 %>
+            <a href="http://gravatar.com/emails" target="_blank" class="green5">change</a>
+          </div> -->
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

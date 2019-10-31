@@ -1,0 +1,47 @@
+<section class="profile-card">
+  <div class="profile-card-inner">
+    <div class="profile-card-avatar avatar96">
+      <%= gravatar_for @user, size: 96 %>
+    </div>
+    <div class="profile-card-flex">
+      <h1 class="profile-card-username">
+        <%= @user.name  %>
+      </h1>
+      <div class="profile-card-action">
+        <button class="btn btn-outline-success">关注</button>
+      </div>
+    </div>
+    <div class="profile-card-biography">
+      <%= FFaker::LoremCN.sentence %>
+    </div>
+    <div class="profile-card-status">
+      <a href="#" class="profile-card-link">
+        <span class="profile-card-job">
+          <%= FFaker::JobJA.title %>
+        </span>
+      </a>
+      <a href="#" class="profile-card-link">
+        <span class="profile-card-counting">
+          <%= rand(50) %>
+        </span>
+        <span class="profile-card-portfolio">
+          作品
+        </span>
+      </a>
+      <span class="profile-card-contact">
+        <%= FFaker::Internet.email %>
+      </span>
+      <ul class="profile-card-social">
+        <li>
+          <a href="#" class="link gray7 glow">
+            <i class="icon ion-logo-twitter"></i>
+          </a>
+        </li>
+        <li>
+          <a href="#" class="link gray7 glow">
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>

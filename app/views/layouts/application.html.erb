@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-    <title>Untitled Element Page</title>
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-</head>
-
-<body>
-    <%= yield %>
-</body>
-
+  <head>
+    <%= render 'layouts/sections/meta' %>
+  </head>
+  <body>
+    <%= render 'layouts/sections/header' %>
+    <main id="app">
+      <%= yield %>
+    </main>
+    <%= render 'layouts/sections/footer' if @show_footer %>
+  </body>
 </html>

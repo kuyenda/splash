@@ -1,0 +1,63 @@
+// debuging
+.alert {
+    ul {
+        margin: 0;
+        padding: 0;
+
+        li {
+            list-style-type: none;
+            margin-top: .2em;
+        }
+
+    }
+
+    .alert-error {
+        max-width: 320px;
+        background: transparent;
+        text-align: left;
+    }
+
+}
+
+.field_with_errors {
+    @extend .is-valid;
+
+    input {
+        border: 1px dashed #1b5e2068 !important;
+        @include et-transition(1, 1s);
+
+        &:hover {
+            border-color: #1b5e20 !important
+        }
+    }
+
+
+}
+
+.debug_dump {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 10px 20px;
+    color: #ffeaa7;
+    background: #2d3436;
+}
+
+#console {}
+
+.center-modal {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: -1;
+    opacity: 0;
+    @include et-transition(1, .5s);
+
+    &.open {
+        opacity: 1;
+        z-index: 999;
+
+    }
+}

@@ -1,0 +1,11 @@
+yarn add --modules-folder ./vendor/assets/components
+
+# gem 'sassc-rails', '>= 2.1.0'
+# gem 'bcrypt', '~> 3.1.7'
+
+rake db:migrate RAILS_ENV=production
+RAILS_ENV=production bin/rails assets:precompile
+rails assets:clean
+rails assets:clobber
+
+rails s -e production -p 3000

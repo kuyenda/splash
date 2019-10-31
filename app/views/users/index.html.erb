@@ -1,0 +1,19 @@
+<% provide(:title, 'Admin') %>
+<section class="mx-auto bg-gray0 relative" style="max-width: 1200px;margin: 100px 0">
+  <table class="table table-sm table-striped table-bordered table-hover f4">
+    <thead>
+      <tr>
+        <th scope="col">序号</th>
+        <th scope="col">头像</th>
+        <th scope="col">用户名</th>
+        <th scope="col">删除</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @users %>
+    </tbody>
+  </table>
+  <div class="digg_pagination">
+    <%= will_paginate @users, :container => false %>
+  </div>
+</section>

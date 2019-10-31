@@ -1,0 +1,186 @@
+@keyframes hue {
+    0% {
+        filter: hue-rotate(0deg);
+    }
+
+    100% {
+        filter: hue-rotate(-360deg);
+    }
+
+}
+
+.hue {
+    animation-name: hue
+}
+
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg)
+    }
+
+    100% {
+        transform: rotate(359deg)
+    }
+
+}
+
+.spin {
+    animation-name: spin
+}
+
+@keyframes colorCycle {
+    0% {
+        color: #228be6
+    }
+
+    12.5% {
+        color: #12b886
+    }
+
+    25% {
+        color: #40c057
+    }
+
+    37.5% {
+        color: #ffd43b
+    }
+
+    50% {
+        color: #fd7e14
+    }
+
+    62.5% {
+        color: #fa5252
+    }
+
+    75% {
+        color: #f783ac
+    }
+
+    87.5% {
+        color: #7950f2
+    }
+
+    100% {
+        color: #228be6
+    }
+
+}
+
+.colorCycle {
+    animation-name: colorCycle
+}
+
+@keyframes shadowCycle {
+    0% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(34, 139, 230, 0.25)
+    }
+
+    12.5% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(18, 184, 134, 0.25)
+    }
+
+    25% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(64, 192, 87, 0.25)
+    }
+
+    37.5% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(255, 212, 59, 0.25)
+    }
+
+    50% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(253, 126, 20, 0.25)
+    }
+
+    62.5% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(250, 82, 82, 0.25)
+    }
+
+    75% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(247, 131, 172, 0.25)
+    }
+
+    87.5% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(121, 80, 242, 0.25)
+    }
+
+    100% {
+        box-shadow: 0 0.25rem 0.125rem 0 rgba(34, 139, 230, 0.25)
+    }
+
+}
+
+.shadowCycle {
+    animation-name: shadowCycle
+}
+
+@keyframes pulseOpacity {
+    0% {
+        opacity: 0.99
+    }
+
+    50% {
+        opacity: 0.66
+    }
+
+    100% {
+        opacity: 0.99
+    }
+
+}
+
+.pulseOpacity {
+    animation-name: pulseOpacity
+}
+
+$animated: ();
+$animated: map-merge(("": 1,
+"0": 100,
+"1": 4,
+"2": 2,
+"3": 1.5,
+"4": 1,
+"5": .5,
+"6": .25,
+"7": .1),
+$animated);
+
+@each $name,
+$duration in $animated {
+    .animated#{$name} {
+        animation-duration: #{$duration}s;
+    }
+
+    .animated-delay#{$name} {
+        animation-delay: #{$duration}s;
+    }
+}
+
+$aniamtions: ();
+$aniamtions: map-merge(("ease-in": ease-in,
+"ease-out": ease-out,
+"ease-in-out": ease-in-out,
+"linear": linear,
+"step-start": step-start,
+"step-end": step-end),
+$aniamtions);
+
+@each $name,
+$function in $aniamtions {
+    .#{$name} {
+        animation-timing-function: $function;
+    }
+}
+
+.animated-sp {
+    animation-timing-function: cubic-bezier(0, .75, 0, 1);
+}
+
+.animted-sp2 {
+    animation-timing-function: cubic-bezier(.25, .1, 0, 1);
+}
+
+.animated-inf {
+    animation-iteration-count: infinite;
+}

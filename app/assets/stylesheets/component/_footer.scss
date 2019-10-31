@@ -1,0 +1,107 @@
+// CONFIG
+$footer-background-color: #2e3234;
+$footer-title-color: #7d929e;
+$footer-logo-color: #7d929e;
+$footer-link-color: #7d929e;
+$footer-link-color-highlight: #FFC61A;
+
+.footer {
+    width: 100%;
+    overflow: hidden;
+
+    * {
+        @include et-transition(2, .5s);
+    }
+}
+
+.footer-inner {
+    // max-width: 800px;
+    margin: 0 auto;
+    font-size: 14px;
+    text-align: left;
+    color: $footer-link-color;
+    background: $footer-background-color;
+}
+
+// 1 - FOOTER LINK GROUP
+.footer-link-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @include media-breakpoint-down(md) {
+        max-width: 99%;
+        padding: 20px 15px;
+    }
+
+    .footer-link-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 5%;
+
+        ul {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
+        }
+
+        li {
+            float: left;
+            margin: 0 3px;
+            background: #cfd8dc15;
+        }
+
+        a {
+            font-size: 28px;
+            color: $footer-link-color;
+
+            &:hover {
+                color: $footer-link-color-highlight;
+            }
+        }
+
+
+        // padding: 24px;
+        @include media-breakpoint-down(sm) {
+            width: 100%;
+            margin: 0;
+            padding: 0;
+
+            li {
+                padding: 5px;
+                margin-bottom: 3px;
+                color: #222;
+                font-size: 15px;
+                background: #cfd8dc15;
+            }
+
+            a {
+                display: block;
+
+                &:hover {
+                    background: #cfd8dc08;
+                }
+            }
+        }
+    }
+}
+
+// 2 - SOCIAL LINK BAR
+.footer-social {
+    margin: 0 auto;
+    padding: 3px 0;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    background: #292d2e;
+    text-align: center;
+
+    span {
+        font-weight: 700;
+    }
+}

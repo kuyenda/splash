@@ -1,0 +1,33 @@
+.icon {
+    user-select: none;
+    font-size: inherit;
+    color: inherit;
+
+}
+
+.i--hv {
+    @include et-transition(2, .5s);
+
+    &:hover {
+        filter: hue-rotate(90deg);
+    }
+}
+
+$iconColors: map-merge(("black":#000,
+"white":#fff,
+"green":#00e676,
+"blue": #2962ff), ());
+
+@each $index,
+$color in $iconColors {
+    .i--#{$index} {
+        color: $color !important;
+    }
+}
+
+@each $size in (16, 24, 36, 48, 64, 128, 192) {
+    .icon#{$size} {
+        @extend .icon;
+        font-size: #{$size}px;
+    }
+}

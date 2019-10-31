@@ -1,5 +1,29 @@
-/*
- */
-@import "bootstrap-sprockets";
+// google fonts
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700');
+// config
+@import "config/bootstrap";
+@import "config/font";
+// framework
+@import "normalize.css/normalize";
+@import "animate.css/animate";
 @import "bootstrap";
-@import "chartist/dist/chartist"
+@import "prismjs/themes/prism-okaidia";
+@import "font-awesome";
+// common
+@import "mixin/mixin";
+@import "animation";
+@import "type";
+@import "alert";
+@import "button";
+@import "icon";
+@import "form";
+@import "splash";
+// components
+@import "config/config";
+@import "component/header";
+@import "component/footer";
+@import "component/hero";
+@import "component/blog";
+@import "component/sketch";
+@import "component/profile";
+@import "component/pagination";

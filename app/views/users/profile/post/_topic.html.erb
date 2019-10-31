@@ -1,0 +1,6 @@
+<%= form_for(current_user.topics.build) do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: "话题内容" %>
+  </div>
+  <%= f.submit "发布", class: "btn ebtn ruby small" %>
+<% end %>
