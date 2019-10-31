@@ -1,1 +1,1 @@
-yarn add --moudles-folder ./vendor/assets/components
+yarn add --modules-folder ./vendor/assets/components

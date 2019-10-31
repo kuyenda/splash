@@ -1,5 +1,10 @@
 /*
  */
+@import url('https://fonts.font.im/css?family=Roboto:300,400,500,700,900');
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "chartist/dist/chartist"
+@import "normalize.css/normalize.css";
+@import "font-awesome/scss/font-awesome";
+@import "chartist/dist/chartist";
+@import "prismjs/themes/prism-okaidia.css";
+@import "main"
