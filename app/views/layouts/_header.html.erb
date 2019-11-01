@@ -1,64 +1,48 @@
-<ul class="nav">
-    <li class="nav-items" style="margin-left: 5rem">
-        <a href="#" class="nav-links">
-            <span style="padding: 0 5rem;">
-                <i class="fas fa-asterisk" style="font-size: 1.2em"></i>
-            </span>
-        </a>
-    </li>
-    <li class="nav-items">
-        <a href="#" class="nav-links">
-            <span>...</span>
-        </a>
-    </li>
-    <li class="nav-items">
-        <a href="#" class="nav-links">
-            <span>...</span>
-        </a>
-    </li>
-    <li class="nav-items">
-        <a class="nav-links">
-            <div class="hamburger">
-                <div class="hamburger-box">
-                    <div class="hamburger-inner"></div>
-                </div>
-            </div>
-        </a>
-    </li>
-    <div class="nav-tools">
-        <div class="nav-tools-picker">
-            <div class="nav-tools-picker-btn">
-                <input type="radio" id="customRadio" name="customRadio" onclick="btnSwitch(0)">
-                <label for="customRadio"></label>
-            </div>
-            <div class="nav-tools-picker-btn">
-                <input type="radio" id="customRadio1" name="customRadio" onclick="btnSwitch(1)">
-                <label for="customRadio1"></label>
-            </div>
-            <div class="nav-tools-picker-btn">
-                <input type="radio" id="customRadio2" name="customRadio" onclick="btnSwitch(2);">
-                <label for="customRadio2"></label>
-            </div>
-        </div>
-        <div class="nav-tools-search-wrap">
-            <form class="nav-tools-search" action="">
-                <i class="fas fa-search mx-2"></i>
-                <input type="text" placeholder="Search…" maxlength="30">
-            </form>
-        </div>
-    </div>
-</ul>
-<div class="mobile-menu">
-    <ul class="mobile-list">
-        <li class="mobile-items">
-            <a href="" class="mobile-links">
-                ...
-            </a>
-        </li>
-        <li class="mobile-items">
-            <a href="" class="mobile-links">
-                ...
-            </a>
-        </li>
+<header class="navbar">
+  <div class="navbar-logo">
+    <p class="logo">element<span>.io</span></p>
+  </div>
+  <div class="navbar-md">
+    <ul class="nav-items">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
     </ul>
-</div>
+  </div>
+  <div class="navbar-icons">
+    <ul class="icons-list">
+      <li class="icon-list" id="mobile-menu-btn">
+        <a class="icon-link">
+          <div class="hamburger">
+            <div class="hamburger-box">
+              <div class="hamburger-inner"></div>
+            </div>
+          </div>
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-mobile-menu" id="mobile-menu">
+    <ul class="mobile-list">
+      <li class="mobile-item">
+        <a href="" class="mobile-links">
+          Login
+        </a>
+      </li>
+      <li class="mobile-item">
+        <a href="" class="mobile-links">
+          Sign up
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>

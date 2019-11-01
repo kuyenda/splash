@@ -9,16 +9,16 @@
 // }
 
 let soundID = document.getElementById("player");
-let playlist = []
+let playlist = ['Go Shina.ts']
 
 function getRandomInt(max) {
-  return Math.floor(Math.random() * Math.floor(max));
+	return Math.floor(Math.random() * Math.floor(max));
 }
 
 function playmusic() {
-  soundID.src = "public/audio/" + playlist[getRandomInt(playlist.length)]
-  setTimeout(() => soundID.play(), 1000);
-  soundID.loop = true;
+	soundID.src = "/assets/" + playlist[getRandomInt(playlist.length)]
+	setTimeout(() => soundID.play(), 1000);
+	soundID.loop = true;
 }
 
 playmusic();

@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
   def home
-    render 'layouts/index.html.erb'
+    render 'layouts/home.html.erb'
   end
 end

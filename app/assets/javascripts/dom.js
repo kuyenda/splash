@@ -3,8 +3,8 @@ $(function() {
 	// $('.para').fadeIn(1000);
 	// $('#para').append('<div class="codeblock"><h3>2. start a simple http server</h3><pre class="language-ruby"><code class="language-python">python -m http.server 3000</code></pre></div>');
 	// $('#code1').load("codes/ex.rb");
-	$('.nav li:nth-child(4)').on('click', function() {
-		$('.mobile-menu').toggleClass('open');
+	$('#mobile-menu-btn').on('click', function() {
+		$('#mobile-menu').toggleClass('open');
 		$('.hamburger').toggleClass('is-active');
 	});
 })
