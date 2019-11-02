@@ -1,0 +1,114 @@
+.hero {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 80px 20px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $hero-height;
+    color: $hero-tc;
+    background: $hero-bc;
+
+    &:before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $hero-fc;
+        mask: url('/assets/leaf.svg');
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inear-gradient(90deg, transparent, #4e342e, transparent);
+    }
+
+    .hero-content {
+        margin-top: 50px;
+        max-width: 1000px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .hero-col {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: flex-start;
+        z-index: 2;
+
+        &:nth-child(1) {
+            background: $hero-left-bc;
+        }
+
+    }
+
+    .text-header {
+        font-size: 58px;
+        color: $hero-tc;
+        overflow: hidden;
+    }
+
+    .text-det {
+        margin: 0;
+        margin-bottom: 20px;
+        font-size: 24px;
+        font-weight: 100;
+        line-height: 1.2;
+        color: $hero-tc;
+    }
+
+    @include media-breakpoint-down(lg) {
+        background: $hero-bc-m;
+        height: auto;
+
+        * {
+            color: #fff !important;
+        }
+
+        &:before {
+            mask: url('/assets/i-like-food.svg');
+            background: $hero-fc-m;
+        }
+
+        .hero-col {
+            align-items: center;
+            text-align: center;
+
+            &:nth-child(1) {
+                background: transparent;
+            }
+
+            &:nth-child(2) {
+                display: none;
+            }
+
+        }
+
+        .text-header {
+            border: 0;
+            font-size: 42px;
+        }
+
+        .text-det {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+    }
+
+}

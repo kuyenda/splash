@@ -1,11 +1,15 @@
-/*
- */
 @import url('https://fonts.font.im/css?family=Roboto:300,400,500,700,900');
 @import "bootstrap";
 @import "normalize.css/normalize.css";
 @import "font-awesome/scss/font-awesome";
 @import "chartist/dist/chartist";
 @import "prismjs/themes/prism-okaidia.css";
-@import "palette";
-@import "vendor";
-@import "main"
+// for element... 
+@import "variables";
+@import "mixins";
+@import "mobile";
+@import "main";
+@import "header";
+@import "footer";
+@import "button";
+@import "hero";

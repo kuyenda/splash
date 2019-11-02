@@ -1,0 +1,108 @@
+.footer {
+    padding: 50px 0;
+    height: auto;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+    color: #fff;
+    background: $footer-bc;
+    font-size: .8em;
+    font-family: Roboto;
+
+    .footer-social {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 16px;
+        margin: 0 .25rem;
+        text-align: center;
+        width: 100%;
+
+        li {
+            display: inline-block;
+            width: 45px;
+            font-size: 26px
+        }
+
+    }
+
+    .footer-links-container {
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        margin-bottom: 100px;
+        width: 100%;
+
+        * {
+            @include animation-h2(.5s);
+        }
+
+        @include media-breakpoint-down(md) {
+            margin-bottom: 20px;
+            justify-content: flex-start;
+            padding: 0 25px;
+        }
+
+        .footer-link-holder {
+            padding: 24px;
+
+            @include media-breakpoint-down(xl) {
+                width: auto;
+            }
+
+            @include media-breakpoint-down(lg) {
+                width: 30%;
+            }
+
+            @include media-breakpoint-down(md) {
+                width: 50%;
+            }
+
+        }
+
+        .footer-link-title {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .footer-nav-link {
+            &:hover {
+                color: #ffd600;
+            }
+
+            i {
+                color: #fff;
+                position: relative;
+            }
+
+            &:hover i {
+                color: #fff8;
+            }
+
+        }
+
+    }
+
+    @media screen and (max-width:1024px) {
+        font-size: 1em;
+        background: #232323;
+    }
+
+}
+
+.footer-holder {
+    color: #fff;
+    background: $footer-holder-bc;
+
+    .copyrights-text {}
+
+}

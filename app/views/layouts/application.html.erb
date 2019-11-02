@@ -9,10 +9,15 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src="https://kit.fontawesome.com/a6035bb910.js" crossorigin="anonymous"></script>
+    <%= javascript_include_tag "dom.js", :defer => "defer" %>
+    <%= javascript_include_tag "sound.js", :defer => "defer" %>
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <%= yield %>
+    <div class="et-content">
+      <audio preload="auto" id='player'></audio>
+      <%= yield %>
+    </div>
     <%= render 'layouts/footer' %>
   </body>
 </html>

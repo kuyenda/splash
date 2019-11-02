@@ -1,0 +1,9 @@
+@mixin animation-h1($time) {
+    transition: $time;
+    transition-timing-function: cubic-bezier(0, .75, 0, 1);
+}
+
+@mixin animation-h2($time) {
+    transition: $time;
+    transition-timing-function: cubic-bezier(.25, .1, 0, 1);
+}
