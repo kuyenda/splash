@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    background: #fff;
+    background: #fafafa;
     color: $et-tc;
 }
 
@@ -15,27 +15,31 @@ body {
 *,
 ::after,
 ::before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
 }
 
-a:hover,
-a:visited,
-a:link,
-a:active {
-    color: #fff;
-    text-decoration: none;
+a {
+    color: $et-lkc;
+
+    &:hover {
+        color: $et-lkc-h;
+    }
+
+    &:visited {
+        color: $et-lkc-v;
+        text-decoration: none;
+    }
+
+    &:active {
+        color: $et-lkc-a;
+    }
+
 }
 
 dl,
-menu,
 ol,
-ul {
-    list-style: none;
-}
+ul {}
 
 li {
     margin-top: .5em;
@@ -44,20 +48,12 @@ li {
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
     margin: 0;
     margin-bottom: 13.5px;
     font-weight: 700;
-}
-
-h5 {
-    margin: 0;
-    font-weight: 800;
-}
-
-h6 {
-    margin: 0;
-    font-weight: 400;
 }
 
 .et-content {
@@ -68,4 +64,12 @@ h6 {
         margin: 0;
     }
 
+}
+
+.ul-normal {
+    @include list-normal(ul);
+}
+
+.ol-normal {
+    @include list-normal(ol);
 }

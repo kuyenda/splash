@@ -1,10 +1,8 @@
 .btns {
-    display: -ms-flexbox;
     display: flex;
-    -ms-flex-pack: center;
     justify-content: center;
-    -ms-flex-align: center;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .btn {
@@ -13,7 +11,6 @@
     font-weight: normal;
     text-align: center;
     vertical-align: middle;
-    -ms-touch-action: manipulation;
     touch-action: manipulation;
     cursor: pointer;
     background-image: none;
@@ -22,9 +19,6 @@
     font-size: 18px;
     line-height: 1.5;
     border-radius: 4px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 }
 

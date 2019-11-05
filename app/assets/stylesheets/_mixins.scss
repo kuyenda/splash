@@ -7,3 +7,14 @@
     transition: $time;
     transition-timing-function: cubic-bezier(.25, .1, 0, 1);
 }
+
+@mixin list-normal($type) {
+    @if $type==ul {
+        list-style-type: none;
+    }
+
+    @else if $type==ol {
+        list-style-type: none;
+    }
+
+}

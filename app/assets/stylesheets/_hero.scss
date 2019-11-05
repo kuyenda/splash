@@ -1,11 +1,10 @@
 .hero {
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     position: relative;
     padding: 80px 20px;
+    margin: 0 auto;
     top: 0;
     left: 0;
     width: 100%;
@@ -24,35 +23,33 @@
         mask: url('/assets/leaf.svg');
     }
 
-    &:after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: inear-gradient(90deg, transparent, #4e342e, transparent);
-    }
-
     .hero-content {
-        margin-top: 50px;
-        max-width: 1000px;
         width: 100%;
+        margin-top: 50px;
+        max-height: 100%;
+        padding: 0 50px;
         display: flex;
-        flex-direction: column;
+        flex-wrap: wrap;
+        flex-direction: row;
         justify-content: center;
         align-items: center;
     }
 
     .hero-col {
-        display: flex;
-        justify-content: center;
-        flex-direction: column;
-        align-items: flex-start;
+        padding: 0 10px;
+        height: 100%;
         z-index: 2;
+        flex-basis: 0;
+        flex-grow: 1;
 
         &:nth-child(1) {
-            background: $hero-left-bc;
+            padding: 10px 20px;
+        }
+
+        &:nth-child(2) {
+            padding: 30px 5px;
+            background: $hero-login-bc;
+            text-align: center;
         }
 
     }
@@ -85,13 +82,17 @@
             background: $hero-fc-m;
         }
 
+        .hero-content {
+            margin: 0;
+            padding: 0;
+        }
+
         .hero-col {
+            background: transparent;
             align-items: center;
             text-align: center;
 
-            &:nth-child(1) {
-                background: transparent;
-            }
+            &:nth-child(1) {}
 
             &:nth-child(2) {
                 display: none;
