@@ -50,7 +50,7 @@
         width: 100%;
 
         * {
-            @include animation-h2(.5s);
+            @include et-transition(2, .5s);
         }
 
         @include media-breakpoint-down(md) {

@@ -1,3 +1,55 @@
+@keyframes hue {
+    from {
+        filter: hue-rotate(0deg);
+    }
+
+    to {
+        filter: hue-rotate(-90deg);
+    }
+
+}
+
+@keyframes et-mask-Yscroll {
+    from {
+        mask-position: top;
+    }
+
+    to {
+        mask-position: bottom;
+    }
+
+}
+
+@keyframes et-mask-Xscroll {
+    from {
+        mask-position: left;
+    }
+
+    to {
+        mask-position: right;
+    }
+
+}
+
+@keyframes et-mask-fade {
+    0% {
+        opacity: 0;
+    }
+
+    5% {
+        opacity: 1;
+    }
+
+    95% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
+
+}
+
 .hero {
     display: flex;
     justify-content: center;
@@ -20,7 +72,25 @@
         width: 100%;
         height: 100%;
         background: $hero-fc;
-        mask: url('/assets/leaf.svg');
+        mask-position: top;
+        mask-size: $hero-img-size;
+        mask-clip: content-box;
+        mask-image: $hero-img;
+
+        @if $hero-animated {
+            background-image: linear-gradient(92deg, #f35626 0%, #feab3a 100%);
+            animation: hue 60s infinite linear;
+            animation-duration: 60s;
+            animation-timing-function: linear;
+            animation-delay: 0s;
+            animation-iteration-count: infinite;
+            animation-direction: normal;
+            animation-fill-mode: none;
+            animation-play-state: running;
+            animation-name: hue, et-mask-Yscroll, et-mask-fade;
+            // @include et-animation(2, 4s);
+        }
+
     }
 
     .hero-content {
@@ -80,6 +150,7 @@
         &:before {
             mask: url('/assets/i-like-food.svg');
             background: $hero-fc-m;
+            animation-name: none;
         }
 
         .hero-content {

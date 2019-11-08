@@ -13,6 +13,7 @@
     min-height: 60px;
     padding: 0;
     background: $header-bc;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
     ul {
         padding-left: 0;
@@ -41,7 +42,7 @@
             font-weight: 500;
             color: #fff;
             line-height: 40px;
-            @include animation-h2(.5s);
+            @include et-transition(2, .5s);
 
             span {
                 font-size: 1rem;
@@ -73,7 +74,7 @@
                     line-height: 60px;
                     text-align: center;
                     text-transform: capitalize;
-                    @include animation-h1(0.5s);
+                    @include et-transition(1, .5s);
 
                     &:before {
                         content: '';
@@ -84,7 +85,7 @@
                         height: 3px;
                         transform: translateX(-50%);
                         background: #fff;
-                        @include animation-h1(0.5s);
+                        @include et-transition(1, .5s);
                     }
 
                     &:hover {
@@ -149,7 +150,7 @@
         color: #f5f6fa;
         background-attachment: all;
         background: $header-bc-m;
-        @include animation-h2(0.5s);
+        @include et-transition(2, .5s);
 
         @include media-breakpoint-down(lg) {
             position: fixed;

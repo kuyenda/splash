@@ -5,4 +5,7 @@ class ApplicationController < ActionController::Base
   def index
     render 'layouts/index'
   end
+  def test
+    render 'layouts/test'
+  end
 end
