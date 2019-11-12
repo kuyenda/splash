@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'application#home'
-  get '/index', to: 'application#index'
-  get '/test', to: 'application#test'
+  get '/style_page', to: 'application#style_page'
+  get '/script_page', to: 'application#script_page'
 end

@@ -15,21 +15,23 @@ $et-lkc-h: #dc143c;
 $et-lkc-v: #dc143c;
 $et-lkc-a: #ff1744;
 // components
-$header-bc: #212121;
-$header-bc-m: #212121;
-$footer-bc: #dc143c;
-$footer-holder-bc: #ff1744;
+$header-bc: #fff;
+$header-bc-m: #fff;
+$header-tc: #000;
+$footer-bc: #2c3e50;
+$footer-holder-bc: #34495e;
 $footer-lkc-h: #ffd600;
-$hero-fc: #dc143c;
-$hero-fc-m: #212121;
-$hero-bc: #222;
-$hero-bc-m: #ff1744;
+$hero-fc: #2c3e50;
+$hero-fc-m: #212121aa;
+$hero-bc: #34495e;
+$hero-bc-m: #2c3e50;
 $hero-animated: false;
-$hero-img: url('/assets/glamorous.svg');
+$hero-img: url('/assets/i-like-food.svg');
 $hero-img-size: 50%;
 $hero-height: auto;
 $hero-tc: #fff;
-$hero-login-bc: #0002;
+$hero-login-bc: #222;
 // element_palette_colors
 $ep-names: (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o) !default;
 $ep-colors: (#100e17, #1e272d, #212529, #2f3542, #3c334d, #4d4433, #47ca4c, #505bda, #f8f5fe, #dc143c, #ff3838, #e52e71, #ff1744, #2962ff, #41cd52) !default;
+// font-family

@@ -13,12 +13,13 @@
     min-height: 60px;
     padding: 0;
     background: $header-bc;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-weight: 500;
 
     ul {
         padding-left: 0;
         margin-bottom: 0;
         list-style: none;
+        font-weight: bold;
     }
 
     @include media-breakpoint-down(lg) {
@@ -38,14 +39,14 @@
 
         .logo {
             padding: 0 10px;
-            font-size: 1.2rem;
-            font-weight: 500;
-            color: #fff;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: $header-tc;
             line-height: 40px;
             @include et-transition(2, .5s);
 
             span {
-                font-size: 1rem;
+                font-size: 1.1rem;
                 font-weight: 300;
             }
 
@@ -63,41 +64,43 @@
 
             .nav-item {
                 height: 100%;
-                margin: 0 1rem;
+                margin: 0 .3rem;
                 width: auto;
 
                 .nav-link {
                     position: relative;
-                    color: #ccc;
+                    color: #222;
                     height: 100%;
                     padding: 0 15px;
                     line-height: 60px;
                     text-align: center;
                     text-transform: capitalize;
+                    font-size: 19px;
                     @include et-transition(1, .5s);
 
                     &:before {
                         content: '';
                         position: absolute;
                         left: 50%;
-                        bottom: 3px;
-                        width: 0;
+                        bottom: 2px;
+                        width: 0px;
                         height: 3px;
                         transform: translateX(-50%);
-                        background: #fff;
+                        background: $header-tc;
                         @include et-transition(1, .5s);
                     }
 
                     &:hover {
-                        color: #fff;
+                        color: $header-tc;
                     }
 
                     &:hover:before {
                         width: 50%;
+                        height: 3px;
                     }
 
                     &:active {
-                        color: #fff;
+                        color: $header-tc;
                     }
 
                 }
@@ -147,7 +150,7 @@
         width: 0;
         height: 1px;
         opacity: 0;
-        color: #f5f6fa;
+        color: $header-tc;
         background-attachment: all;
         background: $header-bc-m;
         @include et-transition(2, .5s);
@@ -158,8 +161,9 @@
             height: calc(100vh - 60px);
             min-height: 100px;
             padding: 0 1rem 60px 1rem;
-            width: 0vw;
+            width: 100vw;
             opacity: 0;
+            z-index: -1000;
 
             &.open {
                 width: 100vw;
@@ -189,7 +193,7 @@
             }
 
             .mobile-link {
-                color: #fff;
+                color: $header-tc;
             }
 
         }

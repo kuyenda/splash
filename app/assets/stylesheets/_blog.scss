@@ -6,3 +6,47 @@
     max-width: 900px;
     font-size: 16px;
 }
+
+.d116 {
+    font-family: 'Hack';
+
+    .container {
+        max-width: 1200px;
+        margin-top: 200px;
+    }
+
+    .row {
+        background: #000;
+        color: #fff !important;
+        padding: 1rem;
+        margin: 0px 0px 15px 0px;
+        border-radius: .2rem;
+    }
+
+}
+
+.d112 {
+    font-family: 'Steradian';
+
+    .container-fluid {
+        max-width: 1200px;
+        margin-top: 200px;
+    }
+
+    .row {
+        color: #fff;
+        padding: 2rem;
+        margin: 0px 0px 15px 0px;
+        border-radius: .2rem;
+
+        &:nth-child(odd) {
+            background: #2d3436;
+        }
+
+        &:nth-child(even) {
+            background: #40407a;
+        }
+
+    }
+
+}
