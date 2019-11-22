@@ -6,4 +6,4 @@
 //= require bootstrap-sprockets
 //= require chartist/dist/chartist
 //= require prismjs/prism
-//= require p5
+//= require example

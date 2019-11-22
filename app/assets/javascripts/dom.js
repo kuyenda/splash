@@ -1,8 +1,8 @@
 $(function() {
-	$('#mobile-menu-btn').on('click', function() {
-		$('#mobile-menu').toggleClass('open');
-		$('.hamburger').toggleClass('is-active');
-	});
+  $('#mobile-menu-btn').on('click', function() {
+    $('#mobile-menu').toggleClass('open');
+    $('.hamburger').toggleClass('is-active');
+  });
 })
 
 // new Chartist.Line('.ct-chart', {
@@ -17,11 +17,3 @@ $(function() {
 // 	showArea: true,
 // 	ticks: ['One', 'Two', 'Three'],
 // });
-
-(() => {
-	var dataScope = $('#dataff')
-	if (dataScope) {
-		var t = $.parseJSON(dataScope.attr('data-w'))
-		dataScope.append(t.name)
-	}
-})();

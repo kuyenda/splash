@@ -57,6 +57,18 @@ h6 {
     font-weight: 700;
 }
 
+pre,
+code,
+kbd,
+samp {
+    font-family: Hack, monospace;
+    font-size: 1em;
+}
+
+pre {
+    color: #fff;
+}
+
 .et-content {
     margin-top: 60px;
     min-height: calc(100vh - 60px);

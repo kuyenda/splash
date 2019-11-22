@@ -8,4 +8,7 @@ class ApplicationController < ActionController::Base
   def script_page
     render 'common/script_page'
   end
+  def example_page
+    render 'common/example_page'
+  end
 end
