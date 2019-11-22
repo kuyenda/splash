@@ -1,9 +1,9 @@
-let docElement;
+const Fixed = false;
+let p5DOM;
 let sketchWindow;
 let gameFont;
 let setWidth = 640,
-	setHeight = 480,
-	setWindow = false;
+	setHeight = 480;
 
 // global values
 let frames = 60;
@@ -15,9 +15,9 @@ function preload() {
 
 function setup() {
 	sketchWindow = select('#sketch')
-	docElement = setWindow ? createCanvas(setWidth, setHeight) : createCanvas(sketchWindow.size().width, sketchWindow.size().height);
-	docElement.parent('#sketch')
-	// docElement.class('sketch-panel');
+	p5DOM = Fixed ? createCanvas(setWidth, setHeight) : createCanvas(sketchWindow.size().width, sketchWindow.size().height);
+	p5DOM.parent('#sketch')
+	// p5DOM.class('sketch-panel');
 
 	// init
 	frameRate(frames)
@@ -29,7 +29,6 @@ function setup() {
 
 function draw() {
 	background('#ffeaa7');
-	update();
 	stroke(0);
 	strokeWeight(4);
 	fill(255);
@@ -68,12 +67,9 @@ function draw() {
 }
 
 function windowResized() {
-	frameRate(frames);
-	if (setWindow) {
+	if (Fixed) {
 		resizeCanvas(setWidth, setHeight);
 		return;
 	}
 	resizeCanvas(sketchWindow.size().width, sketchWindow.size().height);
 }
-
-function btnSwitch(item) {}

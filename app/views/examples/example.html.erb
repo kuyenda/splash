@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<head>
+  <!-- <script type='text/javascript' src='/assets/p5'></script> -->
+  <%= javascript_include_tag "/assets/p5" %>
+  <style>
+    html,
+    body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background: white;
+    }
+    
+    canvas {
+        border-radius: .2rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="row sketch-row">
+    <div class="col sketch-col" style="height: 500px" id="sketch">
+      <%= javascript_include_tag "/assets/00_noisewave.js" %>
+    </div>
+  </div>
+</body>
+</html>

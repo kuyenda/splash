@@ -1,0 +1,24 @@
+<script>
+  window._p5jsExample = '/assets/00_noisewave.js'
+  !function(w) {
+  	$('[data-example-name]').text(w._p5jsExample)
+  }(this)
+</script>
+<div class="d-flex justify-content-center align-items-center d116">
+  <div class="container">
+    <div style="font-family: Hack">
+      <h1>Examples#index</h1>
+      <p>Find me in app/views/examples/index.html.erb</p>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h2><%= rand 255 %></h2>
+        <h2 data-example-name=""></h2>
+      </div>
+    </div>
+    <div class="row sketch-row">
+      <iframe src="examples/example" frameborder="0" class="col sketch-col" style="height: 500px" id="sketch">
+      </iframe>
+    </div>
+  </div>
+</div>
