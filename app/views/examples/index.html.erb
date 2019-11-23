@@ -32,8 +32,8 @@
         <h2 data-example-name=""></h2>
       </div>
     </div>
-    <%= @example.each do |e| %>
-      <div class="row">
+    <% @example.each do |e| %>
+      <div class="row colored">
         <div class="col">
           <h3>PIN: <%= e.title %></h3>
           <h3>URL: <%= e.url %></h3>
@@ -41,9 +41,26 @@
         </div>
       </div>
     <% end %>
+    <%= javascript_include_tag "/assets/brace" %>
+    <%= javascript_include_tag "/assets/brace/ext/language_tools" %>
     <div class="row frame-row">
-      <iframe src="/examples/example" frameborder="0" class="col frame-col" style="height: 500px">
+      <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="col frame-col" style="height: 500px">
       </iframe>
     </div>
+    <div class="row frame-row">
+      <div class="col frame-col">
+        <pre id="exampleEditor" class="ace_editor ace-tm" style="height: 300px;width: 100%;">
+    </pre>
+      </div>
+      <div class="row">
+        <div class="edit_space">
+          <button id="toggleTextOutput" class="sr-only">toggle text output</button>
+          <button id="runButton" class="edit_button">run</button>
+          <button id="resetButton" class="reset_button">reset</button>
+          <button id="copyButton" class="copy_button">copy</button>
+        </div>
+      </div>
+    </div>
+    <%= javascript_include_tag "/assets/example" %>
   </div>
 </div>

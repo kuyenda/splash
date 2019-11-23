@@ -15,6 +15,7 @@ class ExamplesController < ApplicationController
     @example = Example.new(example_params)
     if @example.save
       flash[:success] = "Welcome to the Sample App!"
+      redirect_to @example
     else
       render 'new'
     end
@@ -24,13 +25,18 @@ class ExamplesController < ApplicationController
   end
   def update
     @example = Example.find(params[:id])
-    if @example.update_attributes(user_params)
+    if @example.update_attributes(example_params)
       # 处理更新成功的情况
       flash[:success] = "updated"
       redirect_to @example
     else
       render 'edit'
     end
+  end
+  def destroy
+    Example.find(params[:id]).destroy
+    flash[:success] = "deleted"
+    redirect_to examples_url
   end
   private
   def example_params

@@ -24,6 +24,18 @@
         padding: 1rem;
         margin: 0px 0px 15px 0px;
         border-radius: .2rem;
+
+        &.colored {
+            &:nth-child(odd) {
+                background: #2d3436;
+            }
+
+            &:nth-child(even) {
+                background: #b33939;
+            }
+
+        }
+
     }
 
     form {
@@ -68,7 +80,7 @@
 }
 
 .frame-row {
-    margin: 0 !important;
+    margin: 0px 0px 15px 0px !important;
     padding: 0 !important;
 
     .frame-col {

@@ -12,6 +12,9 @@
   <body>
     <%= render 'layouts/header' %>
     <div class="et-content">
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
       <audio preload="auto" id='player'></audio>
       <%= yield %>
     </div>

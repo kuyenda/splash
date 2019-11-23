@@ -1,4 +1,3 @@
-// global values
 let gameFont;
 let frames = 60;
 let yoff = 0.0;

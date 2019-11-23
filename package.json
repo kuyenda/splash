@@ -2,6 +2,7 @@
   "name": "element-package",
   "private": true,
   "dependencies": {
+    "brace": "^0.11.1",
     "chartist": "^0.11.4",
     "font-awesome": "^4.7.0",
     "normalize.css": "^8.0.1",
