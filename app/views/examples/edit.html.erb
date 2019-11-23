@@ -1,10 +1,10 @@
 <div class="d116">
   <div class="container">
     <div>
-      <h1>Examples#new</h1>
-      <p>Find me in app/views/examples/new.html.erb</p>
+      <h1>Examples#edit</h1>
+      <p>Find me in app/views/examples/edit.html.erb</p>
     </div>
-    <h1 class="text-center">新建范例</h1>
+    <h1 class="text-center">编辑范例</h1>
     <div class="row">
       <div class="col">
         <%= form_for(@example) do |f| %>
@@ -13,14 +13,16 @@
           <%= f.label :url %>
           <%= f.text_field :url %>
           <%= render 'shared/error_messages' %>
-          <%= f.submit "Add an example", class: "btn et-btn primary" %>
+          <%= f.submit "Save changes", class: "btn et-btn primary" %>
         <% end %>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <div class="btns mt-md-3 mt-sm-2 mb-md-3">
-          <%= link_to "返回", examples_path, class:'btn et-btn primary mx-3' %>
+          <a class="btn et-btn primary mx-3" href="/examples">
+            返回
+          </a>
         </div>
       </div>
     </div>

@@ -1,7 +1,7 @@
 <script>
   window._p5jsExample = '/assets/00_noisewave.js'
   !function(w) {
-  	$('[data-example-name]').text(w._p5jsExample)
+    $('[data-example-name]').text(w._p5jsExample)
   }(this)
 </script>
 <div class="d116">
@@ -12,12 +12,35 @@
     </div>
     <div class="row">
       <div class="col">
-        <h2>
-          <%= rand 255 %>
-        </h2>
+        <h3 class="text-center">开始创建P5.js程式库</h3>
+        <div class="btns mt-md-3 mt-sm-2 mb-md-3">
+          <a class="btn et-btn primary mx-3" href="/examples/new">
+            新建
+          </a>
+          <a class="btn et-btn primary mx-3" href="/examples/guide">
+            阅读指南
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>
+          <% symbols = ["a".."z", "A".."Z", "0".."9"].map{ |range| range.to_a }.flatten %>
+          <%= (0...8).map{ symbols[rand(symbols.size)] }.join %>
+        </h3>
         <h2 data-example-name=""></h2>
       </div>
     </div>
+    <%= @example.each do |e| %>
+      <div class="row">
+        <div class="col">
+          <h3>PIN: <%= e.title %></h3>
+          <h3>URL: <%= e.url %></h3>
+          <%= link_to "查看", e, class:'btn et-btn primary mx-3' %>
+        </div>
+      </div>
+    <% end %>
     <div class="row frame-row">
       <iframe src="/examples/example" frameborder="0" class="col frame-col" style="height: 500px">
       </iframe>

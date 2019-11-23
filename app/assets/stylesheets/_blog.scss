@@ -26,6 +26,19 @@
         border-radius: .2rem;
     }
 
+    form {
+        margin: 0 auto;
+        max-width: 600px;
+    }
+
+    input,
+    textarea,
+    select,
+    .uneditable-input {
+        width: 100%;
+        margin-bottom: 8px;
+    }
+
 }
 
 .d112 {

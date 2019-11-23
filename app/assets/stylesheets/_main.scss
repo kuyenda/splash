@@ -86,3 +86,22 @@ pre {
 .ol-normal {
     @include list-normal(ol);
 }
+
+#error_explanation {
+    color: #25CCF7;
+
+    ul {
+        color: #25CCF7;
+        margin: 0 0 30px 0;
+    }
+
+}
+
+.field_with_errors {
+    @extend .is-valid;
+
+    .form-control {
+        color: #25CCF7;
+    }
+
+}
