@@ -1,0 +1,20 @@
+<div class="d116">
+  <div class="container">
+    <div>
+      <h1>Examples#new</h1>
+      <p>Find me in app/views/examples/new.html.erb</p>
+    </div>
+    <div class="row">
+      <h1>Examples</h1>
+      <div class="col">
+        <%= form_for(@example) do |f| %>
+          <%= f.label :title %>
+          <%= f.text_field :title %>
+          <%= f.label :url %>
+          <%= f.text_field :url %>
+          <%= f.submit "Add an example", class: "btn et-btn primary" %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

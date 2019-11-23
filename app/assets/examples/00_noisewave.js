@@ -1,11 +1,5 @@
-const Fixed = false;
-let p5DOM;
-let sketchWindow;
-let gameFont;
-let setWidth = 640,
-	setHeight = 480;
-
 // global values
+let gameFont;
 let frames = 60;
 let yoff = 0.0;
 
@@ -14,11 +8,8 @@ function preload() {
 }
 
 function setup() {
-	sketchWindow = select('#sketch')
-	p5DOM = Fixed ? createCanvas(setWidth, setHeight) : createCanvas(sketchWindow.size().width, sketchWindow.size().height);
-	p5DOM.parent('#sketch')
-	// p5DOM.class('sketch-panel');
 
+	render();
 	// init
 	frameRate(frames)
 	angleMode(RADIUS)
@@ -64,12 +55,4 @@ function draw() {
 	vertex(width, height);
 	vertex(0, height);
 	endShape(CLOSE);
-}
-
-function windowResized() {
-	if (Fixed) {
-		resizeCanvas(setWidth, setHeight);
-		return;
-	}
-	resizeCanvas(sketchWindow.size().width, sketchWindow.size().height);
 }

@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'examples', to: 'examples#index'
   get 'examples/example', to: 'examples#example'
   get 'style_page', to: 'application#style_page'
+  resources :examples
 end
