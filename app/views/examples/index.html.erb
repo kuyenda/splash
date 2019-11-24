@@ -14,10 +14,10 @@
       <div class="col">
         <h3 class="text-center">开始创建P5.js程式库</h3>
         <div class="btns mt-md-3 mt-sm-2 mb-md-3">
-          <a class="btn et-btn primary mx-3" href="/examples/new">
+          <a class="btn ebtn ruby mx-3" href="/examples/new">
             新建
           </a>
-          <a class="btn et-btn primary mx-3" href="/examples/guide">
+          <a class="btn ebtn ruby mx-3" href="/examples/guide">
             阅读指南
           </a>
         </div>
@@ -42,25 +42,24 @@
       </div>
     <% end %>
     <%= javascript_include_tag "/assets/brace" %>
-    <%= javascript_include_tag "/assets/brace/ext/language_tools" %>
     <div class="row frame-row">
       <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="col frame-col" style="height: 500px">
       </iframe>
     </div>
     <div class="row frame-row">
       <div class="col frame-col">
-        <pre id="exampleEditor" class="ace_editor ace-tm" style="height: 300px;width: 100%;">
-    </pre>
-      </div>
-      <div class="row">
-        <div class="edit_space">
-          <button id="toggleTextOutput" class="sr-only">toggle text output</button>
-          <button id="runButton" class="edit_button">run</button>
-          <button id="resetButton" class="reset_button">reset</button>
-          <button id="copyButton" class="copy_button">copy</button>
+        <div id="exampleEditor">
         </div>
       </div>
     </div>
-    <%= javascript_include_tag "/assets/example" %>
+    <div class="row toolbar">
+      <div class="edit_space">
+        <button id="toggleTextOutput" class="sr-only">toggle text output</button>
+        <button id="runButton" class="btn ebtn chrome">run</button>
+        <button id="resetButton" class="btn ebtn white">reset</button>
+        <button id="copyButton" class="btn ebtn ruby">copy</button>
+      </div>
+    </div>
   </div>
+  <%= javascript_include_tag "/assets/example" %>
 </div>

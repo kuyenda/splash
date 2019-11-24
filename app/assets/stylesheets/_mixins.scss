@@ -34,3 +34,14 @@
     }
 
 }
+
+@mixin btn-color($b, $b2, $t:#fff, $t2:#fff) {
+    color: $t;
+    background-color: $b;
+
+    &:hover {
+        color: $t2;
+        background-color: $b2;
+    }
+
+}

@@ -22,43 +22,27 @@
     user-select: none;
 }
 
-.et-btn {
+.ebtn {
     display: inline-block;
     padding: 4px 30px;
     font-size: 18px;
     line-height: 40px;
     min-width: 140px;
 
-    &.primary {
-        color: #fff;
-        background-color: $et-pc;
-
-        &:hover {
-            background-color: $et-pdc;
-        }
-
+    &.ruby {
+        @include btn-color(#ff1744, #dc143c);
     }
 
-    &.light {
-        color: $et-pc;
-        background-color: #fff;
-
-        &:hover {
-            border-color: #fff;
-            color: #fff;
-            background-color: $et-plc;
-        }
-
+    &.white {
+        @include btn-color(#fff, #fff, #ff1744, #dc143c);
     }
 
-    &.dark {
-        color: #fff;
-        background-color: $et-tc;
+    &.black {
+        @include btn-color(#363636, #222);
+    }
 
-        &:hover {
-            background-color: $et-tsc;
-        }
-
+    &.chrome {
+        @include btn-color(#ffa700, #ff3800);
     }
 
 }

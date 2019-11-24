@@ -2,14 +2,22 @@ var examples = {
 	init: function(file) {
 
 		// Editor
-		examples.editor = ace.edit('exampleEditor', {
-			mode: '/assets/brace/mode/javascript',
-			fontFamily: 'Hack'
-		});
-		examples.editor.getSession().setMode("/assets/brace/mode/javascript");
-		examples.editor.getSession().setTabSize(2);
-		document.getElementById('exampleEditor').style.fontSize = '18px';
+		ace.config.set('basePath', '/assets/brace');
+		ace.config.set('modePath', '/assets/brace/');
+		ace.config.set('themePath', '/assets/brace/');
+		examples.editor = ace.edit('exampleEditor');
+		examples.editor.getSession().setUseWorker(false);
 
+		examples.editor.setOptions({
+			mode: "ace/mode/javascript",
+			maxLines: 30,
+			fontSize: 18,
+			fontFamily: 'Hack',
+			autoScrollEditorIntoView: true,
+		});
+		examples.editor.setTheme("ace/theme/chaos");
+		examples.editor.getSession().setMode('ace/mode/javascript');
+		examples.editor.getSession().setTabSize(2);
 		examples.dims = [];
 
 		// Button
