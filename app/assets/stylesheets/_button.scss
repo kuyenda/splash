@@ -41,8 +41,20 @@
         @include btn-color(#363636, #222);
     }
 
-    &.chrome {
-        @include btn-color(#ffa700, #ff3800);
+    &.orange {
+        @include btn-color(#ff3800, #E61F00);
+    }
+
+    &.clover {
+        @include btn-color(#00e8bb, #fff, #fff, #00CFA2);
+    }
+
+    &.lime {
+        @include btn-color(#B9FF17, #86CC00, #000, #000);
+    }
+
+    &.violet {
+        @include btn-color(#5D17FF, #4400E6);
     }
 
 }

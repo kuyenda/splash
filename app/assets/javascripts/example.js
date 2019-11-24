@@ -2,15 +2,15 @@ var examples = {
 	init: function(file) {
 
 		// Editor
-		ace.config.set('basePath', '/assets/brace');
-		ace.config.set('modePath', '/assets/brace/');
-		ace.config.set('themePath', '/assets/brace/');
+		// ace.config.set('basePath', '/assets/brace');
+		// ace.config.set('modePath', '/assets/brace/');
+		// ace.config.set('themePath', '/assets/brace/');
 		examples.editor = ace.edit('exampleEditor');
 		examples.editor.getSession().setUseWorker(false);
 
 		examples.editor.setOptions({
 			mode: "ace/mode/javascript",
-			maxLines: 30,
+			maxLines: 20,
 			fontSize: 18,
 			fontFamily: 'Hack',
 			autoScrollEditorIntoView: true,

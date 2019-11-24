@@ -1,1 +1,1 @@
-//= require ./lib/p5.js
+//= require ./lib/p5

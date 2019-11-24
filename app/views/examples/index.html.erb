@@ -42,6 +42,8 @@
       </div>
     <% end %>
     <%= javascript_include_tag "/assets/brace" %>
+    <%= javascript_include_tag "/assets/brace/mode/javascript" %>
+    <%= javascript_include_tag "/assets/brace/theme/chaos" %>
     <div class="row frame-row">
       <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="col frame-col" style="height: 500px">
       </iframe>
@@ -55,8 +57,8 @@
     <div class="row toolbar">
       <div class="edit_space">
         <button id="toggleTextOutput" class="sr-only">toggle text output</button>
-        <button id="runButton" class="btn ebtn chrome">run</button>
-        <button id="resetButton" class="btn ebtn white">reset</button>
+        <button id="runButton" class="btn ebtn clover">run</button>
+        <button id="resetButton" class="btn ebtn violet">reset</button>
         <button id="copyButton" class="btn ebtn ruby">copy</button>
       </div>
     </div>
