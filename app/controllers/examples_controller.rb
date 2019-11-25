@@ -38,6 +38,10 @@ class ExamplesController < ApplicationController
     flash[:success] = "deleted"
     redirect_to examples_url
   end
+  def data
+    @example = Example.all
+    render json: @example
+  end
   private
   def example_params
     params.require(:example).permit(:title, :url)

@@ -32,14 +32,19 @@
         <h2 data-example-name=""></h2>
       </div>
     </div>
-    <% @example.each do |e| %>
-      <div class="row colored">
-        <div class="col">
-          <h3>PIN: <%= e.title %></h3>
-          <h3>URL: <%= e.url %></h3>
-          <%= link_to "查看", e, class:'btn ebtn lime mx-3' %>
+    <% @example.each.with_index do |e, i| %>
+      <% even = i.even? %>
+      <% color = even ? '#833471' : '#6F1E51'%>
+      <% if even %>
+        <div class="row colored nop">
+        <% end %>
+        <div class="col-6" style="background: <%= color %>">
+          <h4>PIN: <%= e.title %></h4>
+          <%= link_to "查看", e, class:'btn ebtn black mx-3' %>
         </div>
-      </div>
+        <% if !even or (even and i == @example.size-1) %>
+        </div>
+      <% end %>
     <% end %>
     <%= javascript_include_tag "/assets/brace" %>
     <%= javascript_include_tag "/assets/brace/mode/javascript" %>
