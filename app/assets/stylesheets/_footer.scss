@@ -9,12 +9,12 @@
     align-items: center;
     text-align: left;
     color: #fff;
-    background: $footer-bc;
+    background: $footer-background-color;
     font-size: .8em;
     font-family: Roboto;
 
     a {
-        color: #fff;
+        color: $footer-link-color;
     }
 
     ul {
@@ -84,7 +84,7 @@
 
         .footer-nav-link {
             &:hover {
-                color: $footer-lkc-h;
+                color: $footer-link-color-highlight;
             }
 
             i {
@@ -109,7 +109,7 @@
 
 .footer-holder {
     color: #fff;
-    background: $footer-holder-bc;
+    background: $footer-holder-background-color;
 
     .copyrights-text {
         margin: 0;

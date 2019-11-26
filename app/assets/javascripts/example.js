@@ -10,7 +10,7 @@ var examples = {
 
 		examples.editor.setOptions({
 			mode: "ace/mode/javascript",
-			maxLines: 20,
+			maxLines: 25,
 			fontSize: 18,
 			fontFamily: 'Hack',
 			autoScrollEditorIntoView: true,
@@ -24,6 +24,7 @@ var examples = {
 
 		$('#runButton').click(function() {
 			examples.runExample();
+
 		});
 		$('#resetButton').click(function() {
 			examples.resetExample();
@@ -73,8 +74,8 @@ var examples = {
 				// var frameReg = /@frame (.*),(.*)/g;
 				// var arr = data.split(frameReg);
 				// if (arr.length > 2) {
-				// 	examples.dims[0] = arr[1];
-				// 	examples.dims[1] = arr[2];
+				//  examples.dims[0] = arr[1];
+				//  examples.dims[1] = arr[2];
 				// }
 
 				// render?
@@ -110,9 +111,9 @@ var examples = {
 		examples.editor.getSession().setValue(examples.resetData);
 
 		//resize height of editor
-		var rows = examples.editor.getSession().$rowLengthCache.length;
-		var lineH = examples.editor.renderer.lineHeight;
-		$('#exampleEditor').height(rows * lineH + 'px');
+		// var rows = examples.editor.getSession().$rowLengthCache.length;
+		// var lineH = examples.editor.renderer.lineHeight;
+		// $('#exampleEditor').height(rows * lineH + 'px');
 
 		if (examples.resetData.indexOf('<!DOCTYPE html>') !== -1) {
 			examples.editor.getSession().setMode('ace/mode/html');
@@ -131,6 +132,7 @@ var examples = {
 	// display iframe
 	runExample: function() {
 		$('#exampleFrame').attr('src', $('#exampleFrame').attr('src'));
+		examples.resizeExample();
 	},
 	resetExample: function() {
 		examples.showExample();
@@ -147,6 +149,15 @@ var examples = {
 		userScript.text = exampleCode;
 		userScript.async = false;
 		$('#exampleFrame')[0].contentWindow.document.body.appendChild(userScript);
+	},
+	resizeExample: function() {
+		setTimeout(function() {
+			var frame = document.getElementById('exampleFrame');
+			var canvas = frame.contentWindow.document.getElementsByClassName('p5')[0];
+			var height = frame.contentWindow.getComputedStyle(canvas).height;
+			// $('#exampleFrame').height();
+			frame.style.height = parseInt(height) + 4 + "px";
+		}, 400);
 	}
 
 }

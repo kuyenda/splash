@@ -1,9 +1,3 @@
-<script>
-  window._p5jsExample = '/assets/00_noisewave.js'
-  !function(w) {
-    $('[data-example-name]').text(w._p5jsExample)
-  }(this)
-</script>
 <div class="d116">
   <div class="container">
     <div>
@@ -34,39 +28,18 @@
     </div>
     <% @example.each.with_index do |e, i| %>
       <% even = i.even? %>
-      <% color = even ? '#833471' : '#6F1E51'%>
       <% if even %>
         <div class="row colored nop">
         <% end %>
+        <% color = rand_hex_color %>
         <div class="col-6" style="background: <%= color %>">
-          <h4>PIN: <%= e.title %></h4>
+          <h4 style="background: #222;color: #fff;padding: 10px;border-radius: .5rem"><%= e.title %></h4>
           <%= link_to "查看", e, class:'btn ebtn black mx-3' %>
+          <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_hex_color(color) %>"><%= e.created_at.ctime %></span>
         </div>
         <% if !even or (even and i == @example.size-1) %>
         </div>
       <% end %>
     <% end %>
-    <%= javascript_include_tag "/assets/brace" %>
-    <%= javascript_include_tag "/assets/brace/mode/javascript" %>
-    <%= javascript_include_tag "/assets/brace/theme/chaos" %>
-    <div class="row frame-row">
-      <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="col frame-col" style="height: 500px">
-      </iframe>
-    </div>
-    <div class="row frame-row">
-      <div class="col frame-col">
-        <div id="exampleEditor">
-        </div>
-      </div>
-    </div>
-    <div class="row toolbar">
-      <div class="edit_space">
-        <button id="toggleTextOutput" class="sr-only">toggle text output</button>
-        <button id="runButton" class="btn ebtn clover">run</button>
-        <button id="resetButton" class="btn ebtn violet">reset</button>
-        <button id="copyButton" class="btn ebtn ruby">copy</button>
-      </div>
-    </div>
   </div>
-  <%= javascript_include_tag "/assets/example" %>
 </div>

@@ -18,15 +18,15 @@ function setup() {
 }
 
 function draw() {
-	background('#ffeaa7');
+	background('#55eaa7');
 	stroke(0);
-	strokeWeight(4);
+	strokeWeight(10);
 	fill(255);
 
 	push();
-	textAlign(LEFT, BOTTOM)
-	textSize(58);
-	text(frameCount, 0, height);
+	textAlign(LEFT, TOP)
+	textSize(32);
+	text(frameCount, 0, 0);
 	pop();
 
 	beginShape();

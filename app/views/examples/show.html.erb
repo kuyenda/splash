@@ -1,3 +1,9 @@
+<script>
+  window._p5jsExample = '<%= @example.url  %>'
+  !function(w) {
+    $('[data-example-name]').text(w._p5jsExample)
+  }(this)
+</script>
 <div class="d116">
   <div class="container">
     <div>
@@ -12,5 +18,7 @@
         <%= link_to "返回", examples_path, class:'btn ebtn ruby mx-3' %>
       </div>
     </div>
+    <%= render 'examples/editor' %>
+    <%= javascript_include_tag "/assets/example" %>
   </div>
 </div>
