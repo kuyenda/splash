@@ -18,7 +18,7 @@ function setup() {
 }
 
 function draw() {
-	background('#55eaa7');
+	background('#5561ab');
 	stroke(0);
 	strokeWeight(10);
 	fill(255);
@@ -55,3 +55,4 @@ function draw() {
 	vertex(0, height);
 	endShape(CLOSE);
 }
+;

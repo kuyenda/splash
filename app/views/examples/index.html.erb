@@ -4,7 +4,7 @@
       <h1>Examples#index</h1>
       <p>Find me in app/views/examples/index.html.erb</p>
     </div>
-    <div class="row">
+    <div class="row dark">
       <div class="col">
         <h3 class="text-center">开始创建P5.js程式库</h3>
         <div class="btns mt-md-3 mt-sm-2 mb-md-3">
@@ -17,15 +17,6 @@
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col">
-        <h3>
-          <% symbols = ["a".."z", "A".."Z", "0".."9"].map{ |range| range.to_a }.flatten %>
-          <%= (0...8).map{ symbols[rand(symbols.size)] }.join %>
-        </h3>
-        <h2 data-example-name=""></h2>
-      </div>
-    </div>
     <% @example.each.with_index do |e, i| %>
       <% even = i.even? %>
       <% if even %>
@@ -34,8 +25,13 @@
         <% color = rand_hex_color %>
         <div class="col-6" style="background: <%= color %>">
           <h4 style="background: #222;color: #fff;padding: 10px;border-radius: .5rem"><%= e.title %></h4>
+          <% if e.description && !e.description.empty?  %>
+            <p class="text-white p-1 mb-1" style="background: #333;border-radius: .5rem"><%= e.description %></p>
+          <% end %>
           <%= link_to "查看", e, class:'btn ebtn black mx-3' %>
-          <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_hex_color(color) %>"><%= e.created_at.ctime %></span>
+          <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_hex_color(color) %>"><%= e.created_at.ctime %><br>
+            <%= e.updated_at.ctime %>
+          </span>
         </div>
         <% if !even or (even and i == @example.size-1) %>
         </div>

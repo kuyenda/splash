@@ -15,7 +15,7 @@ var examples = {
 			fontFamily: 'Hack',
 			autoScrollEditorIntoView: true,
 		});
-		examples.editor.setTheme("ace/theme/chaos");
+		examples.editor.setTheme("ace/theme/dracula");
 		examples.editor.getSession().setMode('ace/mode/javascript');
 		examples.editor.getSession().setTabSize(2);
 		examples.dims = [];
@@ -38,6 +38,9 @@ var examples = {
 			setTimeout(function() {
 				document.execCommand('copy');
 			}, 200);
+		});
+		$('#saveButton').click(function() {
+			examples.saveExample();
 		});
 
 
@@ -158,6 +161,20 @@ var examples = {
 			// $('#exampleFrame').height();
 			frame.style.height = parseInt(height) + 4 + "px";
 		}, 400);
+	},
+	saveExample: function() {
+		var code = examples.editor.getSession().getValue();
+		$.ajax({
+			url: "/examples/save",
+			type: "POST",
+			data: {
+				digit: window._p5jsExampleDigits,
+				code: code,
+			},
+			success: function() {
+				alert('Sava!');
+			}
+		});
 	}
 
 }

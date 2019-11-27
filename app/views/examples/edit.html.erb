@@ -4,14 +4,14 @@
       <h1>Examples#edit</h1>
       <p>Find me in app/views/examples/edit.html.erb</p>
     </div>
-    <h1 class="text-center">编辑范例</h1>
+    <h1 class="text-center"><%= @example.digit %></h1>
     <div class="row">
       <div class="col">
         <%= form_for(@example) do |f| %>
-          <%= f.label :title %>
+          <%= f.label :title, '画布主题'  %>
           <%= f.text_field :title %>
-          <%= f.label :url %>
-          <%= f.text_field :url %>
+          <%= f.label :title, '描述'  %>
+          <%= f.text_area :description %>
           <%= render 'shared/error_messages' %>
           <%= f.submit "Save changes", class: "btn ebtn ruby" %>
         <% end %>
@@ -20,7 +20,7 @@
     <div class="row">
       <div class="col">
         <div class="btns mt-md-3 mt-sm-2 mb-md-3">
-          <%= link_to "返回", examples_path, class:'btn ebtn ruby mx-3' %>
+          <%= link_to "返回", @example, class:'btn ebtn ruby mx-3' %>
           <%= link_to "删除", @example, method: :delete, data: { confirm: "You sure?" }, class: "btn ebtn ruby mx-3" %>
         </div>
       </div>

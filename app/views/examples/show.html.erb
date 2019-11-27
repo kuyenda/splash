@@ -1,5 +1,6 @@
 <script>
-  window._p5jsExample = '<%= @example.url  %>'
+  window._p5jsExample = '<%= "/assets/users/#{@example.digit}.js"  %>'
+  window._p5jsExampleDigits = '<%= @example.digit %>'
   !function(w) {
     $('[data-example-name]').text(w._p5jsExample)
   }(this)
@@ -12,8 +13,11 @@
     </div>
     <div class="row">
       <div class="col">
-        <h3>PIN: <%= @example.title %></h3>
-        <h3>URL: <%= @example.url %></h3>
+        <h3><%= @example.title %></h3>
+        <p><%= @example.description %></p>
+        <h6 class="text-right mb-0">识别码 <%= @example.digit %></h6>
+        <h6 class="text-right mb-0"><%= @example.hit %>次浏览👍</h6>
+        <h6 class="text-right mb-0"><%= @example.like %>次喜爱❤️</h6>
         <%= link_to "编辑", edit_example_path(@example), class:'btn ebtn ruby mx-3' %>
         <%= link_to "返回", examples_path, class:'btn ebtn ruby mx-3' %>
       </div>

@@ -19,12 +19,16 @@
     }
 
     .row {
-        background: #000;
-        color: #fff !important;
+        background: #eee;
         padding: 1rem;
         margin: 0px 0px 15px 0px;
         border-radius: .2rem;
         overflow: hidden;
+
+        &.dark {
+            background: #000;
+            color: #fff;
+        }
 
         &.colored {
             &:nth-child(odd) {
@@ -118,4 +122,23 @@
 
 #exampleFrame {
     min-height: 500px;
+}
+
+#error_explanation {
+    color: #ee2233;
+
+    ul {
+        color: #ee2233;
+        margin: 0 0 30px 0;
+    }
+
+}
+
+.field_with_errors {
+    @extend .is-valid;
+
+    .form-control {
+        color: #ee2233;
+    }
+
 }
