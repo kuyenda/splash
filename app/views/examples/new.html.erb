@@ -4,13 +4,13 @@
       <h1>Examples#new</h1>
       <p>Find me in app/views/examples/new.html.erb</p>
     </div>
-    <h1 class="text-center">有疑问？</h1>
+    <h1 class="text-center">新的草图</h1>
     <div class="row">
-      <div class="col">
+      <div class="col py-md-4">
         <%= form_for(@example) do |f| %>
-          <%= f.label :title, '画布主题'	%>
+          <%= f.label :title, '画布主题'  %>
           <%= f.text_field :title %>
-          <%= f.label :title, '描述'	%>
+          <%= f.label :title, '描述'  %>
           <%= f.text_area :description %>
           <%= f.hidden_field :hit, value: 0 %>
           <%= f.hidden_field :like, value: 0 %>

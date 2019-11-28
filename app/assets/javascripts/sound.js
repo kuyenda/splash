@@ -22,7 +22,7 @@ if (!window.et_player) {
 			this.history_player = player
 			this.history_player.src = "/assets/" + this.playlist[this.rand(this.playlist.length)];
 			this.history_player.loop = true;
-			setTimeout(() => this.history_player.play(), 1000);
+			setTimeout(() => this.history_player.play(), 200);
 		},
 	}
 }

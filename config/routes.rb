@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'examples', to: 'examples#index'
   get 'examples/example', to: 'examples#example'
   get 'examples/data', to: 'examples#data'
+  get 'examples/help', to: 'examples#help'
   post 'examples/save', to: 'examples#save_code'
   resources :examples
 end

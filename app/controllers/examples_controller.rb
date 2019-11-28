@@ -6,6 +6,8 @@ class ExamplesController < ApplicationController
   def example
     render layout: false
   end
+  def help
+  end
   def show
     @example = Example.find(params[:id])
     if @example.hit
