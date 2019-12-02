@@ -61,28 +61,26 @@ class ExamplesController < ApplicationController
     params.require(:example).permit(:title, :description, :like, :hit)
   end
   # save codes
-  def code_directory
-    File::join(Rails.root.to_s, "app", "assets", "examples", "users", "")
+  def code_path(*arg)
+    File::join(Rails.root.to_s, "app", "assets", "examples", arg, "")
   end
-  def create_code_file(digit)
-    path = code_directory
-    file_format = ".js"
-    f = File.new(path + digit + file_format, "w+")
-    f.puts("# Read the guide to start code")
+  def create_code_file(digit, format=".js")
+    path = code_path "users"
+    template_file = code_path + "example_template.js"
+    f = File.new(path + digit + format, "w+")
+    f.puts(File.read(template_file))
     f.close
   end
-  def save_code_file(digit, content)
-    path = code_directory
-    file_format = ".js"
-
-    f = File.open(path + digit + file_format, "w")
+  def save_code_file(digit, content, format=".js")
+    path = code_path "users"
+    f = File.open(path + digit + format, "w")
     f.write(content)
     f.close
   end
-  def delete_code_file(digit)
-    full_path = code_directory + digit + ".js"
-    if File::exist?(full_path)
-      File.delete(full_path)
+  def delete_code_file(digit, format=".js")
+    path = code_path("users") + digit + format
+    if File::exist?(path)
+      File.delete(path)
     end
   end
 end

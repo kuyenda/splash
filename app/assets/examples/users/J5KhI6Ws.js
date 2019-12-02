@@ -102,4 +102,3 @@ function draw() {
 		base2.y = random(height - 100, height);
 	}
 }
-;

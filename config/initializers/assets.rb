@@ -13,4 +13,4 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "co
 # folder are already added.
 # Rails.application.config.assets.precompile += %w( admin.js admin.css )
 # Rails.application.config.assets.precompile += %w( main.css )
-Rails.application.config.assets.precompile += %w( dom.js sound.js example.js )
+Rails.application.config.assets.precompile += %w( dom.js example.js )

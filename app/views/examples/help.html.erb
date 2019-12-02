@@ -1,9 +1,15 @@
 <script>
   $(document).on('turbolinks:load', function() {
-  	if ($(code).length > 0) {
-  		Prism.highlightAll()
-  	}
+    if ($('code').length > 0) {
+      Prism.highlightAll()
+    }
   });
+  !function(w) {
+    var player = $('#player')
+    if (player.length > 0) {
+      setTimeout(() => {w.et_player.play(player[0])}, 100);
+    }
+  }(this);
 </script>
 <div class="d116">
   <div class="container" style="font-family: 'Steradian'">
