@@ -20,13 +20,13 @@
     <% @example.each.with_index do |e, i| %>
       <% even = i.even? %>
       <% if even %>
-        <div class="row colored nop">
+        <div class="row">
         <% end %>
         <% color = rand_hex_color %>
-        <div class="col-6 data-col" style="background-color: <%= color %>">
+        <div class="col data-col" style="background-color: <%= color %>">
           <h4 class="data-title"><%= e.title %></h4>
           <% if e.description && !e.description.empty?  %>
-            <p class="data-info"><%= e.description %></p>
+            <p class="data-text"><%= e.description %></p>
           <% end %>
           <%= link_to "Check", e, class:'data-link' %>
           <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_hex_color(color) %>"><%= e.created_at.ctime %><br>

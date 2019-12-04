@@ -71,6 +71,7 @@
             }
 
             @include media-breakpoint-down(md) {
+                padding: 0px;
                 width: 50%;
             }
 
