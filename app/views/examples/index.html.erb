@@ -23,12 +23,12 @@
         <div class="row colored nop">
         <% end %>
         <% color = rand_hex_color %>
-        <div class="col-6" style="background: <%= color %>">
-          <h4 style="background: #222;color: #fff;padding: 10px;border-radius: .5rem"><%= e.title %></h4>
+        <div class="col-6 data-col" style="background-color: <%= color %>">
+          <h4 class="data-title"><%= e.title %></h4>
           <% if e.description && !e.description.empty?  %>
-            <p class="text-white p-1 mb-1" style="background: #333;border-radius: .5rem"><%= e.description %></p>
+            <p class="data-info"><%= e.description %></p>
           <% end %>
-          <%= link_to "查看", e, class:'btn ebtn black mx-3' %>
+          <%= link_to "Check", e, class:'data-link' %>
           <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_hex_color(color) %>"><%= e.created_at.ctime %><br>
             <%= e.updated_at.ctime %>
           </span>

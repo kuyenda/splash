@@ -57,4 +57,18 @@
         @include btn-color(#5D17FF, #4400E6);
     }
 
+    &.small {
+        padding: 10px 15px 11px;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 17px;
+        letter-spacing: .02em;
+        border: none;
+        text-decoration: none;
+        border-radius: 4px;
+        appearance: none;
+        position: relative;
+        min-width: auto;
+    }
+
 }

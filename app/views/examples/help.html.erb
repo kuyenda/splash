@@ -12,10 +12,11 @@
   }(this);
 </script>
 <div class="d116">
-  <div class="container" style="font-family: 'Steradian'">
+  <div class="container no-margin" style="font-family: 'Steradian';font-size: 1.2rem">
+    <div class="row image bg-transparent"></div>
     <div class="row bg-transparent p-0" style="border-bottom: 3px solid #eee">
       <div class="col">
-        <h1 class="font-weight-bold">Processing Online Tutorial</h1>
+        <h1 class="font-weight-bold display-4">How to start?</h1>
         <p class="m-0 p-0">阅读本篇指南，您将学习如何编写交互脚本</p>
       </div>
     </div>
@@ -37,7 +38,7 @@
     </div>
     <div class="row bg-transparent p-0">
       <div class="col">
-        <h2>1. 初始化</h2>
+        <h2 class="text-center">Note</h2>
         <pre class="language-javascript"><code>function setup() {
   render(0, 0); 
 }
@@ -60,9 +61,11 @@ function draw() {
     </div>
     <div class="row bg-transparent p-0">
       <div class="col">
-        <h2>2. </h2>
+        <h2><a href="">编辑此页</a></h2>
+        <h2>
+          <%= link_to "返回", examples_path %>
+        </h2>
       </div>
     </div>
-    <%= link_to "返回", examples_path, class:'btn ebtn ruby mx-3' %>
   </div>
 </div>

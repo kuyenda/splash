@@ -8,15 +8,7 @@ if (!window.et_player) {
 	window.et_player = {
 		history_player: undefined,
 		playlist: [
-			'Disco Fries feat. Raquel Castro - You Make Me (Diviners Remix).ts',
-			'Gareth Emery & Alastor ft. London Thor - Hands (Diviners Remix).ts',
-			'James Carter - Give Me Your Love (Diviners Remix).ts',
-			'Thousand Years (ft. Patrick Baker).ts',
-			'Insomnia - Ashley Tisdale.mp3',
-			'Steve Void Beauz - Hide And Seek.mp3',
-			'HICARI Hannie Isaiah Dreads - Drama.mp3',
-			'Elephante Anjulie - The In Between.mp3',
-			'Daniel Olsén - Fighting Hearts.mp3'
+			'Lena Raine-Awake.mp3',
 		],
 		rand: function(max) {
 			return Math.floor(Math.random() * Math.floor(max));
@@ -24,6 +16,9 @@ if (!window.et_player) {
 		play: function(player) {
 			if (this.history_player) {
 				this.history_player.pause();
+			}
+			if (this.playlist.length == 0) {
+				return;
 			}
 			this.history_player = player
 			this.history_player.src = "/assets/" + this.playlist[this.rand(this.playlist.length)];

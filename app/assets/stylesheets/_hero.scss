@@ -1,69 +1,19 @@
-@keyframes hue {
-    from {
-        filter: hue-rotate(0deg);
-    }
-
-    to {
-        filter: hue-rotate(-360deg);
-    }
-
-}
-
-@keyframes et-mask-Yscroll {
-    from {
-        mask-position: top;
-    }
-
-    to {
-        mask-position: bottom;
-    }
-
-}
-
-@keyframes et-mask-Xscroll {
-    from {
-        mask-position: left;
-    }
-
-    to {
-        mask-position: right;
-    }
-
-}
-
-@keyframes et-mask-fade {
-    0% {
-        opacity: 0;
-    }
-
-    5% {
-        opacity: 1;
-    }
-
-    95% {
-        opacity: 1;
-    }
-
-    100% {
-        opacity: 0;
-    }
-
-}
-
-.hero {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.enrique {
+    text-align: left;
+    font-family: 'Steradian';
     position: relative;
-    padding: 80px 20px;
     margin: 0 auto;
     top: 0;
     left: 0;
     width: 100%;
-    height: $hero-height;
-    color: $hero-tc;
-    background: $hero-bc;
-    font-family: 'Steradian';
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    align-content: stretch;
+    flex-direction: column;
+    user-select: none;
+    background: $home-hero-background-color;
+    color: $home-hero-text-color;
 
     &:before {
         content: '';
@@ -72,128 +22,128 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: $hero-fc;
+        background: $home-hero-foreground-color;
         mask-position: center;
-        mask-size: $hero-img-size;
+        mask-size: $home-hero-img-size;
         mask-clip: content-box;
-        mask-image: $hero-img;
-
-        @if $hero-animated {
-            background-image: linear-gradient(92deg, #f35626 0%, #fea47f 100%);
-            animation: hue 60s infinite linear;
-            animation-duration: 60s;
-            animation-timing-function: linear;
-            animation-delay: 0s;
-            animation-iteration-count: infinite;
-            animation-direction: normal;
-            animation-fill-mode: none;
-            animation-play-state: running;
-            animation-name: et-mask-Yscroll, et-mask-fade;
-            // @include et-animation(2, 4s);
-        }
-
+        mask-image: $home-hero-img;
     }
 
     &:after {
         content: '';
         position: absolute;
         left: 0;
-        bottom: -1px;
-        width: 100%;
-        height: 100%;
-        background: #fff;
-        clip-path: polygon(0 90%, 0 100%, 100% 100%);
+        right: 0;
+        bottom: 0;
+        z-index: 1;
+        pointer-events: none;
+        min-height: 1px;
+        box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
     }
 
-    .hero-content {
+    .enrique-content {
+        text-align: left;
+        margin: 0 auto;
+        position: relative;
+        padding: 2vh 2rem;
+        max-width: 70rem;
+        flex-basis: 100%;
         width: 100%;
-        margin-top: 50px;
-        max-height: 100%;
-        padding: 0 50px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .hero-col {
-        padding: 0 10px;
-        height: 100%;
+        margin: 0 auto;
         z-index: 2;
-        flex-basis: 0;
-        flex-grow: 1;
-
-        &:nth-child(1) {
-            padding: 10px 20px;
-        }
-
-        &:nth-child(2) {
-            padding: 30px 5px;
-            background: $hero-login-bc;
-            text-align: center;
-            border-radius: .5rem;
-        }
-
+        order: 0;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
     }
 
-    .text-header {
-        font-size: 52px;
-        color: $hero-tc;
-        overflow: hidden;
+    .enrique-copy {
+        flex-basis: 55%;
+        width: 55%;
     }
 
-    .text-det {
-        margin: 0;
-        margin-bottom: 20px;
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 1.2;
-        color: $hero-tc;
-    }
-
-    @include media-breakpoint-down(lg) {
-        background: $hero-bc-m;
+    .enrique-image {
         height: auto;
+        width: auto;
+        padding: 0;
+        flex-basis: 45%;
+        width: 45%;
+        user-drag: none;
+    }
 
+    .enrique-cta {
+        display: block;
+        margin: 1rem 0 0 0;
+    }
+
+    .enrique-attribution {
+        padding: 0 2rem;
+        max-width: 70rem;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0 auto 2rem auto;
+        margin-top: 1rem;
+        text-align: left;
+        position: relative;
+        z-index: 1;
+    }
+
+    .enrique-heading {
+        line-height: 1;
+        font-size: 52px;
+        margin: 1rem 0;
+        color: $home-hero-text-color;
+    }
+
+    .enrique-text {
+        font-size: 1.25rem;
+        margin: 0;
+        color: $home-hero-text-color;
+    }
+
+    @include media-breakpoint-down(sm) {
         * {
-            color: #fff !important;
+            color: inherit;
         }
 
         &:before {
-            mask: url('/assets/i-like-food.svg');
-            background: $hero-fc-m;
-            animation-name: none;
+            mask: url('/assets/texture.svg');
+            background: $home-hero-foreground-color-mobile;
         }
 
-        &:after {
-            display: none;
+        background: $home-hero-background-color-mobile;
+
+        .enrique-content {
+            flex-direction: column;
+            text-align: center;
+            padding: 0 2rem;
         }
 
-        .hero-content {
+        .enrique-content {
             margin: 0;
             padding: 0;
         }
 
-        .hero-col {
-            background: transparent;
-            align-items: center;
+        .enrique-copy {
+            flex-basis: 100%;
+        }
+
+        .enrique-image {
+            flex-basis: 80%;
+            width: 80%;
+            order: -1;
+        }
+
+        .enrique-attribution {
             text-align: center;
-
-            &:nth-child(1) {}
-
-            &:nth-child(2) {
-                display: none;
-            }
-
+            font-size: 0.85rem;
         }
 
-        .text-header {
-            border: 0;
-            font-size: 42px;
+        .enrique-heading {
+            font-size: 1.5rem;
         }
 
-        .text-det {
+        .enrique-text {
             font-size: 1rem;
             margin: 0;
         }
