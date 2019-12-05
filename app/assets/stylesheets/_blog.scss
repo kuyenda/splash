@@ -30,16 +30,25 @@
         border-radius: .2rem;
         overflow: hidden;
 
-        .data-col {
+        .data-item {
+            flex-basis: 0;
+            flex-grow: 1;
+            min-width: 25%;
+            max-width: 100%;
             display: flex;
             justify-content: center;
             align-items: center;
             flex-direction: column;
             padding: 30px 20px 20px 12px;
-            border-radius: .2rem;
             height: 300px;
             position: relative;
             overflow: hidden;
+            @include et-transition(0, .5s);
+
+            &:hover {
+                margin: 1rem 0;
+            }
+
         }
 
         .data-title {
@@ -51,8 +60,6 @@
             color: #fff;
             background: #000;
             text-align: center;
-            border: 1px solid #fff;
-            border-width: 1px 0px 0px 1px;
         }
 
         .data-text {
@@ -75,6 +82,23 @@
 
             &:hover {
                 padding: 10px 20px;
+            }
+
+        }
+
+        .data-id {}
+
+        @include media-breakpoint-down(lg) {
+            .data-item {
+                min-width: 50%;
+            }
+
+        }
+
+        @include media-breakpoint-down(md) {
+            .data-item {
+                border-radius: .2rem;
+                min-width: 100%;
             }
 
         }
@@ -113,6 +137,13 @@
                 height: 200px;
             }
 
+        }
+
+        &.data-box {
+            justify-content: space-between;
+            justify-content: space-around;
+            align-items: stretch;
+            align-content: stretch;
         }
 
     }
@@ -254,23 +285,4 @@
 
 #exampleFrame {
     min-height: 500px;
-}
-
-#error_explanation {
-    color: #ee2233;
-
-    ul {
-        color: #ee2233;
-        margin: 0 0 30px 0;
-    }
-
-}
-
-.field_with_errors {
-    @extend .is-valid;
-
-    .form-control {
-        color: #ee2233;
-    }
-
 }

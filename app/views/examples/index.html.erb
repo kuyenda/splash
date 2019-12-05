@@ -17,25 +17,22 @@
         </div>
       </div>
     </div>
-    <% @example.each.with_index do |e, i| %>
-      <% even = i.even? %>
-      <% if even %>
-        <div class="row">
-        <% end %>
+    <div class="row data-box">
+      <% @example.each.with_index do |e, i| %>
         <% color = rand_hex_color %>
-        <div class="col data-col" style="background-color: <%= color %>">
-          <h4 class="data-title"><%= e.title %></h4>
+        <% reverse_color = reverse_hex_color(color) %>
+        <div class="data-item" style="background-color: <%= color %>">
+          <h4 class="data-title"><%= e.digit %></h4>
           <% if e.description && !e.description.empty?  %>
             <p class="data-text"><%= e.description %></p>
           <% end %>
+          <h4 class="data-id" style="color: <%= reverse_color %>"><%= e.title %></h4>
           <%= link_to "Check", e, class:'data-link' %>
-          <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_hex_color(color) %>"><%= e.created_at.ctime %><br>
+          <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_color %>"><%= e.created_at.ctime %><br>
             <%= e.updated_at.ctime %>
           </span>
         </div>
-        <% if !even or (even and i == @example.size-1) %>
-        </div>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>
