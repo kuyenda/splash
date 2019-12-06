@@ -17,18 +17,18 @@
         </div>
       </div>
     </div>
-    <div class="row data-box">
+    <div class="examples">
       <% @example.each.with_index do |e, i| %>
         <% color = rand_hex_color %>
         <% reverse_color = reverse_hex_color(color) %>
-        <div class="data-item" style="background-color: <%= color %>">
-          <h4 class="data-title"><%= e.digit %></h4>
+        <div class="example-item" style="background-color: <%= color %>">
+          <h4 class="example-digit"><%= e.digit %></h4>
           <% if e.description && !e.description.empty?  %>
-            <p class="data-text"><%= e.description %></p>
+            <p class="example-text"><%= e.description %></p>
           <% end %>
-          <h4 class="data-id" style="color: <%= reverse_color %>"><%= e.title %></h4>
-          <%= link_to "Check", e, class:'data-link' %>
-          <span style="position: absolute;bottom: 0;left: 25px;font-size: 9px;color: <%= reverse_color %>"><%= e.created_at.ctime %><br>
+          <h4 class="example-title" style="color: <%= reverse_color %>"><%= e.title %></h4>
+          <%= link_to "", e, class:'example-link' %>
+          <span class="example-date" style="color: <%= reverse_color %>"><%= e.created_at.ctime %><br>
             <%= e.updated_at.ctime %>
           </span>
         </div>

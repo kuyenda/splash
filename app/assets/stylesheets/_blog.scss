@@ -23,14 +23,15 @@
 
     }
 
-    .row {
-        background: #eee;
-        padding: 1rem;
-        margin: 0px 0px 15px 0px;
-        border-radius: .2rem;
-        overflow: hidden;
+    .examples {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        justify-content: space-around;
+        align-items: stretch;
+        align-content: stretch;
 
-        .data-item {
+        .example-item {
             flex-basis: 0;
             flex-grow: 1;
             min-width: 25%;
@@ -40,71 +41,113 @@
             align-items: center;
             flex-direction: column;
             padding: 30px 20px 20px 12px;
-            height: 300px;
+            height: 250px;
             position: relative;
             overflow: hidden;
-            @include et-transition(0, .5s);
+            @include et-transition(0, .25s);
 
             &:hover {
-                margin: 1rem 0;
+                .example-title {
+                    color: #000 !important;
+                }
+
+                .example-digit {
+                    background: #fff;
+                    color: #000 !important;
+                    height: 100%;
+                }
+
+                .example-date {
+                    color: #000 !important;
+                }
+
             }
 
         }
 
-        .data-title {
+        .example-digit {
             position: absolute;
             top: 0;
             left: 0%;
             width: 100%;
             padding: 10px;
-            color: #fff;
-            background: #000;
-            text-align: center;
+            height: 20%;
+            color: #bbb;
+            background: #111;
+            text-align: left;
+            text-indent: .4rem;
+            @include et-transition(0, .25s);
         }
 
-        .data-text {
+        .example-text {
             position: absolute;
-            top: 51px;
+            top: 50px;
             left: 0;
             padding: .25rem;
             margin-bottom: .25rem;
             color: #444;
             background: #eee;
+            @include et-transition(0, .25s);
         }
 
-        .data-link {
-            color: #fff;
-            background: #000;
+        .example-link {
+            cursor: pointer;
+            position: absolute;
+            top: 0;
+            bottom: 30px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 20px;
+            line-height: 2;
+            box-sizing: border-box;
             text-decoration: none;
             padding: 10px;
             border-radius: .25rem;
-            @include et-transition(1, .5s);
-
-            &:hover {
-                padding: 10px 20px;
-            }
-
+            @include et-transition(0, .25s);
         }
 
-        .data-id {}
+        .example-date {
+            position: absolute;
+            bottom: 0;
+            left: 25px;
+            font-size: 9px;
+            @include et-transition(0, .25s);
+        }
+
+        .example-title {
+            position: absolute;
+            @include et-transition(0, .25s);
+        }
 
         @include media-breakpoint-down(lg) {
-            .data-item {
+            .example-item {
                 min-width: 50%;
             }
 
         }
 
         @include media-breakpoint-down(md) {
-            .data-item {
+            .example-item {
                 border-radius: .2rem;
                 min-width: 100%;
+                margin: 1rem 0;
             }
 
         }
 
+    }
+
+    .row {
+        background: #eee;
+        padding: 1rem;
+        margin: 0px 0px 15px 0px;
+        border-radius: .2rem;
+        overflow: hidden;
+
         &.dark {
-            background: #000;
+            background: #222;
             color: #fff;
         }
 
@@ -137,13 +180,6 @@
                 height: 200px;
             }
 
-        }
-
-        &.data-box {
-            justify-content: space-between;
-            justify-content: space-around;
-            align-items: stretch;
-            align-content: stretch;
         }
 
     }
