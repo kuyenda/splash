@@ -1,4 +1,6 @@
 class Example < ApplicationRecord
+  extend FriendlyId
+  friendly_id :digit, use: :slugged
   validates :title, presence: true
   validates :hit, presence: true, numericality: { only_integer: true }
   validates :like, presence: true, numericality: { only_integer: true }

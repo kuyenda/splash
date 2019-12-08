@@ -8,4 +8,3 @@ function draw() {
   rotateY(frameCount * 0.01);
   box(50);
 }
-;

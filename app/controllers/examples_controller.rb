@@ -1,26 +1,28 @@
 class ExamplesController < ApplicationController
   protect_from_forgery :except => [:save_code]
+
   def index
     @example = Example.all
   end
-  def example
-    render layout: false
-  end
+
   def help
   end
+
   def show
-    @example = Example.find(params[:id])
+    @example = Example.friendly.find(params[:id])
     if @example.hit
       @example.update(hit: @example.hit + 1)
       @example.save
     end
   end
+
   def new
     @example = Example.new
   end
+
   def create
     @example = Example.new(example_params)
-    @example.digit = Example.sample_digit;
+    @example.digit = Example.sample_digit
     if @example.save
       create_code_file(@example.digit)
       flash[:success] = "Welcome to the Sample App!"
@@ -29,11 +31,13 @@ class ExamplesController < ApplicationController
       render 'new'
     end
   end
+
   def edit
-    @example = Example.find(params[:id])
+    @example = Example.friendly.find(params[:id])
   end
+
   def update
-    @example = Example.find(params[:id])
+    @example = Example.friendly.find(params[:id])
     if @example.update_attributes(example_params)
       # 处理更新成功的情况
       flash[:success] = "updated"
@@ -42,20 +46,30 @@ class ExamplesController < ApplicationController
       render 'edit'
     end
   end
+
   def destroy
-    delete_code_file(Example.find(params[:id]).digit)
-    Example.find(params[:id]).destroy
+    delete_code_file(Example.friendly.find(params[:id]).digit)
+    Example.friendly.find(params[:id]).destroy
     flash[:success] = "deleted"
     redirect_to examples_url
   end
+
+
+  def example
+    render layout: false
+  end
+
   def data
     @example = Example.all
     render json: @example
   end
+
   def save_code
     save_code_file(params[:digit], params[:code])
-    redirect_to Example.find_by digit: params[:digit]
+    redirect_to Example.friendly.find_by digit: params[:digit]
+    flash[:success] = "saved"
   end
+
   private
   def example_params
     params.require(:example).permit(:title, :description, :like, :hit)

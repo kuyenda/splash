@@ -138,9 +138,7 @@ var examples = {
 				digit: window._p5jsExampleDigits,
 				code: code,
 			},
-			success: function() {
-				alert('Sava!');
-			}
+			success: function() {}
 		});
 	}
 
