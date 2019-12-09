@@ -1,12 +1,9 @@
-<div class="d116">
-  <div class="container">
-    <div>
-      <h1>Examples#index</h1>
-      <p>Find me in app/views/examples/index.html.erb</p>
-    </div>
-    <div class="row dark">
-      <div class="col">
-        <h3 class="text-center">开始创建P5.js程式库</h3>
+<div class="examples-container">
+  <div class="examples-panel-wrap">
+    <div class="examples-panel">
+      <div>
+        <h5>开始创建P5.js程式库</h5>
+        <p>你可以点击新建，来创建一个新的数据，我们将长期保存在列表中</p>
         <div class="btns mt-md-3 mt-sm-2 mb-md-3">
           <a class="btn ebtn ruby mx-3" href="/examples/new">
             新建
@@ -17,22 +14,20 @@
         </div>
       </div>
     </div>
-    <div class="examples">
-      <% @example.each.with_index do |e, i| %>
-        <% color = rand_hex_color %>
-        <% reverse_color = reverse_hex_color(color) %>
-        <div class="example-item" style="background-color: <%= color %>">
-          <h4 class="example-digit"><%= e.digit %></h4>
-          <% if e.description && !e.description.empty?  %>
-            <p class="example-text"><%= e.description %></p>
-          <% end %>
-          <h4 class="example-title" style="color: <%= reverse_color %>"><%= e.title %></h4>
+  </div>
+  <div class="examples">
+    <% @example.each do |e| %>
+      <div class="example-item">
+        <div class="example-shot">
           <%= link_to "", e, class:'example-link' %>
-          <span class="example-date" style="color: <%= reverse_color %>"><%= e.created_at.ctime %><br>
-            <%= e.updated_at.ctime %>
+          <span class="example-date"><%= e.created_at.ctime %>
           </span>
         </div>
-      <% end %>
-    </div>
+        <div class="example-name">
+          <h6 class="example-title"><%= e.title %></h6>
+          <h6 class="example-id"><%= e.digit %></h6>
+        </div>
+      </div>
+    <% end %>
   </div>
 </div>

@@ -1,5 +1,4 @@
 .footer {
-    margin-top: 80px;
     padding: 50px 0;
     height: auto;
     min-height: 60px;
@@ -10,7 +9,7 @@
     text-align: left;
     color: #fff;
     background: $footer-background-color;
-    font-size: .8em;
+    font-size: 13px;
     font-family: Roboto;
 
     a {
@@ -23,20 +22,49 @@
         list-style: none;
     }
 
-    .footer-social {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding-bottom: 16px;
-        margin: 0 .25rem;
-        text-align: center;
-        width: 100%;
+    .footer-mod {
+        border-radius: .25rem;
+        background: #222;
 
-        li {
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Steradian';
+            padding: 10px;
+            margin: 0;
+            border: 1px solid #fff;
+            border-radius: .5rem;
             display: inline-block;
-            width: 45px;
-            font-size: 26px
+        }
+
+        .copyrights {
+            font-size: 15px;
+            color: #eee;
+            margin: 0;
+            padding: 0;
+        }
+
+        .footer-social {
+            display: flex;
+            flex-direction: row;
+            justify-content: flex-start;
+            align-items: center;
+            margin: 0 50px 50px 0;
+            text-align: center;
+            width: 100%;
+
+            li {
+                display: inline-block;
+                width: 45px;
+                font-size: 26px;
+                margin-top: .4rem;
+
+                i {
+                    font-size: 36px;
+                }
+
+            }
+
         }
 
     }
@@ -61,6 +89,7 @@
 
         .footer-link-holder {
             padding: 24px;
+            margin-bottom: 20px;
 
             @include media-breakpoint-down(xl) {
                 width: auto;
@@ -75,6 +104,15 @@
                 width: 50%;
             }
 
+            @include media-breakpoint-down(sm) {
+                padding: 0px;
+                width: 100%;
+            }
+
+            .footer-link:hover {
+                color: #fff;
+            }
+
         }
 
         .footer-link-title {
@@ -83,37 +121,16 @@
             font-weight: 600;
         }
 
-        .footer-nav-link {
-            &:hover {
-                color: $footer-link-color-highlight;
-            }
-
-            i {
-                color: #fff;
-                position: relative;
-            }
-
-            &:hover i {
-                color: #fff8;
-            }
-
-        }
-
     }
 
     @media screen and (max-width:1024px) {
-        font-size: 1em;
+        font-size: 13px;
         background: #232323;
-    }
 
-}
+        li {
+            margin: 0;
+        }
 
-.footer-holder {
-    color: #fff;
-    background: $footer-holder-background-color;
-
-    .copyrights-text {
-        margin: 0;
     }
 
 }

@@ -156,10 +156,9 @@
         width: 0;
         height: 1px;
         opacity: 0;
-        color: $header-text-color;
         visibility: hidden;
         background-attachment: all;
-        background: $header-background-color-mobile;
+        background: linear-gradient(-223deg, #363e49, #1c1e21);
         @include et-transition(2, .5s);
 
         @include media-breakpoint-down(lg) {
@@ -198,7 +197,7 @@
             }
 
             .mobile-link {
-                color: $header-text-color;
+                color: rgba(255, 255, 255, .9);
             }
 
         }

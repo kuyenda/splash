@@ -11,7 +11,7 @@
   </head>
   <body>
     <%= render 'layouts/header' %>
-    <div class="et-content">
+    <div class="content">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
@@ -20,6 +20,5 @@
     </div>
     <%= render 'layouts/footer' %>
     <%= javascript_include_tag "dom.js", :defer => "defer" %>
-    <script src="/assets/font_awesome.js"></script>
   </body>
 </html>
