@@ -12,7 +12,6 @@
     align-content: stretch;
     flex-direction: column;
     user-select: none;
-    background: $home-hero-background-color;
     color: $home-hero-text-color;
 
     &:before {
@@ -22,11 +21,11 @@
         left: 0;
         width: 100%;
         height: 100%;
-        background: $home-hero-foreground-color;
-        mask-position: center;
-        mask-size: $home-hero-img-size;
-        mask-clip: content-box;
-        mask-image: $home-hero-img;
+        background-color: $home-hero-background-color;
+        background-image: url('hero-05.jpg');
+        background-size: cover;
+        background-position: center;
+        filter: brightness(50%);
     }
 
     &:after {
@@ -107,11 +106,8 @@
         }
 
         &:before {
-            mask: url('/assets/texture.svg');
-            background: $home-hero-foreground-color-mobile;
+            background-color: $home-hero-background-color-mobile;
         }
-
-        background: $home-hero-background-color-mobile;
 
         .enrique-content {
             flex-direction: column;
@@ -122,6 +118,7 @@
         .enrique-content {
             margin: 0;
             padding: 0;
+            margin-top: 20px;
         }
 
         .enrique-copy {
