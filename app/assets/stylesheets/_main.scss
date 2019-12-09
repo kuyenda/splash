@@ -71,7 +71,6 @@ pre {
 
 .content {
     margin-top: 60px;
-    min-height: calc(100vh - 60px);
 
     @include media-breakpoint-down(lg) {
         margin: 0;

@@ -9,6 +9,7 @@
             新建
           </a>
           <a class="btn ebtn ruby mx-3" href="/examples/help">
+            <i class="icon ion-md-help"></i>
             阅读指南
           </a>
         </div>
@@ -17,11 +18,16 @@
   </div>
   <div class="examples">
     <% @example.each do |e| %>
+      <% color = rand_hex_color %>
       <div class="example-item">
-        <div class="example-shot">
+        <div class="example-shot" style="background: <%= color %>">
           <%= link_to "", e, class:'example-link' %>
-          <span class="example-date"><%= e.created_at.ctime %>
-          </span>
+          <h6 class="example-date"><%= e.created_at.ctime %>
+          </h6>
+          <div class="example-options">
+            <span><i class="icon ion-md-eye"><%= e.hit %></i></span>
+            <span><i class="icon ion-md-heart"><%= e.like %></i></span>
+          </div>
         </div>
         <div class="example-name">
           <h6 class="example-title"><%= e.title %></h6>

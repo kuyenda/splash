@@ -10,12 +10,9 @@ var examples = {
 
 		examples.editor.setOptions({
 			mode: "ace/mode/javascript",
-			maxLines: 25,
-			fontSize: 18,
-			fontFamily: 'Hack',
-			autoScrollEditorIntoView: true,
+			maxLines: 30,
 		});
-		examples.editor.setTheme("ace/theme/dracula");
+		examples.editor.setTheme("ace/theme/monokai");
 		examples.editor.getSession().setMode('ace/mode/javascript');
 		examples.editor.getSession().setTabSize(2);
 

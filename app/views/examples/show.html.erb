@@ -5,24 +5,47 @@
     $('[data-example-name]').text(w._p5jsExample)
   }(this)
 </script>
-<div class="example-page">
-  <div class="row">
-    <div class="col">
-      <h1>Examples#show</h1>
-      <p>Find me in app/views/examples/show.html.erb</p>
+<div class="example-page frame-page">
+  <div class="side-frame">
+    <div class="row index">
+      <div class="col">
+        <h3><%= @example.title %></h3>
+        <p><%= @example.description %></p>
+        <h6 class="text-right mb-0">识别码 <%= @example.digit %></h6>
+        <h6 class="text-right mb-0"><%= @example.hit %>次浏览👍</h6>
+        <h6 class="text-right mb-0"><%= @example.like %>次喜爱❤️</h6>
+        <%= link_to "编辑", edit_example_path(@example), class:'btn ebtn ruby mx-1 small' %>
+        <%= link_to "返回", examples_path, class:'btn ebtn ruby mx-1 small' %>
+      </div>
+    </div>
+    <div class="row frame">
+      <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="frame-win col p-0">
+      </iframe>
+      <div class="frame-mobile-options">
+        <%= link_to "", examples_path, class:'icon ion-md-arrow-round-back' %>
+      </div>
     </div>
   </div>
-  <div class="row" style="background: #000">
-    <div class="col">
-      <h3><%= @example.title %></h3>
-      <p><%= @example.description %></p>
-      <h6 class="text-right mb-0">识别码 <%= @example.digit %></h6>
-      <h6 class="text-right mb-0"><%= @example.hit %>次浏览👍</h6>
-      <h6 class="text-right mb-0"><%= @example.like %>次喜爱❤️</h6>
-      <%= link_to "编辑", edit_example_path(@example), class:'btn ebtn ruby mx-3' %>
-      <%= link_to "返回", examples_path, class:'btn ebtn ruby mx-3' %>
+  <div class="side-editor">
+    <div class="row toolbar">
+      <div class="tool-options">
+        <button id="toggleTextOutput" class="sr-only">toggle text output</button>
+        <button id="runButton" class="btn ebtn clover">run</button>
+        <button id="resetButton" class="btn ebtn violet">reset</button>
+        <button id="copyButton" class="btn ebtn ruby">copy</button>
+        <button id="saveButton" class="btn ebtn black">save</button>
+      </div>
+    </div>
+    <div class="row editor">
+      <div class="col p-0">
+        <%= javascript_include_tag "/assets/brace" %>
+        <%= javascript_include_tag "/assets/brace/mode/javascript" %>
+        <%= javascript_include_tag "/assets/brace/theme/monokai" %>
+        <div id="exampleEditor">
+        </div>
+      </div>
     </div>
   </div>
-  <%= render 'examples/editor' %>
+  <!-- <%= render 'examples/editor' %> -->
   <%= javascript_include_tag "/assets/example" %>
 </div>
