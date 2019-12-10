@@ -8,7 +8,7 @@ function Wall() {
   }
   this.display = function() {
     stroke(255);
-    strokeWeight(1);
+    strokeWeight(10);
     line(this.ps.x, this.ps.y, this.pe.x, this.pe.y);
   }
 }

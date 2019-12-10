@@ -13,6 +13,7 @@ var examples = {
 			maxLines: 30,
 			enableLiveAutocompletion: true,
 			enableSnippets: true,
+			fontSize: 18,
 		});
 		examples.editor.setTheme("ace/theme/monokai");
 		examples.editor.getSession().setMode('ace/mode/javascript');

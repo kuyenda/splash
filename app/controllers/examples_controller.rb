@@ -25,7 +25,7 @@ class ExamplesController < ApplicationController
     @example.digit = Example.sample_digit
     if @example.save
       create_code_file(@example.digit)
-      flash[:success] = "Welcome to the Sample App!"
+      flash[:success] = "Welcome to the Untitled Page!"
       redirect_to @example
     else
       render 'new'
