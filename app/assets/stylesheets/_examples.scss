@@ -7,6 +7,7 @@
     font-family: 'Steradian';
     background: #fff;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
+    min-height: calc(100vh - 60px);
 
     .examples-panel-wrap {
         flex-basis: 35%;
