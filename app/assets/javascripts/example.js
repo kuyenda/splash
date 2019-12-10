@@ -6,11 +6,13 @@ var examples = {
 		// ace.config.set('modePath', '/assets/brace/');
 		// ace.config.set('themePath', '/assets/brace/');
 		examples.editor = ace.edit('exampleEditor');
-		examples.editor.getSession().setUseWorker(false);
+		// examples.editor.getSession().setUseWorker(false);
 
 		examples.editor.setOptions({
 			mode: "ace/mode/javascript",
 			maxLines: 30,
+			enableLiveAutocompletion: true,
+			enableSnippets: true,
 		});
 		examples.editor.setTheme("ace/theme/monokai");
 		examples.editor.getSession().setMode('ace/mode/javascript');
@@ -135,7 +137,7 @@ var examples = {
 				digit: window._p5jsExampleDigits,
 				code: code,
 			},
-			success: function() {}
+			success: function(data) {}
 		});
 	}
 

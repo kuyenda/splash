@@ -85,3 +85,7 @@ pre {
 .ol-normal {
     @include list-normal(ol);
 }
+
+.alert {
+    margin: 0;
+}
