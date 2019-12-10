@@ -4,6 +4,9 @@
   !function(w) {
     $('[data-example-name]').text(w._p5jsExample)
   }(this)
+  if (typeof(window._p5jsExample) !== 'undefined') {
+  examples.init(window._p5jsExample);
+  }
 </script>
 <div class="example-page frame-page">
   <div class="side-frame">
@@ -38,16 +41,10 @@
     </div>
     <div class="row editor">
       <div class="col p-0">
-        <%= javascript_include_tag "/assets/brace" %>
-        <%= javascript_include_tag "/assets/brace/mode/javascript" %>
-        <%= javascript_include_tag "/assets/brace/theme/monokai" %>
-        <%= javascript_include_tag "/assets/brace/ext/language_tools" %>
-        <%= javascript_include_tag "/assets/brace/snippets/javascript" %>
         <div id="exampleEditor">
+          <%= javascript_include_tag "example" %>
         </div>
       </div>
     </div>
   </div>
-  <!-- <%= render 'examples/editor' %> -->
-  <%= javascript_include_tag "/assets/example" %>
 </div>

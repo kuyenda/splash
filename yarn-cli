@@ -1,3 +1,16 @@
 yarn add --modules-folder ./vendor/assets/components
+
+
+
+
+
+
 rake db:migrate RAILS_ENV=production
+RAILS_ENV=production bin/rails assets:precompile
 RAILS_ENV=production rake assets:precompile
+
+
+//= require brace/mode/javascript
+//= require brace/theme/monokai
+//= require brace/ext/language_tools
+//= require brace/snippets/javascript

@@ -336,7 +336,7 @@
 
             &:before {
                 content: '';
-                background-image: url('/assets/celeste.jpg');
+                background-image: image-url('celeste.jpg');
                 background-position: center 20%;
                 background-size: cover;
                 width: 100%;
