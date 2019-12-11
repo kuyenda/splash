@@ -87,7 +87,6 @@ class ExamplesController < ApplicationController
   end
   def save_code_file(digit, content, format=".js")
     path = code_path "users"
-    print(content);
     f = File.open(path + digit + format, "wb")
     f.write(content)
     f.close

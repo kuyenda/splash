@@ -1,9 +1,9 @@
-$(function() {
+$(document).on('ready turbolinks:load', function() {
 	$('#mobile-menu-btn').on('click', function() {
 		$('#mobile-menu').toggleClass('open');
 		$('.hamburger').toggleClass('is-active');
 	});
-})
+});
 if (!window.et_player) {
 	window.et_player = {
 		history_player: undefined,
