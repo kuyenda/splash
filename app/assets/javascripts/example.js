@@ -15,7 +15,7 @@ var examples = {
 			enableSnippets: true,
 			fontSize: 18,
 		});
-		examples.editor.setTheme("ace/theme/monokai");
+		examples.editor.setTheme("ace/theme/merbivore");
 		examples.editor.getSession().setMode('ace/mode/javascript');
 		examples.editor.getSession().setTabSize(2);
 

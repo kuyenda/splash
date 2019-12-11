@@ -5,4 +5,8 @@
 //= require popper
 //= require bootstrap-sprockets
 //= require prismjs/prism
-//= require ace
+//= require ace-rails-ap
+//= require ace/theme-merbivore
+//= require ace/mode-javascript
+//= require ace/ext-language_tools
+//= require ace/snippets/javascript

@@ -1,12 +1,6 @@
 <script>
   window._p5jsExample = '<%= "/assets/users/#{@example.digit}.js"  %>'
   window._p5jsExampleDigits = '<%= @example.digit %>'
-  !function(w) {
-    $('[data-example-name]').text(w._p5jsExample)
-  }(this)
-  if (typeof(window._p5jsExample) !== 'undefined') {
-  examples.init(window._p5jsExample);
-  }
 </script>
 <div class="example-page frame-page">
   <div class="side-frame">
@@ -42,9 +36,9 @@
     <div class="row editor">
       <div class="col p-0">
         <div id="exampleEditor">
-          <%= javascript_include_tag "example" %>
         </div>
       </div>
     </div>
   </div>
 </div>
+<%= javascript_include_tag "example" %>

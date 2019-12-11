@@ -35,11 +35,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Stylesheets
 # gem 'bootstrap-sass', '~> 3.4.1'
-# gem 'sassc-rails', '>= 2.1.0'
 gem 'bootstrap', '~> 4.3.1'
-gem 'sassc-rails', '>= 2.1.0'
+gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.2.4'
+# Code editor
+gem 'ace-rails-ap'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

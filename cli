@@ -8,3 +8,5 @@ yarn add --modules-folder ./vendor/assets/components
 rake db:migrate RAILS_ENV=production
 RAILS_ENV=production bin/rails assets:precompile
 RAILS_ENV=production rake assets:precompile
+
+# gem 'sassc-rails', '>= 2.1.0'
