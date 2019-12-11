@@ -72,7 +72,6 @@ var examples = {
 			})
 			.done(function(data) {
 				// render?
-				data = data.substring(0, data.length - 2);
 				examples.resetData = data;
 				examples.showExample();
 			})

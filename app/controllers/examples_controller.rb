@@ -76,7 +76,7 @@ class ExamplesController < ApplicationController
   end
   # save codes
   def code_path(*arg)
-    File::join(Rails.root.to_s, "app", "assets", "examples", arg, "")
+    File::join(Rails.root.to_s, "public", "examples", arg, "")
   end
   def create_code_file(digit, format=".js")
     path = code_path "users"
