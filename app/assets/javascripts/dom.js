@@ -6,9 +6,7 @@ $(document).on('ready turbolinks:load', function() {
 	if (!window.et_player) {
 		window.et_player = {
 			history_player: undefined,
-			playlist: [
-				'Lena Raine-Awake.mp3',
-			],
+			playlist: [],
 			rand: function(max) {
 				return Math.floor(Math.random() * Math.floor(max));
 			},

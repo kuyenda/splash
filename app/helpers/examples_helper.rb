@@ -1,6 +1,6 @@
 module ExamplesHelper
   def rand_hex_color
-    "#" << SecureRandom.hex(1) << "1744" #1632
+    "#" << SecureRandom.hex(3)#"1744" 1632
   end
   def reverse_hex_color(color)
     rgb = color[1..-1].hex
@@ -8,6 +8,6 @@ module ExamplesHelper
     g = (rgb & 65280) >> 8
     b = rgb & 255
     brightness = r*0.299 + g*0.587 + b*0.114
-    return (brightness > 160) ? "#000" : "#fff"
+    return (brightness > 160) ? "#333" : "#fff"
   end
 end

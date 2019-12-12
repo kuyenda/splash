@@ -25,6 +25,10 @@ var examples = {
 			examples.runExample();
 
 		});
+		$('#runButton-m').click(function() {
+			examples.runExample();
+
+		});
 		$('#resetButton').click(function() {
 			examples.resetExample();
 		});
@@ -125,7 +129,7 @@ var examples = {
 			var canvas = frame.contentWindow.document.getElementsByClassName('p5')[0];
 			var height = frame.contentWindow.getComputedStyle(canvas).height;
 			// $('#exampleFrame').height();
-			frame.style.height = parseInt(height) + 4 + "px";
+			frame.style.height = parseInt(height) - 4 + "px";
 		}, 400);
 	},
 	saveExample: function() {

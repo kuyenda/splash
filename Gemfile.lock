@@ -222,7 +222,6 @@ DEPENDENCIES
   puma (~> 3.11)
   rails (~> 5.2.3)
   sass-rails (~> 5.0)
-  sassc-rails
   selenium-webdriver
   sqlite3
   turbolinks (~> 5)

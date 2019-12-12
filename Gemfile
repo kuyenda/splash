@@ -36,7 +36,6 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # Stylesheets
 # gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap', '~> 4.3.1'
-gem 'sassc-rails'
 gem 'jquery-rails'
 gem 'friendly_id', '~> 5.2.4'
 # Code editor

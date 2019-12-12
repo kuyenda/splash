@@ -19,10 +19,11 @@
   <div class="examples">
     <% @example.each do |e| %>
       <% color = rand_hex_color %>
+      <% color2 = reverse_hex_color(color) %>
       <div class="example-item">
-        <div class="example-shot" style="background: <%= color %>">
+        <div class="example-shot" style="background-color:<%= color %>">
           <%= link_to "", e, class:'example-link' %>
-          <h6 class="example-date"><%= e.created_at.ctime %>
+          <h6 class="example-date" style="color: <%= color2 %>"><%= e.created_at.ctime %>
           </h6>
           <div class="example-options">
             <span><i class="icon ion-md-eye"><%= e.hit %></i></span>

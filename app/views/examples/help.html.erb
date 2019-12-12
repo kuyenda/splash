@@ -9,6 +9,9 @@
     if (player.length > 0) {
       setTimeout(() => {w.et_player.play(player[0])}, 100);
     }
+    if (w.et_player) {
+      w.et_player.playlist = ["<%= asset_path('Lena Raine-Awake.mp3') %>"]
+    }
   }(this);
 </script>
 <div class="example-page help-page">
@@ -36,9 +39,6 @@
     <div class="col">
       <pre class="language-javascript"><code>function setup() {
   render(0, 0); 
-}
-function draw() {
-  background(200);
 }</code></pre>
       <ul>
         <li>
