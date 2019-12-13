@@ -14,47 +14,41 @@
     }
   }(this);
 </script>
-<div class="example-page help-page">
-  <div class="row header-image">
+<div class="example-page help-page py-lg-3 px-lg-4 p-sm-2">
+  <h6 class="blog-date">Fri Dec 14. kuyenda</h6>
+  <h2 class="display-4 font-weight-bold text-right mb-0">Guide to start</h2>
+  <div class="row header-image mb-3">
   </div>
-  <div class="row mt-5">
-    <div class="col">
-      <h1 class="font-weight-bold">How to start?</h1>
-      <p class="m-0 p-0">阅读本篇指南，您将学习如何编写草图脚本</p>
-      <p class="lead">
-        p5.j​​s是一个用JavaScript语言编写的程式库，其致力于使编写复杂程序的过程变得简单和通用，因此艺术家，设计师，教育者，初学者以及其他任何人都可以轻松学习！p5.j​​s是免费和开源的，因为我们相信它可以给任何人带来便利。
-        正如草图(sketch)的意思，p5.js具有一整套绘图功能。您也可以将整个浏览器页面视为草图，渲染文本，输入，视频，网络摄像头和声音。
-      </p>
-      <ul>
-        <li>
-          <%= link_to "阅读p5.js提供的教程", "https://p5js.org/zh-Hans/get-started/" %>
-        </li>
-        <li>
-          <%= link_to "查阅API 文档", "https://p5js.org/zh-Hans/reference/" %>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
-      <pre class="language-javascript"><code>function setup() {
+  <h2>Sketch</h2>
+  <p class="lead">
+    p5.j​​s是一个用JavaScript语言编写的程式库，其致力于使编写复杂程序的过程变得简单和通用，因此艺术家，设计师，教育者，初学者以及其他任何人都可以轻松学习！p5.j​​s是免费和开源的，因为我们相信它可以给任何人带来便利。
+    正如草图(sketch)的意思，p5.js具有一整套绘图功能。您也可以将整个浏览器页面视为草图，渲染文本，输入，视频，网络摄像头和声音。
+  </p>
+  <h5 class="font-weight-light pl-3">📕 Read more...</h5>
+  <ul>
+    <li>
+      <%= link_to "p5.js offical tutorial", "https://p5js.org/zh-Hans/get-started/" %>
+    </li>
+    <li>
+      <%= link_to "api document", "https://p5js.org/zh-Hans/reference/" %>
+    </li>
+  </ul>
+  <h2>Options</h2>
+  <p>在无标题页面，我们添加了一些简单的自适应辅助方法来操作DOM元素</p>
+  <pre class="language-javascript"><code>function setup() {
   render(0, 0); 
 }</code></pre>
-      <ul>
-        <li>
-          <p>请使用 render 代替原来的 createCanvas 方法<br>
-            这样做的好处是可以获得一个响应式的草图
-          </p>
-        </li>
-        <li>
-          <p>指定宽度和高度都为0的话，草图将会默认铺满整个容器<br>
-            传入第三个参数WEBGL，会启用3D渲染</p>
-        </li>
-      </ul>
-      <h5><a href="">编辑此页</a></h5>
-      <h5>
-        <%= link_to "返回", examples_path %>
-      </h5>
-    </div>
-  </div>
+  <p>例如可以使用 <span>render</span> 代替原来的 <span>createCanvas</span> 方法。
+    这样做的好处是可以获得一个响应式的草图。 宽度和高度都为0以及缺省时，草图将会默认铺满整个容器，传入第三个参数WEBGL，会启用3D渲染。
+    全部辅助方法的信息已编写成单独的页面
+  </p>
+  <ul>
+    <li>
+      <%= link_to "UTP-Helper api document", examples_path %>
+    </li>
+  </ul>
+  <h5><a href="">帮助编辑此页</a></h5>
+  <h5>
+    <%= link_to "返回", examples_path %>
+  </h5>
 </div>

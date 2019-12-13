@@ -5,7 +5,7 @@
     margin: 0px 0px 0px 0px;
     padding: 95px 30px 40px 30px;
     font-family: 'Steradian';
-    background: #fff;
+    background: #fafafa;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
     min-height: calc(100vh - 60px);
 
@@ -18,9 +18,10 @@
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            background: #fff;
+            background: #212121;
             border-radius: .5rem;
             padding: 20px 20px;
+            color: #fff;
         }
 
     }
@@ -31,7 +32,7 @@
         justify-content: center;
         align-items: center;
         padding: 2rem;
-        background: #eee;
+        background: #212121;
         border-radius: .5rem;
 
         .example-item {
@@ -152,7 +153,7 @@
     @include media-breakpoint-down(lg) {}
 
     @include media-breakpoint-down(md) {
-        padding: 15px;
+        padding: 0px;
 
         .examples-panel-wrap {
             display: none;
@@ -162,6 +163,8 @@
             flex-basis: 100%;
             width: 100%;
             padding: 60px 15px 15px 15px;
+            border-radius: 0;
+            background: #fafafa;
 
             .example-item {
                 min-width: 300px;
@@ -208,7 +211,29 @@
     overflow: hidden;
 
     &.help-page {
-        width: 1100px;
+        width: auto;
+        max-width: 800px;
+        background: #fafafa;
+        display: block;
+        font-family: 'Steradian';
+        margin-top: 150px;
+
+        h1 {
+            letter-spacing: -.03em;
+            color: #171c24;
+        }
+
+        p {
+            color: #3c4b62;
+            letter-spacing: 0;
+        }
+
+        .blog-date {
+            color: #78909c;
+            text-align: right;
+            margin: 0;
+        }
+
     }
 
     &.frame-page {
@@ -339,6 +364,7 @@
 
         &.header-image {
             width: 100%;
+            margin: 0;
 
             &:before {
                 content: '';
@@ -346,7 +372,7 @@
                 background-position: center 20%;
                 background-size: cover;
                 width: 100%;
-                height: 200px;
+                height: 100px;
             }
 
         }
