@@ -10,12 +10,12 @@ var examples = {
 
 		examples.editor.setOptions({
 			mode: "ace/mode/javascript",
-			maxLines: 30,
+			// maxLines: 30,
 			enableLiveAutocompletion: true,
 			enableSnippets: true,
 			fontSize: 18,
 		});
-		examples.editor.setTheme("ace/theme/merbivore");
+		examples.editor.setTheme("ace/theme/monokai");
 		examples.editor.getSession().setMode('ace/mode/javascript');
 		examples.editor.getSession().setTabSize(2);
 
@@ -45,6 +45,7 @@ var examples = {
 		$('#saveButton').click(function() {
 			examples.saveExample();
 		});
+		$('#optionsButton').click(function() {});
 
 
 		// Example Frame

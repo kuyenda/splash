@@ -8,17 +8,18 @@
     background: #fafafa;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
     min-height: calc(100vh - 60px);
+    background: #263238;
+    border-bottom: 1px dashed #37474f;
 
     .examples-panel-wrap {
-        flex-basis: 35%;
-        width: 35%;
+        flex-basis: 40%;
+        width: 40%;
         padding: 2rem;
 
         .examples-panel {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            background: #212121;
             border-radius: .5rem;
             padding: 20px 20px;
             color: #fff;
@@ -32,7 +33,6 @@
         justify-content: center;
         align-items: center;
         padding: 2rem;
-        background: #212121;
         border-radius: .5rem;
 
         .example-item {
@@ -46,6 +46,7 @@
             align-items: center;
             flex-direction: column;
             overflow: hidden;
+            box-shadow: 0 5px 0px #0006;
             @include et-transition(0, .25s);
 
             .example-shot {
@@ -150,7 +151,17 @@
 
     }
 
-    @include media-breakpoint-down(lg) {}
+    @include media-breakpoint-down(lg) {
+        flex-wrap: wrap;
+
+        .examples-panel-wrap {
+            order: -1;
+            flex-basis: 100%;
+            width: 100%;
+            padding: 0rem;
+        }
+
+    }
 
     @include media-breakpoint-down(md) {
         padding: 0px;
@@ -164,7 +175,6 @@
             width: 100%;
             padding: 60px 15px 15px 15px;
             border-radius: 0;
-            background: #fafafa;
 
             .example-item {
                 min-width: 300px;
@@ -217,6 +227,13 @@
         display: block;
         font-family: 'Steradian';
         margin-top: 150px;
+        margin-bottom: 150px;
+        box-shadow: 0px 2px 0 #0006;
+
+        @include media-breakpoint-down(sm) {
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
 
         h1 {
             letter-spacing: -.03em;
@@ -238,17 +255,48 @@
 
     &.frame-page {
         width: 100%;
+        height: 100vh;
         padding: 0;
         flex-direction: row;
         align-items: flex-start;
         background: #555;
 
+        .sketch-info {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            padding: 3vw;
+            opacity: 0;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(45deg, #ff1744, #000);
+            font-family: 'Steradian';
+            color: #fff;
+            overflow: hidden;
+            @include et-transition(1, .5s);
+
+            &.open {
+                padding: 30px 10px 10px 10px;
+                z-index: 10;
+                opacity: 1;
+            }
+
+        }
+
         .row {
             margin: 0;
 
             &.toolbar {
+                z-index: 3;
+                height: 80px;
                 padding: .1rem;
-                background: #2C3A47;
+                background: #212121;
+                box-shadow: 0 3px 3px #0004;
 
                 .tool-options {
                     padding: .75rem;
@@ -269,15 +317,6 @@
 
             }
 
-            &.index {
-                text-align: center;
-                padding: 30px 10px 10px 10px;
-                border: 1px solid #000;
-                border-width: 0 0 1px 0;
-                background: #fff;
-                color: #000;
-            }
-
             &.frame {
                 position: relative;
 
@@ -296,6 +335,7 @@
         }
 
         .side-frame {
+            position: relative;
             width: 40%;
         }
 
@@ -309,10 +349,6 @@
 
         @include media-breakpoint-down(md) {
             .row {
-                &.index {
-                    display: none;
-                }
-
                 &.frame {
                     .frame-win {
                         border-radius: 0px;
@@ -348,7 +384,7 @@
             .side-frame {
                 padding: 0;
                 width: 100%;
-                height: auto;
+                height: 100%;
             }
 
             .side-editor {
@@ -385,10 +421,6 @@
         font-weight: 400;
         color: #6e7f99;
         margin-top: 10px;
-    }
-
-    h1 {
-        color: #171c24;
     }
 
     form {
@@ -465,9 +497,21 @@
 }
 
 #exampleEditor {
-    min-height: 500px;
+    min-height: calc(100vh - 80px);
 }
 
 #exampleFrame {
-    min-height: 500px;
+    min-height: calc(100vh);
+}
+
+.sketch-info-btns {
+    position: absolute;
+    top: 10px;
+    left: 18px;
+    z-index: 20;
+
+    i {
+        padding: 0 .3rem;
+    }
+
 }

@@ -2,26 +2,36 @@
   window._p5jsExample = '<%= "/examples/users/#{@example.digit}.js"  %>'
   window._p5jsExampleDigits = '<%= @example.digit %>'
 </script>
+<style>
+  .navbar {
+  	display: none;
+  }
+  .content {
+  	margin: 0;
+  }
+  .footer {
+  	display: none;
+  }
+</style>
 <div class="example-page frame-page">
+  <% color = rand_hex_color %>
+  <% color2 = reverse_hex_color(color) %>
+  <div class="sketch-info" id="sketch-info" style="background: <%= color %>;color: <%= color2 %>">
+    <h1 class="text-left" style="max-width: 800px;font-size: 84px"><%= @example.title %><span style="font-size: 54px">/<%= @example.digit %></span></h1>
+    <p class="text-left" style="max-width: 800px;font-size: 25px"><%= @example.description %></p>
+  </div>
   <div class="side-frame">
-    <div class="row index">
-      <div class="col">
-        <h3><%= @example.title %></h3>
-        <p><%= @example.description %></p>
-        <h6 class="text-right mb-0">识别码 <%= @example.digit %></h6>
-        <h6 class="text-right mb-0"><%= @example.hit %>次浏览👍</h6>
-        <h6 class="text-right mb-0"><%= @example.like %>次喜爱❤️</h6>
-        <%= link_to "编辑", edit_example_path(@example), class:'btn ebtn ruby mx-1 small' %>
-        <%= link_to "返回", examples_path, class:'btn ebtn ruby mx-1 small' %>
-      </div>
+    <div class="sketch-info-btns">
+      <i class="icon -md24 -aniamted ion-md-information-circle-outline" id="sketch-info-btn"></i>
+      <%= link_to "", edit_example_path(@example), class:'icon -md24 -aniamted ion-md-aperture text-white' %>
     </div>
     <div class="row frame">
       <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="frame-win col p-0">
       </iframe>
       <div class="frame-mobile-options">
-        <a id="runButton-m" class="icon ion-ios-refresh-circle"></a>
-        <%= link_to "", examples_path, class:'icon ion-ios-arrow-round-back' %>
-        <a id="" class="icon ion-ios-more"></a>
+        <a id="runButton-m" class="icon ion-md-refresh"></a>
+        <%= link_to "", examples_path, class:'icon ion-md-arrow-round-back' %>
+        <a id="" class="icon ion-md-more"></a>
       </div>
     </div>
   </div>
@@ -29,10 +39,23 @@
     <div class="row toolbar">
       <div class="tool-options">
         <button id="toggleTextOutput" class="sr-only">toggle text output</button>
-        <button id="runButton" class="btn ebtn clover">run</button>
-        <button id="resetButton" class="btn ebtn violet">reset</button>
-        <button id="copyButton" class="btn ebtn ruby">copy</button>
-        <button id="saveButton" class="btn ebtn black">save</button>
+        <button id="runButton" class="btn ebtn transparent" data-toggle="tooltip" data-placement="top" title="Run sketch">
+          <i class="icon -md24 -aniamted -green ion-md-play"></i>
+          run
+        </button>
+        <button id="copyButton" class="btn ebtn transparent">
+          <i class="icon -md24 -aniamted -green ion-md-copy"></i>
+          copy</button>
+        <button id="resetButton" class="btn ebtn transparent">
+          <i class="icon -md24 -aniamted -green ion-md-refresh"></i>
+          reset
+        </button>
+        <button id="saveButton" class="btn ebtn transparent">
+          <i class="icon -md24 -aniamted -green ion-md-save"></i>
+          save</button>
+        <button id="optionsButton" class="btn ebtn transparent">
+          <i class="icon -md24 -aniamted -green ion-md-cog"></i>
+          options</button>
       </div>
     </div>
     <div class="row editor">
@@ -40,6 +63,8 @@
         <div id="exampleEditor">
         </div>
       </div>
+    </div>
+    <div class="editor-options">
     </div>
   </div>
 </div>

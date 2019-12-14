@@ -2,6 +2,8 @@
 @import "bootstrap";
 @import "normalize.css/normalize";
 @import "prismjs/themes/prism-okaidia";
+// resets
+@import "customize-bootstrap";
 // components
 @import "variables";
 @import "mixins";
@@ -11,6 +13,7 @@
 @import "header";
 @import "footer";
 @import "button";
+@import "icon";
 @import "hero";
 @import "blog";
 @import "form";

@@ -6,7 +6,7 @@
 //= require bootstrap-sprockets
 //= require prismjs/prism
 //= require ace-rails-ap
-//= require ace/theme-merbivore
+//= require ace/theme-monokai
 //= require ace/mode-javascript
 //= require ace/ext-language_tools
 //= require ace/snippets/javascript

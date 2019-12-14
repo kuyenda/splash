@@ -1,0 +1,45 @@
+[class^='icon'] {
+    color: #fff;
+    font-size: 16px;
+    user-select: none;
+    font-style: normal;
+
+    &.-md24 {
+        font-size: 36px;
+    }
+
+    &.-md36 {
+        font-size: 36px;
+    }
+
+    &.-md48 {
+        font-size: 48px;
+    }
+
+    &.-md96 {
+        font-size: 96px;
+    }
+
+    &.-dark {
+        color: #000;
+    }
+
+    &.-green {
+        color: #60e020;
+    }
+
+    &.-blue {
+        color: #2979ff;
+    }
+
+    &.-aniamted {
+        @include et-transition(2, .5s);
+
+        &:hover {
+            top: 5px;
+            filter: hue-rotate(90deg);
+        }
+
+    }
+
+}

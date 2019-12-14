@@ -56,6 +56,10 @@
         @include btn-color(#5D17FF, #4400E6);
     }
 
+    &.transparent {
+        @include btn-color(transparent, inherit);
+    }
+
     &.small {
         padding: 10px 15px 11px;
         font-size: 13px;

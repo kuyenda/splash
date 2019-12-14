@@ -3,6 +3,10 @@ $(document).on('ready turbolinks:load', function() {
 		$('#mobile-menu').toggleClass('open');
 		$('.hamburger').toggleClass('is-active');
 	});
+	$('#sketch-info-btn').on('click', function() {
+		$('#sketch-info').toggleClass('open');
+		$('#sketch-info-btn').toggleClass('opened');
+	});
 	if (!window.et_player) {
 		window.et_player = {
 			history_player: undefined,
