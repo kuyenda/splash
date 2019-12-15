@@ -1,0 +1,66 @@
+input,
+textarea,
+select,
+.uneditable-input {
+    border: 1px solid #bbb;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+form {
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    color: #fff;
+    text-align: center;
+    border-radius: .2rem;
+    font-family: 'Steradian';
+    min-width: 200px;
+    overflow: hidden;
+
+    @include media-breakpoint-down(md) {
+        padding: 0;
+    }
+
+    input[type='text'],
+    input[type="password"],
+    input[type='submit'],
+    input[type='email'],
+    textarea {
+        border: 0;
+        background: rgb(238, 238, 238);
+        display: block;
+        margin: 20px auto;
+        text-align: left;
+        text-indent: 5px;
+        padding: 14px 10px;
+        width: 100%;
+        max-width: 320px;
+        outline: none;
+        color: #111;
+        border-radius: .5rem;
+        @include et-transition(1, .5s);
+
+        &:hover {}
+
+        @include media-breakpoint-down(md) {
+            padding: 7px 5px;
+            background: #fff;
+        }
+
+    }
+
+    input[type='submit'] {
+        background: #ff1744;
+        border-radius: 24px;
+        padding: 14px 18px;
+        width: 200px;
+        color: #fff;
+
+        &:hover {
+            background: #dc143c;
+        }
+
+    }
+
+}

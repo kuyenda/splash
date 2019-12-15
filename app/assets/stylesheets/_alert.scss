@@ -1,5 +1,7 @@
 #error_explanation {
-    color: #ee2233;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     .alert-danger {
         background: #fff;
@@ -7,8 +9,30 @@
     }
 
     ul {
-        color: #ee2233;
+        list-style-type: none;
+        color: inherit;
         margin: 0 0 30px 0;
+    }
+
+    .alert-signup {
+        max-width: 320px;
+        background: transparent;
+        text-align: left;
+
+        & {
+            padding: 0;
+        }
+
+        ul {
+            margin: 0;
+            padding: 0;
+
+            li {
+                margin-top: .2em;
+            }
+
+        }
+
     }
 
 }
@@ -24,4 +48,13 @@
 
 .alert {
     margin: 0;
+}
+
+.debug_dump {
+    width: 100%;
+    margin-top: 0;
+    margin-bottom: 0;
+    background: #444;
+    padding: 10px 20px;
+    color: #fff;
 }

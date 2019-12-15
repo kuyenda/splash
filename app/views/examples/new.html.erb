@@ -13,7 +13,7 @@
         <%= f.text_field :description, placeholder: "Description" %>
         <%= f.hidden_field :hit, value: 0 %>
         <%= f.hidden_field :like, value: 0 %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'shared/example_error_messages' %>
         <%= f.submit "Create" %>
         <div class="form-tool">
           <%= link_to "返回", examples_path %>
