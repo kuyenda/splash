@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'application#home'
   get 'style_page', to: 'application#style_page'
 
@@ -9,4 +8,7 @@ Rails.application.routes.draw do
   get 'examples/help', to: 'examples#help'
   post 'examples/save', to: 'examples#save_code'
   resources :examples
+
+  get 'users/new'
+  get '/signup', to: 'users#new'
 end

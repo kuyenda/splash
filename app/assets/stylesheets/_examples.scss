@@ -9,7 +9,6 @@
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
     min-height: calc(100vh - 60px);
     background: #263238;
-    border-bottom: 1px dashed #37474f;
 
     .examples-panel-wrap {
         flex-basis: 40%;
@@ -46,6 +45,7 @@
             align-items: center;
             flex-direction: column;
             overflow: hidden;
+            border-radius: 0 0 .25rem .25rem;
             box-shadow: 0 5px 0px #0006;
             @include et-transition(0, .25s);
 
