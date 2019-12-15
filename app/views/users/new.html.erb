@@ -1,12 +1,12 @@
 <style>
   .navbar {
-  	display: none;
+    display: none;
   }
   .content {
-  	margin: 0;
+    margin: 0;
   }
   .footer {
-  	display: none;
+    display: none;
   }
 </style>
 <div class="container-fluid text-white" style="background: radial-gradient(circle at 50% 0%, #111,#000, #222);animation: invert 10s infinite cubic-bezier(0,1,1,0);">
@@ -19,7 +19,7 @@
         <%= f.password_field :password, placeholder: "Password" %>
         <%= f.password_field :password_confirmation, placeholder: "Confirmation" %>
         <%= render 'shared/user_error_messages' %>
-        <%= f.submit "Create my account" %>
+        <%= f.submit "Create" %>
       <% end %>
     </div>
   </div>

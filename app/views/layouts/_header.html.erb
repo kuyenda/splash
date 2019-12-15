@@ -8,11 +8,30 @@
         <%= link_to 'Home', root_path, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="/examples">Sketch</a>
+        <%= link_to 'Sketch', examples_path, class: "nav-link" %>
       </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">User</a>
-      </li>
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to 'Users', '#', class: "nav-link" %>
+        </li>
+        <li class="nav-item dropdown">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+            Account <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Profile", current_user, class: "nav-link" %></li>
+            <li><%= link_to "Settings", '#', class: "nav-link" %></li>
+            <li class="divider"></li>
+            <li>
+              <%= link_to "Log out", logout_path, class: "nav-link", method: :delete %>
+            </li>
+          </ul>
+        </li>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to 'Login', login_path, class: "nav-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
   <div class="navbar-icons">
@@ -31,21 +50,26 @@
   <div class="navbar-mobile-menu" id="mobile-menu">
     <ul class="mobile-list">
       <li class="mobile-item">
-        <%= link_to 'Home', root_path, class:"mobile-link" %>
+        <%= link_to 'Home', root_path, class: "mobile-link" %>
       </li>
       <li class="mobile-item">
-        <a href="/examples" class="mobile-link">Sketch</a>
+        <%= link_to 'Sketch', examples_path, class: "mobile-link" %>
       </li>
-      <li class="mobile-item">
-        <a href="" class="mobile-link">
-          Login
-        </a>
-      </li>
-      <li class="mobile-item">
-        <a href="" class="mobile-link">
-          Sign up
-        </a>
-      </li>
+      <% if logged_in? %>
+        <li class="mobile-item">
+          <%= link_to "Profile", current_user, class: "mobile-link" %>
+        </li>
+        <li class="mobile-item">
+          <%= link_to "Log out", logout_path, class: "mobile-link", method: :delete %>
+        </li>
+      <% else %>
+        <li class="mobile-item">
+          <%= link_to 'Login', login_path, class: "mobile-link" %>
+        </li>
+        <li class="mobile-item">
+          <%= link_to "Sign up", signup_path, class: "mobile-link" %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </header>
