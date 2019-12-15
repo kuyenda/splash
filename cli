@@ -9,3 +9,4 @@ RAILS_ENV=production rake assets:precompile
 # gem 'sassc-rails', '>= 2.1.0'
 rails s -e production -p 3000
 gem 'sass-rails', '~> 5.0'
+gem 'bcrypt', '~> 3.1.7'
