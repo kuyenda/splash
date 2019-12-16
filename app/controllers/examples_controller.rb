@@ -1,6 +1,6 @@
 class ExamplesController < ApplicationController
   protect_from_forgery :except => [:save_code]
-
+  layout "auth", only: [:show]
   def index
     @example = Example.all
   end

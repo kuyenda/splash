@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
     text-align: left;
-    color: #fff;
+    color: $footer-link-color;
     background: $footer-background-color;
     font-size: 13px;
     font-family: Roboto;
@@ -29,14 +29,15 @@
             font-family: 'Steradian';
             padding: 10px;
             margin: 0;
-            border: 1px solid #fff;
+            border: 1px solid $footer-link-color;
             border-radius: .5rem;
             display: inline-block;
+            user-select: none;
         }
 
         .copyrights {
             font-size: 15px;
-            color: #eee;
+            color: $footer-link-color;
             margin: 0;
             padding: 0;
         }
@@ -57,7 +58,13 @@
                 margin-top: .4rem;
 
                 i {
+                    color: inherit;
                     font-size: 36px;
+
+                    &:hover {
+                        color: $footer-link-color-highlight;
+                    }
+
                 }
 
             }
@@ -107,22 +114,22 @@
             }
 
             .footer-link:hover {
-                color: #fff;
+                color: $footer-link-color-highlight;
             }
 
         }
 
         .footer-link-title {
+            color: inherit;
             margin-top: 0;
-            margin-bottom: 15px;
             font-weight: 600;
+            margin-bottom: 15px;
         }
 
     }
 
     @media screen and (max-width:1024px) {
         font-size: 13px;
-        background: #232323;
 
         li {
             margin: 0;

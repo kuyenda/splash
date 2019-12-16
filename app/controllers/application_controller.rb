@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   def home
-    render 'layouts/index'
+    render 'application/index'
   end
-  def style_page
-    render 'common/style_page'
+  def style
+    render 'application/style'
   end
 end

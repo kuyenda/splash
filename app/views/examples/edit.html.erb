@@ -1,17 +1,11 @@
 <div class="example-page">
   <div class="row">
     <div class="col">
-      <h1>Examples#edit</h1>
-      <p>Find me in app/views/examples/edit.html.erb</p>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col">
       <%= form_for(@example) do |f| %>
         <h1 class="text-center text-white"><%= @example.digit %></h1>
         <%= f.text_field :title, placeholder: "Title" %>
         <%= f.text_field :description, placeholder: "Description" %>
-        <%= render 'shared/error_messages' %>
+        <%= render 'shared/example_error_messages' %>
         <%= f.submit "Save changes" %>
         <div class="form-tool">
           <%= link_to "返回", @example %>

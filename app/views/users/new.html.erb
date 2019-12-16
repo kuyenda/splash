@@ -1,26 +1,26 @@
-<style>
-  .navbar {
-    display: none;
-  }
-  .content {
-    margin: 0;
-  }
-  .footer {
-    display: none;
-  }
-</style>
-<div class="container-fluid text-white" style="background: radial-gradient(circle at 50% 0%, #111,#000, #222);animation: invert 10s infinite cubic-bezier(0,1,1,0);">
-  <div class="row p-5 justify-content-center align-items-center" style="height: 100vh;max-width: 800px;margin: 0 auto;overflow: hidden;">
-    <div class="col">
-      <%= form_for(@user, url: signup_path) do |f| %>
-        <h1>Sign up</h1>
-        <%= f.text_field :name, placeholder: "Name" %>
-        <%= f.email_field :email, placeholder: "Email" %>
-        <%= f.password_field :password, placeholder: "Password" %>
-        <%= f.password_field :password_confirmation, placeholder: "Confirmation" %>
-        <%= render 'shared/user_error_messages' %>
-        <%= f.submit "Create" %>
-      <% end %>
+<section>
+  <style>
+    .auth-content {
+        width: 100%;
+        max-width: 416px;
+        margin: auto;
+    }
+  </style>
+  <main>
+    <div class="auth-content">
+      <div class="row justify-content-center align-items-center" style="height: 100vh">
+        <div class="col">
+          <%= form_for(@user, url: signup_path) do |f| %>
+            <h1>Sign up</h1>
+            <%= f.text_field :name, placeholder: "Name" %>
+            <%= f.email_field :email, placeholder: "Email" %>
+            <%= f.password_field :password, placeholder: "Password" %>
+            <%= f.password_field :password_confirmation, placeholder: "Confirmation" %>
+            <%= render 'shared/user_error_messages' %>
+            <%= f.submit "Create" %>
+          <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
+  </main>
+</section>

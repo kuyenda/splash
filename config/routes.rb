@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
-  get 'sessions/new'
   root 'application#home'
-  get 'style_page', to: 'application#style_page'
+  get 'style', to: 'application#style'
 
   get 'examples', to: 'examples#index'
   get 'examples/example', to: 'examples#example'

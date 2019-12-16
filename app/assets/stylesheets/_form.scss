@@ -28,7 +28,7 @@ form {
     input[type='email'],
     textarea {
         border: 0;
-        background: rgb(238, 238, 238);
+        background: #f5f6f7;
         display: block;
         margin: 20px auto;
         text-align: left;
@@ -38,7 +38,7 @@ form {
         max-width: 320px;
         outline: none;
         color: #111;
-        border-radius: .5rem;
+        border-radius: 6px;
         @include et-transition(1, .5s);
 
         &:hover {}
@@ -53,7 +53,7 @@ form {
         background: #ff1744;
         border-radius: 24px;
         padding: 14px 18px;
-        width: 200px;
+        width: 150px;
         color: #fff;
         text-align: center;
         text-indent: 0px;

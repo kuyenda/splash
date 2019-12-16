@@ -19,11 +19,11 @@
             Account <b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Profile", current_user, class: "nav-link" %></li>
-            <li><%= link_to "Settings", '#', class: "nav-link" %></li>
+            <li><%= link_to "Profile", current_user, class: "nav-link dropdown-link" %></li>
+            <li><%= link_to "Settings", '#', class: "nav-link dropdown-link" %></li>
             <li class="divider"></li>
             <li>
-              <%= link_to "Log out", logout_path, class: "nav-link", method: :delete %>
+              <%= link_to "Log out", logout_path, class: "nav-link dropdown-link", method: :delete %>
             </li>
           </ul>
         </li>

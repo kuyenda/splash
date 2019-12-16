@@ -4,15 +4,13 @@
       Prism.highlightAll()
     }
   });
-  !function(w) {
-    var player = $('#player')
-    if (player.length > 0) {
-      setTimeout(() => {w.et_player.play(player[0])}, 100);
-    }
-    if (w.et_player) {
-      w.et_player.playlist = ["<%= asset_path('Lena Raine-Awake.mp3') %>"]
-    }
-  }(this);
+  var player = $('#player')
+  if (auto_player) {
+    auto_player.playlist = ["<%= asset_path('Love.mp3') %>"]
+  }
+  if (player.length > 0) {
+    setTimeout(() => {auto_player.play(player[0])}, 100);
+  }
 </script>
 <div class="example-page help-page py-lg-3 px-lg-4 p-sm-2">
   <h6 class="blog-date">Fri Dec 14. kuyenda</h6>
