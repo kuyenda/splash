@@ -2,96 +2,96 @@
     font-family: 'Steradian';
     font-style: normal;
     font-weight: 100;
-    src: url("/assets/Steradian/Steradian Thin") format('otf');
+    src: font-url("Steradian-Thin.otf") format('otf');
 }
 
 @font-face {
     font-family: 'Steradian';
     font-style: normal;
     font-weight: 200;
-    src: url('/assets/Steradian/Steradian ExtraLight.otf') format('otf');
+    src: font-url('Steradian-ExtraLight.otf') format('otf');
 }
 
 @font-face {
     font-family: 'Steradian';
     font-style: normal;
     font-weight: 300;
-    src: url('/assets/Steradian/Steradian Light.otf') format('otf');
+    src: font-url('Steradian-Light.otf') format('otf');
 }
 
 @font-face {
     font-family: 'Steradian';
     font-style: italic;
     font-weight: 400;
-    src: url('/assets/Steradian/Steradian Regular Italic.otf') format('otf');
+    src: font-url('Steradian-Regular-Italic.otf') format('otf');
 }
 
 @font-face {
     font-family: 'Steradian';
     font-style: normal;
     font-weight: 400;
-    src: url('/assets/Steradian/Steradian Regular.otf') format('otf');
+    src: font-url('Steradian-Regular.otf') format('otf');
 }
 
 @font-face {
     font-family: 'Steradian';
     font-style: normal;
     font-weight: 500;
-    src: url('/assets/Steradian/Steradian Medium.otf') format('otf');
+    src: font-url('Steradian-Medium.otf') format('otf');
 }
 
 @font-face {
     font-family: 'Steradian';
     font-style: normal;
     font-weight: 700;
-    src: url('/assets/Steradian/Steradian Bold.otf') format('otf');
+    src: font-url('Steradian-Bold.otf') format('otf');
 }
 
 @font-face {
     font-family: 'Steradian';
     font-style: normal;
     font-weight: 900;
-    src: url('/assets/Steradian/Steradian Black.otf') format('otf');
+    src: font-url('Steradian-Black.otf') format('otf');
 }
 
 @font-face {
     font-family: 'Hack';
     font-style: normal;
     font-weight: 400;
-    src: url('/assets/Hack/Hack-Regular.ttf') format('ttf');
+    src: font-url('Hack-Regular.ttf') format('ttf');
 }
 
 @font-face {
     font-family: 'Hack';
     font-style: italic;
     font-weight: 400;
-    src: url('/assets/Hack/Hack-Italic.ttf') format('ttf');
+    src: font-url('Hack-Italic.ttf') format('ttf');
 }
 
 @font-face {
     font-family: 'Hack';
     font-style: normal;
     font-weight: 700;
-    src: url('/assets/Hack/Hack-Bold.ttf') format('ttf');
+    src: font-url('Hack-Bold.ttf') format('ttf');
 }
 
 @font-face {
     font-family: 'Hack';
     font-style: italic;
     font-weight: 700;
-    src: url('/assets/Hack/Hack-BoldItalic.ttf') format('ttf');
+    src: font-url('Hack-BoldItalic.ttf') format('ttf');
 }
 
 @font-face {
     font-family: 'Isonorm-D';
     font-style: normal;
     font-weight: 400;
-    src: url('/assets/Isonorm-D.ttf') format('ttf');
+    src: font-url('Isonorm-D.ttf') format('ttf');
 }
 
 @font-face {
     font-family: 'Proggy';
     font-style: normal;
     font-weight: 400;
-    src: url('/assets/Proggy.ttf') format('ttf');
+    src: font-url('Proggy.ttf') format('ttf');
 }

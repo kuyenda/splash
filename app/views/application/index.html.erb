@@ -1,3 +1,16 @@
+<script>
+  var player = $('#player')
+  if (auto_player) {
+    auto_player.playlist = [
+    "<%= asset_path('Love.mp3') %>",
+    "<%= asset_path('Compass.mp3') %>",
+    "<%= asset_path('Forgotten.mp3') %>",
+    ]
+  }
+  if (player.length > 0) {
+    setTimeout(() => {auto_player.play(player[0])}, 500);
+  }
+</script>
 <div class="enrique">
   <div class="enrique-content">
     <div class="enrique-copy">
@@ -15,35 +28,49 @@
     </div>
   </div>
   <p class="enrique-attribution">
-    <span style="color:#ffb142;">Websites by</span>
-    <a href="#" style="color:#FFFFFF;">Zephyr</a>
+    <a href="#" style="color:#FFFFFF;">
+      An experimental application powered by zephyr, kuyenda
+    </a>
   </p>
 </div>
 <div class="wrapper py-md-5" style="background: #fafafa">
-  <div class="container md-page" style="font-size: 16px">
+  <div class="container md-page" style="font-size: 16px;font-family: 'Steradian'">
     <ol class="breadcrumb">
       <li>
-        本文简单介绍主要功能和实现，以及相关的技术细节
+        本文简单介绍页面的诞生，相关的技术细节
       </li>
     </ol>
-    <h2>Frame Arts</h2>
-    <p>未标题页面是一个发布创意编程源代码的平台，使用Rails编写并且开源，你可以在互联网上找到与之相似的网站，比如processing的官方社区，openprocessing,等等</p>
+    <h2>Art Of Pattern</h2>
     <p>
-      Untitled page is a platform for publishing creative programming source code, written in Rails and open source. You can find similar websites on the Internet, such as the official processing community, openprocessing, etc.
+      我们在这个行星上已经生活了数十年，虽然不一定对这个世界的自然规律有深入的理解，但肯定已经习以为常。例如在足球比赛中，我们能欣赏到美妙的曲线任意球。如果足球在空中突然直角转向，我们一定会觉得很“不自然”。又例如，我们有时候能看到上千只鸟集体飞翔，它们并不是乱飞一通，而是按照某种规律组成不断变形的群体。如果它们互相碰撞而掉下来，我们很可能会怀疑它们是否生病，做出这些“不自然”的行为。
+      充满好奇心的人们，可以通过学习物理学、化学、生物学等学科去了解各种自然现象。但对于一些程序员、艺术家，他们除了希望对这些原理有所了解，还希望能在作品中模仿这些自然现象。
+      模仿、模拟等词汇意味着我们并不是要完整地复制自然世界，而是通过抽象、近似化等方式，获取当中我们认为重要的特性。例如，我们知道水是由水分子所组成，但肉眼看不到这么小的水分子，更常见的是水滴、容器中的水、海洋等。要模仿淋浴花洒的水流动态，我们可考虑以水滴为单位，逐一模拟它们以某初始速度射出，然后受地心引力影响而产生抛物线的移动路径。但要模仿海洋时，我们可能更关注它海面的波浪，而不是海面下巨量溶积的海水。在此情况下，我们可能会模拟海面上一些分布点的垂直运动，做出波浪起伏的效果。
+    </p>
+    <blockquote>
+      <i class="icon -md24 -aniamted -green ion-md-quote"></i>
+      我们周围的世界以一种复杂而精彩的方式运作着。在生命的早期，我们通过感知和互动了解所处的环境。我们期望周围物理世界的行为方式和我们自身的感知记忆一致。比如，石头在重力的作用下坠落，风能把更轻的物体吹得更远。理解和模拟物理世界的运动元素，并在我们的数字模拟世界中加入这些元素。
+    </blockquote>
+    <hr>
+    <h2>Thank you, developers</h2>
+    <p>页面是一个发布创意编程源代码的平台，使用Rails编写并且开源，互联网上有很多与之相似的网站，比如processing的官方社区，openprocessing,等等。这类社区正在日益壮大，未来可能会有更多的人参与和改进算法设计</p>
+    <p>
+      Pages is a platform for publishing creative programming source code, written in Rails and open source. There are many similar websites on the Internet, such as the official processing community, openprocessing, and so on. This type of community is growing, and more people may participate in and improve algorithm design in the future
     </p>
     <ul>
       <li><a href="https://www.openprocessing.org/">openprocessing.org</a></li>
       <li><a href="https://p5js.org/">p5js.org</a></li>
     </ul>
-    <h2>Laboratory</h2>
-    <p>这是一个实验性项目，开发者是Zephyr( alias kuyenda )</p>
-    <p>This is an experimental project, the developer is Zephyr (alias kuyenda)</p>
-    <h2>Material Design</h2>
-    <p>采用了Google的材质设计，查看下面的链接了解材质设计</p>
-    <p>Using Google's material design, check the link below for material design</p>
+    <h4>More tech details, see</h4>
     <ul>
       <li>
-        <a href="https://md.maxoxo.design/style/color.html">md.maxoxo.design</a>
+        <b>材质设计</b><span> </span><a href="https://md.maxoxo.design/style/color.html">md.maxoxo.design</a>
+        Google's material design, check the link below for material design
+      </li>
+      <li>
+        <b>Web框架</b><span> </span><a href="https://ruby-china.github.io/rails-guides/index.html">ruby on rails</a>
+      </li>
+      <li>
+        <b>全球公认头像</b><span> </span><a href="https://en.gravatar.com/">gravatar</a>
       </li>
     </ul>
   </div>

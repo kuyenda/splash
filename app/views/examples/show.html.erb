@@ -3,11 +3,12 @@
   window._p5jsExampleDigits = '<%= @example.digit %>'
 </script>
 <div class="example-page frame-page">
-  <% color = rand_hex_color %>
-  <% color2 = reverse_hex_color(color) %>
-  <div class="sketch-info" id="sketch-info" style="background: <%= color %>;color: <%= color2 %>">
-    <h1 class="text-left" style="max-width: 800px;font-size: 84px"><%= @example.title %><span style="font-size: 54px">/<%= @example.digit %></span></h1>
-    <p class="text-left" style="max-width: 800px;font-size: 25px"><%= @example.description %></p>
+  <div class="sketch-info" id="sketch-info">
+    <div class="sketch-para">
+      <h1 class="font-weight-normal"><%= @example.title %><span>/<%= @example.digit %></span></h1>
+      <hr style="border-top: 4px dashed #fff;">
+      <p><%= @example.description %></p>
+    </div>
   </div>
   <div class="side-frame">
     <div class="sketch-info-btns">
@@ -18,9 +19,8 @@
       <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="frame-win col p-0">
       </iframe>
       <div class="frame-mobile-options">
-        <a id="runButton-m" class="icon ion-md-refresh"></a>
-        <%= link_to "", examples_path, class:'icon ion-md-arrow-round-back' %>
-        <a id="" class="icon ion-md-more"></a>
+        <a id="runButton-m" class="icon -md24 ion-md-refresh"></a>
+        <%= link_to "", examples_path, class:'icon -md24 ion-md-arrow-round-back' %>
       </div>
     </div>
   </div>

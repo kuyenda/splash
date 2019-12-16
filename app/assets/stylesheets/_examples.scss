@@ -261,6 +261,8 @@
         flex-direction: row;
         align-items: flex-start;
         background: #555;
+        min-height: 0;
+        max-height: 100vh;
 
         .sketch-info {
             position: absolute;
@@ -275,16 +277,50 @@
             justify-content: center;
             align-items: center;
             flex-direction: column;
-            background: linear-gradient(45deg, #ff1744, #000);
             font-family: 'Steradian';
             color: #fff;
+            background-image: linear-gradient(to top, #f43b47 0%, #453a94 100%);
             overflow: hidden;
             @include et-transition(1, .5s);
 
             &.open {
-                padding: 30px 10px 10px 10px;
+                padding: 10px;
                 z-index: 10;
                 opacity: 1;
+            }
+
+            .sketch-para {
+                min-width: 400px;
+                max-width: 800px;
+                margin: 0 auto;
+
+                h1 {
+                    font-size: 84px
+                }
+
+                span {
+                    font-size: 54px
+                }
+
+                p {
+                    font-size: 25px;
+                }
+
+                @include media-breakpoint-down(md) {
+                    h1 {
+                        font-size: 60px
+                    }
+
+                    span {
+                        font-size: 45px
+                    }
+
+                    p {
+                        font-size: 16px
+                    }
+
+                }
+
             }
 
         }
@@ -366,11 +402,9 @@
                         justify-content: flex-start;
                         align-items: center;
                         flex-direction: column;
-                        background: #333;
                         border-radius: .5rem;
 
                         a {
-                            font-size: 40px;
                             padding: 0px 10px;
                             margin: 0 2px;
                             color: #fff;
