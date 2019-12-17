@@ -1,90 +1,90 @@
 @font-face {
-    font-family: Steradian;
+    font-family: 'Steradian';
     font-style: normal;
     font-weight: 100;
-    src: url(asset-path('Steradian/Steradian-Thin.otf')) format('otf');
+    src: asset-url('Steradian/Steradian-Thin.otf') format('opentype');
 }
 
 @font-face {
-    font-family: Steradian;
+    font-family: 'Steradian';
     font-style: normal;
     font-weight: 300;
-    src: url(asset-path('Steradian/Steradian-Light.otf')) format('otf');
+    src: asset-url('Steradian/Steradian-Light.otf') format('opentype');
 }
 
 @font-face {
-    font-family: Steradian;
+    font-family: 'Steradian';
     font-style: italic;
     font-weight: 400;
-    src: url(asset-path('Steradian/Steradian-Regular-Italic.otf')) format('otf');
+    src: asset-url('Steradian/Steradian-Regular-Italic.otf') format('opentype');
 }
 
 @font-face {
-    font-family: Steradian;
+    font-family: 'Steradian';
     font-style: normal;
     font-weight: 400;
-    src: url(asset-path('Steradian/Steradian-Regular.otf')) format('otf');
+    src: asset-url('Steradian/Steradian-Regular.otf') format('opentype');
 }
 
 @font-face {
-    font-family: Steradian;
+    font-family: 'Steradian';
     font-style: normal;
     font-weight: 500;
-    src: url(asset-path('Steradian/Steradian-Medium.otf')) format('otf');
+    src: asset-url('Steradian/Steradian-Medium.otf') format('opentype');
 }
 
 @font-face {
-    font-family: Steradian;
+    font-family: 'Steradian';
     font-style: normal;
     font-weight: 700;
-    src: url(asset-path('Steradian/Steradian-Bold.otf')) format('otf');
+    src: asset-url('Steradian/Steradian-Bold.otf') format('opentype');
 }
 
 @font-face {
-    font-family: Steradian;
+    font-family: 'Steradian';
     font-style: normal;
     font-weight: 900;
-    src: url(asset-path('Steradian/Steradian-Black.otf')) format('otf');
+    src: asset-url('Steradian/Steradian-Black.otf') format('opentype');
 }
 
 @font-face {
-    font-family: ProximaSans;
+    font-family: 'ProximaSans';
     font-style: normal;
     font-weight: 400;
-    src: url(asset-path('Proxima%20Sans/ProximaSansRegular.ttf')) format('ttf');
+    src: asset-url('Proxima%20Sans/ProximaSansRegular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: Hack;
+    font-family: 'Hack';
     font-style: normal;
     font-weight: 400;
-    src: url(asset-path('Hack/Hack-Regular.ttf')) format('ttf');
+    src: asset-url('Hack/Hack-Regular.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: Hack;
+    font-family: 'Hack';
     font-style: italic;
     font-weight: 400;
-    src: url(asset-path('Hack/Hack-Italic.ttf')) format('ttf');
+    src: asset-url('Hack/Hack-Italic.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: Hack;
+    font-family: 'Hack';
     font-style: normal;
     font-weight: 700;
-    src: url(asset-path('Hack/Hack-Bold.ttf')) format('ttf');
+    src: asset-url('Hack/Hack-Bold.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: Hack;
+    font-family: 'Hack';
     font-style: italic;
     font-weight: 700;
-    src: url(asset-path('Hack/Hack-BoldItalic.ttf')) format('ttf');
+    src: asset-url('Hack/Hack-BoldItalic.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: Proggy;
+    font-family: 'Proggy';
     font-style: normal;
     font-weight: 400;
-    src: url(asset-path('Proggy.ttf')) format('ttf');
+    src: asset-url('Proggy.ttf') format('truetype');
 }

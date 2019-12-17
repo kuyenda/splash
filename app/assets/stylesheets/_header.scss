@@ -12,6 +12,7 @@
     background: $header-background-color;
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .08), 0 0 1px rgba(1, 0, 0, .1);
+    font-family: Bree Serif;
 
     ul {
         padding-left: 0;
@@ -194,8 +195,10 @@
                 i {
                     position: absolute;
                     color: #fff;
-                    top: 35px;
-                    left: 51px;
+                    left: 40px;
+                    height: 40px;
+                    width: 40px;
+                    line-height: 40px;
                 }
 
             }
