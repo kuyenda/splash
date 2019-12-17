@@ -10,7 +10,7 @@
     color: $footer-link-color;
     background: $footer-background-color;
     font-size: 13px;
-    font-family: Roboto;
+    font-family: Bree Serif;
 
     a {
         color: $footer-link-color;
@@ -26,10 +26,11 @@
         .logo {
             font-size: 24px;
             font-weight: 800;
-            font-family: 'Steradian';
+            font-family: Pacifico;
             padding: 10px;
             margin: 0;
             border: 1px solid $footer-link-color;
+            box-shadow: 0 2px 0 #0006;
             border-radius: .5rem;
             display: inline-block;
             user-select: none;

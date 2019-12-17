@@ -1,6 +1,6 @@
 .enrique {
+    font-family: Steradian;
     text-align: left;
-    font-family: 'Steradian';
     position: relative;
     margin: 0 auto;
     top: 0;
@@ -25,7 +25,8 @@
         background-image: image-url('hero.jpg');
         background-size: cover;
         background-position: center;
-        filter: brightness(50%);
+        filter: brightness($home-hero-image-depth);
+        @include et-transition(1, .5s);
     }
 
     &:after {
@@ -123,9 +124,7 @@
 
         .enrique-copy {
             flex-basis: 100%;
-        }
-
-        .enrique-image {
+        }        .enrique-image {
             flex-basis: 80%;
             width: 80%;
             order: -1;
