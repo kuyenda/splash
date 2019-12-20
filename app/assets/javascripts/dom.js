@@ -7,8 +7,8 @@ $(document).on('ready turbolinks:load', function() {
 		$('#sketch-info').toggleClass('open');
 		$('#sketch-info-btn').toggleClass('opened');
 	});
-	if (!window.auto_player) {
-		window.auto_player = {
+	if (!window._pageAudio) {
+		window._pageAudio = {
 			history_player: undefined,
 			playlist: [],
 			rand: function(max) {
@@ -24,6 +24,7 @@ $(document).on('ready turbolinks:load', function() {
 				this.history_player = player
 				this.history_player.src = this.playlist[this.rand(this.playlist.length)];
 				this.history_player.loop = true;
+				this.history_player.volume = 0.2;
 				setTimeout(() => this.history_player.play(), 200);
 			},
 		}

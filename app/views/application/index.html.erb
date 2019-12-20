@@ -1,20 +1,23 @@
 <script>
-  var player = $('#player')
-  if (auto_player) {
-    auto_player.playlist = [
-    "<%= asset_path('Love.mp3') %>",
-    "<%= asset_path('Compass.mp3') %>",
-    "<%= asset_path('Forgotten.mp3') %>",
-    ]
-  }
-  if (player.length > 0) {
-    setTimeout(() => {auto_player.play(player[0])}, 500);
-  }
+  $(function() {
+    ! function(w) {
+      var player = $('#player')
+      if (w._pageAudio) {
+        w._pageAudio.playlist = [
+        "<%= asset_path('Disasterpeace-Vignette- Panacea.mp3') %>"
+        ]
+        if (player.length > 0) {
+          player.css("display", "block")
+          setTimeout(() => {w._pageAudio.play(player[0])}, 500);
+        }
+      }
+    }(window)
+  })
 </script>
 <div class="enrique">
   <div class="enrique-content">
     <div class="enrique-copy">
-      <h1 class="enrique-heading">Untitled Page</h1>
+      <h1 class="enrique-heading" style="font-family: Pacifico">Untitled Page</h1>
       <div>
         <p class="enrique-text">
           The community of designers, artists, educators and everyday coders, experimenting on algorithmic design.
