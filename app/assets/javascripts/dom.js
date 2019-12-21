@@ -29,4 +29,7 @@ $(document).on('ready turbolinks:load', function() {
 			},
 		}
 	}
+	$("button[data-editor-button='option']").click(function(event) {
+		$('.editor-panel').toggleClass('active');
+	});
 });

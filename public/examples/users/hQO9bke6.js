@@ -21,7 +21,7 @@ function branch(lenth, n) {
 	if (lenth > 10) {
 		for (let i = 0; i <= 1; i++) {
 			angles[(i + 1) * n] = angles[(i + 1) * n] || random(-PI / 3, PI / 3);
-			time += map(mouseX, 0, width, 5e-7, 1e-6);
+			time += map(abs(mouseX - width/2), width/2, 0, 5e-7, 3e-6);
 			let theta = map(noise(time), 0, 1, -PI / 6, PI / 6);
 			push();
 			rotate(theta + angles[(i + 1) * n]);

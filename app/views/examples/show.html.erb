@@ -3,6 +3,14 @@
   window._p5jsExampleDigits = '<%= @example.digit %>'
 </script>
 <div class="example-page frame-page">
+  <div class="editor-panel">
+    <ul class="nav nav-tabs">
+      <li role="presentation" class="active"><a href="#sketchSettings" aria-controls="sketchSettings" role="tab" data-toggle="tab">Sketch</a></li>
+      <li role="presentation" class=""><a id="filesLink" href="#sketchFiles" aria-controls="sketchFiles" role="tab" data-toggle="tab">Files</a></li>
+      <li role="presentation" id="editorSettingsTab"><a id="editorSettingsLink" href="#editorSettings" aria-controls="editorSettings" role="tab" data-toggle="tab">Editor</a></li>
+      <li role="presentation" id="codeReferenceTab" class=""><a href="#codeReference" aria-controls="codeReference" role="tab" data-toggle="tab"><span class="icon icon_book_white"></span></a></li>
+    </ul>
+  </div>
   <div class="sketch-info" id="sketch-info">
     <div class="sketch-para">
       <h1 class="font-weight-normal"><%= @example.title %><span>/<%= @example.digit %></span></h1>
@@ -42,7 +50,7 @@
         <button id="saveButton" class="btn ebtn transparent">
           <i class="icon -md36 -aniamted -green ion-md-save"></i>
           save</button>
-        <button id="optionsButton" class="btn ebtn transparent">
+        <button id="optionsButton" class="btn ebtn transparent" data-editor-button="option">
           <i class="icon -md36 -aniamted -green ion-md-cog"></i>
           options</button>
       </div>

@@ -9,6 +9,7 @@
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
     min-height: calc(100vh - 60px);
     background-color: #263238;
+    background: #fafafa;
 
     .examples-panel-wrap {
         z-index: 1;
@@ -22,7 +23,7 @@
             align-items: flex-start;
             border-radius: .5rem;
             padding: 20px 20px;
-            color: #fff;
+            color: #111;
         }
 
     }
@@ -47,7 +48,7 @@
             flex-direction: column;
             overflow: hidden;
             border-radius: 0 0 .25rem .25rem;
-            box-shadow: 0 5px 0px #0006;
+            box-shadow: 4px 6px 0px 0px #00000029;
             @include et-transition(0, .25s);
 
             .example-shot {
@@ -215,7 +216,6 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    width: 1200px;
     min-height: 800px;
     margin: 0 auto;
     padding-top: 95px;
@@ -264,6 +264,38 @@
         background: #555;
         min-height: 0;
         max-height: 100vh;
+        position: relative;
+
+        .editor-panel {
+            position: absolute;
+            top: 0%;
+            right: 0%;
+            width: 0;
+            height: 100%;
+            z-index: -1;
+            opacity: 0;
+            @include et-transition(2, .5s);
+
+            &.active {
+                width: 300px;
+                opacity: 1;
+                z-index: 9;
+                background: #222;
+                padding: 0;
+                font-size: 16px;
+                display: flex;
+                flex-direction: column;
+                pointer-events: all;
+                border-left: 1px solid #444;
+            }
+
+            .nav-tabs {
+                height: auto;
+                padding-left: 15px;
+                padding-right: 15px;
+            }
+
+        }
 
         .sketch-info {
             position: absolute;
@@ -466,8 +498,10 @@
         background: linear-gradient(180deg, #2f3640, #353b48);
         color: #fff;
         text-align: center;
-        border-radius: .2rem;
+        border-radius: 1rem;
         min-width: 500px;
+        width: 500px;
+        box-shadow: 0px 3px 0 #222;
 
         input[type='text'],
         input[type="password"],
@@ -477,8 +511,7 @@
             background: none;
             display: block;
             margin: 20px auto;
-            text-align: center;
-            border: 2px solid #0984e3;
+            border: 2px solid #fff;
             padding: 14px 10px;
             width: 300px;
             outline: none;
@@ -491,30 +524,35 @@
                 width: 400px;
             }
 
+            &::placeholder {
+                color: #ccc;
+            }
+
         }
 
         input[type='submit'] {
-            border: 2px solid #52FF83;
+            text-align: center;
+            border: 2px solid #fff;
             padding: 14px 18px;
             width: 200px;
 
             &:hover {
                 width: 200px;
                 color: #222;
-                background: #52FF83;
+                background: #fff;
             }
 
         }
 
         .form-tool {
             position: absolute;
-            bottom: 50px;
-            left: 50%;
+            top: 20px;
+            left: 90%;
             transform: translateX(-50%);
             width: 100px;
-            background: #00a8ff;
 
             a {
+                padding: 0 5px;
                 text-decoration: none;
                 color: #fff;
             }
