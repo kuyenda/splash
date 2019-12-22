@@ -8,3 +8,9 @@
     border-color: transparent;
     box-shadow: none;
 }
+
+*,
+*:active,
+*:hover {
+    outline: none !important;
+}

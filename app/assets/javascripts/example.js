@@ -1,13 +1,6 @@
 var examples = {
 	init: function(file) {
-
-		// Editor
-		// ace.config.set('basePath', '/assets/brace');
-		// ace.config.set('modePath', '/assets/brace/');
-		// ace.config.set('themePath', '/assets/brace/');
 		examples.editor = ace.edit('exampleEditor');
-		// examples.editor.getSession().setUseWorker(false);
-
 		examples.editor.setOptions({
 			mode: "ace/mode/javascript",
 			// maxLines: 30,
@@ -19,15 +12,19 @@ var examples = {
 		examples.editor.getSession().setMode('ace/mode/javascript');
 		examples.editor.getSession().setTabSize(2);
 
-		// Button
+		$('#textSizeSlider').change(function() {
+			examples.editor.setOptions({
+				fontSize: $(this).val() + 'px'
+			})
+		});
 
+		// Button
 		$('#runButton').click(function() {
 			examples.runExample();
 
 		});
 		$('#runButton-m').click(function() {
 			examples.runExample();
-
 		});
 		$('#resetButton').click(function() {
 			examples.resetExample();

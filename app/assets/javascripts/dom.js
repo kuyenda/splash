@@ -7,6 +7,9 @@ $(document).on('ready turbolinks:load', function() {
 		$('#sketch-info').toggleClass('open');
 		$('#sketch-info-btn').toggleClass('opened');
 	});
+	$("button[data-editor-button='option']").click(function(event) {
+		$('#sketchConfigPanel').toggleClass('active');
+	});
 	if (!window._pageAudio) {
 		window._pageAudio = {
 			history_player: undefined,
@@ -29,7 +32,4 @@ $(document).on('ready turbolinks:load', function() {
 			},
 		}
 	}
-	$("button[data-editor-button='option']").click(function(event) {
-		$('.editor-panel').toggleClass('active');
-	});
 });
