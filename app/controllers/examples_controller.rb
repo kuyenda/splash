@@ -25,7 +25,6 @@ class ExamplesController < ApplicationController
     @example.digit = Example.sample_digit
     if @example.save
       create_code_file(@example.digit)
-      flash[:success] = "Welcome to the Untitled Page!"
       redirect_to @example
     else
       render 'new'
@@ -40,7 +39,6 @@ class ExamplesController < ApplicationController
     @example = Example.friendly.find(params[:id])
     if @example.update_attributes(example_params)
       # 处理更新成功的情况
-      flash[:success] = "updated"
       redirect_to @example
     else
       render 'edit'
