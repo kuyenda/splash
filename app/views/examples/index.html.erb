@@ -1,14 +1,14 @@
 <div class="examples-container">
   <div class="examples-panel-wrap">
     <div class="examples-panel">
-      <div style="border-bottom: 3px dashed #455a64">
+      <div style="border-bottom: 3px dashed #b0bec5">
         <h5>P5.js程式库列表</h5>
         <p>点击<strong>新建</strong>，创建一个新的数据</p>
         <a href="/examples/new" class="text-decoration-none">
           <i class="icon -md48 -aniamted -green ion-md-add-circle-outline"></i>
         </a>
         <a href="/examples/help" class="text-decoration-none">
-          <i class="icon -md48 -aniamted -dark ion-md-help-circle-outline"></i>
+          <i class="icon -md48 -aniamted ion-md-help-circle-outline"></i>
         </a>
       </div>
     </div>
@@ -18,7 +18,7 @@
       <% color = rand_hex_color %>
       <% color2 = reverse_hex_color(color) %>
       <div class="example-item">
-        <div class="example-shot" style="background-color:#1058c0">
+        <div class="example-shot" style="background-color:#222">
           <%= link_to "", e, class:'example-link' %>
           <h6 class="example-date" style="color: #fff"><%= e.created_at.ctime %>
           </h6>
@@ -33,5 +33,14 @@
         </div>
       </div>
     <% end %>
+  </div>
+</div>
+<div class="row py-2" style="background: #222">
+  <div class="col px-5">
+    <p class="text-white"><span><i class="icon ion-md-warning"></i></span><br>
+      你好，我是项目的开发者。<br>
+      如果您看不到任何示例，
+      这是由heroku的清理机制引起的，<br>
+      我需要一些时间修复这个问题，非常抱歉</p>
   </div>
 </div>

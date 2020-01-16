@@ -9,10 +9,11 @@
     background: #fafafa;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
     min-height: calc(100vh - 60px);
-    background-color: #fff;
+    background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
 
     .examples-panel-wrap {
         z-index: 1;
+        max-width: 300px;
         flex-basis: 40%;
         width: 40%;
         padding: 2rem;
@@ -23,7 +24,9 @@
             align-items: flex-start;
             border-radius: .5rem;
             padding: 20px 20px;
-            color: #111;
+            color: #fff;
+            background: #1b5e20;
+            box-shadow: 4px 3px 0px 0px #00000029;
         }
 
     }
@@ -34,7 +37,11 @@
         justify-content: center;
         align-items: center;
         padding: 2rem;
+        max-width: 1200px;
         border-radius: .5rem;
+        background: #1b5e20;
+        background-image: asset-url('texture.svg');
+        box-shadow: 4px 3px 0px 0px #00000029;
 
         .example-item {
             margin: 0 15px 30px 15px;

@@ -12,7 +12,8 @@
     background: $header-background-color;
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(0, 0, 0, .08), 0 0 1px rgba(1, 0, 0, .1);
-    font-family: Bree Serif;
+    font-family: Steradian;
+    z-index: 999;
 
     ul {
         padding-left: 0;
@@ -38,37 +39,46 @@
         height: 100%;
         margin-left: 3%;
         background: transparent;
-        font-family: Pacifico;
+        font-family: Steradian;
 
-        .logo {
-            padding: 0 10px;
-            font-size: 20px;
-            font-weight: 400;
-            color: #37474f;
-            color: #fff;
+        a {
+            padding: 0;
+            font-weight: 700;
+            font-size: 22px;
+            color: #34495e;
             line-height: 40px;
             text-decoration: none;
             @include et-transition(2, .5s);
+        }
 
-            span {
-                color: #546e7a;
-                color: #fff;
-                font-size: 20px;
-                font-weight: 300;
-            }
-
+        .version {
+            margin-left: 10px;
+            font-size: 10px;
+            font-weight: 600;
+            color: #868b95;
+            background-color: #ecf0f6;
+            border-radius: 4px;
+            padding: 1px 5px;
+            position: relative;
+            top: -2px;
         }
 
         @include media-breakpoint-down(lg) {
             padding: 0;
+
+            a {
+                color: #fff;
+            }
+
         }
 
     }
 
-    .navbar-md {
+    .navbar-main {
         width: auto;
         height: 100%;
         padding: 0 10px;
+        margin-left: 25%;
 
         .nav-items {
             display: flex;
@@ -76,23 +86,26 @@
 
             .nav-item {
                 height: 100%;
-                margin: 0 .3rem;
+                margin: 15px .3rem;
                 width: auto;
 
                 .nav-link {
                     position: relative;
-                    color: #767676;
-                    color: #999;
-                    height: 100%;
+                    color: #222;
+                    height: 30px;
                     padding: 0 15px;
-                    line-height: 60px;
+                    margin-left: 40px;
+                    line-height: 30px;
                     text-align: center;
                     text-transform: capitalize;
-                    font-size: 19px;
+                    font-size: 13px;
+                    font-weight: 600;
+                    background: #eee5;
                     @include et-transition(1, .5s);
 
                     &:hover {
-                        color: #ddd;
+                        color: #111;
+                        background: #eee;
                     }
 
                     &.dropdown-link:hover {
@@ -143,40 +156,30 @@
 
     }
 
-    .navbar-mobile-menu {
+    .navbar-mobile {
         top: 40px;
         height: 1px;
-        position: fixed;
-        display: flex;
-        overflow: hidden;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: flex-start;
         opacity: 0;
+        position: fixed;
+        overflow: hidden;
         visibility: hidden;
-        background-attachment: all;
-        background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
-        background: transparent;
         @include et-transition(2, .5s);
 
         @include media-breakpoint-down(lg) {
-            left: 0;
-            right: 0;
-            width: 100%;
             height: auto;
             opacity: 0;
 
             &.open {
-                visibility: visible;
                 width: 100%;
                 opacity: 1;
+                visibility: visible;
             }
 
             .mobile-search-form {
-                position: relative;
                 width: 100%;
                 padding: 15px 30px;
-                background: #222;
+                position: relative;
+                background: $header-background-color-mobile;
                 border-radius: 0;
 
                 .mobile-search-input {
@@ -196,7 +199,7 @@
                 i {
                     position: absolute;
                     color: #fff;
-                    left: 40px;
+                    left: 30px;
                     height: 40px;
                     width: 40px;
                     line-height: 40px;
@@ -204,32 +207,28 @@
 
             }
 
-            .mobile-list {
+            .navbar-mobile-main {
                 width: 100%;
-                display: flex;
-                flex-direction: row;
-                justify-content: center;
-                align-items: flex-start;
-                flex-wrap: wrap;
-                text-align: center;
                 text-transform: capitalize;
                 font-weight: 700;
                 font-size: 1em;
-                background: #222;
+                background: $header-background-color-mobile;
 
-                .mobile-item {
-                    padding: 2rem 1rem;
-                    width: 50%;
-                    font-size: 22px;
-                    margin: 0;
+                a {
+                    display: block;
+                    font-size: 18px;
+                    font-weight: 500;
+                    padding: 12px 15px;
+                    color: #fff;
                 }
 
-                .mobile-item:hover {
-                    text-decoration: underline;
-                }
+                .toggle-mobile-nav-dropdown {}
 
-                .mobile-link {
-                    color: $header-mobile-link-color;
+                .mobile-dropdown-nav {
+                    border-left: 1px solid rgba(255, 255, 255, 0.1);
+                    margin: 15px 0 15px 20px;
+                    padding-left: 5px;
+                    display: none;
                 }
 
             }

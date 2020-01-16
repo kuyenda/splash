@@ -3,29 +3,30 @@ html {
 }
 
 body {
-    color: $et-tc;
+    color: #363636;
     font-family: inherit;
 }
 
 ::selection {
-    background: $et-tsc;
+    background: #ff1744;
     color: #fff;
 }
 
 a {
-    color: $et-lkc;
+    color: #ff1744;
 
     &:hover {
-        color: $et-lkc-h;
+        color: #dc143c;
     }
 
-    &:visited {
-        color: $et-lkc-v;
+    &:visited,
+    &:link {
+        color: #dc143c;
         text-decoration: none;
     }
 
     &:active {
-        color: $et-lkc-a;
+        color: #ff1744;
     }
 
 }
@@ -34,9 +35,7 @@ dl,
 ol,
 ul {}
 
-li {
-    margin-top: .5em;
-}
+li {}
 
 h1,
 h2,

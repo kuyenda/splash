@@ -1,8 +1,9 @@
 <header class="navbar">
   <div class="navbar-logo">
-    <a class="logo" href="/">Untitled<span>page</span></a>
+    <a href="/">Splash</a>
+    <span class="version">0.01-b</span>
   </div>
-  <div class="navbar-md">
+  <div class="navbar-main">
     <ul class="nav-items">
       <li class="nav-item">
         <%= link_to 'Home', root_path, class: "nav-link" %>
@@ -47,32 +48,40 @@
       </li>
     </ul>
   </div>
-  <div class="navbar-mobile-menu" id="mobile-menu">
+  <div class="navbar-mobile" id="mobile-menu">
     <form class="mobile-search-form" action="">
       <i class="icon -md24 ion-md-search"></i>
       <input class="mobile-search-input" type="search" name="q" placeholder="Search " value="">
     </form>
-    <ul class="mobile-list">
-      <li class="mobile-item">
-        <%= link_to 'Home', root_path, class: "mobile-link" %>
-      </li>
-      <li class="mobile-item">
-        <%= link_to 'Sketch', examples_path, class: "mobile-link" %>
+    <ul class="navbar-mobile-main">
+      <li>
+        <a href="#" class="toggle-mobile-nav-dropdown" data-sub-nav="explore">
+          Explore
+        </a>
+        <ul class="mobile-dropdown-nav">
+          <li>
+            <%= link_to 'Sketch', examples_path, class: "mobile-link" %>
+          </li>
+        </ul>
       </li>
       <% if logged_in? %>
-        <li class="mobile-item">
-          <%= link_to "Profile", current_user, class: "mobile-link" %>
-        </li>
-        <li class="mobile-item">
-          <%= link_to "Log out", logout_path, class: "mobile-link", method: :delete %>
-        </li>
+        <ul>
+          <li>
+            <%= link_to "Profile", current_user, class: "mobile-link" %>
+          </li>
+          <li>
+            <%= link_to "Log out", logout_path, class: "mobile-link", method: :delete %>
+          </li>
+        </ul>
       <% else %>
-        <li class="mobile-item">
-          <%= link_to 'Login', login_path, class: "mobile-link" %>
-        </li>
-        <li class="mobile-item">
-          <%= link_to "Sign up", signup_path, class: "mobile-link" %>
-        </li>
+        <ul>
+          <li>
+            <%= link_to 'Login', login_path, class: "mobile-link" %>
+          </li>
+          <li>
+            <%= link_to "Sign up", signup_path, class: "mobile-link" %>
+          </li>
+        </ul>
       <% end %>
     </ul>
   </div>
