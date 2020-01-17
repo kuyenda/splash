@@ -1,0 +1,105 @@
+// fw (font)
+
+.normal {
+    font-weight: normal
+}
+
+.b {
+    font-weight: bold
+}
+
+$font-weights:100,
+200,
+300,
+400,
+500,
+600,
+700,
+800,
+900;
+
+@each $font-weight in $font-weights {
+    .fw#{$font-weight / 100} {
+        font-weight: $font-weight;
+    }
+}
+
+.ff {
+    font-family: Steradian;
+}
+
+.ffs {
+    font-family: Proggry;
+}
+
+$font-sizes: ();
+$font-sizes: map-merge(("0": 0,
+"1": .64,
+"2": .8,
+"3": 1,
+"4": 1.25,
+"5": 1.5625,
+"6": 1.95312,
+"7": 2.441411,
+"8": 3.05176,
+"9": 3.8147,
+"10": 4.76837,
+"11": 5.96046,
+"12": 7.45058),
+$font-sizes);
+
+@each $index,
+$font-size in $font-sizes {
+    .f#{$index} {
+        font-size: #{$font-size}rem;
+    }
+}
+
+
+// z- (z-index)
+
+$z-indexes: 0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+999,
+inherit,
+initial,
+unset;
+
+@each $z-index in $z-indexes {
+    .z-#{$z-index} {
+        z-index: $z-index;
+    }
+}
+
+// br, bw, b-- (border)
+@each $index,
+$var in ("0":0, "1":.125, "2":.25, "3":.5, "4":1, "5":2) {
+    .br#{$index} {
+        border-radius: #{$var}rem;
+    }
+
+    .bw#{$index} {
+        border-width: #{$var}rem;
+    }
+}
+
+@each $dir,
+$var in ("t":top, "r":right, "b":bottom, "l":left) {
+    .b#{$dir}-0 {
+        border-#{$var}-width: 0
+    }
+}
+
+@each $style in (dotted, dashed, solid, double, none) {
+    .b--#{$style} {
+        border-style: #{$style};
+    }
+}

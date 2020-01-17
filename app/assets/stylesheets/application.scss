@@ -1,10 +1,8 @@
-@import url('https://fonts.font.im/css?family=Bree+Serif');
 @import url('https://fonts.font.im/css?family=Pacifico');
+@import "customize-bootstrap";
 @import "bootstrap";
 @import "normalize.css/normalize";
 @import "prismjs/themes/prism-okaidia";
-// resets
-@import "customize-bootstrap";
 // components
 @import "variables";
 @import "mixins";
@@ -20,5 +18,6 @@
 @import "hero";
 @import "blog";
 @import "form";
+@import "splash";
 // controller
 @import "examples"

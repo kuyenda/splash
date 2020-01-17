@@ -1,13 +1,14 @@
+<audio id="player"></audio>
 <script>
   $(function() {
     ! function(w) {
       var player = $('#player')
-      if (w._pageAudio) {
-        w._pageAudio.playlist = [
+      if (w._splash_radio) {
+        w._splash_radio.playlist = [
         ]
         if (player.length > 0) {
           player.css("display", "block")
-          setTimeout(() => {w._pageAudio.play(player[0])}, 500);
+          setTimeout(() => {w._splash_radio.play(player[0])}, 500);
         }
       }
     }(window)
@@ -36,7 +37,7 @@
     </p>
   </div>
   <div class="enrique-press">
-    <h1>Press to continue</h1>
+    <h1>Tap to continue</h1>
   </div>
 </div>
 <section class="pt-3 px-5 text-center bg-white">
@@ -46,20 +47,20 @@
   </div>
 </section>
 <div class="wrapper py-md-5" style="background: #fafafa;font-size: 16px;font-family: Steradian">
-  <div class="container md-page">
+  <div class="container md-page" style="background-image: url(<%= asset_path('wheat.png') %>);font-family: Proggy, Steradian">
     <ol class="breadcrumb">
       <li>
         Dev Log & News
       </li>
     </ol>
-    <h1 class="display-4 font-weight-bold" style="color: #222;font-family: Proggy"><%= Time.now.strftime("Patch %L%j") %></h1>
-    <ul>
+    <h1 class="display-4 font-weight-bold text-white"><%= Time.now.strftime("Patch 0.01-b %L%j") %></h1>
+    <ul class="text-white">
       <li>
         updating CSS.
       </li>
     </ul>
   </div>
-  <div class="container md-page" style="color: #fff;background:#311b92;clip-path: circle(82.0% at 44% 37%);">
+  <div class="container md-page" style="color: #fff;background:#2d3436">
     <h2>Splash's Working</h2>
     <p>我们在这个行星上已经生活了数十年，虽然不一定对这个世界的自然规律有深入的理解，但肯定已经习以为常。例如在足球比赛中，我们能欣赏到美妙的曲线任意球。如果足球在空中突然直角转向，我们一定会觉得很“不自然”。又例如，我们有时候能看到上千只鸟集体飞翔，它们并不是乱飞一通，而是按照某种规律组成不断变形的群体。如果它们互相碰撞而掉下来，我们很可能会怀疑它们是否生病，做出这些“不自然”的行为。
       充满好奇心的人们，可以通过学习物理学、化学、生物学等学科去了解各种自然现象。但对于一些程序员、艺术家，他们除了希望对这些原理有所了解，还希望能在作品中模仿这些自然现象。

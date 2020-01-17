@@ -8,41 +8,70 @@
           <i class="icon -md48 -aniamted -green ion-md-add-circle-outline"></i>
         </a>
         <a href="/examples/help" class="text-decoration-none">
-          <i class="icon -md48 -aniamted ion-md-help-circle-outline"></i>
+          <i class="icon -md48 -aniamted -dark ion-md-help-circle-outline"></i>
         </a>
       </div>
     </div>
+    <ul>
+      <li>
+        <a href="#">
+          <%= FFaker::LoremJA.word.html_safe %>
+        </a>
+      </li>
+      <li>
+        <a href="#">
+          <%= FFaker::LoremJA.word.html_safe %>
+        </a>
+      </li>
+    </ul>
+    <ul>
+      <li>
+        <%= FFaker::LoremJA.paragraph.html_safe %>
+      </li>
+      <li>
+        <%= FFaker::LoremJA.paragraph.html_safe %>
+      </li>
+      <li>
+        <%= FFaker::LoremJA.paragraph.html_safe %>
+      </li>
+    </ul>
   </aside>
   <main class="examples">
-    <% @example.each do |e| %>
-      <% color = rand_hex_color %>
-      <% color2 = reverse_hex_color(color) %>
-      <div class="example-item">
-        <div class="example-shot" style="background-color:#222">
-          <%= link_to "", e, class:'example-link' %>
-          <h6 class="example-date" style="color: #fff"><%= e.created_at.ctime %>
-          </h6>
-          <div class="example-options">
-            <span><i class="icon ion-md-eye"><%= e.hit %></i></span>
-            <span><i class="icon ion-md-heart"><%= e.like %></i></span>
+    <section class="example-header">
+      <span class="mb-3 d-block" style="font-size: 28px">All <%= Example.all.count %> Sketches</span>
+      <div>
+        <%= column_chart Example.group_by_day(:created_at).count, colors: ["#33691e"], xtitle: "Time", ytitle: "Portfolio", responsive: true, width: "90%" %>
+      </div>
+    </section>
+    <section class="example-results">
+      <% @example.each.with_index do |e, i| %>
+        <div class="example-item">
+          <div class="example-shot" style="background-color:#4c4c4c">
+            <img src="https://loremflickr.com/240/120?random=<%= i %>" style="filter: brightness(80%);" />
+            <%= link_to "", e, class:'example-link' %>
+            <h6 class="example-date" style="color: #fff">
+              <%= FFaker::LoremJA.word %>
+            </h6>
+          </div>
+          <div class="example-name">
+            <h6 class="example-title"><%= e.title %></h6>
+            <h6 class="example-id"><%= e.digit %></h6>
+            <div class="example-options">
+              <span><i class="icon ion-md-eye"></i><%= e.hit %></span>
+              <span><i class="icon ion-md-heart"></i><%= e.like %></span>
+            </div>
           </div>
         </div>
-        <div class="example-name">
-          <h6 class="example-title"><%= e.title %></h6>
-          <h6 class="example-id"><%= e.digit %></h6>
-        </div>
-      </div>
-    <% end %>
+      <% end %>
+    </section>
   </main>
 </div>
 <div class="container-fluid">
   <div class="row py-2" style="background: #222">
     <div class="col px-5">
-      <p class="text-white"><span><i class="icon ion-md-warning"></i></span><br>
-        你好，我是项目的开发者。<br>
-        如果您看不到任何示例，
-        这是由heroku的清理机制引起的，<br>
-        我需要一些时间修复这个问题，非常抱歉</p>
+      <p class="text-white m-0"><span>
+          正在修复某些问题，非常抱歉</p>
+      </div>
     </div>
   </div>
 </div>

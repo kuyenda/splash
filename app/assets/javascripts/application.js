@@ -10,3 +10,5 @@
 //= require ace/mode-javascript
 //= require ace/ext-language_tools
 //= require ace/snippets/javascript
+//= require chartkick
+//= require Chart.bundle

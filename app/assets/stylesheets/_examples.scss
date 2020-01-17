@@ -5,43 +5,82 @@
     justify-content: center;
     align-items: flex-start;
     margin: 0px 0px 0px 0px;
-    padding: 95px 30px 40px 30px;
     background: #fafafa;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
     min-height: calc(100vh - 60px);
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+    border-top: .125rem solid #f1f3f5;
 
     .examples-panel-wrap {
+        padding-top: 3rem;
         z-index: 1;
-        max-width: 300px;
-        flex-basis: 40%;
-        width: 40%;
-        padding: 2rem;
+        border-right: .125rem solid #f1f3f5;
+        background-color: #f8f9fa;
+        flex-basis: 400px;
 
         .examples-panel {
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            border-radius: .5rem;
             padding: 20px 20px;
-            color: #fff;
-            background: #1b5e20;
-            box-shadow: 4px 3px 0px 0px #00000029;
+            color: #4C4C4C;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            padding-left: 2rem;
+            padding-right: 2rem;
+            padding-top: .5rem;
+            padding-bottom: .5rem;
+            color: #495057;
+            font-weight: 600;
+            transition: all .1s ease-in;
+
+            a {
+                width: 100%;
+                color: inherit;
+                transition: all .1s ease-in;
+            }
+
+            &:hover {
+                color: #607d8b;
+                background: #fff;
+
+                a {
+                    color: #33691e;
+                }
+
+            }
+
         }
 
     }
 
     .examples {
+        padding: 2rem;
+        background-color: #f8f9fa;
+        z-index: 1;
+
+        .example-header {
+            max-width: 100%;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: .25rem solid #e9ecef;
+        }
+
+    }
+
+    .example-results {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
         align-items: center;
-        padding: 2rem;
-        max-width: 1200px;
-        border-radius: .5rem;
-        background: #1b5e20;
-        background-image: asset-url('texture.svg');
-        box-shadow: 4px 3px 0px 0px #00000029;
+        margin-top: .5rem;
+        // box-shadow: 4px 3px 0px 0px #00000029;
 
         .example-item {
             margin: 0 15px 30px 15px;
@@ -89,45 +128,13 @@
                     top: 0;
                     right: 5px;
                     margin-bottom: .25rem;
-                    font-size: 30px;
+                    font-size: 25px;
                     font-weight: 900;
                     color: #fff;
                     padding: 10px;
                     user-select: none;
                     z-index: 0;
                     @include et-transition(0, .25s);
-                }
-
-                .example-options {
-                    position: absolute;
-                    left: 0;
-                    bottom: 0;
-                    background: #fff;
-                    width: 100%;
-                    height: 0%;
-                    display: flex;
-                    justify-content: flex-end;
-                    padding: 0;
-                    z-index: 2;
-                    @include et-transition(0, .25s);
-
-                    span {
-                        line-height: 20px;
-                    }
-
-                    i {
-                        padding-left: 15px;
-                        color: #555;
-                    }
-
-                }
-
-                &:hover {
-                    .example-options {
-                        padding: 10px 10px 0 10px;
-                        height: 40px;
-                    }
-
                 }
 
             }
@@ -152,6 +159,29 @@
                     font-size: 15px;
                     font-weight: 800;
                     @include et-transition(0, .25s);
+                }
+
+                .example-options {
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    margin: 10px 0;
+                    z-index: 2;
+                    @include et-transition(0, .25s);
+
+                    span {
+                        display: block;
+                        height: 15px;
+                        line-height: 15px;
+                        margin-right: 5px;
+                    }
+
+                    i {
+                        margin-right: 5px;
+                        padding-left: 15px;
+                        color: #555;
+                    }
+
                 }
 
             }

@@ -33,13 +33,24 @@ gem 'bcrypt', '3.1.13'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+#==============================================================================
+# INSTALLED GEMS
+#==============================================================================
 # Stylesheets
 # gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
 gem 'friendly_id', '~> 5.2.4'
+# Creating fake data
+gem 'ffaker'
+# The simplest way to group by
+gem 'groupdate'
+
 # Code editor
 gem 'ace-rails-ap'
+# Charts
+gem "chartkick"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
