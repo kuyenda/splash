@@ -45,7 +45,7 @@
 
     &:hover {
         &:before {
-            background-position: 50% 80%;
+            background-position: 50% 30%;
             // background-image: linear-gradient(0deg, #c0392b);
             filter: brightness(80%) saturate(100%) contrast(100%);
         }
@@ -223,6 +223,19 @@
 
         .enrique-menu {
             display: none;
+        }
+
+        .enrique-press {
+            width: auto;
+            height: 30px;
+            padding: 2px 5px;
+            border-radius: 0;
+            border-top-right-radius: .5rem;
+
+            h1 {
+                font-size: 20px;
+            }
+
         }
 
     }

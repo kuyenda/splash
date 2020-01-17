@@ -108,6 +108,10 @@
                         background: #eee;
                     }
 
+                    &.dropdown-link {
+                        margin-left: 0;
+                    }
+
                     &.dropdown-link:hover {
                         color: #222;
                     }
@@ -166,6 +170,7 @@
         @include et-transition(2, .5s);
 
         @include media-breakpoint-down(lg) {
+            width: 100%;
             height: auto;
             opacity: 0;
 
