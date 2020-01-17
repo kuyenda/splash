@@ -1,5 +1,5 @@
 <div class="examples-container">
-  <div class="examples-panel-wrap">
+  <aside class="examples-panel-wrap">
     <div class="examples-panel">
       <div style="border-bottom: 3px dashed #b0bec5">
         <h5>P5.js程式库列表</h5>
@@ -12,8 +12,8 @@
         </a>
       </div>
     </div>
-  </div>
-  <div class="examples">
+  </aside>
+  <main class="examples">
     <% @example.each do |e| %>
       <% color = rand_hex_color %>
       <% color2 = reverse_hex_color(color) %>
@@ -33,7 +33,7 @@
         </div>
       </div>
     <% end %>
-  </div>
+  </main>
 </div>
 <div class="container-fluid">
   <div class="row py-2" style="background: #222">
