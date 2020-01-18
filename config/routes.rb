@@ -2,12 +2,12 @@ Rails.application.routes.draw do
   root 'application#home'
   get 'style', to: 'application#style'
 
-  get 'examples', to: 'examples#index'
-  get 'examples/sandbox', to: 'examples#sandbox'
-  get 'examples/data', to: 'examples#data'
-  get 'examples/help', to: 'examples#help'
-  post 'examples/save', to: 'examples#save_code'
-  resources :examples
+  get 'sketches', to: 'sketches#index'
+  get 'sketches/sandbox', to: 'sketches#sandbox'
+  get 'sketches/data', to: 'sketches#json'
+  get 'sketches/help', to: 'sketches#help'
+  post 'sketches/save', to: 'sketches#save_code'
+  resources :sketches
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'

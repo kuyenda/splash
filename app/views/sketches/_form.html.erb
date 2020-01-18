@@ -1,0 +1,13 @@
+<%= form_for(@sketch) do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  <%= render 'form_errors' %>
+  <% if @sketch.new_record? %>
+    <%= f.submit "Create" %>
+  <% else %>
+    <div class="form-tool">
+      <%= link_to "", @sketch, class: "icon36 i--white i--hv ion-md-trash", method: :delete, data: { confirm: "You sure?" } %>
+    </div>
+    <%= f.submit "Save Changes" %>
+  <% end %>
+<% end %>

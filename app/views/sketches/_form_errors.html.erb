@@ -1,9 +1,9 @@
-<% if @example.errors.any? %>
+<% if @sketch.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-sketch">
-      Oops, <%= pluralize(@example.errors.count, "error") %>.
+      Oops, <%= pluralize(@sketch.errors.count, "error") %>.
       <ul>
-        <% @example.errors.full_messages.each do |msg| %>
+        <% @sketch.errors.full_messages.each do |msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

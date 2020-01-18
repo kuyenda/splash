@@ -1,9 +1,9 @@
-class Example < ApplicationRecord
+class Sketch < ApplicationRecord
   extend FriendlyId
   friendly_id :digit, use: :slugged
   validates :title, presence: true
-  validates :hit, presence: true, numericality: { only_integer: true }
-  validates :like, presence: true, numericality: { only_integer: true }
+  # validates :view, presence: true, numericality: { only_integer: true }
+  # validates :clap, presence: true, numericality: { only_integer: true }
   validates :digit, presence: true, uniqueness: true, length:{ is: 8 }
 
   def self.sample_digit

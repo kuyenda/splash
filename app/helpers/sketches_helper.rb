@@ -1,8 +1,8 @@
-module ExamplesHelper
-  def rand_hex_color
-    "#" << SecureRandom.hex(3)#"1744" 1632
+module SketchesHelper
+  def hex(len)
+    "#" << SecureRandom.hex(len)#"1744" 1632
   end
-  def reverse_hex_color(color)
+  def part_hex(color)
     rgb = color[1..-1].hex
     r = rgb >> 16
     g = (rgb & 65280) >> 8

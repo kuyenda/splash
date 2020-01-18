@@ -10,19 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_12_15_093101) do
-
-  create_table "examples", force: :cascade do |t|
-    t.string "title"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "hit"
-    t.integer "like"
-    t.string "description"
-    t.string "digit"
-    t.string "slug"
-    t.index ["slug"], name: "index_examples_on_slug", unique: true
-  end
+ActiveRecord::Schema.define(version: 2020_01_18_080655) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -33,6 +21,19 @@ ActiveRecord::Schema.define(version: 2019_12_15_093101) do
     t.index ["slug", "sluggable_type", "scope"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type_and_scope", unique: true
     t.index ["slug", "sluggable_type"], name: "index_friendly_id_slugs_on_slug_and_sluggable_type"
     t.index ["sluggable_type", "sluggable_id"], name: "index_friendly_id_slugs_on_sluggable_type_and_sluggable_id"
+  end
+
+  create_table "sketches", force: :cascade do |t|
+    t.string "title"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "view"
+    t.integer "clap"
+    t.string "description"
+    t.string "digit"
+    t.string "slug"
+    t.string "type"
+    t.index ["slug"], name: "index_sketches_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|

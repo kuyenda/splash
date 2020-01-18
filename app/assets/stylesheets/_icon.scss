@@ -21,7 +21,7 @@ $iconColors: map-merge(("black":#000,
 @each $index,
 $color in $iconColors {
     .i--#{$index} {
-        color: $color;
+        color: $color !important;
     }
 }
 

@@ -133,7 +133,7 @@ var examples = {
 	saveExample: function() {
 		var code = examples.editor.getSession().getValue();
 		$.ajax({
-			url: "/examples/save",
+			url: "/sketches/save",
 			type: "POST",
 			data: {
 				digit: window._p5jsExampleDigits,

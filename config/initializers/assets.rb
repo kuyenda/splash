@@ -11,4 +11,4 @@ Rails.application.config.assets.paths << Rails.root.join("vendor", "assets", "co
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w( example_window.js p5 example.js )
+Rails.application.config.assets.precompile += %w( p5 sketch_window.js sketch_template.js sketch.js )

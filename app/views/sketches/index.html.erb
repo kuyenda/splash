@@ -1,13 +1,23 @@
+<div id="popForm" class="row center-modal">
+  <div class="col br2 bw1 b--solid shadow-3" style="width: 450px;">
+    <h1 class="text-center mt-3">新数据
+      <a href="#" data-switch="#popForm" data-by="open">
+        <i class="icon36 i--hv ion-md-close ml-2"></i>
+      </a>
+    </h1>
+    <%= render 'form' %>
+  </div>
+</div>
 <div class="examples-container">
   <aside class="examples-panel-wrap">
     <div class="examples-panel">
       <div style="border-bottom: 3px dashed #b0bec5">
         <h5>P5.js程式库列表</h5>
         <p>点击<strong>新建</strong>，创建一个新的数据</p>
-        <a href="/examples/new" data-switch="#popForm" data-by="open">
+        <a href="/sketches/new" data-switch="#popForm" data-by="open">
           <i class="icon48 i--hv i--green ion-md-add-circle-outline"></i>
         </a>
-        <a href="/examples/help" id="#getHelp" data-get="/examples/help" data-to="#helpModal" data-toggle="modal" data-target="#helpModal">
+        <a href="/sketches/help" id="#getHelp" data-get="/sketches/help" data-to="#helpModal" data-toggle="modal" data-target="#helpModal">
           <i class="icon48 i--hv i--black ion-md-help-circle-outline"></i>
         </a>
       </div>
@@ -38,16 +48,16 @@
   </aside>
   <main class="examples">
     <section class="example-header">
-      <span class="mb-3 d-block fw5 f6">All <%= Example.all.count %> Sketches</span>
+      <span class="mb-3 d-block fw5 f6">All <%= Sketch.all.count %> Sketches</span>
       <div>
-        <%= column_chart Example.group_by_day(:created_at).count, colors: ["#33691e"], xtitle: "Time", ytitle: "Portfolio", responsive: true, width: "90%" %>
+        <%= column_chart Sketch.group_by_day(:created_at).count, colors: ["\##{FFaker::Color.hex_code}", "#33691e"], xtitle: "Time", ytitle: "Portfolio", responsive: true, width: "90%" %>
       </div>
     </section>
     <section class="example-results">
-      <% @examples.each.with_index do |e, i| %>
+      <% @all.each.with_index do |e, i| %>
         <div class="example-item">
           <div class="example-shot" style="background-color:#4c4c4c">
-            <img src="https://loremflickr.com/240/120?random=<%= i %>" style="filter: brightness(80%);" />
+            <img src="https://loremflickr.com/300/120?random=<%= i %>" style="filter: brightness(80%);" />
             <%= link_to "", e, class:'example-link' %>
             <h6 class="example-date" style="color: #fff">
               <%= FFaker::LoremJA.word %>
@@ -57,8 +67,8 @@
             <h6 class="example-title"><%= e.title %></h6>
             <h6 class="example-id"><%= e.digit %></h6>
             <div class="example-options">
-              <span><i class="icon ion-md-eye"></i><%= e.hit %></span>
-              <span><i class="icon ion-md-heart"></i><%= e.like %></span>
+              <span><i class="icon ion-md-eye"></i><%= e.view %></span>
+              <span><i class="icon ion-md-heart"></i><%= e.clap %></span>
             </div>
           </div>
         </div>
@@ -78,23 +88,6 @@
       </p>
       <div class="spinner-border spinner-border-sm text-primary" role="status">
         <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-    <div id="popForm" class="row center-modal">
-      <div class="col br2 bw1 b--solid shadow-3" style="width: 450px;">
-        <%= form_for(@example) do |f| %>
-          <h1 class="text-center">新数据
-            <a href="#" data-switch="#popForm" data-by="open">
-              <i class="icon36 i--hv ion-md-close ml-2"></i>
-            </a>
-          </h1>
-          <%= f.text_field :title, placeholder: "Title" %>
-          <%= f.text_field :description, placeholder: "Description" %>
-          <%= f.hidden_field :hit, value: 0 %>
-          <%= f.hidden_field :like, value: 0 %>
-          <%= render 'shared/example_error_messages' %>
-          <%= f.submit "Create" %>
-        <% end %>
       </div>
     </div>
   </div>

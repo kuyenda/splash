@@ -1,7 +1,17 @@
 <script>
-  window._p5jsExample = '<%= "/examples/users/#{@example.digit}.js"  %>'
-  window._p5jsExampleDigits = '<%= @example.digit %>'
+  window._p5jsExample = '<%= "/sketches/users/#{@sketch.digit}.js"  %>'
+  window._p5jsExampleDigits = '<%= @sketch.digit %>'
 </script>
+<div id="popForm" class="center-modal">
+  <div class="br2 bw1 b--solid shadow-3" style="width: 450px;">
+    <h1 class="text-center mt-3">保存
+      <a href="#" data-switch="#popForm" data-by="open">
+        <i class="icon36 i--hv ion-md-close ml-2"></i>
+      </a>
+    </h1>
+    <%= render 'form' %>
+  </div>
+</div>
 <div class="example-page frame-page">
   <div id="sketchConfigPanel">
     <ul role="tablist" class="nav nav-tabs">
@@ -45,22 +55,23 @@
   </div>
   <div class="sketch-info" id="sketch-info">
     <div class="sketch-para">
-      <h1 class="font-weight-normal"><%= @example.title %><span>/<%= @example.digit %></span></h1>
+      <h1 class="font-weight-normal"><%= @sketch.title %><span>/<%= @sketch.digit %></span></h1>
       <hr style="border-top: 4px dashed #fff;">
-      <p><%= @example.description %></p>
+      <p><%= @sketch.description %></p>
     </div>
   </div>
   <div class="side-frame">
     <div class="sketch-info-btns">
+      <%= link_to "", sketches_url, class:'icon36 i--hv i--white ion-md-arrow-back' %>
       <i class="icon36 i--hv i--white ion-md-information-circle-outline" id="sketch-info-btn" data-switch="#sketch-info #sketch-info-btn" data-by="open opened"></i>
-      <%= link_to "", edit_example_path(@example), class:'icon36 i--hv i--white ion-md-aperture' %>
+      <%= link_to "", edit_sketch_path(@sketch), class:'icon36 i--hv i--white ion-md-options', data: { switch: "#popForm", by: "open"} %>
     </div>
     <div class="row frame">
-      <iframe src="/examples/sandbox" id="exampleFrame" frameborder="0" class="frame-win col p-0">
+      <iframe src="/sketches/sandbox" id="exampleFrame" frameborder="0" class="frame-win col p-0">
       </iframe>
       <div class="frame-mobile-options">
         <a id="runButton-m" class="icon -md36 ion-md-refresh"></a>
-        <%= link_to "", examples_path, class:'icon36 i--hv ion-md-arrow-round-back' %>
+        <%= link_to "", sketches_path, class:'icon36 i--hv ion-md-arrow-round-back' %>
       </div>
     </div>
   </div>
@@ -97,4 +108,4 @@
     </div>
   </div>
 </div>
-<%= javascript_include_tag "example" %>
+<%= javascript_include_tag "sketch" %>
