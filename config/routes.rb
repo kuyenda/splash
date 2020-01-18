@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'style', to: 'application#style'
 
   get 'examples', to: 'examples#index'
-  get 'examples/example', to: 'examples#example'
+  get 'examples/sandbox', to: 'examples#sandbox'
   get 'examples/data', to: 'examples#data'
   get 'examples/help', to: 'examples#help'
   post 'examples/save', to: 'examples#save_code'

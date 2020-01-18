@@ -9,7 +9,7 @@ select,
 
 form {
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 20px 10px;
     position: relative;
     color: inherit;
     text-align: center;
@@ -18,9 +18,7 @@ form {
     min-width: 200px;
     overflow: hidden;
 
-    @include media-breakpoint-down(md) {
-        padding: 0;
-    }
+    @include media-breakpoint-down(md) {}
 
     input[type='text'],
     input[type="password"],

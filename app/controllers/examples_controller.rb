@@ -2,10 +2,16 @@ class ExamplesController < ApplicationController
   protect_from_forgery :except => [:save_code]
   layout "auth", only: [:show]
   def index
-    @example = Example.all
+    @examples = Example.all
+    @example = Example.new
   end
 
   def help
+    render layout: false
+  end
+
+  def sandbox
+    render layout: false
   end
 
   def show
@@ -18,6 +24,7 @@ class ExamplesController < ApplicationController
 
   def new
     @example = Example.new
+    render layout: false
   end
 
   def create
@@ -26,8 +33,6 @@ class ExamplesController < ApplicationController
     if @example.save
       create_code_file(@example.digit)
       redirect_to @example
-    else
-      render 'new'
     end
   end
 
@@ -52,11 +57,6 @@ class ExamplesController < ApplicationController
     redirect_to examples_url
   end
 
-
-  def example
-    render layout: false
-  end
-
   def data
     @example = Example.all
     render json: @example
@@ -65,7 +65,6 @@ class ExamplesController < ApplicationController
   def save_code
     save_code_file(params[:digit], params[:code])
     redirect_to Example.friendly.find_by digit: params[:digit]
-    flash[:success] = "saved"
   end
 
   private

@@ -4,11 +4,11 @@
       <div style="border-bottom: 3px dashed #b0bec5">
         <h5>P5.js程式库列表</h5>
         <p>点击<strong>新建</strong>，创建一个新的数据</p>
-        <a href="/examples/new" class="text-decoration-none">
-          <i class="icon -md48 -aniamted -green ion-md-add-circle-outline"></i>
+        <a href="/examples/new" data-switch="#popForm" data-by="open">
+          <i class="icon48 i--hv i--green ion-md-add-circle-outline"></i>
         </a>
-        <a href="/examples/help" class="text-decoration-none">
-          <i class="icon -md48 -aniamted -dark ion-md-help-circle-outline"></i>
+        <a href="/examples/help" id="#getHelp" data-get="/examples/help" data-to="#helpModal" data-toggle="modal" data-target="#helpModal">
+          <i class="icon48 i--hv i--black ion-md-help-circle-outline"></i>
         </a>
       </div>
     </div>
@@ -38,13 +38,13 @@
   </aside>
   <main class="examples">
     <section class="example-header">
-      <span class="mb-3 d-block" style="font-size: 28px">All <%= Example.all.count %> Sketches</span>
+      <span class="mb-3 d-block fw5 f6">All <%= Example.all.count %> Sketches</span>
       <div>
         <%= column_chart Example.group_by_day(:created_at).count, colors: ["#33691e"], xtitle: "Time", ytitle: "Portfolio", responsive: true, width: "90%" %>
       </div>
     </section>
     <section class="example-results">
-      <% @example.each.with_index do |e, i| %>
+      <% @examples.each.with_index do |e, i| %>
         <div class="example-item">
           <div class="example-shot" style="background-color:#4c4c4c">
             <img src="https://loremflickr.com/240/120?random=<%= i %>" style="filter: brightness(80%);" />
@@ -67,10 +67,34 @@
   </main>
 </div>
 <div class="container-fluid">
+  <div class="modal fade p-0" id="helpModal">
+    <div class="modal-dialog">
+    </div>
+  </div>
   <div class="row py-2" style="background: #222">
-    <div class="col px-5">
-      <p class="text-white m-0"><span>
-          正在修复某些问题，非常抱歉</p>
+    <div class="col px-5 text-center">
+      <p class="text-white m-0">
+        正在修复某些问题，非常抱歉
+      </p>
+      <div class="spinner-border spinner-border-sm text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+    <div id="popForm" class="row center-modal">
+      <div class="col br2 bw1 b--solid shadow-3" style="width: 450px;">
+        <%= form_for(@example) do |f| %>
+          <h1 class="text-center">新数据
+            <a href="#" data-switch="#popForm" data-by="open">
+              <i class="icon36 i--hv ion-md-close ml-2"></i>
+            </a>
+          </h1>
+          <%= f.text_field :title, placeholder: "Title" %>
+          <%= f.text_field :description, placeholder: "Description" %>
+          <%= f.hidden_field :hit, value: 0 %>
+          <%= f.hidden_field :like, value: 0 %>
+          <%= render 'shared/example_error_messages' %>
+          <%= f.submit "Create" %>
+        <% end %>
       </div>
     </div>
   </div>

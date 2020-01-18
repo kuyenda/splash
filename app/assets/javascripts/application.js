@@ -12,3 +12,4 @@
 //= require ace/snippets/javascript
 //= require chartkick
 //= require Chart.bundle
+//= require splash

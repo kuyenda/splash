@@ -1,0 +1,11 @@
+<%= form_for(@example) do |f| %>
+  <%= f.text_field :title, placeholder: "Title" %>
+  <%= f.text_field :description, placeholder: "Description" %>
+  <%= f.hidden_field :hit, value: 0 %>
+  <%= f.hidden_field :like, value: 0 %>
+  <%= render 'shared/example_error_messages' %>
+  <%= f.submit "Create" %>
+  <div class="form-tool">
+    <%= link_to "", examples_path, class: "icon36 i--hv ion-md-close"%>
+  </div>
+<% end %>

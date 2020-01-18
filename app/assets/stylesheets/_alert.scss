@@ -59,3 +59,20 @@
     padding: 10px 20px;
     color: #fff;
 }
+
+.center-modal {
+    position: fixed;
+    top: 50vh;
+    left: 50vw;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    z-index: -1;
+    opacity: 0;
+    @include et-transition(1, .5s);
+
+    &.open {
+        opacity: 1;
+        z-index: 999;
+
+    }
+}

@@ -1,45 +1,33 @@
-[class^='icon'] {
-    color: #fff;
-    font-size: 16px;
+.icon {
     user-select: none;
-    font-style: normal;
+    font-size: inherit;
+    color: inherit;
 
-    &.-md24 {
-        font-size: 24px;
+}
+
+.i--hv {
+    @include et-transition(2, .5s);
+
+    &:hover {
+        filter: hue-rotate(90deg);
     }
+}
 
-    &.-md36 {
-        font-size: 36px;
+$iconColors: map-merge(("black":#000,
+"white":#fff,
+"green":#00e676,
+"blue": #2962ff), ());
+
+@each $index,
+$color in $iconColors {
+    .i--#{$index} {
+        color: $color;
     }
+}
 
-    &.-md48 {
-        font-size: 48px;
+@each $size in (16, 24, 36, 48, 64, 128, 192) {
+    .icon#{$size} {
+        @extend .icon;
+        font-size: #{$size}px;
     }
-
-    &.-md96 {
-        font-size: 96px;
-    }
-
-    &.-dark {
-        color: #000;
-    }
-
-    &.-green {
-        color: #00e676;
-    }
-
-    &.-blue {
-        color: #2962ff;
-    }
-
-    &.-aniamted {
-        @include et-transition(2, .5s);
-
-        &:hover {
-            top: 5px;
-            filter: hue-rotate(90deg);
-        }
-
-    }
-
 }

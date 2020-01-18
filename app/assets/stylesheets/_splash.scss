@@ -1,4 +1,4 @@
-// fw (font)
+// fw, ff, f (font)
 
 .normal {
     font-weight: normal
@@ -96,10 +96,36 @@ $var in ("t":top, "r":right, "b":bottom, "l":left) {
     .b#{$dir}-0 {
         border-#{$var}-width: 0
     }
+
+    .b#{$dir} {
+        border-#{$var}-width: 1;
+        border-#{$var}-style: solid;
+    }
 }
 
 @each $style in (dotted, dashed, solid, double, none) {
     .b--#{$style} {
         border-style: #{$style};
+    }
+}
+
+// shadow
+@each $index,
+$transparency in (0:0, 1:.025, 2:0.05, 3:0.1, 4:0.2, 5:0.4, 6:0.5) {
+    @if $index==0 {
+        .shadow-#{$index} {
+            box-shadow: none
+        }
+    }
+
+    @else {
+        .shadow-#{$index} {
+            box-shadow: 0 .25rem .125rem 0 rgba(0, 0, 0, $transparency)
+        }
+
+        .shadow-inset-#{$index} {
+            box-shadow: inset 0 .25rem .125rem 0 rgba(0, 0, 0, $transparency)
+        }
+
     }
 }

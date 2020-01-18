@@ -35,11 +35,11 @@
       </div>
       <div id="sketch-options" class="tab-pane">
         <h6>Experimental features</h6>
-        <i class="icon -md36 -aniamted ion-md-flask"></i>
+        <i class="icon36 i--hv ion-md-flask"></i>
       </div>
       <div id="storage-options" class="tab-pane">
         <h6>Experimental features</h6>
-        <i class="icon -md36 -aniamted ion-md-flask"></i>
+        <i class="icon36 i--hv ion-md-flask"></i>
       </div>
     </div>
   </div>
@@ -52,15 +52,15 @@
   </div>
   <div class="side-frame">
     <div class="sketch-info-btns">
-      <i class="icon -md36 -aniamted ion-md-information-circle-outline" id="sketch-info-btn"></i>
-      <%= link_to "", edit_example_path(@example), class:'icon -md36 -aniamted ion-md-aperture text-white' %>
+      <i class="icon36 i--hv i--white ion-md-information-circle-outline" id="sketch-info-btn" data-switch="#sketch-info #sketch-info-btn" data-by="open opened"></i>
+      <%= link_to "", edit_example_path(@example), class:'icon36 i--hv i--white ion-md-aperture' %>
     </div>
     <div class="row frame">
-      <iframe src="/examples/example" id="exampleFrame" frameborder="0" class="frame-win col p-0">
+      <iframe src="/examples/sandbox" id="exampleFrame" frameborder="0" class="frame-win col p-0">
       </iframe>
       <div class="frame-mobile-options">
         <a id="runButton-m" class="icon -md36 ion-md-refresh"></a>
-        <%= link_to "", examples_path, class:'icon -md36 ion-md-arrow-round-back' %>
+        <%= link_to "", examples_path, class:'icon36 i--hv ion-md-arrow-round-back' %>
       </div>
     </div>
   </div>
@@ -69,21 +69,21 @@
       <div class="tool-options">
         <button id="toggleTextOutput" class="sr-only">toggle text output</button>
         <button id="runButton" class="btn ebtn transparent" data-toggle="tooltip" data-placement="top" title="Run sketch">
-          <i class="icon -md36 -aniamted -green ion-md-play"></i>
+          <i class="icon36 i--hv i--green ion-md-play"></i>
           run
         </button>
         <button id="copyButton" class="btn ebtn transparent">
-          <i class="icon -md36 -aniamted -green ion-md-copy"></i>
+          <i class="icon36 i--hv i--green ion-md-copy"></i>
           copy</button>
         <button id="resetButton" class="btn ebtn transparent">
-          <i class="icon -md36 -aniamted -green ion-md-refresh"></i>
+          <i class="icon36 i--hv i--green ion-md-refresh"></i>
           reset
         </button>
         <button id="saveButton" class="btn ebtn transparent">
-          <i class="icon -md36 -aniamted -green ion-md-save"></i>
+          <i class="icon36 i--hv i--green ion-md-save"></i>
           save</button>
-        <button id="optionsButton" class="btn ebtn transparent" data-editor-button="option">
-          <i class="icon -md36 -aniamted -green ion-md-cog"></i>
+        <button id="optionsButton" class="btn ebtn transparent" data-switch="#sketchConfigPanel" data-by="active">
+          <i class="icon36 i--hv i--green ion-md-cog"></i>
           options</button>
       </div>
     </div>
