@@ -28,17 +28,6 @@
 
 }
 
-@mixin list-normal($type) {
-    @if $type==ul {
-        list-style-type: none;
-    }
-
-    @else if $type==ol {
-        list-style-type: none;
-    }
-
-}
-
 @mixin btn-color($b, $b2, $t:#fff, $t2:#fff) {
     color: $t;
     background-color: $b;
@@ -47,5 +36,10 @@
         color: $t2;
         background-color: $b2;
     }
+
+}
+
+@mixin link-animation {
+    transition: all .1s ease-in;
 
 }

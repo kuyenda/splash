@@ -8,6 +8,10 @@
     font-weight: bold
 }
 
+.i {
+    font-style: italic
+}
+
 $font-weights:100,
 200,
 300,
@@ -28,7 +32,7 @@ $font-weights:100,
     font-family: Steradian;
 }
 
-.ffs {
+.ff2 {
     font-family: Proggry;
 }
 
@@ -80,6 +84,16 @@ unset;
 }
 
 // br, bw, b-- (border)
+.bn {
+    border-style: none;
+    border-width: 0
+}
+
+.ba {
+    border-style: solid;
+    border-width: 1px
+}
+
 @each $index,
 $var in ("0":0, "1":.125, "2":.25, "3":.5, "4":1, "5":2) {
     .br#{$index} {
@@ -129,3 +143,393 @@ $transparency in (0:0, 1:.025, 2:0.05, 3:0.1, 4:0.2, 5:0.4, 6:0.5) {
 
     }
 }
+
+// link
+.link {
+    text-decoration: none;
+    @include link-animation;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+        @include link-animation;
+    }
+
+    &-dotted {
+        text-decoration-style: dotted;
+        text-decoration-skip: unset
+    }
+
+    &-link-solid:hover {
+        text-decoration-style: solid
+    }
+
+    &-underline-dark {
+        text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: initial
+        }
+    }
+
+    &-underline-light {
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.25);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: initial
+        }
+    }
+}
+
+.dim {
+    opacity: 1;
+    transition: opacity .1s ease-in;
+
+    &:hover,
+    &:focus {
+        opacity: .5;
+        transition: opacity .1s ease-in
+    }
+
+    &:active {
+        opacity: .8;
+        transition: opacity .1s ease-out
+    }
+}
+
+
+.glow {
+    transition: opacity .15s ease-in;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+        transition: opacity .15s ease-in
+    }
+}
+
+// opacity
+$opacity-map: ();
+
+$opacity-map: map-merge(('100':1, '90':.9, '80':.8, '70':.7, '60':.6,
+'50':.5, '40':.4, '30':.3, '20':.2, '10':.1,
+'05':.05, '025':.25, '0':0,
+'75':.75, '25':.25, '15':.15, '0125':.0125),
+$opacity-map);
+
+@each $index,
+$transparency in $opacity-map {
+    .o-#{$index} {
+        opacity: $transparency
+    }
+}
+
+// list
+.list {
+    list-style-type: none;
+}
+
+// background
+.bg-img-sprinkles:after {
+    background-image: url("/images/bg-sprinkles-92441ec1dadd3a5fd51c0001b5c611e9.svg?vsn=d")
+}
+
+// color system
+.color-inherit {
+    color: inherit
+}
+
+$wheel-alpha: ('': 1,
+'-90': .9,
+'-80': .8,
+'-70': .7,
+'-60': .6,
+'-50': .5,
+'-40': .4,
+'-30': .3,
+'-20': .2,
+'-15': .15,
+'-10': .1,
+'-05': .5,
+'-025': .025,
+'-0125': .0125);
+
+@each $index,
+$alpha in $wheel-alpha {
+
+    .white#{$index},
+    .hover-white#{$index}:hover,
+    .hover-white#{$index}:focus,
+        {
+        color: rgba(255, 255, 255, $alpha)
+    }
+
+    .bg-white#{$index},
+    .hover-bg-white#{$index}:hover,
+    .hover-bg-white#{$index}:focus,
+        {
+        background-color: rgba(255, 255, 255, $alpha)
+    }
+
+    .b--white#{$index} {
+        border-color: rgba(255, 255, 255, $alpha)
+    }
+
+    .black#{$index},
+    .hover-black#{$index}:hover,
+    .hover-black#{$index}:focus {
+        color: rgba(0, 0, 0, $alpha)
+    }
+
+    .bg-black#{$index},
+    .hover-bg-black#{$index}:hover,
+    .hover-bg-black#{$index}:focus {
+        background-color: rgba(0, 0, 0, $alpha)
+    }
+
+    .b--black#{$index} {
+        border-color: rgba(0, 0, 0, $alpha)
+    }
+}
+
+@mixin colorize($name, $colors) {
+    $index: null;
+
+    @each $color in $colors {
+
+        .#{$name}#{$index},
+        .hover-#{$name}#{$index}:hover,
+        .hover-#{$name}#{$index}:focus {
+            color: $color
+        }
+
+
+        .bg-#{$name}#{$index},
+        .hover-bg-#{$name}:hover,
+        .hover-bg-#{$name}:focus {
+            background-color: $color
+        }
+
+        .b--#{$name}#{$index} {
+            border-color: $color
+        }
+
+        @if $index==null {
+            $index: 0;
+        }
+
+        @else {
+            $index: $index+1;
+
+        }
+
+    }
+}
+
+$wheel-red: #ff1744;
+$wheel-pink: #ff4081;
+$wheel-purple: #aa00ff;
+$wheel-purple-dark: #651fff;
+$wheel-indigo: #536dfe;
+$wheel-blue: #2962ff;
+$wheel-blue-light: #0091ea;
+$wheel-cyan: #00acc1;
+$wheel-teal: #1de9b6;
+$wheel-green: #28a745;
+$wheel-green-light: #64dd17;
+$wheel-lime: #c6ff00;
+$wheel-yellow: #ffea00;
+$wheel-amber: #ffc400;
+$wheel-orange: #e65100;
+$wheel-orange-dark: #ff3d00;
+$wheel-brown: #3e2723;
+
+@include colorize("red",
+(#fa5252,
+#fff5f5,
+#ffe3e3,
+#ffc9c9,
+#ffa8a8,
+#ff8787,
+#ff6b6b,
+#fa5252,
+#f03e3e,
+#e03131,
+#c92a2a));
+
+@include colorize("pink",
+(#f783ac,
+#fff0f6,
+#ffdeeb,
+#fcc2d7,
+#faa2c1,
+#f783ac,
+#f06595,
+#e64980,
+#d6336c,
+#c2255c,
+#a61e4d));
+
+@include colorize("purple",
+(#be4bdb,
+#f8f0fc,
+#f3d9fa,
+#eebefa,
+#e599f7,
+#da77f2,
+#cc5de8,
+#be4bdb,
+#ae3ec9,
+#9c36b5,
+#862e9c));
+
+@include colorize("dark-purple",
+(#7950f2,
+#f3f0ff,
+#e5dbff,
+#d0bfff,
+#b197fc,
+#9775fa,
+#845ef7,
+#7950f2,
+#7048e8,
+#6741d9,
+#5f3dc4));
+
+@include colorize("indigo",
+(#4c6ef5,
+#edf2ff,
+#dbe4ff,
+#bac8ff,
+#91a7ff,
+#748ffc,
+#5c7cfa,
+#4c6ef5,
+#4263eb,
+#3b5bdb,
+#364fc7));
+
+@include colorize("blue",
+(#228be6,
+#e7f5ff,
+#d0ebff,
+#a5d8ff,
+#74c0fc,
+#4dabf7,
+#339af0,
+#228be6,
+#1c7ed6,
+#1971c2,
+#1864ab));
+
+@include colorize("cyan",
+(#15aabf,
+#e3fafc,
+#c5f6fa,
+#99e9f2,
+#66d9e8,
+#3bc9db,
+#22b8cf,
+#15aabf,
+#1098ad,
+#0c8599,
+#0b7285));
+
+
+@include colorize("teal",
+(#12b886,
+#e6fcf5,
+#c3fae8,
+#96f2d7,
+#63e6be,
+#38d9a9,
+#20c997,
+#12b886,
+#0ca678,
+#099268,
+#087f5b));
+
+
+@include colorize("green",
+(#40c057,
+#ebfbee,
+#d3f9d8,
+#b2f2bb,
+#8ce99a,
+#69db7c,
+#51cf66,
+#40c057,
+#37b24d,
+#2f9e44,
+#2b8a3e));
+
+@include colorize("lime",
+(#82c91e,
+#f4fce3,
+#e9fac8,
+#d8f5a2,
+#c0eb75,
+#a9e34b,
+#94d82d,
+#82c91e,
+#74b816,
+#66a80f,
+#5c940d));
+
+@include colorize("yellow",
+(#ffd43b,
+#fff9db,
+#fff3bf,
+#ffec99,
+#ffe066,
+#ffd43b,
+#fcc419,
+#fab005,
+#f59f00,
+#f08c00,
+#e67700));
+
+@include colorize("orange",
+(#fd7e14,
+#fff4e6,
+#ffe8cc,
+#ffd8a8,
+#ffc078,
+#ffa94d,
+#ff922b,
+#fd7e14,
+#f76707,
+#e8590c,
+#d9480f));
+
+@include colorize("brown",
+(#463b2d,
+#e6b674,
+#c09962,
+#9d7e52,
+#7e6644,
+#665339,
+#534532,
+#463b2d,
+#3c352a,
+#36312a,
+#332f2b));
+
+@include colorize("gray",
+(#212529,
+#f8f9fa,
+#f1f3f5,
+#e9ecef,
+#dee2e6,
+#ced4da,
+#adb5bd,
+#868e96,
+#495057,
+#343a40,
+#212529));

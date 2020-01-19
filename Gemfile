@@ -40,6 +40,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 # gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem "font-awesome-rails"
 
 gem 'friendly_id', '~> 5.2.4'
 # Creating fake data

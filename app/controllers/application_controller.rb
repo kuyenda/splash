@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   def home
     render 'application/index'
   end
-  def style
-    render 'application/style'
+  def css
+    render 'application/css'
   end
 end

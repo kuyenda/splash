@@ -82,6 +82,8 @@ GEM
     execjs (2.7.0)
     ffaker (2.13.0)
     ffi (1.11.3-x64-mingw32)
+    font-awesome-rails (4.7.0.5)
+      railties (>= 3.2, < 6.1)
     friendly_id (5.2.5)
       activerecord (>= 4.0.0)
     globalid (0.4.2)
@@ -220,6 +222,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   duktape
   ffaker
+  font-awesome-rails
   friendly_id (~> 5.2.4)
   groupdate
   jbuilder (~> 2.5)

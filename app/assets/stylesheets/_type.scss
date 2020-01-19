@@ -1,0 +1,27 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0 0 13.5px 0;
+    font-weight: 700;
+}
+
+.content {
+    margin-top: 60px;
+
+    @include media-breakpoint-down(lg) {
+        margin: 0;
+    }
+
+}
+
+.turbolinks-progress-bar {
+    background-color: #ff1744;
+}
+
+::selection {
+    background: #00695c;
+    color: #fff;
+}

@@ -15,6 +15,46 @@
 }
 
 .d112 {
+    .color {
+        width: 5.263157895%;
+        height: 500px;
+        float: left;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .color .color__name {
+        transform: rotate(-90deg);
+        transform-origin: 0 0;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        font-weight: 300;
+        text-transform: uppercase;
+        width: 200px;
+    }
+
+    .color .color__shade {
+        position: relative;
+    }
+
+    .color .color__strength {
+        user-select: none;
+        font-size: 9px;
+        position: absolute;
+        left: 5%;
+        font-weight: 400;
+        top: 5%;
+    }
+
+    .color .color__hex {
+        font-size: 9px;
+        position: absolute;
+        right: 5%;
+        font-weight: 400;
+        bottom: 5%;
+    }
+
     .container-fluid {
         max-width: 1200px;
         margin-top: 200px;
@@ -32,7 +72,8 @@
         }
 
         &:nth-child(even) {
-            background: #FFD700;
+            color: #fff;
+            background: #004d40;
         }
 
         &.nop {
@@ -51,8 +92,8 @@
         font-size: 3rem;
         font-weight: 500;
         padding: 20px;
-        background: #FFD700;
-        color: #1a1a1a;
+        background: #004d40;
+        color: #fff;
     }
 
 }
