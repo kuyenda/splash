@@ -1,3 +1,13 @@
+@function headings($from:1, $to:6) {
+    @if $from==$to {
+        @return 'h#{$from}';
+    }
+
+    @else {
+        @return 'h#{$from},'+headings($from+1, $to);
+    }
+}
+
 .md-page {
     background: #fff;
     padding: 25px;
@@ -11,7 +21,6 @@
         clip-path: none !important;
         border-radius: 0;
     }
-
 }
 
 .d112 {
@@ -88,12 +97,13 @@
 
     }
 
-    .alphabet {
-        font-size: 3rem;
-        font-weight: 500;
-        padding: 20px;
-        background: #004d40;
-        color: #fff;
-    }
+    @include media-breakpoint-down(md) {
+        .row {
+            padding: 10px;
+        }
 
+        .container-fluid {
+            margin-top: 20px;
+        }
+    }
 }

@@ -2,20 +2,19 @@ input,
 textarea,
 select,
 .uneditable-input {
-    border: 1px solid #bbb;
     width: 100%;
     margin-bottom: 15px;
+    border: 1px solid #bbb;
 }
 
 form {
-    margin: 0 auto;
     position: relative;
+    min-width: 200px;
+    margin: 0 auto;
+    overflow: hidden;
     color: inherit;
-    text-align: center;
     border-radius: .2rem;
     font-family: Steradian;
-    min-width: 200px;
-    overflow: hidden;
 
     @include media-breakpoint-down(md) {}
 
@@ -24,18 +23,16 @@ form {
     input[type='submit'],
     input[type='email'],
     textarea {
-        border: 0;
-        background: #f5f6f7;
         display: block;
-        margin: 20px auto;
+        width: 100%;
+        padding: 14px 10px;
+        border: 0;
+        border-radius: 6px;
+        background: #f5f6f7;
         text-align: left;
         text-indent: 5px;
-        padding: 14px 10px;
-        width: 100%;
-        max-width: 320px;
         outline: none;
         color: #111;
-        border-radius: 6px;
         @include et-transition(1, .5s);
 
         &:hover {}
@@ -47,11 +44,13 @@ form {
     }
 
     input[type='submit'] {
-        background: #ff1744;
-        border-radius: 24px;
-        padding: 14px 18px;
-        width: 150px;
+        width: auto;
+        min-width: 50px;
+        margin: 0;
+        margin-bottom: 5px;
+        padding: 10px 12px;
         color: #fff;
+        background: #ff1744;
         text-align: center;
         text-indent: 0px;
 

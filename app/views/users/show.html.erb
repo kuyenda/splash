@@ -1,10 +1,17 @@
-<div class="container-fluid" style="background: #eee">
-  <div class="row p-5 justify-content-center" style="min-height: 100vh">
-    <aside class="col">
+<section class="container bg-dark1">
+  <div class="row bg-red white">
+    <div class="col pt-3 ht3">
       <h1>
         <%= @user.name %>
       </h1>
-      <%= gravatar_for @user %>
-    </aside>
+    </div>
   </div>
-</div>
+  <div class="row p-5 justify-content-center" style="min-height: 100vh">
+    <div class="col">
+      <p>
+        <%= @user.methods %>
+      </p>
+      <%= gravatar_for @user %>
+    </div>
+  </div>
+</section>

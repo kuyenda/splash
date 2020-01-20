@@ -41,6 +41,18 @@
         <li>
           <a href="#" class="link hover-blue">link hover-blue</a>
         </li>
+        <li>
+          <a href="#" class="link orange hover-bg-black">link orange hover-bg-black</a>
+        </li>
+        <li>
+          <a href="#" class="link orange hover-orange hover-bg-black">link hover-orange hover-bg-black</a>
+        </li>
+        <li>
+          <span class="dark">
+            span dark
+            <a href="#" class="link dark-orange hover-bg-black">link dark-orange hover-bg-black</a>
+          </span>
+        </li>
       </ul>
     </div>
   </div>
@@ -52,14 +64,14 @@
       <p>
         Steradian is an exploration of the geometric genre and although it has a geometric base, the widths between letters are not much different across the weights, something common of the style. That is due to the process, in which the proportions of the heavier weights paved the way for the lighter ones. It also has a series of details that make Steradian stand out and gives it a special touch. Some of its main features are the double-story ‘a’, its closed apertures and some of the capitals have a distinct personality (such as the G and Q). Read more about the design process at the Blog. 
       </p>
-      <h1 class="alphabet">
+      <p class="fw5 p-3 f8 bg-green9 lh white">
         ABCDEFGHIJKLMN<br>
         OPQRSTUVWXYZ<br>
         abcdefghijklmn<br>
         opqrstuvwxyz<br>
         0123456789
-      </h1>
-      <h1>
+      </p>
+      <p>
         ÀÁÂÃÄĀĂÅĄÆĆĈČĊÇĎĐÈÉÊĚËĒĔĖĘ
         ĜĞĠĢĤĦÍÎÌĨÏĪİĮIJĴĶĹĽĻĿŁŃŇÑŅÒÓÔÕ
         ÖŌŎŐØŒÞŔŘŖŚŜŠŞȘẞŤŢŦÙÚÛŨÜŪŬ
@@ -73,7 +85,7 @@
         ¦^+−±×÷=≠#~≈&lt;&gt;≤≥ℓ%‰ªº°
         ⁰¹²³⁴⁵⁶⁷⁸⁹   ₀₁₂₃₄₅₆₇₈₉
         ⅓ ⅔ ⅕ ⅖ ⅗ ⅘ ⅙ ⅚ ⅛ ⅜ ⅝ ⅞
-      </h1>
+      </p>
     </div>
   </div>
   <div class="row">
@@ -226,28 +238,12 @@
   </div>
   <div class="row">
     <div class="col">
-      <pre class="language-ruby">module FFaker
+      <pre><code class="language-ruby">module FFaker
   module NameCN
     extend ModuleUtils
     extend self
-
-    def name
-      "#{first_name}#{last_name}"
-    end
-
-    def first_name
-      fetch_sample(FIRST_NAMES)
-    end
-
-    def last_name
-      fetch_sample(LAST_NAMES)
-    end
-
-    def last_first
-      "#{last_name}#{first_name}"
-    end
   end
-end
+end</code>
 </pre>
     </div>
     <div class="col">

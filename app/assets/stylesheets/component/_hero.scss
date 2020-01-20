@@ -1,145 +1,103 @@
 .enrique {
-    font-family: Steradian;
-    text-align: left;
     position: relative;
-    margin: 0 auto;
     top: 0;
     left: 0;
     width: 100%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     align-content: stretch;
     flex-direction: column;
     user-select: none;
+    text-align: left;
     overflow: hidden;
     color: $home-hero-text-color;
 
     &:before {
-        content: '';
         position: absolute;
+        content: '';
         top: 0%;
         left: 0%;
         width: 100%;
         height: 100%;
         background-color: $home-hero-background-color;
-        background-image: image-url('hero.jpg');
+        // background-image: image-url('hero.jpg');
         background-size: cover;
         background-position: 50% 10%;
         filter: brightness(100%) saturate(80%) contrast(120%);
-        // mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 80%, rgba(0, 0, 0, .1) 100%);
         @include et-transition(2, 5s);
     }
 
     &:after {
-        content: '';
         position: absolute;
+        content: '';
         left: 0;
         right: 0;
         bottom: 0;
-        z-index: 1;
-        pointer-events: none;
         min-height: 1px;
+        pointer-events: none;
         box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.05);
+        z-index: 1;
     }
 
     &:hover {
         &:before {
             background-position: 50% 30%;
-            // background-image: linear-gradient(0deg, #c0392b);
             filter: brightness(80%) saturate(100%) contrast(100%);
         }
 
-        .enrique-menu {
+        .enrique-side {
             right: 0;
-        }
-
-        .enrique-content {
-            opacity: 1;
         }
 
         .enrique-attribution {
             background: #636e72;
             color: #fff;
         }
-
-        .enrique-press {
-            opacity: 0;
-        }
-
     }
 
     .enrique-content {
-        text-align: left;
-        margin: 0 auto;
         position: relative;
-        padding: 2vh 2rem;
-        max-width: 70rem;
-        flex-basis: 100%;
         width: 100%;
+        flex-basis: 100%;
+        max-width: 70rem;
         margin: 0 auto;
-        z-index: 2;
-        order: 0;
+        padding: 2vh 2rem;
         display: flex;
-        align-items: center;
         justify-content: flex-start;
-        opacity: 0;
+        align-items: center;
+        order: 0;
+        text-align: left;
+        z-index: 2;
         @include et-transition(2, 1s);
     }
 
     .enrique-copy {
-        flex-basis: 55%;
         width: 55%;
+        flex-basis: 55%;
     }
 
     .enrique-image {
-        height: auto;
-        width: auto;
-        padding: 0;
-        flex-basis: 45%;
         width: 45%;
-        user-drag: none;
+        flex-basis: 45%;
+        height: 203px;
+        padding: 0;
+        background-image: image-url('splash-0.png');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 75%;
     }
 
-    .enrique-menu {
-        z-index: 3;
+    .enrique-side {
         position: absolute;
         top: 0;
         right: -425px;
         width: 425px;
         height: 100%;
-        padding: 2rem 22.5px;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        align-items: center;
         background: #2d3436;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+        z-index: 3;
         @include et-transition(3, 2s);
-    }
-
-    .enrique-press {
-        position: absolute;
-        top: 80%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 250px;
-        height: 50px;
-        padding: 2px 4px;
-        z-index: 10;
-        opacity: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        @include et-transition(3, .5s);
-
-        h1 {
-            margin: 0;
-            font-weight: 800;
-            font-size: 28px;
-            font-family: Proggy;
-        }
-
     }
 
     .enrique-cta {
@@ -148,14 +106,12 @@
     }
 
     .enrique-attribution {
-        padding: 0 25px;
-        max-width: 70rem;
-        width: auto;
-        bottom: 0;
-        // tb: 1 2rem
-        margin: 0 auto 0rem auto;
-        text-align: left;
         position: absolute;
+        bottom: 0;
+        width: 100%;
+        margin: 0 auto 0rem auto;
+        padding: 0 25px;
+        text-align: left;
         font-size: 16px;
         font-weight: 500;
         z-index: 3;
@@ -163,30 +119,23 @@
     }
 
     .enrique-heading {
-        line-height: 1;
-        font-size: 52px;
         margin: 1rem 0;
+        line-height: 1;
         color: $home-hero-text-color;
     }
 
     .enrique-text {
-        font-size: 1.25rem;
         margin: 0;
         color: $home-hero-text-color;
     }
 
     @include media-breakpoint-down(sm) {
-        * {
-            color: inherit;
-        }
-
         &:before {
             background-color: $home-hero-background-color-mobile;
         }
 
         .enrique-content {
             flex-direction: column;
-            text-align: center;
             padding: 0 2rem;
         }
 
@@ -206,6 +155,12 @@
             order: -1;
         }
 
+
+        .enrique-cta {
+            display: block;
+            margin: 1rem 0;
+        }
+
         .enrique-attribution {
             text-align: center;
             font-size: 0.85rem;
@@ -220,23 +175,9 @@
             margin: 0;
         }
 
-        .enrique-menu {
+        .enrique-side {
             display: none;
         }
-
-        .enrique-press {
-            width: auto;
-            height: 30px;
-            padding: 2px 5px;
-            border-radius: 0;
-            border-top-right-radius: .5rem;
-
-            h1 {
-                font-size: 20px;
-            }
-
-        }
-
     }
 
 }
