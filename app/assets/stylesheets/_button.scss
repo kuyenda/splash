@@ -1,63 +1,50 @@
-.btns {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
+@mixin btn-background($background, $background-hover, $text:#fff, $text-hover:#fff) {
+    color: $text;
+    background-color: $background;
+
+    &:hover {
+        color: $text-hover;
+        background-color: $background-hover;
+    }
+
 }
 
-.btn {
-    display: inline-block;
-    margin-bottom: 0;
-    font-weight: normal;
-    text-align: center;
-    vertical-align: middle;
-    touch-action: manipulation;
-    cursor: pointer;
-    background-image: none;
-    border: 1px solid transparent;
-    padding: 8px 16px;
-    font-size: 18px;
-    line-height: 1.5;
-    border-radius: 4px;
-    user-select: none;
+@mixin btn-border($border, $border-hover, $text:#000, $text-hover:#222) {
+    border: 2px solid $border;
+    color: $text;
+
+    &:hover {
+        border: 2px solid $border-hover;
+        color: $text-hover;
+    }
+
 }
 
 .ebtn {
-    display: inline-block;
+    @extend .btn;
     padding: 4px 30px;
     font-size: 18px;
     line-height: 40px;
     min-width: 140px;
 
     &.ruby {
-        @include btn-color(#ff1744, #dc143c);
+        @include btn-background(#ff1744, #dc143c);
     }
 
     &.white {
-        @include btn-color(#fff, #fff, #ff1744, #dc143c);
+        @include btn-background(#fff, #fff, #ff1744, #dc143c);
     }
 
     &.black {
-        @include btn-color(#363636, #222);
+        @include btn-background(#363636, #222);
     }
 
     &.orange {
-        @include btn-color(#ff3800, #E61F00);
-    }
-
-    &.clover {
-        @include btn-color(#00e8bb, #fff, #fff, #00CFA2);
-    }
-
-    &.lime {
-        @include btn-color(#B9FF17, #86CC00, #000, #000);
-    }
-
-    &.violet {
-        @include btn-color(#5D17FF, #4400E6);
+        @include btn-background(#ff3800, #E61F00);
     }
 
     &.transparent {
-        @include btn-color(transparent, inherit);
+        @include btn-background(transparent, inherit);
     }
 
     &.small {

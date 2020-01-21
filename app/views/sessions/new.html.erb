@@ -1,13 +1,23 @@
-<div class="container">
-  <div class="row p-0 p-md-5 mx-auto justify-content-center align-items-center" style="height: 100vh;max-width: 800px;">
-    <div class="col col-md-6 col-lg-8">
-      <%= form_for(:session, url: login_path) do |f| %>
-        <h1 class="">Login</h1>
-        <%= f.email_field :email, placeholder: "Email" %>
-        <%= f.password_field :password, placeholder: "Password" %>
-        <%= f.submit "Log in" %>
-        <p class="tl">Not a member? <%= link_to "Sign up now!", signup_path, class: "link green5 hover-green9" %></p>
-      <% end %>
+<div class="bg-gray3">
+  <div class="container overflow-hidden">
+    <div class="row mx-auto justify-content-center align-items-center" style="height: 100vh;max-width: 800px;">
+      <div class="col-8 col-sm-8 col-md-7 col-lg-6 pt-3 pb-4 px-md-4 bg-white overflow-hidden">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <h1 class="f7 mb-4 underline gray6">Login</h1>
+          <%= f.email_field :email, placeholder: "Email" %>
+          <%= f.password_field :password, placeholder: "Password" %>
+          <%= f.label :remember_me, class: "" do %>
+            <%= f.check_box :remember_me, class: "" %>
+            <span>Remember me on this computer</span>
+          <% end %>
+          <%= f.submit "Log in" %>
+          <p class="tl my-3 bt b--black-05">
+            <span class="mt-2 d-block">Not a member?
+              <%= link_to "Sign up now!", signup_path, class: "link green5 hover-green9" %>
+            </span>
+          </p>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>

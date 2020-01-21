@@ -169,7 +169,7 @@ $var in ("t":top, "r":right, "b":bottom, "l":left) {
     }
 
     .b#{$key} {
-        border-#{$var}-width: 1;
+        border-#{$var}-width: 1px;
         border-#{$var}-style: solid;
     }
 }
@@ -330,8 +330,36 @@ $var in zip('b-''bg''color''all', border-color background-color color all) {
 /* ------------------------------------------------------ */
 //... Background
 /* ------------------------------------------------------ */
-.bg-img-sprinkles:after {
-    background-image: url("/images/bg-sprinkles-92441ec1dadd3a5fd51c0001b5c611e9.svg?vsn=d")
+// background-size
+@each $var in (cover contain) {
+    .#{$var} {
+        background-size: $var;
+    }
+}
+
+.bg {
+    background-repeat: no-repeat;
+
+    &-center {
+        @extend .bg;
+        background-position: center center
+    }
+
+    &-top {
+        @extend .bg;
+        background-position: top center
+    }
+
+    &-right {
+        @extend .bg;
+        background-position: center right
+    }
+
+    &-bottom {
+        @extend .bg;
+        background-position: bottom center
+    }
+
 }
 
 /* ------------------------------------------------------ */
@@ -360,7 +388,9 @@ $wheel-alpha: ('': 1,
 '-20': .2,
 '-15': .15,
 '-10': .1,
-'-05': .5,
+'-05': .05,
+'-02': .02,
+'-01': .01,
 '-025': .025,
 '-0125': .0125);
 
@@ -484,7 +514,7 @@ $var in $colors {
     @include colorize($key, $var);
 }
 
-@include colorize("login",
+@include colorize("beta",
 (#40c057,
 #ebfbee,
 #d3f9d8,
@@ -497,15 +527,15 @@ $var in $colors {
 #2f9e44,
 #2b8a3e));
 
-@include colorize("beta",
-(#82c91e,
-#f4fce3,
-#e9fac8,
-#d8f5a2,
-#c0eb75,
-#a9e34b,
-#94d82d,
-#82c91e,
-#74b816,
-#66a80f,
-#5c940d));
+@include colorize("alpha",
+(#e03131,
+#fff5f5,
+#ffe3e3,
+#ffc9c9,
+#ffa8a8,
+#ff8787,
+#ff6b6b,
+#fa5252,
+#f03e3e,
+#e03131,
+#c92a2a));

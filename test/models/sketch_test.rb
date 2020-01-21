@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ExampleTest < ActiveSupport::TestCase
+class SketchTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

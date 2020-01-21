@@ -43,6 +43,11 @@ form {
 
     }
 
+    input[type='checkbox'] {
+        display: inline-block;
+        width: auto;
+    }
+
     input[type='submit'] {
         width: auto;
         min-width: 50px;

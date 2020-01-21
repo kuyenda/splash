@@ -8,6 +8,7 @@ class UsersController < ApplicationController
   end
   def create
     @user = User.new(user_params)
+    @user.name = 'User'
     if @user.save
       log_in @user
       redirect_to @user

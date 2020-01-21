@@ -1,19 +1,8 @@
-.btn:focus,
-.btn:active:focus,
-.btn.active:focus,
-.btn.focus,
-.btn:active.focus,
-.btn.active.focus {
-    outline: none;
-    border-color: transparent;
-    box-shadow: none;
-}
-
-*,
-*:active,
-*:hover {
-    outline: none !important;
-}
+// *,
+// *:active,
+// *:hover {
+//     outline: none !important;
+// }
 
 // Color system
 
@@ -45,19 +34,19 @@ $grays);
 $red: #ff1744;
 $pink: #ff4081;
 $purple: #aa00ff;
-$purple-dark: #651fff;
+$grape: #651fff;
 $indigo: #536dfe;
 $blue: #2962ff;
-$blue-light: #0091ea;
+$light-blue: #0091ea;
 $cyan: #00acc1;
 $teal: #1de9b6;
 $green: #28a745;
-$green-light: #64dd17;
+$light-green: #64dd17;
 $lime: #c6ff00;
 $yellow: #ffea00;
 $amber: #ffc400;
 $orange: #e65100;
-$orange-dark: #ff3d00;
+$dark-orange: #ff3d00;
 $brown: #3e2723;
 
 $colors: ();
@@ -65,30 +54,30 @@ $colors: ();
 $colors: map-merge(("red": $red,
 "pink": $pink,
 "purple": $purple,
-"purple-dark": $purple-dark,
+"grape": $grape,
 "indigo": $indigo,
 "blue": $blue,
-"blue-light": $blue-light,
+"light-blue": $light-blue,
 "cyan": $cyan,
 "teal": $teal,
 "green": $green,
-"green-light": $green-light,
+"light-green": $light-green,
 "lime": $lime,
 "yellow": $yellow,
 "amber": $amber,
 "orange": $orange,
-"orange-dark": $orange-dark,
+"dark-orange": $dark-orange,
 "brown": $brown,
 "white": $white,
 "gray": $gray-600,
-"gray-dark": $gray-800),
+"dark-gray": $gray-800),
 $colors);
 
 $primary: $red;
 $secondary: $gray-800;
-$success: #388e3c;
-$info: #2962ff;
-$warning: #ffc400;
+$success: $green;
+$info: $blue;
+$warning: $amber;
 $danger: #d32f2f;
 $light: $gray-100;
 $dark: $gray-800;
@@ -131,7 +120,6 @@ monospace;
 $font-family-base: $font-family-sans-serif;
 
 // Code
-
 $code-font-size: 87.5%;
 $code-color: $pink;
 

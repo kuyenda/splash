@@ -1,17 +1,62 @@
-<section class="container bg-dark1">
-  <div class="row bg-red white">
-    <div class="col pt-3 ht3">
-      <h1>
-        <%= @user.name %>
-      </h1>
+<header class="profile-header bg-white mx-auto">
+  <div class="profile-header-image bg-dark9 mx-auto w-100 ht4 bg-top cover" style="background-image: url(<%= asset_path('splash-0.png') %>);">
+  </div>
+  <div class="profile-header-content bb b--black-10">
+    <div class="profile-header-content-inner">
+      <div class="profile-profile">
+        <div class="profile-avatar">
+          <div class="avatar avatar--xl">
+            <%= gravatar_for @user, size: 104 %>
+          </div>
+        </div>
+        <h1 class="profile-name">
+          <%= @user.name  %>
+        </h1>
+        <div class="profile-action">
+          <button class="btn btn-outline-success">关注</button>
+        </div>
+      </div>
+      <div class="profile-biography">
+        <%= FFaker::LoremCN.sentence %>
+      </div>
+      <div class="profile-status">
+        <a href="#" class="profile-status-link">
+          <span class="profile-status-job">
+            <%= FFaker::JobJA.title %>
+          </span>
+        </a>
+        <a href="#" class="profile-status-link">
+          <span class="profile-status-count">
+            <%= rand(50) %>
+          </span>
+          <span class="profile-status-portfolio">
+            作品
+          </span>
+        </a>
+        <span class="profile-status-contact">
+          <%= FFaker::Internet.email %>
+        </span>
+        <ul class="social-links">
+          <li>
+            <a href="#" class="link gray7 glow">
+              <i class="icon ion-logo-twitter"></i>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="link gray7 glow">
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-  <div class="row p-5 justify-content-center" style="min-height: 100vh">
+</header>
+<section class="profile-content container" style="min-height: 100vh">
+  <div class="row p-2 p-sm-3 p-md-5 justify-content-center bg-dark0">
     <div class="col">
       <p>
-        <%= @user.methods %>
+        <%= FFaker::HTMLIpsum.body.html_safe %>
       </p>
-      <%= gravatar_for @user %>
     </div>
   </div>
 </section>
