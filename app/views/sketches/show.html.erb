@@ -1,15 +1,16 @@
+<% provide(:title, @sketch.title) %>
 <script>
   window._p5jsExample = '<%= "/sketches/users/#{@sketch.digit}.js"  %>'
   window._p5jsExampleDigits = '<%= @sketch.digit %>'
 </script>
 <div id="popForm" class="center-modal">
-  <div class="br2 bw1 b--solid shadow-3" style="width: 450px;">
-    <h1 class="text-center mt-3">保存
+  <div class="pt-3 pb-4 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
+    <h1 class="text-center mt-3"><%= @sketch.digit  %>
       <a href="#" data-switch="#popForm" data-by="open">
         <i class="icon36 i--hv ion-md-close ml-2"></i>
       </a>
     </h1>
-    <%= render 'form' %>
+    <%= render partial: 'form', object: @sketch %>
   </div>
 </div>
 <div class="example-page frame-page">

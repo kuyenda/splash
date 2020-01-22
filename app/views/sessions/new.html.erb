@@ -1,4 +1,5 @@
-<div class="bg-gray3">
+<% provide(:title, 'Log in') %>
+<section class="bg-gray3">
   <div class="container overflow-hidden">
     <div class="row mx-auto justify-content-center align-items-center" style="height: 100vh;max-width: 800px;">
       <div class="col-8 col-sm-8 col-md-7 col-lg-6 pt-3 pb-4 px-md-4 bg-white overflow-hidden">
@@ -10,6 +11,7 @@
             <%= f.check_box :remember_me, class: "" %>
             <span>Remember me on this computer</span>
           <% end %>
+          <%= flash_message %>
           <%= f.submit "Log in" %>
           <p class="tl my-3 bt b--black-05">
             <span class="mt-2 d-block">Not a member?
@@ -20,4 +22,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

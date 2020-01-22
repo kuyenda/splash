@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'application#home'
   get 'css', to: 'application#css'
+  get 'debug', to: 'application#debug'
 
   get 'sketches', to: 'sketches#index'
   get 'sketches/sandbox', to: 'sketches#sandbox'

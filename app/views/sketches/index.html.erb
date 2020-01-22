@@ -1,18 +1,19 @@
+<% provide(:title, 'Discover Creators') %>
 <div id="popForm" class="row center-modal">
-  <div class="col br2 bw1 b--solid shadow-3" style="width: 450px;">
-    <h1 class="text-center mt-3">新数据
+  <div class="pt-3 pb-4 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
+    <h1 class="text-center mt-3">Create
       <a href="#" data-switch="#popForm" data-by="open">
         <i class="icon36 i--hv ion-md-close ml-2"></i>
       </a>
     </h1>
-    <%= render 'form' %>
+    <%= render partial: 'form', object: Sketch.new %>
   </div>
 </div>
 <div class="examples-container">
   <aside class="examples-panel-wrap">
     <div class="examples-panel">
       <div style="border-bottom: 3px dashed #b0bec5">
-        <h5>P5.js程式库列表</h5>
+        <h5>程式库列表</h5>
         <p>点击<strong>新建</strong>，创建一个新的数据</p>
         <a href="/sketches/new" data-switch="#popForm" data-by="open">
           <i class="icon48 i--hv i--green ion-md-add-circle-outline"></i>
@@ -54,25 +55,7 @@
       </div>
     </section>
     <section class="example-results">
-      <% @all.each.with_index do |e, i| %>
-        <div class="example-item">
-          <div class="example-shot" style="background-color:#4c4c4c">
-            <img src="https://loremflickr.com/300/120?random=<%= i %>" style="filter: brightness(80%);" />
-            <%= link_to "", e, class:'example-link' %>
-            <h6 class="example-date" style="color: #fff">
-              <%= FFaker::LoremJA.word %>
-            </h6>
-          </div>
-          <div class="example-name">
-            <h6 class="example-title"><%= e.title %></h6>
-            <h6 class="example-id"><%= e.digit %></h6>
-            <div class="example-options">
-              <span><i class="icon ion-md-eye"></i><%= e.view %></span>
-              <span><i class="icon ion-md-heart"></i><%= e.clap %></span>
-            </div>
-          </div>
-        </div>
-      <% end %>
+      <%= render partial: "sketch", object: @sketches %>
     </section>
   </main>
 </div>

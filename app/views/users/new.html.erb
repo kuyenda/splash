@@ -1,4 +1,6 @@
-<div class="bg-gray0">
+<% provide(:button_text, 'Send') %>
+<% provide(:title, 'Sign up') %>
+<section class="bg-gray0">
   <div class="container overflow-hidden">
     <div class="row mx-auto justify-content-center align-items-center" style="height: 100vh;max-width: 800px;">
       <div class="col-8 col-sm-8 col-md-7 col-lg-6 pt-3 pb-4 px-md-4 bg-white overflow-hidden">
@@ -7,7 +9,7 @@
           <%= f.email_field :email, placeholder: "Email" %>
           <%= f.password_field :password, placeholder: "Password" %>
           <%= f.password_field :password_confirmation, placeholder: "Confirmation" %>
-          <%= render 'shared/user_error_messages' %>
+          <%= flash_form_error @user, class: 'alert alert-danger' %>
           <%= f.submit "Send" %>
           <p class="tl my-3 bt b--black-05">
             <%= link_to "Login", login_path, class:"d-block mt-2 link green5 hover-green9" %></p>
@@ -15,4 +17,4 @@
       </div>
     </div>
   </div>
-</div>
+</section>

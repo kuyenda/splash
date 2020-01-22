@@ -4,18 +4,13 @@ class SketchesController < ApplicationController
   layout false, only: [:new, :edit, :sandbox, :help]
 
   def help
-    # respond_to do |format|
-    #   format.html { render :layout => false }
-    # end
   end
 
   def sandbox
-    # render layout: false
   end
 
   def index
-    @all = Sketch.all
-    @sketch = Sketch.new
+    @sketches = Sketch.all
   end
 
   def new
@@ -31,7 +26,7 @@ class SketchesController < ApplicationController
       create_code_file(@sketch.digit)
       redirect_to @sketch
     else
-      redirect_to sketches_url
+      render :new
     end
   end
 

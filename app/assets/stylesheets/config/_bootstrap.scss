@@ -119,6 +119,14 @@ Consolas,
 monospace;
 $font-family-base: $font-family-sans-serif;
 
+// Alerts
+$alert-padding-y: .75rem;
+$alert-padding-x: 1.25rem;
+$alert-margin-bottom: 1rem;
+$alert-bg-level: -10;
+$alert-border-level: -9;
+$alert-color-level: 6;
+
 // Code
 $code-font-size: 87.5%;
 $code-color: $pink;
