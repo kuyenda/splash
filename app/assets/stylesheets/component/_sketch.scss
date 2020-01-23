@@ -1,34 +1,41 @@
 /* Sketch Container */
 .examples-container {
-    font-family: Steradian;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 0px 0px 0px 0px;
+    border-top: .125rem solid #f1f3f5;
+    min-height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    margin: 0px 0px 0px 0px;
     background: #fafafa;
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
-    min-height: calc(100vh - 60px);
     background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
-    border-top: .125rem solid #f1f3f5;
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, .1);
 
-    .examples-panel-wrap {
+    @include media-breakpoint-down(lg) {
+        flex-wrap: wrap;
+    }
+
+    .examples-aside-wrapper {
         padding-top: 3rem;
-        z-index: 1;
+        flex-basis: 400px;
+        flex-shrink: 0;
+        flex-grow: 0;
         border-right: .125rem solid #f1f3f5;
         background-color: #f8f9fa;
-        flex-basis: 400px;
+        z-index: 1;
 
-        .examples-panel {
+        .examples-aside {
+            padding: 20px 20px;
             display: flex;
             justify-content: center;
             align-items: flex-start;
-            padding: 20px 20px;
             color: #4C4C4C;
         }
 
         ul {
-            list-style-type: none;
             padding: 0;
+            list-style-type: none;
         }
 
         li {
@@ -58,6 +65,15 @@
 
         }
 
+        @include media-breakpoint-down(lg) {
+            padding: 0;
+            order: -1;
+            flex-basis: 100%;
+
+        }
+
+        @include media-breakpoint-down(md) {}
+
     }
 
     .examples {
@@ -67,11 +83,11 @@
 
         .example-header {
             max-width: 100%;
+            overflow: hidden;
             margin-bottom: 1rem;
             padding-bottom: 1rem;
             border-bottom: .25rem solid #e9ecef;
         }
-
     }
 
     .example-results {
@@ -81,6 +97,11 @@
         align-items: center;
         margin-top: .5rem;
         // box-shadow: 4px 3px 0px 0px #00000029;
+
+        @include media-breakpoint-down(lg) {
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
         .example-item {
             margin: 0 15px 30px 15px;
@@ -190,24 +211,8 @@
 
     }
 
-    @include media-breakpoint-down(lg) {
-        flex-wrap: wrap;
-
-        .examples-panel-wrap {
-            order: -1;
-            flex-basis: 100%;
-            width: 100%;
-            padding: 0rem;
-        }
-
-    }
-
     @include media-breakpoint-down(md) {
         padding: 0px;
-
-        .examples-panel-wrap {
-            display: none;
-        }
 
         .examples {
             flex-basis: 100%;

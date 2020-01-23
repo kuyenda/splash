@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
-  layout "auth", only: [:new, :create]
+  # 空白布局, 仅加载静态文件
+  layout "auth"
   def new
   end
   # 处理登录

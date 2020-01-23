@@ -33,22 +33,21 @@ gem 'bcrypt', '3.1.13'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
-#==============================================================================
-# INSTALLED GEMS
-#==============================================================================
-# Stylesheets
-# gem 'bootstrap-sass', '~> 3.4.1'
-gem 'bootstrap', '~> 4.3.1'
-gem 'jquery-rails'
-gem "font-awesome-rails"
-
+# Create pretty URL’s and work with human-friendly strings
 gem 'friendly_id', '~> 5.2.4'
-# Creating fake data
+# Easily generate fake data
 gem 'ffaker'
 # The simplest way to group by
 gem 'groupdate'
 
-# Code editor
+#==============================================================================
+# Assets adapter for rails
+#==============================================================================
+# gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap', '~> 4.3.1'
+gem 'jquery-rails'
+gem "font-awesome-rails"
+# Editor
 gem 'ace-rails-ap'
 # Charts
 gem "chartkick"
@@ -63,6 +62,11 @@ end
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
+  # Better error page for Rack apps
+  gem "better_errors"
+  gem "binding_of_caller"
+  # Rails Database Viewer and SQL Query Runner
+  gem 'rails_db', '2.3.0'
 end
 
 group :test do

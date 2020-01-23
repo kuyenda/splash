@@ -1,16 +1,24 @@
+$footer-background-color: #151b21;
+$footer-title-color: #fff;
+$footer-logo-color: #ff5252;
+$footer-link-color: #b33939;
+$footer-link-color-highlight: #ff5252;
+
 .footer {
-    padding: 50px 0;
+    width: 100%;
     height: auto;
     min-height: 60px;
+    padding: 50px 0;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: left;
+    font-size: 14px;
+    overflow: hidden;
     color: $footer-link-color;
     background: $footer-background-color;
-    font-size: 14px;
-    font-family: Steradian;
 
     a {
         color: $footer-link-color;
@@ -22,38 +30,39 @@
         list-style: none;
     }
 
-    .footer-mod {
+    .footer-interested {
         .logo {
+            margin: 0;
+            padding: 10px;
+            display: inline-block;
             font-size: 30px;
             font-weight: 800;
             font-family: Pacifico;
-            padding: 10px;
-            margin: 0;
-            display: inline-block;
+            color: $footer-logo-color;
             user-select: none;
         }
 
         .copyrights {
-            font-size: 15px;
-            color: $footer-link-color;
             margin: 0;
             padding: 0;
+            font-size: 15px;
+            color: $footer-link-color;
         }
 
         .footer-social {
+            width: 100%;
+            margin: 0 50px 50px 0;
             display: flex;
             flex-direction: row;
             justify-content: flex-start;
             align-items: center;
-            margin: 0 50px 50px 0;
             text-align: center;
-            width: 100%;
 
             li {
-                display: inline-block;
                 width: 45px;
-                font-size: 26px;
                 margin-top: .4rem;
+                display: inline-block;
+                font-size: 26px;
 
                 i {
                     color: inherit;
@@ -72,21 +81,21 @@
     }
 
     .footer-links-container {
+        margin-bottom: 0px;
+        margin: 0 auto;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         align-items: flex-start;
-        margin-bottom: 0px;
-        width: 100%;
 
         * {
             @include et-transition(2, .5s);
         }
 
         @include media-breakpoint-down(md) {
+            padding: 0 25px;
             margin-bottom: 20px;
             justify-content: flex-start;
-            padding: 0 25px;
         }
 
         .footer-link-holder {
@@ -102,13 +111,13 @@
             }
 
             @include media-breakpoint-down(md) {
-                padding: 0px;
                 width: 50%;
+                padding: 0px;
             }
 
             @include media-breakpoint-down(sm) {
-                padding: 0px;
                 width: 100%;
+                padding: 0px;
             }
 
             .footer-link:hover {
@@ -118,10 +127,11 @@
         }
 
         .footer-link-title {
-            color: inherit;
             margin-top: 0;
-            font-weight: 600;
             margin-bottom: 15px;
+            font-weight: 600;
+            font-size: 28px;
+            color: $footer-title-color;
         }
 
     }

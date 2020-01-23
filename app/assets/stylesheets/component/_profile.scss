@@ -112,13 +112,16 @@ $content-max-width: 940px !default;
     display: block;
     overflow: hidden;
     border-radius: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 32px;
+
 
     &--xl {
         width: 104px;
         height: 104px;
         border-radius: 104px;
     }
-
 }
 
 .social-links {

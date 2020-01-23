@@ -1,6 +1,27 @@
 <% provide(:title, 'Discover Creators') %>
+<style>
+  .footer {
+    display: none;
+  }
+</style>
+<div class="container-fluid">
+  <div class="modal fade p-0" id="helpModal">
+    <div class="modal-dialog">
+    </div>
+  </div>
+  <div class="row py-2" style="background: #40407a">
+    <div class="col px-5 text-center">
+      <p class="text-white m-0">
+        此模块正在维护
+      </p>
+      <div class="spinner-border spinner-border-sm text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>
 <div id="popForm" class="row center-modal">
-  <div class="pt-3 pb-4 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
+  <div class="pt-3 pb-4 px-2 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
     <h1 class="text-center mt-3">Create
       <a href="#" data-switch="#popForm" data-by="open">
         <i class="icon36 i--hv ion-md-close ml-2"></i>
@@ -10,8 +31,8 @@
   </div>
 </div>
 <div class="examples-container">
-  <aside class="examples-panel-wrap">
-    <div class="examples-panel">
+  <aside class="examples-aside-wrapper">
+    <div class="examples-aside">
       <div style="border-bottom: 3px dashed #b0bec5">
         <h5>程式库列表</h5>
         <p>点击<strong>新建</strong>，创建一个新的数据</p>
@@ -49,29 +70,13 @@
   </aside>
   <main class="examples">
     <section class="example-header">
-      <span class="mb-3 d-block fw5 f6">All <%= Sketch.all.count %> Sketches</span>
+      <span class="mb-3 d-block fw5 f6 tc gray8">All <%= Sketch.all.count %> Sketches</span>
       <div>
-        <%= column_chart Sketch.group_by_day(:created_at).count, colors: ["\##{FFaker::Color.hex_code}", "#33691e"], xtitle: "Time", ytitle: "Portfolio", responsive: true, width: "90%" %>
+        <%= column_chart Sketch.group_by_day(:created_at).count, colors: ["\##{FFaker::Color.hex_code}", "#33691e"], xtitle: "Time", ytitle: "Portfolio", responsive: true, width: "100%" %>
       </div>
     </section>
     <section class="example-results">
       <%= render partial: "sketch", object: @sketches %>
     </section>
   </main>
-</div>
-<div class="container-fluid">
-  <div class="modal fade p-0" id="helpModal">
-    <div class="modal-dialog">
-    </div>
-  </div>
-  <div class="row py-2" style="background: #222">
-    <div class="col px-5 text-center">
-      <p class="text-white m-0">
-        正在修复某些问题，非常抱歉
-      </p>
-      <div class="spinner-border spinner-border-sm text-primary" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-  </div>
 </div>

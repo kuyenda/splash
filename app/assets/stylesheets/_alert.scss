@@ -1,3 +1,4 @@
+// debuging
 .alert {
     ul {
         margin: 0;
@@ -19,14 +20,18 @@
 
 }
 
-
-
 .field_with_errors {
     @extend .is-valid;
 
-    .form-control {
-        color: #ee2233;
+    input {
+        border: 1px dashed #1b5e2068 !important;
+        @include et-transition(1, 1s);
+
+        &:hover {
+            border-color: #1b5e20 !important
+        }
     }
+
 
 }
 
@@ -34,10 +39,12 @@
     width: 100%;
     margin-top: 0;
     margin-bottom: 0;
-    background: #dc143c;
     padding: 10px 20px;
-    color: #fff;
+    color: #ffeaa7;
+    background: #2d3436;
 }
+
+#console {}
 
 .center-modal {
     position: fixed;

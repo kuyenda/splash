@@ -1,26 +1,19 @@
 <% provide(:title, "Account Setting") %>
 <section class="bg-gray0">
   <div class="container overflow-hidden">
-    <div class="row mx-auto justify-content-center align-items-center">
-      <div class="col-md-6 col-md-offset-3">
-        <h1>Update Profile</h1>
+    <div class="row mx-auto justify-content-center align-items-center" style="max-width: 800px;height: 100vh">
+      <div class="col-9 col-sm-8 col-md-7 col-lg-6 pt-3 pb-4 px-md-4 bg-white overflow-hidden">
+        <h1 class="f7 mb-4 underline gray6">Profile</h1>
+        <%= flash_form_error @user, class: 'alert alert-danger' %>
         <%= form_for(@user) do |f| %>
           <%= f.label :name %>
-          <%= f.text_field :name, class: 'form-control' %>
-          <%= f.label :email %>
-          <%= f.email_field :email, class: 'form-control' %>
-          <%= f.label :password %>
-          <%= f.password_field :password, class: 'form-control' %>
-          <%= f.label :password_confirmation, "Confirmation" %>
-          <%= f.password_field :password_confirmation, class: 'form-control' %>
-          <%= flash_message %>
-          <%= flash_form_error @user, class: 'alert alert-danger' %>
-          <%= f.submit "Save changes", class: "btn btn-primary" %>
+          <%= f.text_field :name %>
+          <%= f.submit "Submit" %>
+          <!-- <div class="avatar d-inline-block">
+            <%= gravatar_for @user, size: 32 %>
+            <a href="http://gravatar.com/emails" target="_blank" class="green5">change</a>
+          </div> -->
         <% end %>
-        <div class="gravatar_edit">
-          <%= gravatar_for @user %>
-          <a href="http://gravatar.com/emails" target="_blank">change</a>
-        </div>
       </div>
     </div>
   </div>
