@@ -1,7 +1,7 @@
 <section class="enrique <%= logged_in? ? 'bg-red9' : 'hover-bg-dark9 bg-gray9' %> bg-animated">
-  <div class="enrique-content my-3 my-sm-5">
+  <div class="enrique-content my-5 my-sm-5">
     <div class="enrique-copy">
-      <h1 class="enrique-heading ffm">
+      <h1 class="enrique-heading ffd">
         <% if logged_in? %>
           <%= "how are you, #{current_user.name}? " %>
         <% else %>
@@ -26,11 +26,11 @@
     <div class="enrique-image">
     </div>
   </div>
-  <div class="enrique-side d-none d-xl-flex">
-    <p class="enrique-attribution">
-      Development Progress: 9%
-    </p>
-  </div>
+  <% if !logged_in? %>
+    <div class="enrique-attribution">
+      Art by <a href="#" class="link link-underline-light glow"><%= FFaker::NameJA.name %></a>
+    </div>
+  <% end %>
 </section>
 <section class="pt-3 px-5 tc bg-white">
   <a href="https://github.com/kuyenda/splash" target="_blank" class="d-inline-block mb-2 link hover-red8">Splash is an open source platform for code design for everyone。</a>
@@ -39,21 +39,24 @@
   </div>
 </section>
 <section class="wrapper py-md-5 ff bg-dark0">
-  <div class="container md-page ffm" style="background-image: url(<%= asset_path('wheat.png') %>")>
-    <ol class="breadcrumb">
-      <li>
-        News
-      </li>
-    </ol>
-    <h1 class="f8 b white"><%= Time.now.strftime("Patch 0.01-b %L%j") %></h1>
-    <ul class="text-white">
-      <a href="/css" class="link link-underline-dark glow">
-        Check
-      </a>
-      <li>
-        updating CSS.
-      </li>
-    </ul>
+  <div class="container md-page">
+    <!-- style="background-image: url(<%= asset_path('wheat.png') %>") -->
+    <nav class="nav nav-tabs nav-fill">
+      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">Patch</a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">Patch2</a>
+    </nav>
+    <div class="tab-content gray6 overflow-hidden">
+      <div class="tab-pane fade show active ba b--dashed p-4 bg-gray0" id="patch">
+        <h1 class="f5"><%= ["beta-" << SecureRandom.hex(6)].join %></h1>
+        <ul>
+          <li>updating CSS.</li>
+          <a href="/css" class="link link-underline-dark glow">Check</a>
+        </ul>
+      </div>
+      <div class="tab-pane fade p-4 bg-gray0" id="patch2">
+        <h1 class="f5"><%= ["beta-" << SecureRandom.hex(6)].join %></h1>
+      </div>
+    </div>
   </div>
   <div class="container md-page gray8 mb-md-3 mb-lg-5">
     <p class="gray6">我们在这个行星上已经生活了数十年，虽然不一定对这个世界的自然规律有深入的理解，但肯定已经习以为常。例如在足球比赛中，我们能欣赏到美妙的曲线任意球。如果足球在空中突然直角转向，我们一定会觉得很“不自然”。又例如，我们有时候能看到上千只鸟集体飞翔，它们并不是乱飞一通，而是按照某种规律组成不断变形的群体。如果它们互相碰撞而掉下来，我们很可能会怀疑它们是否生病，做出这些“不自然”的行为。

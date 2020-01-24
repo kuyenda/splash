@@ -1,3 +1,7 @@
+$home-hero-background-color: transparent;
+$home-hero-background-color-mobile: #651fff;
+$home-hero-text-color: #fff;
+
 .enrique {
     position: relative;
     top: 0;
@@ -25,7 +29,6 @@
         // background-image: image-url('hero.jpg');
         background-size: cover;
         background-position: 50% 10%;
-        filter: brightness(100%) saturate(80%) contrast(120%);
         @include et-transition(2, 5s);
     }
 
@@ -44,16 +47,6 @@
     &:hover {
         &:before {
             background-position: 50% 30%;
-            filter: brightness(80%) saturate(100%) contrast(100%);
-        }
-
-        .enrique-side {
-            right: 0;
-        }
-
-        .enrique-attribution {
-            background: #636e72;
-            color: #fff;
         }
     }
 
@@ -89,28 +82,17 @@
         background-size: 75%;
     }
 
-    .enrique-side {
-        position: absolute;
-        top: 0;
-        right: -425px;
-        width: 425px;
-        height: 100%;
-        background: #2d3436;
-        z-index: 3;
-        @include et-transition(3, 2s);
-    }
-
     .enrique-cta {
         display: block;
         margin: 1rem 0 0 0;
     }
 
     .enrique-attribution {
-        position: absolute;
-        bottom: 0;
         width: 100%;
-        margin: 0 auto 0rem auto;
-        padding: 0 25px;
+        max-width: 70rem;
+        overflow: hidden;
+        margin: 0 auto;
+        padding: 5px 2rem;
         text-align: left;
         font-size: 16px;
         font-weight: 500;
@@ -131,6 +113,8 @@
 
     @include media-breakpoint-down(sm) {
         &:before {
+            background-size: cover;
+            background-image: image-url('wheat.png');
             background-color: $home-hero-background-color-mobile;
         }
 
@@ -150,6 +134,7 @@
         }
 
         .enrique-image {
+            display: none;
             flex-basis: 80%;
             width: 80%;
             order: -1;
@@ -167,7 +152,7 @@
         }
 
         .enrique-heading {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
         }
 
         .enrique-text {
@@ -175,9 +160,6 @@
             margin: 0;
         }
 
-        .enrique-side {
-            display: none;
-        }
     }
 
 }

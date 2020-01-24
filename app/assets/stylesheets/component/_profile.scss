@@ -108,20 +108,15 @@ $content-max-width: 940px !default;
 
 }
 
-.avatar {
-    display: block;
-    overflow: hidden;
-    border-radius: 4px;
-    width: 32px;
-    height: 32px;
-    border-radius: 32px;
-
-
-    &--xl {
-        width: 104px;
-        height: 104px;
-        border-radius: 104px;
+@each $var in (24, 32, 48, 64, 72, 96, 104, 128) {
+    .avatar#{$var} {
+        display: block;
+        overflow: hidden;
+        width: #{$var}px;
+        height: #{$var}px;
+        border-radius: #{$var}px;
     }
+
 }
 
 .social-links {

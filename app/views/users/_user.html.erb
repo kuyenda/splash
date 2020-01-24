@@ -1,0 +1,7 @@
+<li>
+  <div class="avatar avatar64">
+    <%= gravatar_for user, size: 64 %>
+  </div>
+  <%= link_to user.name, user %>
+  <%= link_to "Delete", user, class: "tc d-block link hover-red8", method: :delete, data: { confirm: "You sure?" } %>
+</li>

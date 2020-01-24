@@ -7,6 +7,6 @@ class ApplicationController < ActionController::Base
     render 'application/css'
   end
   def debug
-    render html: "<strong>Not Found</strong>".html_safe , layout: false
+    redirect_back fallback_location: root_url
   end
 end

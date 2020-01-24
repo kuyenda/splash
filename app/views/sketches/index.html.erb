@@ -4,7 +4,7 @@
     display: none;
   }
 </style>
-<div class="container-fluid">
+<section class="container-fluid">
   <div class="modal fade p-0" id="helpModal">
     <div class="modal-dialog">
     </div>
@@ -19,8 +19,8 @@
       </div>
     </div>
   </div>
-</div>
-<div id="popForm" class="row center-modal">
+</section>
+<section id="popForm" class="row center-modal">
   <div class="pt-3 pb-4 px-2 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
     <h1 class="text-center mt-3">Create
       <a href="#" data-switch="#popForm" data-by="open">
@@ -29,8 +29,8 @@
     </h1>
     <%= render partial: 'form', object: Sketch.new %>
   </div>
-</div>
-<div class="examples-container">
+</section>
+<section class="examples-container">
   <aside class="examples-aside-wrapper">
     <div class="examples-aside">
       <div style="border-bottom: 3px dashed #b0bec5">
@@ -72,11 +72,11 @@
     <section class="example-header">
       <span class="mb-3 d-block fw5 f6 tc gray8">All <%= Sketch.all.count %> Sketches</span>
       <div>
-        <%= column_chart Sketch.group_by_day(:created_at).count, colors: ["\##{FFaker::Color.hex_code}", "#33691e"], xtitle: "Time", ytitle: "Portfolio", responsive: true, width: "100%" %>
+        <%= pie_by_week %>
       </div>
     </section>
     <section class="example-results">
       <%= render partial: "sketch", object: @sketches %>
     </section>
   </main>
-</div>
+</section>

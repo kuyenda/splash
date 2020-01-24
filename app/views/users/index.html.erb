@@ -1,0 +1,15 @@
+<style>
+  .footer {display: none;}
+</style>
+<% provide(:title, 'Users') %>
+<section class="mx-auto mt-5 p-5 bg-gray0 relative" style="max-width: 800px;min-height: 100vh;">
+  <header class="bg-dark8 py-2 white">
+    <h6 class="tc m-0">Users</h6>
+  </header>
+  <ul class="users">
+    <%= render @users %>
+  </ul>
+  <div class="digg_pagination absolute bottom-0">
+    <%= will_paginate @users, :container => false %>
+  </div>
+</section>

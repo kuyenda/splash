@@ -18,9 +18,9 @@
 
     .examples-aside-wrapper {
         padding-top: 3rem;
-        flex-basis: 400px;
         flex-shrink: 0;
         flex-grow: 0;
+        flex-basis: 400px;
         border-right: .125rem solid #f1f3f5;
         background-color: #f8f9fa;
         z-index: 1;
@@ -78,12 +78,16 @@
 
     .examples {
         padding: 2rem;
+        flex-basis: 600px;
+        flex-shrink: 1;
+        flex-grow: 1;
         background-color: #fff;
         z-index: 1;
 
         .example-header {
-            max-width: 100%;
+            max-width: 65%;
             overflow: hidden;
+            margin: 0 auto;
             margin-bottom: 1rem;
             padding-bottom: 1rem;
             border-bottom: .25rem solid #e9ecef;
@@ -216,7 +220,6 @@
 
         .examples {
             flex-basis: 100%;
-            width: 100%;
             padding: 60px 15px 15px 15px;
             border-radius: 0;
 
