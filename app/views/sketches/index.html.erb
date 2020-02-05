@@ -4,22 +4,6 @@
     display: none;
   }
 </style>
-<section class="container-fluid">
-  <div class="modal fade p-0" id="helpModal">
-    <div class="modal-dialog">
-    </div>
-  </div>
-  <div class="row py-2" style="background: #40407a">
-    <div class="col px-5 text-center">
-      <p class="text-white m-0">
-        此模块正在维护
-      </p>
-      <div class="spinner-border spinner-border-sm text-primary" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-  </div>
-</section>
 <section id="popForm" class="row center-modal">
   <div class="pt-3 pb-4 px-2 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
     <h1 class="text-center mt-3">Create
@@ -72,11 +56,27 @@
     <section class="example-header">
       <span class="mb-3 d-block fw5 f6 tc gray8">All <%= Sketch.all.count %> Sketches</span>
       <div>
-        <%= pie_by_week %>
+        <!-- <%= pie_by_week %> -->
       </div>
     </section>
     <section class="example-results">
       <%= render partial: "sketch", object: @sketches %>
     </section>
   </main>
+</section>
+<section class="container-fluid">
+  <div class="modal fade p-0" id="helpModal">
+    <div class="modal-dialog">
+    </div>
+  </div>
+  <div class="row py-2" style="background: #212121">
+    <div class="col px-5 text-center">
+      <p class="text-white m-0">
+        此模块正在维护
+      </p>
+      <div class="spinner-border spinner-border-sm text-primary" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
 </section>

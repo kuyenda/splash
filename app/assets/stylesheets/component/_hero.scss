@@ -1,5 +1,5 @@
-$home-hero-background-color: transparent;
-$home-hero-background-color-mobile: #651fff;
+$home-hero-background-color: #212121;
+$home-hero-background-color-mobile: #212121;
 $home-hero-text-color: #fff;
 
 .enrique {
@@ -25,10 +25,9 @@ $home-hero-text-color: #fff;
         left: 0%;
         width: 100%;
         height: 100%;
-        background-color: $home-hero-background-color;
         // background-image: image-url('hero.jpg');
-        background-size: cover;
-        background-position: 50% 10%;
+        // background-size: cover;
+        // background-position: 50% 10%;
         @include et-transition(2, 5s);
     }
 
