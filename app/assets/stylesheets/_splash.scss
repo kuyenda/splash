@@ -19,7 +19,7 @@ $var in zip(b l normal, bold lighter normal) {
 
 // font-family
 @each $key,
-$var in zip(''m d, Steradian Hack 'Roboto Slab') {
+$var in zip(''m d ht yy, Steradian Hack 'Roboto Slab'Chht Chyy) {
     .ff#{$key} {
         font-family: unquote($var)
     }
@@ -115,6 +115,8 @@ $var in zip((stike, underline, no-underline), (line-through, underline, none)) {
         }
     }
 }
+
+// display
 
 // z-index
 @each $var in (0,

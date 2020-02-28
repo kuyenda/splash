@@ -46,7 +46,7 @@ function draw() {
   y2 = y1 + l2 * cos(a2);
   
   // draw
-  background(0);
+  background(60);
 
   // text
   stroke(0)
@@ -58,12 +58,12 @@ function draw() {
   text('theta2 : ' + (degrees(a2)).toFixed(1), 10, height);
   translate(w / 2, vy);
   pen.strokeWeight(4);
-  pen.stroke(map(y2, 0, height, 255, 0));
+  pen.stroke('#eceff1');
   if (x2 != 0 && px != 0) {
     pen.line(w / 2 + px, vy + py, w / 2 + x2, vy + y2);
   }
   image(pen, -w / 2, -vy);
-  stroke('#ff1455')
+  stroke('#b9f6ca')
   fill(0);
   strokeWeight(3);
   line(0, 0, x1, y1);
