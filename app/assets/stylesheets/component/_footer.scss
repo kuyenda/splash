@@ -1,8 +1,8 @@
-$footer-background-color: #fff;
-$footer-title-color: #455a64;
-$footer-logo-color: #455a64;
-$footer-link-color: #455a64;
-$footer-link-color-highlight: #607d8b;
+$footer-background-color: #2e3234;
+$footer-title-color: #7d929e;
+$footer-logo-color: #7d929e;
+$footer-link-color: #7d929e;
+$footer-link-color-highlight: #FFC61A;
 
 .footer {
     width: 100%;
@@ -47,34 +47,29 @@ $footer-link-color-highlight: #607d8b;
 
 
 .footer-social {
-    margin: 0 auto;
-    padding: 10px;
+    width: 100%;
+    margin: 0;
+    padding: 0;
     padding-right: 30px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     text-align: center;
+    order: 1;
+    background: #292d2e;
 
-    @include media-breakpoint-down(md) {
-        width: 100%;
-        border: none;
+    @include media-breakpoint-down(lg) {
+        padding: 0 25px;
     }
 
-    .logo {
-        margin: 0;
-        padding: 10px;
-        display: inline-block;
-        font-weight: 800;
-        font-size: 18px;
-        font-family: Pacifico;
-        color: $footer-logo-color;
-        user-select: none;
+
+    @include media-breakpoint-down(sm) {
+        justify-content: flex-end;
     }
 
     ul {
         max-width: 500px;
-        margin: 0 auto;
     }
 
     li {
@@ -95,17 +90,15 @@ $footer-link-color-highlight: #607d8b;
 }
 
 .footer-links {
-    margin: 0 auto;
+    width: 100%;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: flex-start;
 
     @include media-breakpoint-down(md) {
-        width: 100%;
-
         padding: 0 25px;
-        justify-content: center;
     }
 
     .footer-link-piece {
@@ -115,8 +108,9 @@ $footer-link-color-highlight: #607d8b;
             margin-top: 0;
             margin-bottom: 5px;
             font-weight: 600;
-            font-size: 16px;
+            font-size: 22px;
             color: $footer-title-color;
+            user-select: none;
         }
 
         @include media-breakpoint-down(xl) {}
@@ -141,11 +135,10 @@ $footer-link-color-highlight: #607d8b;
                 background: #cfd8dc15;
 
                 a {
-                    color: #1b5e20;
                     display: block;
 
                     &:hover {
-                        background: #cfd8dc55;
+                        background: #cfd8dc08;
                     }
                 }
             }

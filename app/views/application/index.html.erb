@@ -1,19 +1,18 @@
-<section class="enrique <%= logged_in? ? 'bg-red9' : 'bg-dark' %> bg-animated">
+<section class="enrique bg-dark">
   <div class="enrique-content my-5 my-sm-5">
     <div class="enrique-copy">
-      <h1 class="enrique-heading ffd">
+      <h1 class="enrique-heading ffpx">
         <% if logged_in? %>
-          <%= "how are you, #{current_user.name}? " %>
         <% else %>
-          Welcome, Splasher
+          >>
         <% end %>
       </h1>
       <div>
         <p class="enrique-text">
           <% if logged_in? %>
-            <%= "Your work has been visited by #{rand(50)} times in a week!" %>
           <% else %>
-            The community of designers, artists, educators and everyday coders, experimenting on algorithmic design.
+            设计师，艺术家，教育工作者和日常编码人员社区，<br>
+            我们正在分享创意编程源代码，参与和改进算法设计
           <% end %>
         </p>
       </div>
@@ -28,57 +27,49 @@
   </div>
   <% if !logged_in? %>
     <div class="enrique-attribution">
-      Art by <a href="#" class="link link-underline-light glow"><%= FFaker::NameJA.name %></a>
+      <a href="#" class="link link-underline-light glow"><%= FFaker::NameJA.name %></a>
     </div>
   <% end %>
 </section>
-<section class="pt-3 px-5 tc bg-white">
-  <a href="https://github.com/kuyenda/splash" target="_blank" class="d-inline-block mb-2 link hover-red8">Splash is an open source platform for code design for everyone。</a>
-  <div class="d-inline-block pl-3 mb-3">
+<section class="d-flex align-items-center justify-content-center py-3 px-5 tc bg-gray0">
+  <a href="https://github.com/kuyenda/splash" target="_blank" class="d-inline-block link hover-red8 ffpx">
+    <ion-icon name="library-outline"></ion-icon>
+    帮助构建应用
+  </a>
+  <div class="d-inline-block pl-3">
     <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe> <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
   </div>
 </section>
-<section class="wrapper py-md-5 ff bg-dark0">
+<section class="wrapper py-md-5 bg-dark0">
   <div class="container md-page">
-    <!-- style="background-image: url(<%= asset_path('wheat.png') %>") -->
     <nav class="nav nav-tabs nav-fill">
-      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">Patch</a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">Patch2</a>
+      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">
+        p1
+      </a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">
+        p2
+      </a>
     </nav>
-    <div class="tab-content gray6 overflow-hidden">
+    <div class="tab-content dark7 overflow-hidden">
       <div class="tab-pane fade show active ba b--dashed p-4 bg-gray0" id="patch">
-        <h1 class="f5"><%= ["beta-" << SecureRandom.hex(6)].join %></h1>
+        <h1 class="f5">
+          <%= SecureRandom.hex(6) %>
+        </h1>
         <ul>
-          <li>updating CSS.</li>
-          <a href="/css" class="link link-underline-dark glow">Check</a>
+          <li>更新样式</li>
+          <a href="/css" class="link link-underline-dark glow">查看</a>
         </ul>
       </div>
       <div class="tab-pane fade p-4 bg-gray0" id="patch2">
-        <h1 class="f5"><%= ["beta-" << SecureRandom.hex(6)].join %></h1>
+        <h1 class="f5">
+          <%= SecureRandom.hex(6) %>
+        </h1>
       </div>
     </div>
   </div>
-  <div class="container md-page gray8 mb-md-3 mb-lg-5">
-    <p class="gray6 f5 b">Splash是一个发布创意编程源代码的平台，使用Rails编写并且开源。互联网上有很多与之相似的网站，比如processing，openprocessing等等。我们的社区正在日益壮大，未来可能会有更多的人参与和改进算法设计</p>
-    <p class="gray6">我们在这个行星上已经生活了数十年，虽然不一定对这个世界的自然规律有深入的理解，但肯定已经习以为常。例如在足球比赛中，我们能欣赏到美妙的曲线任意球。如果足球在空中突然直角转向，我们一定会觉得很“不自然”。又例如，我们有时候能看到上千只鸟集体飞翔，它们并不是乱飞一通，而是按照某种规律组成不断变形的群体。如果它们互相碰撞而掉下来，我们很可能会怀疑它们是否生病，做出这些“不自然”的行为。
+  <div class="container md-page mb-md-3 mb-lg-5 ffpx">
+    <p class="gray9 f5">我们在这个行星上已经生活了数十年，虽然不一定对这个世界的自然规律有深入的理解，但肯定已经习以为常。例如在足球比赛中，我们能欣赏到美妙的曲线任意球。如果足球在空中突然直角转向，我们一定会觉得很“不自然”。又例如，我们有时候能看到上千只鸟集体飞翔，它们并不是乱飞一通，而是按照某种规律组成不断变形的群体。如果它们互相碰撞而掉下来，我们很可能会怀疑它们是否生病，做出这些“不自然”的行为。
       充满好奇心的人们，可以通过学习物理学、化学、生物学等学科去了解各种自然现象。但对于一些程序员、艺术家，他们除了希望对这些原理有所了解，还希望能在作品中模仿这些自然现象。
       模仿、模拟等词汇意味着我们并不是要完整地复制自然世界，而是通过抽象、近似化等方式，获取当中我们认为重要的特性。例如，我们知道水是由水分子所组成，但肉眼看不到这么小的水分子，更常见的是水滴、容器中的水、海洋等。要模仿淋浴花洒的水流动态，我们可考虑以水滴为单位，逐一模拟它们以某初始速度射出，然后受地心引力影响而产生抛物线的移动路径。但要模仿海洋时，我们可能更关注它海面的波浪，而不是海面下巨量溶积的海水。在此情况下，我们可能会模拟海面上一些分布点的垂直运动，做出波浪起伏的效果。</p>
-  </div>
-  <div class="container md-page gray8 mb-md-3 mb-lg-5">
-    <h2>Featured Reading</h2>
-    <ul>
-      <li>
-        <a href="https://www.openprocessing.org/">openprocessing.org</a>
-      </li>
-      <li>
-        <a href="https://p5js.org/">p5js.org</a>
-      </li>
-      <li>
-        <a href="https://md.maxoxo.design/style/color.html">material design</a>
-      </li>
-      <li>
-        <a href="https://ruby-china.github.io/rails-guides/index.html">ruby on rails</a>
-      </li>
-    </ul>
   </div>
 </section>

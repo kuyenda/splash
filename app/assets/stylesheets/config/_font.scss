@@ -75,13 +75,6 @@
     src: asset-url('Hack/Hack-BoldItalic.ttf') format('truetype');
 }
 
-@font-face {
-    font-family: 'Proggy';
-    font-style: normal;
-    font-weight: 400;
-    src: asset-url('Proggy.ttf');
-}
-
 // 
 @font-face {
     font-family: 'Chht';
@@ -95,4 +88,11 @@
     font-style: normal;
     font-weight: 400;
     src: asset-url('FDYou.ttf');
+}
+
+@font-face {
+    font-family: 'Chpx';
+    font-style: normal;
+    font-weight: 400;
+    src: asset-url('Zpix.ttf');
 }
