@@ -1,14 +1,19 @@
 class SketchesController < ApplicationController
   protect_from_forgery :except => [:save_code]
 
-  layout false, only: [:new, :edit, :sandbox, :help]
+  layout false, only: [:new, :edit, :sandbox, :preview, :help]
 
+  # static page
   def help
   end
 
   def sandbox
   end
 
+  def preview
+  end
+
+  #
   def index
     @sketches = Sketch.all
   end
@@ -36,7 +41,7 @@ class SketchesController < ApplicationController
       @sketch.update(view: @sketch.view + 1)
       @sketch.save
     end
-    render layout: "auth"
+    render layout: "blank"
   end
 
   def edit

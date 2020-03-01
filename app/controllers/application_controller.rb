@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   include SessionsHelper
   def home
+    @show_footer = true
     render 'application/index'
   end
   def css

@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render 'layouts/meta' %>
+    <%= render 'layouts/sections/meta' %>
   </head>
   <body>
     <main>
       <%= yield %>
     </main>
   </body>
-  <%= debug(params) if Rails.env.development? %>
 </html>

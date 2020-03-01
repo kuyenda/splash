@@ -1,5 +1,13 @@
-// config
-$header-background-color: #fff;
-$header-background-color-mobile: #111;
-$header-text-color: #fff;
-$header-mobile-link-color: #fff;
+#app {
+    overflow: hidden;
+    margin-top: 60px;
+    min-height: 100%;
+
+    @include media-breakpoint-down(lg) {
+        margin: 0;
+    }
+}
+
+html {
+    height: 100%;
+}

@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
   # 空白布局, 仅加载静态文件
-  layout "auth"
+  layout "blank"
   def new
     # 记录之前访问的URL
     store_url_before_login

@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render 'layouts/meta' %>
+    <%= render 'layouts/sections/meta' %>
   </head>
   <body>
-    <%= render 'layouts/header' %>
-    <main class="content">
+    <%= render 'layouts/sections/header' %>
+    <main id="app">
       <%= yield %>
     </main>
-    <%= render 'layouts/footer' %>
+    <%= render 'layouts/sections/footer' if @show_footer %>
   </body>
-  <%= debug(params) if Rails.env.development? %>
 </html>

@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # 布局
-  layout "auth", except: [:show, :index]
+  layout "blank", except: [:show, :index]
   # 前置过滤器
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
@@ -9,12 +9,16 @@ class UsersController < ApplicationController
   def new
     @user = User.new
   end
+
   def show
     @user = User.find(params[:id])
+    @topics = @user.topics
   end
+
   def index
     @users = User.paginate(page: params[:page], per_page: 30)
   end
+
   def create
     @user = User.new(user_params)
     @user.name = 'User'
@@ -25,9 +29,11 @@ class UsersController < ApplicationController
       render 'new'
     end
   end
+
   def edit
     @user = User.find(params[:id])
   end
+
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(user_params)
@@ -38,6 +44,7 @@ class UsersController < ApplicationController
       render 'edit'
     end
   end
+
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"

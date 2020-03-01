@@ -49,14 +49,14 @@
     </ul>
   </div>
   <div class="navbar-mobile" id="mobile-menu">
-    <form class="mobile-search-form" action="">
-      <i class="icon24 ion-md-search"></i>
-      <input class="mobile-search-input" type="search" name="q" placeholder="Search " value="">
+    <form class="mobile-search-form ffpx" action="">
+      <ion-icon name="search" class="white"></ion-icon>
+      <input class="mobile-search-input" type="search" name="q" placeholder="" value="">
     </form>
     <ul class="navbar-mobile-main">
       <li>
         <a href="#" class="toggle-mobile-nav-dropdown" data-sub-nav="explore">
-          Explore
+          探索
         </a>
         <ul class="mobile-dropdown-nav">
           <li>
@@ -67,19 +67,19 @@
       <% if logged_in? %>
         <ul>
           <li>
-            <%= link_to "Profile", current_user, class: "mobile-link" %>
+            <%= link_to "我", current_user, class: "mobile-link" %>
           </li>
           <li>
-            <%= link_to "Log out", logout_path, class: "mobile-link", method: :delete %>
+            <%= link_to "登出", logout_path, class: "mobile-link", method: :delete %>
           </li>
         </ul>
       <% else %>
         <ul>
           <li>
-            <%= link_to 'Login', login_path, class: "mobile-link" %>
+            <%= link_to '登录', login_path, class: "mobile-link" %>
           </li>
           <li>
-            <%= link_to "Sign up", signup_path, class: "mobile-link" %>
+            <%= link_to "注册", signup_path, class: "mobile-link" %>
           </li>
         </ul>
       <% end %>

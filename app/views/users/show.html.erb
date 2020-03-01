@@ -1,10 +1,7 @@
-<style>
-  .footer {display: none;}
-</style>
 <header class="profile-header bg-white mx-auto">
   <div class="profile-header-image bg-dark9 mx-auto w-100 ht4 bg-top cover" style="background-image: url(<%= asset_path('splash-0.png') %>);">
   </div>
-  <div class="profile-header-content bb b--black-10">
+  <div class="profile-header-content">
     <div class="profile-header-content-inner">
       <div class="profile-profile">
         <div class="profile-avatar">
@@ -54,12 +51,62 @@
     </div>
   </div>
 </header>
-<section class="profile-content container" style="min-height: 100vh">
-  <div class="row p-2 p-sm-3 p-md-5 justify-content-center bg-dark0">
-    <div class="col">
-      <p>
-        <%= FFaker::HTMLIpsum.body.html_safe %>
-      </p>
+<div class="profile-wrapper">
+  <!-- grid -->
+  <section class="profile-primary-navigation">
+    <nav class="nav nav-tabs">
+      <a class="nav-item nav-link active" data-toggle="tab" href="#summary">
+        统计资料
+      </a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#activity">
+        动态
+      </a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#badges">
+        成就
+      </a>
+    </nav>
+  </section>
+  <section class="profile-secondery-navigation">
+    <nav class="nav nav-tabs flex-column">
+      <a class="nav-item nav-link active" data-toggle="tab" href="#all">
+        所有
+      </a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#topics">
+        话题
+      </a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#replies">
+        回复
+      </a>
+    </nav>
+  </section>
+  <section class="tab-content">
+    <div class="tab-pane fade show active" id="summary">
     </div>
-  </div>
-</section>
+    <div class="tab-pane fade" id="activity">
+      <div class="profile-topics">
+        <!--  -->
+        <div class="tab-content">
+          <div class="tab-pane fade show active" id="all">
+            <% if @user.topics.any? %>
+              <h3>话题(<%= @user.topics.count %>)</h3>
+              <ol class="topics list-group list">
+                <%= render @topics %>
+              </ol>
+            <% end %>
+          </div>
+          <div class="tab-pane fade show active" id="topics">
+            111
+          </div>
+          <div class="profile-artworks">
+            <h3>作品</h3>
+            <p>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="badges">
+      <h1>没有成就...</h1>
+    </div>
+  </section>
+</div>

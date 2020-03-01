@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   get 'sketches', to: 'sketches#index'
   get 'sketches/sandbox', to: 'sketches#sandbox'
+  get 'sketches/preview', to: 'sketches#preview'
   get 'sketches/data', to: 'sketches#json'
   get 'sketches/help', to: 'sketches#help'
   post 'sketches/save', to: 'sketches#save_code'

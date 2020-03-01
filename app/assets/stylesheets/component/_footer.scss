@@ -10,7 +10,7 @@ $footer-link-color-highlight: #FFC61A;
     overflow: hidden;
     color: $footer-link-color;
     background: $footer-background-color;
-    border-top: 1px solid #e6e6e6;
+    // border-top: 1px solid #e6e6e6;
 
     * {
         @include et-transition(2, .5s);

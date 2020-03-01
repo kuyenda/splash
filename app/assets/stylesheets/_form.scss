@@ -7,6 +7,10 @@ select,
     border: 1px solid #bbb;
 }
 
+input:focus {
+    outline: none;
+}
+
 form {
     position: relative;
     min-width: 200px;

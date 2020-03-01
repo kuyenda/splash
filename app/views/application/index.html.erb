@@ -1,10 +1,15 @@
 <section class="enrique bg-dark">
-  <div class="enrique-content my-5 my-sm-5">
+  <form id="sketchForm" target="sketchIframe494102" action="/sketch/preview/?random=0.136692849057525" method="POST">
+    <input id="sketchConfig" type="hidden" name="config" value="">
+  </form>
+  <iframe  class="enrique-preview" src="/sketches/preview" frameborder="0">
+  </iframe>
+  <div class="enrique-content">
     <div class="enrique-copy">
-      <h1 class="enrique-heading ffpx">
+      <h1 class="enrique-heading">
         <% if logged_in? %>
         <% else %>
-          >>
+          Beautifully crafted open source artworks
         <% end %>
       </h1>
       <div>
@@ -31,15 +36,17 @@
     </div>
   <% end %>
 </section>
-<section class="d-flex align-items-center justify-content-center py-3 px-5 tc bg-gray0">
-  <a href="https://github.com/kuyenda/splash" target="_blank" class="d-inline-block link hover-red8 ffpx">
-    <ion-icon name="library-outline"></ion-icon>
-    帮助构建应用
-  </a>
-  <div class="d-inline-block pl-3">
-    <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe> <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
-  </div>
-</section>
+<% if !logged_in? %>
+  <section class="d-flex align-items-center justify-content-center py-3 px-5 tc bg-gray0">
+    <a href="https://github.com/kuyenda/splash" target="_blank" class="d-inline-block link hover-red8 ffpx">
+      <ion-icon name="library-outline"></ion-icon>
+      帮助构建应用
+    </a>
+    <div class="d-inline-block pl-3">
+      <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe> <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
+    </div>
+  </section>
+<% end %>
 <section class="wrapper py-md-5 bg-dark0">
   <div class="container md-page">
     <nav class="nav nav-tabs nav-fill">

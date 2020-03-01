@@ -16,16 +16,6 @@ h6 {
     vertical-align: middle;
 }
 
-.content {
-    overflow: hidden;
-    margin-top: 60px;
-
-    @include media-breakpoint-down(lg) {
-        margin: 0;
-    }
-
-}
-
 .turbolinks-progress-bar {
     background-color: #ff1744;
 }

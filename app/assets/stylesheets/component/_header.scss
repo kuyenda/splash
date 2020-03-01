@@ -1,18 +1,34 @@
+// config
+$header-foreground: #fff;
+$header-background: #fff;
+
+$header-logo: #34495e;
+$header-mobile-logo: #34495e;
+
+$header-mobile-input: #2f3542;
+$header-mobile-search: #b0b0b0;
+
+$header-mobile-background: #fff;
+$header-mobile-foreground: #2C3A47;
+$header-mobile-hamb: #2C3A47;
+$header-mobile-menu: #2C3A47;
+$header-mobile-menu-item: #2f3542;
+
 .navbar {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    position: absolute;
+    position: fixed;
     top: 0;
     width: 100%;
     height: 60px;
     padding: 0;
-    background: $header-background-color;
+    background: $header-background;
     font-weight: 500;
     // box-shadow: 0 4px 12px rgba(0, 0, 0, .08), 0 0 1px rgba(1, 0, 0, .1);
-    font-family: Steradian;
+    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
     z-index: 999;
 
     ul {
@@ -26,10 +42,9 @@
         height: 40px;
         min-height: 40px;
         position: sticky;
-        z-index: 50;
         justify-content: flex-end;
-        box-shadow: none;
-        background: $header-background-color-mobile;
+        // box-shadow: none;
+        background: $header-mobile-background;
     }
 
     .navbar-logo {
@@ -46,7 +61,7 @@
             padding: 0;
             font-weight: 700;
             font-size: 22px;
-            color: #34495e;
+            color: $header-logo;
             line-height: 40px;
             text-decoration: none;
             @include et-transition(2, .5s);
@@ -68,7 +83,7 @@
             padding: 0;
 
             a {
-                color: #fff;
+                color: $header-mobile-logo;
             }
 
         }
@@ -123,7 +138,7 @@
                     }
 
                     &:active {
-                        color: $header-text-color;
+                        color: $header-foreground;
                     }
 
                 }
@@ -165,9 +180,11 @@
         top: 40px;
         height: 1px;
         opacity: 0;
-        position: fixed;
+        position: absolute;
         overflow: hidden;
         visibility: hidden;
+        box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+        z-index: 998;
         @include et-transition(2, .5s);
 
         @include media-breakpoint-down(lg) {
@@ -182,29 +199,39 @@
             }
 
             .mobile-search-form {
-                width: 100%;
-                padding: 15px 30px;
                 position: relative;
-                background: $header-background-color-mobile;
+                width: 100%;
+                padding: 15px 30px 15px 30px;
+                background: $header-mobile-menu;
                 border-radius: 0;
 
+                ::placeholder {
+                    color: #fff;
+                }
+
                 .mobile-search-input {
-                    margin: 0;
+                    min-width: 450px;
                     height: 40px;
-                    font-size: 14px;
-                    font-weight: normal;
+                    margin: 0;
+                    font-size: 20px;
+                    font-weight: 400;
                     line-height: 20px;
                     vertical-align: middle;
-                    border: none;
+                    border: hsla(0, 0, 0, 0) dotted 5px;
                     border-radius: 4px;
                     padding: 10px 10px 11px 42px;
                     background-color: rgba(255, 255, 255, 0.1);
                     color: #fff;
+                    @include et-transition(2, 1s);
+
+                    &:focus {
+                        border: $header-mobile-input dotted 5px;
+                    }
                 }
 
-                i {
+                ion-icon {
                     position: absolute;
-                    color: #fff;
+                    color: $header-mobile-search;
                     left: 30px;
                     height: 40px;
                     width: 40px;
@@ -215,17 +242,20 @@
 
             .navbar-mobile-main {
                 width: 100%;
+                min-width: 450px;
+                padding: 0 30px 15px 30px;
                 text-transform: capitalize;
                 font-weight: 700;
                 font-size: 1em;
-                background: $header-background-color-mobile;
+                background: $header-mobile-menu;
 
                 a {
                     display: block;
+                    margin-bottom: 5px;
+                    padding: 2px 5px;
                     font-size: 18px;
-                    font-weight: 500;
-                    padding: 12px 15px;
                     color: #fff;
+                    background: $header-mobile-menu-item;
                 }
 
                 .toggle-mobile-nav-dropdown {}
@@ -273,7 +303,7 @@
             width: 25px;
             height: 3px;
             border-radius: 4px;
-            background-color: $header-text-color;
+            background-color: $header-mobile-hamb;
             top: 50%;
             display: block;
             margin-top: -2px;
@@ -292,7 +322,7 @@
                 transition-duration: .15s;
                 transition-property: transform;
                 border-radius: 4px;
-                background-color: $header-text-color
+                background-color: $header-mobile-hamb
             }
 
             &::before {

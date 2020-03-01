@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_21_034538) do
+ActiveRecord::Schema.define(version: 2020_03_01_004017) do
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -34,6 +34,14 @@ ActiveRecord::Schema.define(version: 2020_01_21_034538) do
     t.string "slug"
     t.string "type"
     t.index ["slug"], name: "index_sketches_on_slug", unique: true
+  end
+
+  create_table "topics", force: :cascade do |t|
+    t.text "content"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
