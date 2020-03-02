@@ -6,9 +6,7 @@ $footer-link-color-highlight: #FFC61A;
 
 .footer {
     width: 100%;
-    padding: 25px 0;
     overflow: hidden;
-    color: $footer-link-color;
     background: $footer-background-color;
     // border-top: 1px solid #e6e6e6;
 
@@ -36,6 +34,7 @@ $footer-link-color-highlight: #FFC61A;
 .footer-inner {
     max-width: 800px;
     margin: 0 auto;
+    padding: 25px 0 0 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -43,6 +42,7 @@ $footer-link-color-highlight: #FFC61A;
     align-items: center;
     font-size: 14px;
     text-align: left;
+    color: $footer-link-color;
 }
 
 

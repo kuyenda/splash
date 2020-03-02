@@ -1,13 +1,15 @@
+// CONFIG
 $home-hero-background-color: #212121;
 $home-hero-background-color-mobile: #212121;
 $home-hero-text-color: #fff;
 
 .enrique {
     position: relative;
+    overflow: hidden;
     top: 0;
     left: 0;
     width: 100%;
-    height: 500px;
+    // height: 500px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -16,9 +18,9 @@ $home-hero-text-color: #fff;
     flex-direction: column;
     user-select: none;
     text-align: left;
-    overflow: hidden;
     color: $home-hero-text-color;
 
+    // 1 - BACKGROUND IMAGE/COLOR
     &:before {
         position: absolute;
         content: '';
@@ -26,12 +28,18 @@ $home-hero-text-color: #fff;
         left: 0%;
         width: 100%;
         height: 100%;
+        background-color: #616161;
         background-image: image-url('hero.jpg');
         background-size: cover;
         background-position: 50% 78%;
+
         // @include et-transition(2, 1s);
+        @include media-breakpoint-down(sm) {
+            background-color: $home-hero-background-color-mobile;
+        }
     }
 
+    // 1 - BOTTOM LINE
     &:after {
         position: absolute;
         content: '';
@@ -44,74 +52,18 @@ $home-hero-text-color: #fff;
         z-index: 1;
     }
 
-    &:hover {
-        &:before {}
+    @include media-breakpoint-down(sm) {
+        height: auto;
+
+        &:before {
+            background-color: $home-hero-background-color-mobile;
+        }
     }
 
-    .enrique-content {
-        position: relative;
-        width: 100%;
-        flex-basis: 100%;
-        max-width: 70rem;
-        margin: 0 auto;
-        padding: 2vh 2rem;
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
-        order: 0;
-        text-align: left;
-        z-index: 2;
-        // @include et-transition(2, 1s);
-    }
+    // 1 - SKETCHED BACKGROUND
+    .enrique-sketch-wrapper {}
 
-    .enrique-copy {
-        width: 62%;
-        flex-basis: auto;
-        flex-grow: 1;
-        flex-shrink: 1;
-    }
-
-    .enrique-image {
-        width: 38%;
-        height: 100px;
-        flex-basis: auto;
-        flex-grow: 1;
-        flex-shrink: 1;
-        padding: 0;
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: 75%;
-    }
-
-    .enrique-cta {
-        display: block;
-        margin: 1rem 0 0 0;
-    }
-
-    .enrique-attribution {
-        width: 100%;
-        max-width: 70rem;
-        overflow: hidden;
-        margin: 0 auto;
-        padding: 10px 2rem;
-        text-align: right;
-        font-size: 16px;
-        font-weight: 500;
-        z-index: 3;
-    }
-
-    .enrique-heading {
-        margin: 1rem 0;
-        line-height: 1;
-        color: $home-hero-text-color;
-    }
-
-    .enrique-text {
-        margin: 0;
-        color: $home-hero-text-color;
-    }
-
-    .enrique-preview {
+    .enrique-sketch {
         position: absolute;
         top: 0;
         left: 0;
@@ -121,53 +73,116 @@ $home-hero-text-color: #fff;
         z-index: 1;
     }
 
-    @include media-breakpoint-down(sm) {
-        padding: 100px 0px;
-        height: auto;
+    // 2 - MAIN CONTENT
+    .enrique-content {
+        position: relative;
+        width: 100%;
+        flex-basis: 100%;
+        max-width: 70rem;
+        margin: 0 auto;
+        padding: 100px 2rem;
+        padding-bottom: calc(100px - 43px);
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: flex-start;
+        order: 0;
+        text-align: left;
+        z-index: 2;
+        // @include et-transition(2, 1s);
 
-        &:before {
-            background-color: $home-hero-background-color-mobile;
+        @include media-breakpoint-down(sm) {
+            align-items: center;
+            padding: 100px 2rem;
         }
+    }
 
-        &:hover {
-            &:before {}
+    .enrique-primary {
+        max-width: 60%;
+        flex-basis: auto;
+        flex-grow: 1;
+        flex-shrink: 1;
+        overflow: hidden;
+        padding: 18px;
+        border-radius: 1rem;
+        @include et-transition(2, 1s);
+
+        @include media-breakpoint-down(sm) {
+            padding: 0;
         }
+    }
 
-        .enrique-content {
-            flex-direction: column;
-            padding: 0 2rem;
-        }
+    .enrique-secondary {
+        // DISABLED
+        // height: 100px;
+        max-width: 99%;
+        margin-left: 18px;
+        margin-top: 1.2%;
+        flex-basis: 100%;
+        flex-grow: 0;
+        flex-shrink: 1;
+        padding: 18px;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: 75%;
+        border-radius: 1rem;
+        background: #000c;
+        @include et-transition(2, 1s);
 
-        .enrique-copy {
-            width: 80%;
-        }
-
-        .enrique-image {
-            width: 80%;
+        @include media-breakpoint-down(sm) {
+            max-width: 80%;
             display: none;
             order: -1;
         }
+    }
 
+    .enrique-button-group {
+        display: block;
+        margin: 1rem 0 0 0;
 
-        .enrique-cta {
-            display: block;
+        @include media-breakpoint-down(sm) {
             margin: 1rem 0;
         }
+    }
 
-        .enrique-attribution {
-            text-align: center;
-            font-size: 0.85rem;
-        }
+    .enrique-heading {
+        margin: 0rem 0 1rem 0;
+        color: $home-hero-text-color;
+        line-height: 1;
+        text-decoration: underline;
 
-        .enrique-heading {
+        @include media-breakpoint-down(sm) {
             font-size: 1.8rem;
         }
+    }
 
-        .enrique-text {
+    .enrique-paragraph {
+        margin: 0;
+        color: $home-hero-text-color;
+
+        @include media-breakpoint-down(sm) {
             font-size: 1rem;
             margin: 0;
         }
-
     }
 
+    // 3 - ARTWORK LINK
+    .enrique-attribution {
+        width: 100%;
+        overflow: hidden;
+        margin: 0 auto;
+        padding: 10px 2rem;
+        text-align: right;
+        font-size: 16px;
+        font-weight: 500;
+        z-index: 3;
+
+        @include media-breakpoint-down(sm) {
+            border-top: 2px dashed rgb(255, 255, 255);
+            background: #222;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+    }
 }

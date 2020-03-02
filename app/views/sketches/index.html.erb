@@ -1,9 +1,17 @@
-<% provide(:title, 'Discover Creators') %>
-<style>
-  .footer {
-    display: none;
-  }
-</style>
+<% provide(:title, 'Discover') %>
+<section class="container-fluid">
+  <div class="modal fade p-0" id="helpModal">
+    <div class="modal-dialog">
+    </div>
+  </div>
+  <div class="row py-2 bg-gray">
+    <div class="col px-5 text-center">
+      <p class="text-white m-0 py-5">
+        尚未完成的内容
+      </p>
+    </div>
+  </div>
+</section>
 <section id="popForm" class="row center-modal">
   <div class="pt-3 pb-4 px-2 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
     <h1 class="text-center mt-3">Create
@@ -63,20 +71,4 @@
       <%= render partial: "sketch", object: @sketches %>
     </section>
   </main>
-</section>
-<section class="container-fluid">
-  <div class="modal fade p-0" id="helpModal">
-    <div class="modal-dialog">
-    </div>
-  </div>
-  <div class="row py-2" style="background: #212121">
-    <div class="col px-5 text-center">
-      <p class="text-white m-0">
-        此模块正在维护
-      </p>
-      <div class="spinner-border spinner-border-sm text-primary" role="status">
-        <span class="sr-only">Loading...</span>
-      </div>
-    </div>
-  </div>
 </section>
