@@ -1,3 +1,4 @@
+// CONFIG
 $footer-background-color: #2e3234;
 $footer-title-color: #7d929e;
 $footer-logo-color: #7d929e;
@@ -7,146 +8,100 @@ $footer-link-color-highlight: #FFC61A;
 .footer {
     width: 100%;
     overflow: hidden;
-    background: $footer-background-color;
-    // border-top: 1px solid #e6e6e6;
 
     * {
         @include et-transition(2, .5s);
     }
-
-    a {
-        color: $footer-link-color;
-    }
-
-    ul {
-        padding-left: 0;
-        margin-bottom: 0;
-        list-style: none;
-    }
-
-    li {
-        margin: 0;
-    }
-
-
 }
 
 .footer-inner {
-    max-width: 800px;
+    // max-width: 800px;
     margin: 0 auto;
-    padding: 25px 0 0 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
     font-size: 14px;
     text-align: left;
     color: $footer-link-color;
+    background: $footer-background-color;
 }
 
-
-.footer-social {
-    width: 100%;
-    margin: 0;
+// 1 - FOOTER LINK GROUP
+.footer-link-wrapper {
+    max-width: 80%;
+    margin: 0 auto;
     padding: 0;
-    padding-right: 30px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    order: 1;
-    background: #292d2e;
-
-    @include media-breakpoint-down(lg) {
-        padding: 0 25px;
-    }
-
-
-    @include media-breakpoint-down(sm) {
-        justify-content: flex-end;
-    }
-
-    ul {
-        max-width: 500px;
-    }
-
-    li {
-        display: inline-block;
-
-        i {
-            color: inherit;
-            font-size: 24px;
-
-            &:hover {
-                color: $footer-link-color-highlight;
-            }
-
-        }
-
-    }
-
-}
-
-.footer-links {
-    width: 100%;
-    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
     align-items: flex-start;
 
     @include media-breakpoint-down(md) {
-        padding: 0 25px;
+        max-width: 99%;
+        padding: 20px 15px;
     }
 
-    .footer-link-piece {
-        padding: 24px;
+    .footer-link-group {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 5%;
 
-        .footer-link-title {
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-weight: 600;
-            font-size: 22px;
-            color: $footer-title-color;
-            user-select: none;
+        ul {
+            padding-left: 0;
+            margin-bottom: 0;
+            list-style: none;
         }
 
-        @include media-breakpoint-down(xl) {}
-
-        @include media-breakpoint-down(md) {
-            padding: 20px;
+        li {
+            float: left;
+            margin: 0 3px;
+            background: #cfd8dc15;
         }
 
+        a {
+            font-size: 28px;
+            color: $footer-link-color;
+
+            &:hover {
+                color: $footer-link-color-highlight;
+            }
+        }
+
+
+        // padding: 24px;
         @include media-breakpoint-down(sm) {
             width: 100%;
+            margin: 0;
             padding: 0;
-            margin-bottom: 10px;
-
-            .footer-link-title {}
 
             li {
                 padding: 5px;
                 margin-bottom: 3px;
                 color: #222;
                 font-size: 15px;
-                text-indent: 10px;
                 background: #cfd8dc15;
+            }
 
-                a {
-                    display: block;
+            a {
+                display: block;
 
-                    &:hover {
-                        background: #cfd8dc08;
-                    }
+                &:hover {
+                    background: #cfd8dc08;
                 }
             }
         }
+    }
+}
 
-        a:hover {
-            color: $footer-link-color-highlight;
-        }
+// 2 - SOCIAL LINK BAR
+.footer-social {
+    margin: 0 auto;
+    padding: 3px 0;
+    // display: flex;
+    // flex-direction: row;
+    // justify-content: center;
+    // align-items: center;
+    background: #292d2e;
+    text-align: center;
 
+    span {
+        font-weight: 700;
     }
 }

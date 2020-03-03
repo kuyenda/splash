@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   post 'sketches/save', to: 'sketches#save_code'
   resources :sketches
 
+  resources :topics
+
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
   resources :users

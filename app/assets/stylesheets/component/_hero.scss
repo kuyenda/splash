@@ -9,7 +9,6 @@ $home-hero-text-color: #fff;
     top: 0;
     left: 0;
     width: 100%;
-    // height: 500px;
     margin: 0 auto;
     display: flex;
     justify-content: space-between;
@@ -28,8 +27,8 @@ $home-hero-text-color: #fff;
         left: 0%;
         width: 100%;
         height: 100%;
-        background-color: #616161;
-        background-image: image-url('hero.jpg');
+        background-color: #eee;
+        // background-image: image-url('hero.jpg');
         background-size: cover;
         background-position: 50% 78%;
 
@@ -105,7 +104,6 @@ $home-hero-text-color: #fff;
         flex-shrink: 1;
         overflow: hidden;
         padding: 18px;
-        border-radius: 1rem;
         @include et-transition(2, 1s);
 
         @include media-breakpoint-down(sm) {
