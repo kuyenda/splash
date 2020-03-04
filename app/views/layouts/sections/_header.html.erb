@@ -6,28 +6,30 @@
   <div class="nav-menu">
     <ul class="nav-menu-items">
       <li class="nav-menu-item">
-        <%= link_to 'Home', root_path, class: "nav-menu-link" %>
+        <%= link_to '主页', root_path, class: "nav-menu-link" %>
       </li>
       <li class="nav-menu-item">
-        <%= link_to 'Sketch', sketches_path, class: "nav-menu-link" %>
+        <%= link_to '草图', sketches_path, class: "nav-menu-link" %>
       </li>
       <li class="nav-menu-item">
-        <%= link_to 'Community', topics_path, class: "nav-menu-link" %>
+        <%= link_to '话题', topics_path, class: "nav-menu-link" %>
       </li>
-      <% if logged_in? %>
+      <% if logged_in? && current_user.name == "kuyenda" %>
         <li class="nav-menu-item">
-          <%= link_to 'Users', users_path, class: "nav-menu-link" %>
+          <%= link_to '管理', users_path, class: "nav-menu-link" %>
         </li>
+      <% end %>
+      <% if logged_in? %>
         <li class="nav-menu-item dropdown">
           <a href="#" class="dropdown-toggle nav-menu-link" data-toggle="dropdown">
-            Account <b class="caret"></b>
+            账户<b class="caret"></b>
           </a>
           <ul class="dropdown-menu">
-            <li><%= link_to "Profile", current_user, class: "nav-menu-link dropdown-link" %></li>
-            <li><%= link_to "Settings", edit_user_path(current_user), class: "nav-menu-link dropdown-link" %></li>
+            <li><%= link_to current_user.name, current_user, class: "nav-menu-link dropdown-link" %></li>
+            <li><%= link_to "设定", edit_user_path(current_user), class: "nav-menu-link dropdown-link" %></li>
             <li class="divider"></li>
             <li>
-              <%= link_to "Log out", logout_path, class: "nav-menu-link dropdown-link", method: :delete %>
+              <%= link_to "登出", logout_path, class: "nav-menu-link dropdown-link", method: :delete %>
             </li>
           </ul>
         </li>

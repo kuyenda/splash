@@ -12,7 +12,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @topics = @user.topics
+    @topics = @user.topics.paginate(page: params[:page], per_page: 5)
   end
 
   def index
@@ -56,15 +56,8 @@ class UsersController < ApplicationController
     params.require(:user).permit(:name, :email, :password,
                                  :password_confirmation)
   end
-  # 确保用户已登录
-  def logged_in_user
-    unless logged_in?
-      flash[:danger] = "Please log in."
-      store_url_before_login(request.url)
-      # 跳转登录
-      redirect_to login_url
-    end
-  end
+
+  # 确保用户已登录(移至applaction控制器)
   # 确保是正确的用户
   def correct_user
     @user = User.find(params[:id])
@@ -72,6 +65,6 @@ class UsersController < ApplicationController
   end
   # 确保是管理员
   def admin_user
-    redirect_to(root_url) unless current_user.name == "kuyenda"
+    redirect_to(root_url) unless current_user.email == "cocoon.co.up@gmail.com"
   end
 end

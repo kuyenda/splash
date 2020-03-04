@@ -1,75 +1,13 @@
-<header class="profile-header bg-white mx-auto">
-  <div class="profile-header-image bg-dark9 mx-auto w-100 ht4 bg-top cover" style="background-image: url(<%= asset_path('splash-0.png') %>);">
-  </div>
-  <div class="profile-header-content">
-    <div class="profile-header-content-inner">
-      <div class="profile-profile">
-        <div class="profile-avatar">
-          <div class="avatar104">
-            <%= gravatar_for @user, size: 104 %>
-          </div>
-        </div>
-        <h1 class="profile-name">
-          <%= @user.name  %>
-        </h1>
-        <div class="profile-action">
-          <button class="btn btn-outline-success">关注</button>
-        </div>
-      </div>
-      <div class="profile-biography">
-        <%= FFaker::LoremCN.sentence %>
-      </div>
-      <div class="profile-status">
-        <a href="#" class="profile-status-link">
-          <span class="profile-status-job">
-            <%= FFaker::JobJA.title %>
-          </span>
-        </a>
-        <a href="#" class="profile-status-link">
-          <span class="profile-status-count">
-            <%= rand(50) %>
-          </span>
-          <span class="profile-status-portfolio">
-            作品
-          </span>
-        </a>
-        <span class="profile-status-contact">
-          <%= FFaker::Internet.email %>
-        </span>
-        <ul class="social-links">
-          <li>
-            <a href="#" class="link gray7 glow">
-              <i class="icon ion-logo-twitter"></i>
-            </a>
-          </li>
-          <li>
-            <a href="#" class="link gray7 glow">
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</header>
-<div class="profile-wrapper">
-  <!-- grid -->
-  <section class="profile-primary-navigation">
+<%= render 'users/profile/header' %>
+<%= render 'users/profile/card' %>
+<section class="profile-wrapper">
+  <div class="profile-primary-navigation">
     <nav class="nav nav-tabs">
       <a class="nav-item nav-link active" data-toggle="tab" href="#summary">
         统计资料
       </a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#activity">
-        动态
-      </a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#badges">
-        成就
-      </a>
-    </nav>
-  </section>
-  <section class="profile-secondery-navigation">
-    <nav class="nav nav-tabs flex-column">
-      <a class="nav-item nav-link active" data-toggle="tab" href="#all">
-        所有
+      <a class="nav-item nav-link" data-toggle="tab" href="#artworks">
+        创作
       </a>
       <a class="nav-item nav-link" data-toggle="tab" href="#topics">
         话题
@@ -77,36 +15,29 @@
       <a class="nav-item nav-link" data-toggle="tab" href="#replies">
         回复
       </a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#badges">
+        成就
+      </a>
     </nav>
-  </section>
-  <section class="tab-content">
-    <div class="tab-pane fade show active" id="summary">
-    </div>
-    <div class="tab-pane fade" id="activity">
-      <div class="profile-topics">
-        <!--  -->
-        <div class="tab-content">
-          <div class="tab-pane fade show active" id="all">
-            <% if @user.topics.any? %>
-              <h3>话题(<%= @user.topics.count %>)</h3>
-              <ol class="topics list-group list">
-                <%= render @topics %>
-              </ol>
-            <% end %>
-          </div>
-          <div class="tab-pane fade show active" id="topics">
-            111
-          </div>
-          <div class="profile-artworks">
-            <h3>作品</h3>
-            <p>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="badges">
-      <h1>没有成就...</h1>
-    </div>
-  </section>
-</div>
+  </div>
+  <div class="profile-primary-warpper tab-content">
+    <%= render 'users/profile/summary' %>
+    <%= render 'users/profile/activity' %>
+    <%= render 'users/profile/badges' %>
+  </div>
+</section>
+<script>
+  $(document).ready(function() {
+    $("body").css({ "overflow-y": "scroll" });
+    if (location.hash) {
+        $("a[href='" + location.hash + "']").tab("show");
+    }
+    $(document.body).on("click", "a[data-toggle='tab']", function(event) {
+        location.hash = this.getAttribute("href");
+    });
+  });
+  $(window).on("popstate", function() {
+    var anchor = location.hash || $("a[data-toggle='tab']").first().attr("href");
+    $("a[href='" + anchor + "']").tab("show");
+  });
+</script>

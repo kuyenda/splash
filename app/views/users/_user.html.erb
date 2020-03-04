@@ -1,7 +1,16 @@
-<li>
-  <div class="avatar avatar64">
-    <%= gravatar_for user, size: 64 %>
-  </div>
-  <%= link_to user.name, user %>
-  <%= link_to "Delete", user, class: "tc d-block link hover-red8", method: :delete, data: { confirm: "You sure?" } %>
-</li>
+<tr>
+  <th scope="row">
+    <%= user.id %>
+  </th>
+  <td>
+    <div class="d-inline avatar32">
+      <%= gravatar_for user, size: 32 %>
+    </div>
+  </td>
+  <td>
+    <%= link_to user.name, user %>
+  </td>
+  <td>
+    <%= link_to "删除", user, class: "tc link hover-red8", method: :delete, data: { confirm: "You sure?" } %>
+  </td>
+</tr>

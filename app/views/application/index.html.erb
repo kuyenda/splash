@@ -53,30 +53,31 @@
 <section class="wrapper py-md-5 bg-dark0">
   <div class="container md-page">
     <nav class="nav nav-tabs nav-fill">
-      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">
+      <a class="nav-item nav-link" data-toggle="tab" href="#patch">
         新闻
       </a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">
+      <a class="nav-item nav-link active" data-toggle="tab" href="#patch2">
         开发
       </a>
     </nav>
     <div class="tab-content dark7 overflow-hidden">
-      <div class="tab-pane fade show active ba b--dashed p-4 bg-gray0" id="patch">
+      <div class="tab-pane fade ba b--dashed p-4 bg-gray0" id="patch">
+      </div>
+      <div class="tab-pane fade show active p-4 bg-gray0" id="patch2">
         <h1 class="f5">
-          <%= SecureRandom.hex(2) %>
+          <%= time_ago_in_words(Time.new(2020,03,04, 20,30,01, "+08:00"))%>
         </h1>
         <ul>
-          <li>更新了主页
+          <li>
+            稍微美化了用户页面
+          </li>
+          <li>
+            更新了主页
             <p>
               可以在首页观看到随机的作品了
             </p>
           </li>
         </ul>
-      </div>
-      <div class="tab-pane fade p-4 bg-gray0" id="patch2">
-        <h1 class="f5">
-          <%= SecureRandom.hex(2) %>
-        </h1>
         <ul>
           <li>
             <a href="/css" class="link link-underline-dark glow">CSS</a>

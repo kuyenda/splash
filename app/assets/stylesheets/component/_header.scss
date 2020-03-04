@@ -92,6 +92,7 @@ $header-mobile-menu-item: #2f3542;
 
 // 2 - DESKTOP MENU
 .nav-menu {
+    position: relative;
     max-width: 80%;
     height: 100%;
     margin-right: 100px;
@@ -103,11 +104,6 @@ $header-mobile-menu-item: #2f3542;
 
     @include media-breakpoint-down(lg) {
         display: none;
-    }
-
-    &:hover {
-        border-color: #c0392b;
-        box-shadow: 0 5px 10px 3px #0005;
     }
 
     .nav-menu-items {
@@ -172,7 +168,7 @@ $header-mobile-menu-item: #2f3542;
 // 3 - MOBILE BUTTON
 .nav-mobile-button {
     height: 100%;
-    margin: 0 30px;
+    margin: 0 3%;
     display: none;
 
     li {
