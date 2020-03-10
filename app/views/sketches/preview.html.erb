@@ -19,13 +19,14 @@
 <body>
   <script>
     let particles = [];
-    let pallete = ["#ffffff", "#e01a4f","#f15946","#f9c22e","#53b3cb"];
+    // let pallete = ["#ffffff", "#e01a4f","#f15946","#f9c22e","#53b3cb"];
+    let pallete = <%= raw (1..5).map{'#' << FFaker::Color.hex_code} %>;
     
     function setup() {
       createCanvas(windowWidth, windowHeight);
       rectMode(CENTER);
       newParticles();
-      frameRate(60);
+      frameRate(30);
     }
     
     
@@ -71,7 +72,7 @@
     
       move(){
     let maxS = map(this.life, 800, 0, 10, 0);
-    let angle = noise(this.x*this.noiseScale, this.y*this.noiseScale, this.nn)*13;
+    let angle = noise(this.x*this.noiseScale, this.y*this.noiseScale, this.nn)*<%= raw rand * 13 %>;
     this.x += cos(angle);
     this.y += sin(angle);
     this.s = noise(this.x*0.05, this.y*0.05, this.nn)*maxS;
@@ -94,7 +95,7 @@
     }
     
     function windowResized() {
-    resizeCanvas(windowWidth, windowHeight);
+    // resizeCanvas(windowWidth, windowHeight);
     }
   </script>
 </body>

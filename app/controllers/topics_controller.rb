@@ -7,9 +7,11 @@ class TopicsController < ApplicationController
   def create
     @topic = current_user.topics.build(topic_params)
     if @topic.save
-      flash[:success] = "Topic created!"
+      flash[:success] = "已发布"
       redirect_to current_user
     else
+      flash[:danger] = "话题内容不能为空"
+      redirect_to current_user
     end
   end
 

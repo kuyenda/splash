@@ -1,22 +1,30 @@
 <div class="tab-pane fade" id="topics">
-  <h3>话题(<%= @user.topics.count %>)</h3>
+  <%= flash_message %>
   <div class="profile-topics row">
     <% if logged_in? %>
       <aside class="col-md-3">
+        <h3>话题(<%= @user.topics.count %>)</h3>
         <section class="micropost_form">
           <%= render 'users/profile/post/topic' %>
-          flash_message 
         </section>
       </aside>
     <% end %>
     <% if @user.topics.any? %>
       <div class="col">
-        <ol class="topics list-group list">
-          <%= render @topics %>
-          <div class="digg_pagination">
-            <%= will_paginate @topics %>
-          </div>
-        </ol>
+        <table class="table table-sm table-bordered table-hover">
+          <thead>
+            <tr>
+              <th scope="col">主题</th>
+              <th scope="col">时间</th>
+            </tr>
+          </thead>
+          <tbody class="table-striped">
+            <%= render @topics %>
+          </tbody>
+        </table>
+        <div class="digg_pagination">
+          <%= will_paginate @topics %>
+        </div>
       </div>
     <% end %>
   </div>

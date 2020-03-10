@@ -1,6 +1,4 @@
-<li id="topic-<%= topic.id %> list-group-item list-group-item-action">
-  <span class=""><%= topic.content %></span>
-  <span class="profile-topics-timestamp">
-    在<%= time_ago_in_words(topic.created_at) %>前说
-  </span>
-</li>
+<tr>
+  <td><%= topic.content %></td>
+  <td class="profile-topics-timestamp"><%= time_ago_in_words(topic.created_at) %></td>
+</tr>

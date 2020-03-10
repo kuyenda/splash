@@ -173,6 +173,14 @@ $function in $aniamtions {
     }
 }
 
+.animated-sp {
+    animation-timing-function: cubic-bezier(0, .75, 0, 1);
+}
+
+.animted-sp2 {
+    animation-timing-function: cubic-bezier(.25, .1, 0, 1);
+}
+
 .animated-inf {
     animation-iteration-count: infinite;
 }

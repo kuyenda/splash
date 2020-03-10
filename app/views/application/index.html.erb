@@ -1,9 +1,41 @@
+<script>
+  $(function() {
+  var container = $('.enrique');
+  var heading = $(".enrique-content");
+  var sketch = $(".enrique-sketch-wrapper")
+  var _spinner = "\
+  <div class='absolute p-2 z-9'>\
+    <div class='spinner-border' role='status'>\
+    <span class='sr-only'>Loading...</span>\
+    </div>\
+  </div>\
+  "
+  var spinner = $(_spinner)
+  container.append(spinner)
+  
+  spinner.fadeTo(0, 0);
+  heading.fadeTo(0, 0);
+  sketch.fadeTo(0, 0);
+  
+  spinner.fadeTo(300, 1);
+  
+  $('.enrique-sketch').ready(function() {
+    spinner.fadeOut(2000);
+    setTimeout(function() {
+      sketch.fadeTo(2000, 1);
+    }, 300)
+    setTimeout(function() {
+      heading.fadeTo(2000, 1);
+    }, 600)
+    });
+  });
+</script>
 <section class="enrique">
   <div class="enrique-sketch-wrapper">
     <form id="sketchForm" target="sketchIframe494102" action="/sketch/preview/?random=0.136692849057525" method="POST">
       <input id="sketchConfig" type="hidden" name="config" value="">
     </form>
-    <iframe  class="enrique-sketch" src="/sketches/preview" frameborder="0">
+    <iframe class="enrique-sketch" src="/sketches/preview" frameborder="0">
     </iframe>
   </div>
   <div class="enrique-content">
@@ -15,23 +47,24 @@
         <% end %>
       </h1>
       <div>
-        <p class="enrique-paragraph">
+        <p class="enrique-paragraph ffht">
           <% if logged_in? %>
           <% else %>
-            设计师，艺术家，教育工作者和日常编码人员社区，<br>
-            我们正在分享创意编程源代码，参与和改进算法设计
+            设计师，艺术家，教育工作者和日常编码人员社区。
+            我们正在分享创意编程源代码，参与和改进算法设计。<br>
+            请注意这是一个实验版本，我们不会为您保留任何数据。
           <% end %>
         </p>
-      </div>
-      <div class="enrique-button-group">
-        <% if !logged_in? %>
-          <%= link_to "Sign up", signup_path, class: "btn ebtn ruby small" %>
-        <% end %>
+        <div class="enrique-button-group ffht">
+          <% if !logged_in? %>
+            <%= link_to "注册", signup_path, class: "btn ebtn ruby small" %>
+          <% end %>
+        </div>
       </div>
     </div>
-    <% if !logged_in? %>
+    <% if logged_in? %>
       <div class="enrique-secondary">
-        <p class="m-0 fw7">we eat 🌿</p>
+        <p class="m-0 fw7"></p>
       </div>
     <% end %>
   </div>
@@ -65,17 +98,14 @@
       </div>
       <div class="tab-pane fade show active p-4 bg-gray0" id="patch2">
         <h1 class="f5">
-          <%= time_ago_in_words(Time.new(2020,03,04, 20,30,01, "+08:00"))%>
+          补丁
         </h1>
         <ul>
           <li>
-            稍微美化了用户页面
+            用户页面
           </li>
           <li>
-            更新了主页
-            <p>
-              可以在首页观看到随机的作品了
-            </p>
+            首页观看随机的作品
           </li>
         </ul>
         <ul>
@@ -86,9 +116,12 @@
       </div>
     </div>
   </div>
-  <div class="container md-page mb-md-3 mb-lg-5 ffpx">
-    <p class="gray9 f4 fw5">我们在这个行星上已经生活了数十年，虽然不一定对这个世界的自然规律有深入的理解，但肯定已经习以为常。例如在足球比赛中，我们能欣赏到美妙的曲线任意球。如果足球在空中突然直角转向，我们一定会觉得很“不自然”。又例如，我们有时候能看到上千只鸟集体飞翔，它们并不是乱飞一通，而是按照某种规律组成不断变形的群体。如果它们互相碰撞而掉下来，我们很可能会怀疑它们是否生病，做出这些“不自然”的行为。
-      充满好奇心的人们，可以通过学习物理学、化学、生物学等学科去了解各种自然现象。但对于一些程序员、艺术家，他们除了希望对这些原理有所了解，还希望能在作品中模仿这些自然现象。
-      模仿、模拟等词汇意味着我们并不是要完整地复制自然世界，而是通过抽象、近似化等方式，获取当中我们认为重要的特性。例如，我们知道水是由水分子所组成，但肉眼看不到这么小的水分子，更常见的是水滴、容器中的水、海洋等。要模仿淋浴花洒的水流动态，我们可考虑以水滴为单位，逐一模拟它们以某初始速度射出，然后受地心引力影响而产生抛物线的移动路径。但要模仿海洋时，我们可能更关注它海面的波浪，而不是海面下巨量溶积的海水。在此情况下，我们可能会模拟海面上一些分布点的垂直运动，做出波浪起伏的效果。</p>
+  <div class="container md-page mb-md-3 mb-lg-5 ffht b">
+    <h2 class="gray">
+      <ion-icon name="library-outline"></ion-icon>
+      柏林噪声
+    </h2>
+    <p class="gray9 f4 fw5">Perlin噪声（Perlin noise）指由Ken Perlin发明的自然噪声生成算法。由于Perlin本人的失误，Perlin噪声这个名词现在被同时用于指代两种有一定联系的的噪声生成算法。这两种算法都广泛地应用于计算机图形学，因此人们对这两种算法的称呼存在一定误解。Simplex噪声和分形噪声都曾在严肃学术论文中被单独的称作Perlin噪声。
+      对于彩色图像的噪声生成，只要将同样的方法分别应用于各个颜色分量上，再加以合成即可。</p>
   </div>
 </section>

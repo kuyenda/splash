@@ -165,9 +165,18 @@ $content-max-width: 1140px !default;
 
     .profile-topics {
         .profile-topics-timestamp {
-            display: block;
-            font-weight: bold;
-            color: #666;
+            color: #576574;
+        }
+
+        td {
+            min-width: 100px;
+        }
+
+        th {
+            font-weight: 500;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
         }
     }
 
