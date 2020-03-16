@@ -13,3 +13,4 @@
 //= require chartkick
 //= require Chart.bundle
 //= require splash
+//= require animejs/lib/anime.min

@@ -1,17 +1,13 @@
 {
-  "name": "element-package",
-  "private": true,
-  "dependencies": {
-    "brace": "^0.11.1",
-    "chartist": "^0.11.4",
-    "font-awesome": "^4.7.0",
-    "normalize.css": "^8.0.1",
-    "p5": "^0.10.2",
-    "prismjs": "^1.17.1"
-  },
+  "name": "splash.app",
   "version": "1.0.0",
-  "description": "package for element.app",
+  "description": "packages for splash.app",
   "main": "index.js",
+  "repository": "https://github.com/kuyenda/splash.git",
   "author": "kuyenda <cocoon.co.up@gmail.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "animejs": "^3.1.0",
+    "spinkit": "^2.0.1"
+  }
 }

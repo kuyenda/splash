@@ -1,36 +1,41 @@
 <script>
   $(function() {
-  var container = $('.enrique');
-  var heading = $(".enrique-content");
-  var sketch = $(".enrique-sketch-wrapper")
-  var _spinner = "\
-  <div class='absolute p-2 z-9'>\
-    <div class='spinner-border' role='status'>\
-    <span class='sr-only'>Loading...</span>\
-    </div>\
-  </div>\
-  "
-  var spinner = $(_spinner)
-  container.append(spinner)
+    var heading = '.enrique-content'
+    var sketch = '.enrique-sketch-wrapper'
+    var spinner = '.spinner'
   
-  // SET TRANSPARENT
-  spinner.fadeTo(0, 0);
-  heading.fadeTo(0, 0);
-  sketch.fadeTo(0, 0);
-  
-  // SHOW LOADER
-  spinner.fadeTo(300, 1);
-  
-  $('.enrique-sketch').ready(function() {
-    spinner.fadeOut(2000);
-    setTimeout(function() {
-      sketch.fadeTo(2000, 1);
-    }, 300)
-    setTimeout(function() {
-      heading.fadeTo(2000, 1);
-    }, 2000)
+    // SET TRANSPARENT
+    anime({
+      targets: [spinner, sketch, heading],
+      duration: 0,
+      opacity: 0
     });
-  });
+    // SHOW LOADER
+    anime({
+      targets: spinner,
+      duration: 200,
+      opacity: 1
+    });
+  
+    $('<div class="enri"></div>que-sketch').ready(function() {
+      setTimeout(function() {
+        anime({
+          targets: spinner,
+          easing: 'cubicBezier(.5, .05, .1, .3)',
+          duration: 3000,
+          opacity: 0
+        });
+      }
+      , 1000)
+      anime({
+        targets: [sketch, heading],
+        easing: 'cubicBezier(.5, .05, .1, .3)',
+        delay: anime.stagger(1500),
+        duration: 1000,
+        opacity: 1,
+      });
+    });
+  })
 </script>
 <section class="enrique">
   <div class="enrique-sketch-wrapper">
@@ -66,6 +71,16 @@
   <div class="enrique-attribution">
     <a href="#" class="link link-underline-light glow fw6"><%= FFaker::NameJA.name %></a>
   </div>
+  <div class="spinner absolute p-2 z-9">
+    <div class="sk-chase" style="--sk-size:40px;--sk-color:#fff">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
+  </div>
 </section>
 <% if !logged_in? %>
   <section class="d-flex align-items-center justify-content-center py-3 px-5 tc bg-gray0">
@@ -90,7 +105,7 @@
     </nav>
     <div class="tab-content dark7 overflow-hidden">
       <div class="tab-pane fade ba b--dashed p-4 bg-gray0" id="patch">
-        <p>请注意这是一个实验版本，我们不会为您保留任何数据。</p>
+        <p class="m-0">请注意这是一个实验版本，我们不会为您保留任何数据。</p>
       </div>
       <div class="tab-pane fade show active p-4 bg-gray0" id="patch2">
         <h1 class="f5">
