@@ -15,16 +15,18 @@ $content-max-width: 1140px !default;
 
 .profile-card {
     margin: 0 auto;
-    margin-top: 32px;
+    margin-top: 128px;
     padding: 0;
     max-width: $content-max-width;
 
     @include media-breakpoint-down(md) {
+        margin-top: 64px;
         padding-right: 16px;
         padding-left: 16px;
     }
 
     @include media-breakpoint-down(xs) {
+        margin-top: 32px;
         padding-right: 24px;
         padding-left: 24px;
     }
@@ -140,6 +142,7 @@ $content-max-width: 1140px !default;
     grid-template-rows: auto auto 1fr auto;
     grid-row-gap: 20px;
     max-width: $content-max-width;
+    min-height: 1000px;
     margin: 0 auto;
     padding: 20px;
 

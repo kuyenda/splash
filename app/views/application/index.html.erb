@@ -13,10 +13,12 @@
   var spinner = $(_spinner)
   container.append(spinner)
   
+  // SET TRANSPARENT
   spinner.fadeTo(0, 0);
   heading.fadeTo(0, 0);
   sketch.fadeTo(0, 0);
   
+  // SHOW LOADER
   spinner.fadeTo(300, 1);
   
   $('.enrique-sketch').ready(function() {
@@ -26,7 +28,7 @@
     }, 300)
     setTimeout(function() {
       heading.fadeTo(2000, 1);
-    }, 600)
+    }, 2000)
     });
   });
 </script>
@@ -39,30 +41,23 @@
     </iframe>
   </div>
   <div class="enrique-content">
-    <div class="enrique-primary">
-      <h1 class="enrique-heading">
-        <% if logged_in? %>
-        <% else %>
+    <% if !logged_in? %>
+      <div class="enrique-primary">
+        <h1 class="enrique-heading">
           Beautifully crafted open source artworks
-        <% end %>
-      </h1>
-      <div>
-        <p class="enrique-paragraph ffht">
-          <% if logged_in? %>
-          <% else %>
-            设计师，艺术家，教育工作者和日常编码人员社区。
-            我们正在分享创意编程源代码，参与和改进算法设计。<br>
-            请注意这是一个实验版本，我们不会为您保留任何数据。
-          <% end %>
-        </p>
-        <div class="enrique-button-group ffht">
-          <% if !logged_in? %>
+        </h1>
+        <div>
+          <h3 class="enrique-paragraph ffht">
+            设计师，艺术家，教育工作者和日常编码人员社区。<br>
+            我们正在分享创意编程，改进算法设计。
+          </h3>
+          <div class="enrique-button-group ffht">
             <%= link_to "注册", signup_path, class: "btn ebtn ruby small" %>
-          <% end %>
+          </div>
         </div>
       </div>
-    </div>
-    <% if logged_in? %>
+    <% end %>
+    <% if !logged_in? %>
       <div class="enrique-secondary">
         <p class="m-0 fw7"></p>
       </div>
@@ -95,6 +90,7 @@
     </nav>
     <div class="tab-content dark7 overflow-hidden">
       <div class="tab-pane fade ba b--dashed p-4 bg-gray0" id="patch">
+        <p>请注意这是一个实验版本，我们不会为您保留任何数据。</p>
       </div>
       <div class="tab-pane fade show active p-4 bg-gray0" id="patch2">
         <h1 class="f5">
