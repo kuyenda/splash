@@ -16,4 +16,12 @@ class TopicsControllerTest < ActionDispatch::IntegrationTest
     end
     assert_redirected_to login_url
   end
+  test "should redirect destroy for wrong topic" do
+    log_in_as(users(:michael))
+    topic = topics(:ants)
+    assert_no_difference 'Topic.count' do
+      delete topic_path(topic)
+    end
+    assert_redirected_to root_url
+  end
 end

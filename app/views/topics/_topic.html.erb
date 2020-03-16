@@ -1,4 +1,9 @@
 <tr>
   <td><%= topic.content %></td>
   <td class="profile-topics-timestamp"><%= time_ago_in_words(topic.created_at) %></td>
+  <% if current_user?(topic.user) %>
+    <td>
+      <%= link_to "删除", topic, method: :delete, data: { confirm: "确认删除" } %>
+    </td>
+  <% end %>
 </tr>

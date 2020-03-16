@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_01_004017) do
+ActiveRecord::Schema.define(version: 2020_04_19_020223) do
+
+  create_table "codes", force: :cascade do |t|
+    t.integer "sketch_id"
+    t.text "code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["sketch_id"], name: "index_codes_on_sketch_id"
+  end
 
   create_table "friendly_id_slugs", force: :cascade do |t|
     t.string "slug", null: false
@@ -24,31 +32,28 @@ ActiveRecord::Schema.define(version: 2020_03_01_004017) do
   end
 
   create_table "sketches", force: :cascade do |t|
-    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "view"
-    t.integer "clap"
+    t.string "title"
     t.string "description"
-    t.string "digit"
+    t.string "digest"
     t.string "slug"
-    t.string "type"
     t.index ["slug"], name: "index_sketches_on_slug", unique: true
   end
 
   create_table "topics", force: :cascade do |t|
-    t.text "content"
     t.integer "user_id"
+    t.text "content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
+    t.string "email"
     t.string "password_digest"
     t.string "remember_digest"
     t.index ["email"], name: "index_users_on_email", unique: true

@@ -16,6 +16,9 @@
             <tr>
               <th scope="col">主题</th>
               <th scope="col">时间</th>
+              <% if current_user?(@user) %>
+                <th scope="col">删除</th>
+              <% end %>
             </tr>
           </thead>
           <tbody class="table-striped">

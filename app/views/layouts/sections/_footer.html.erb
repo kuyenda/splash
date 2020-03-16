@@ -1,18 +1,30 @@
 <footer class="footer">
-  <div class="footer-inner">
-    <section class="footer-link-wrapper">
-      <div class="footer-link-group">
-        <ul>
-          <li><a href="/sketches" class="footer-link">草图</a></li>
-          <li><a href="/topics" class="footer-link">话题</a></li>
-          <li><a href="#" class="footer-link">反馈</a></li>
-        </ul>
-      </div>
-    </section>
-    <section class="footer-social">
-      <span>
-        DOKENSOFT ©2020
-      </span>
+  <div class="footer-in">
+    <section class="footer-navbar">
+      <ul class="footer-nav">
+        <li><a href="/sketches">草图</a></li>
+        <li><a href="/topics">话题</a></li>
+        <li><a href="#">反馈</a></li>
+      </ul>
+      <ul class="footer-inav">
+        <a href="https://github.com/kuyenda/splash" data-toggle="tooltip" data-placement="top" title="克隆项目">
+          <ion-icon name="git-branch-outline">
+          </ion-icon>
+        </a>
+        <a href="/" data-toggle="tooltip" onclick="return false;" data-placement="top" title="基于Rails<%= Rails.version %>">
+          <ion-icon name="information-circle-outline">
+          </ion-icon>
+        </a>
+        <p class="mb-0 mr-3 ml-sm-0 ml-2 px-0 px-sm-2 float-none float-md-right f1">
+          Copyright Ⓒ 2020 kuyenda <br>
+          <% progress = Digest::MD5.hexdigest(Time.now.strftime("%d/%m/%Y").to_s)[0..5].chars.map(&:ord).inject(:+) % 50 / 50.0 %>
+          <span class="relative d-inline-block bg-dark8 link o-50 glow" style="width: 50px;height: 7px;border-radius: 3px;">
+            <span class="absolute d-inline-block bg-green7" style="width: <%= 50*progress %>px;height: 7px;border-radius: 3px;">
+            </span>
+          </span>
+          <span class="f1 green8 ml-1 link hover-green7"><%= (100*progress).to_i %> luck <span class="b">today</span></span>
+        </p>
+      </ul>
     </section>
   </div>
 </footer>

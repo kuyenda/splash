@@ -1,0 +1,17 @@
+ <% sketch.each.with_index do |e, i| %>
+  <div class="sketch-item">
+    <%= link_to "", e, class:'sketch-a' %>
+    <div class="sketch-sidebar" style="background-color:#<%= string_color(e.digest) %>">
+    </div>
+    <div class="sketch-stuff">
+      <h6 class="sketch-timestamp">
+        推送于<%= time_ago_in_words(e.created_at) %>前
+      </h6>
+      <h3 class="sketch-h">
+        <span class="badge bg-gray white badge-pill"><%= e.digest %></span>
+        <span class="b"><%= e.title %></span>
+      </h3>
+      <p class="sketch-p"><%= e.codes.first.code[0..50] if e.codes.any? %></p>
+    </div>
+  </div>
+<% end %>
