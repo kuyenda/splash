@@ -1,0 +1,7 @@
+<%= form_for(edition, html: { class: "" }) do |f| %>
+  <%= f.text_field :title, placeholder: "标题", class: "form-control" %>
+  <%= f.text_field :description, placeholder: "概要", class: "form-control" %>
+  <%= flash_form_error edition, class: 'alert alert-danger' %>
+  <%= f.submit "保存", class: "btn btn-primary my-sm-2 w-75" %>
+  <%= link_to "删除", edition, class: "btn btn-danger tc link hover-white", method: :delete, data: { confirm: "请确认" } %>
+<% end %>

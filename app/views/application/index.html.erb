@@ -1,75 +1,74 @@
 <script>
   $(function() {
-  var container = $('.enrique');
-  var heading = $(".enrique-content");
-  var sketch = $(".enrique-sketch-wrapper")
-  var _spinner = "\
-  <div class='absolute p-2 z-9'>\
-    <div class='spinner-border' role='status'>\
-    <span class='sr-only'>Loading...</span>\
-    </div>\
-  </div>\
-  "
-  var spinner = $(_spinner)
-  container.append(spinner)
-  
-  spinner.fadeTo(0, 0);
-  heading.fadeTo(0, 0);
-  sketch.fadeTo(0, 0);
-  
-  spinner.fadeTo(300, 1);
-  
-  $('.enrique-sketch').ready(function() {
-    spinner.fadeOut(2000);
-    setTimeout(function() {
-      sketch.fadeTo(2000, 1);
-    }, 300)
-    setTimeout(function() {
-      heading.fadeTo(2000, 1);
-    }, 600)
+    var heading = '.enrique-in'
+    var sketch = '.enrique-sketch-in'
+    var spinner = '.spinner'
+    // SHOW LOADER
+    anime({
+      targets: spinner,
+      duration: 200,
+      opacity: 1
     });
-  });
+  
+    $('<div class="enrique-sketch"></div>').ready(function() {
+      setTimeout(function() {
+        anime({
+          targets: spinner,
+          easing: 'cubicBezier(.5, .05, .1, .3)',
+          duration: 3000,
+          opacity: 0
+        });
+      }
+      , 1000)
+      anime({
+        targets: [sketch, heading],
+        easing: 'cubicBezier(.5, .05, .1, .3)',
+        delay: anime.stagger(1500),
+        duration: 1000,
+        opacity: 1,
+      });
+    });
+  })
 </script>
 <section class="enrique">
-  <div class="enrique-sketch-wrapper">
-    <form id="sketchForm" target="sketchIframe494102" action="/sketch/preview/?random=0.136692849057525" method="POST">
+  <div class="enrique-sketch-in o-0">
+    <form id="sketchForm" target="sketchIframe494102" action="/?random=0.136692849057525" method="POST">
       <input id="sketchConfig" type="hidden" name="config" value="">
     </form>
-    <iframe class="enrique-sketch" src="/sketches/preview" frameborder="0">
+    <iframe class="enrique-sketch" src="/sp" frameborder="0">
     </iframe>
   </div>
-  <div class="enrique-content">
-    <div class="enrique-primary">
-      <h1 class="enrique-heading">
-        <% if logged_in? %>
-        <% else %>
-          Beautifully crafted open source artworks
-        <% end %>
-      </h1>
-      <div>
-        <p class="enrique-paragraph ffht">
-          <% if logged_in? %>
-          <% else %>
-            设计师，艺术家，教育工作者和日常编码人员社区。
-            我们正在分享创意编程源代码，参与和改进算法设计。<br>
-            请注意这是一个实验版本，我们不会为您保留任何数据。
-          <% end %>
-        </p>
-        <div class="enrique-button-group ffht">
-          <% if !logged_in? %>
-            <%= link_to "注册", signup_path, class: "btn ebtn ruby small" %>
-          <% end %>
+  <div class="enrique-in o-0">
+    <% if !logged_in? %>
+      <div class="enrique-primary">
+        <h1 class="enrique-heading">
+        </h1>
+        <div>
+          <h3 class="enrique-paragraph ffht">
+          </h3>
+          <div class="enrique-button-group ffht">
+          </div>
         </div>
       </div>
-    </div>
-    <% if logged_in? %>
+    <% end %>
+    <% if !logged_in? %>
       <div class="enrique-secondary">
         <p class="m-0 fw7"></p>
       </div>
     <% end %>
   </div>
   <div class="enrique-attribution">
-    <a href="#" class="link link-underline-light glow fw6"><%= FFaker::NameJA.name %></a>
+    <a href="#" class="link link-underline-light glow fw6">v_<%= RUBY_VERSION %></a>
+  </div>
+  <div class="spinner absolute p-2 z-9">
+    <div class="sk-chase" style="--sk-size:40px;--sk-color:#fff">
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+      <div class="sk-chase-dot"></div>
+    </div>
   </div>
 </section>
 <% if !logged_in? %>
@@ -83,45 +82,57 @@
     </div>
   </section>
 <% end %>
-<section class="wrapper py-md-5 bg-dark0">
-  <div class="container md-page">
+<section class="wrapper py-md-5">
+  <div class="container md-page bg-dark0">
     <nav class="nav nav-tabs nav-fill">
-      <a class="nav-item nav-link" data-toggle="tab" href="#patch">
+      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">
         新闻
       </a>
-      <a class="nav-item nav-link active" data-toggle="tab" href="#patch2">
+      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">
         开发
       </a>
     </nav>
     <div class="tab-content dark7 overflow-hidden">
-      <div class="tab-pane fade ba b--dashed p-4 bg-gray0" id="patch">
-      </div>
-      <div class="tab-pane fade show active p-4 bg-gray0" id="patch2">
-        <h1 class="f5">
-          补丁
-        </h1>
-        <ul>
+      <div class="tab-pane show active ffpx fade p-4" id="patch">
+        <h1>欢迎来到splash.io！</h1>
+        <h2>🙆‍任何人都能学习和分享的无门槛创意编程</h2>
+        <p class="f4 b">请注意这是一个实验版本，数据不被保证储存。</p>
+        <ul class="f4">
           <li>
-            用户页面
+            <a href="/css" class="link link-underline-dark glow">样式编写风格指南</a>
           </li>
           <li>
-            首页观看随机的作品
-          </li>
-        </ul>
-        <ul>
-          <li>
-            <a href="/css" class="link link-underline-dark glow">CSS</a>
+            <%= link_to "探索", sketches_path, class: "btn btn-primary btn-sm" %>
           </li>
         </ul>
       </div>
-    </div>
-  </div>
-  <div class="container md-page mb-md-3 mb-lg-5 ffht b">
-    <h2 class="gray">
-      <ion-icon name="library-outline"></ion-icon>
-      柏林噪声
-    </h2>
-    <p class="gray9 f4 fw5">Perlin噪声（Perlin noise）指由Ken Perlin发明的自然噪声生成算法。由于Perlin本人的失误，Perlin噪声这个名词现在被同时用于指代两种有一定联系的的噪声生成算法。这两种算法都广泛地应用于计算机图形学，因此人们对这两种算法的称呼存在一定误解。Simplex噪声和分形噪声都曾在严肃学术论文中被单独的称作Perlin噪声。
-      对于彩色图像的噪声生成，只要将同样的方法分别应用于各个颜色分量上，再加以合成即可。</p>
-  </div>
-</section>
+      <div class="tab-pane fade p-4" id="patch2">
+        <table class="table table-sm table-hover table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">序列</th>
+              <th scope="col">宝石</th>
+              <th scope="col">版本</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% Gem::Specification.all.each.with_index do |e, i| %>
+              <tr>
+                <th><%= i+1 %></th>
+                <th><%= e.name %></th>
+                <th><%= e.version %></th>
+                <tr>
+                <% end %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="container md-page mb-md-3 mb-lg-5 b">
+        <h2 class="gray">
+          <ion-icon name="radio-button-on-outline"></ion-icon>
+          sparklemotion/nokogiri
+        </h2>
+        <p class="gray9 f4 fw5">Nokogiri (鋸) is a Rubygem providing HTML, XML, SAX, and Reader parsers with XPath and CSS selector support. <a class="link link-underline-light o-90 glow" href="https://nokogiri.org/">https://nokogiri.org</a></p>
+      </div>
+    </section>

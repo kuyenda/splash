@@ -1,33 +1,37 @@
-.icon {
-    user-select: none;
+ion-icon {
     font-size: inherit;
-    color: inherit;
-
+    user-select: none;
 }
 
-.i--hv {
+.icon {
+    color: inherit;
+    vertical-align: middle;
     @include et-transition(2, .5s);
 
     &:hover {
-        filter: hue-rotate(90deg);
+        filter: hue-rotate(180deg);
+        transform: rotate(360deg);
     }
 }
 
-$iconColors: map-merge(("black":#000,
-"white":#fff,
-"green":#00e676,
-"blue": #2962ff), ());
-
 @each $index,
-$color in $iconColors {
-    .i--#{$index} {
+$color in map-merge($theme-colors, $colors) {
+    .icon-#{$index} {
         color: $color !important;
     }
 }
 
 @each $size in (16, 24, 36, 48, 64, 128, 192) {
-    .icon#{$size} {
+    .icon-#{$size} {
         @extend .icon;
         font-size: #{$size}px;
+    }
+}
+
+@each $var in (0, 45, 90, 145, 180) {
+    .icon-hue-#{$var} {
+        &:hover {
+            filter: hue-rotate(#{$var}deg);
+        }
     }
 }

@@ -29,7 +29,9 @@ gem 'bcrypt', '3.1.13'
 # gem 'capistrano-rails', group: :development
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
-
+#==============================================================================
+#
+#==============================================================================
 # Create pretty URL’s and work with human-friendly strings
 gem 'friendly_id', '~> 5.2.4'
 # Easily generate fake data
@@ -38,12 +40,24 @@ gem 'ffaker'
 gem 'groupdate'
 # Pagination library for Rails
 gem 'will_paginate', '~> 3.1.0'
+# Color manipulation and palette generation
+gem 'chroma'
+# Classier solution for file uploads for Rails
+gem 'carrierwave', '1.1.0'
+gem 'mini_magick', '4.7.0'
+gem 'fog-aws', '2.0.0'
+gem 'nokogiri'
+# Forms made easy for Rails! It's tied to a simple DSL, with no opinion on markup.
+gem 'simple_form'
+# Object-based searching
+gem 'ransack'
 #==============================================================================
 # Assets adapter for rails
 #==============================================================================
 # gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "font-awesome-rails"
 # Editor
 gem 'ace-rails-ap'

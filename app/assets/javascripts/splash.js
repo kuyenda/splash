@@ -5,6 +5,7 @@ $(document).on('ready turbolinks:load', function() {
 	if ($('code').length > 0) {
 		Prism.highlightAll()
 	}
+	$('[data-toggle="tooltip"]').tooltip()
 	/* ------------------------------------------------------ */
 	// Switch elements' class with data-target, data-by
 	/* ------------------------------------------------------ */
