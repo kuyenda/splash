@@ -92,7 +92,7 @@ $home-hero-text-color: #fff;
         // @include et-transition(2, 1s);
 
         @include media-breakpoint-down(sm) {
-            // align-items: center;
+            align-items: center;
             // padding: 100px 2rem;
         }
     }
@@ -149,17 +149,16 @@ $home-hero-text-color: #fff;
         margin: 0rem 0 .5rem 0;
         color: $home-hero-text-color;
         line-height: 1;
-        font-size: 24px;
+        font-size: 30px;
 
         @include media-breakpoint-down(sm) {
-            font-size: 1.8rem;
+            font-size: 24px;
         }
     }
 
     .enrique-paragraph {
         // DISABLED
         margin: 0;
-        margin-left: -4px;
         border-radius: .3rem;
         border-bottom: 4px dashed transparent;
         color: $home-hero-text-color;
@@ -170,7 +169,9 @@ $home-hero-text-color: #fff;
             border-color: #2229;
         }
 
-        @include media-breakpoint-down(sm) {}
+        @include media-breakpoint-down(sm) {
+            font-size: 20px;
+        }
     }
 
     // 3 - ARTWORK LINK
