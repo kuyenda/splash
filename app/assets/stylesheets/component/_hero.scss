@@ -60,7 +60,7 @@ $home-hero-text-color: #fff;
     }
 
     // 1 - SKETCHED BACKGROUND
-    .enrique-sketch-wrapper {}
+    .enrique-sketch-in {}
 
     .enrique-sketch {
         position: absolute;
@@ -72,12 +72,11 @@ $home-hero-text-color: #fff;
         z-index: 1;
     }
 
-    // 2 - MAIN CONTENT
-    .enrique-content {
+    // 2 - MAIN CONTENT, SECTIONS
+    .enrique-in {
         position: relative;
         width: 100%;
         flex-basis: 100%;
-        max-width: 70rem;
         margin: 0 auto;
         padding: 100px 2rem;
         padding-bottom: calc(100px - 43px);
@@ -85,26 +84,26 @@ $home-hero-text-color: #fff;
         flex-wrap: wrap;
         flex-direction: column;
         justify-content: space-around;
-        align-items: flex-start;
+        // align-items: flex-start;
+        align-items: center;
         order: 0;
         text-align: left;
         z-index: 2;
-        // @include et-transition(2, 1s);
 
         @include media-breakpoint-down(sm) {
-            align-items: center;
             // padding: 100px 2rem;
         }
     }
 
     .enrique-primary {
-        max-width: 70%;
+        display: none;
+        position: relative;
+        max-width: 100%;
         flex-basis: auto;
         flex-grow: 1;
         flex-shrink: 1;
-        overflow: hidden;
         padding: 18px;
-        @include et-transition(2, 1s);
+        border-radius: 1rem;
 
         @include media-breakpoint-down(sm) {
             padding: 0;
@@ -127,7 +126,6 @@ $home-hero-text-color: #fff;
         background-size: 75%;
         border-radius: 1rem;
         background: #000c;
-        @include et-transition(2, 1s);
 
         @include media-breakpoint-down(sm) {
             max-width: 80%;
@@ -159,15 +157,7 @@ $home-hero-text-color: #fff;
     .enrique-paragraph {
         // DISABLED
         margin: 0;
-        border-radius: .3rem;
-        border-bottom: 4px dashed transparent;
         color: $home-hero-text-color;
-
-        @include et-transition(2, 1s);
-
-        &:hover {
-            border-color: #2229;
-        }
 
         @include media-breakpoint-down(sm) {
             font-size: 20px;
@@ -186,8 +176,6 @@ $home-hero-text-color: #fff;
         z-index: 3;
 
         @include media-breakpoint-down(sm) {
-            border-top: 2px dashed rgb(255, 255, 255);
-            background: #222;
             font-size: 0.85rem;
             text-align: center;
         }

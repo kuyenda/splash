@@ -84,7 +84,7 @@ class SketchesController < ApplicationController
   end
   def create_code_file(digit, format=".js")
     path = code_path "users"
-    template_file = code_path + "sketch_template.js"
+    template_file = code_path + "template.js"
     f = File.new(path + digit + format, "w+")
     f.puts(File.read(template_file))
     f.close

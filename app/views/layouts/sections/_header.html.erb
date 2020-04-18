@@ -1,45 +1,40 @@
 <header class="navbar">
   <div class="nav-logo">
     <a href="/">Splash</a>
-    <span class="version">0.01-b</span>
+    <span class="nav-version">alpha-1.00</span>
   </div>
-  <div class="nav-menu">
-    <ul class="nav-menu-items">
+  <ul class="nav-menu">
+    <li class="nav-menu-item">
+      <%= link_to '发现', sketches_path, class: "nav-menu-link" %>
+    </li>
+    <li class="nav-menu-item">
+      <%= link_to '话题', topics_path, class: "nav-menu-link" %>
+    </li>
+    <% if logged_in? && current_user.name == "kuyenda" %>
       <li class="nav-menu-item">
-        <%= link_to '主页', root_path, class: "nav-menu-link" %>
+        <%= link_to '管理', users_path, class: "nav-menu-link" %>
       </li>
+    <% end %>
+    <% if logged_in? %>
+      <li class="nav-menu-item dropdown">
+        <a href="#" class="dropdown-toggle nav-menu-link" data-toggle="dropdown">
+          账户<b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li><%= link_to current_user.name, current_user, class: "nav-menu-link dropdown-link" %></li>
+          <li><%= link_to "设定", edit_user_path(current_user), class: "nav-menu-link dropdown-link" %></li>
+          <li class="divider"></li>
+          <li>
+            <%= link_to "登出", logout_path, class: "nav-menu-link dropdown-link", method: :delete %>
+          </li>
+        </ul>
+      </li>
+    <% else %>
       <li class="nav-menu-item">
-        <%= link_to '草图', sketches_path, class: "nav-menu-link" %>
+        <%= link_to '登入', login_path, class: "nav-menu-link" %>
       </li>
-      <li class="nav-menu-item">
-        <%= link_to '话题', topics_path, class: "nav-menu-link" %>
-      </li>
-      <% if logged_in? && current_user.name == "kuyenda" %>
-        <li class="nav-menu-item">
-          <%= link_to '管理', users_path, class: "nav-menu-link" %>
-        </li>
-      <% end %>
-      <% if logged_in? %>
-        <li class="nav-menu-item dropdown">
-          <a href="#" class="dropdown-toggle nav-menu-link" data-toggle="dropdown">
-            账户<b class="caret"></b>
-          </a>
-          <ul class="dropdown-menu">
-            <li><%= link_to current_user.name, current_user, class: "nav-menu-link dropdown-link" %></li>
-            <li><%= link_to "设定", edit_user_path(current_user), class: "nav-menu-link dropdown-link" %></li>
-            <li class="divider"></li>
-            <li>
-              <%= link_to "登出", logout_path, class: "nav-menu-link dropdown-link", method: :delete %>
-            </li>
-          </ul>
-        </li>
-      <% else %>
-        <li class="nav-menu-item">
-          <%= link_to '登入', login_path, class: "nav-menu-link" %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
+    <% end %>
+  </ul>
   <div class="nav-mobile-button">
     <a data-switch="#mobile-menu .hamburger" data-by="open is-active">
       <div class="hamburger">
@@ -57,7 +52,7 @@
     <ul class="nav-mobile-menu">
       <li>
         <a href="#" class="nav-mobile-dropdown-toggle" data-sub-nav="explore">
-          探索
+          发现
         </a>
         <ul class="nav-mobile-dropdown">
           <li>

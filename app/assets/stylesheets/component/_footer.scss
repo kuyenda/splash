@@ -1,107 +1,114 @@
-// CONFIG
-$footer-background-color: #2e3234;
-$footer-title-color: #7d929e;
-$footer-logo-color: #7d929e;
-$footer-link-color: #7d929e;
-$footer-link-color-highlight: #FFC61A;
+// *CONFIG*
+$footer-backgroundColor: #2f3542;
+$footer-Color-i: transparent;
+$footer-Color-link: hsl(0, 0, 100% - lightness($footer-backgroundColor));
+$footer-Color-hyper: lighten($footer-Color-link, 25);
+
+@if lightness($footer-backgroundColor)>.5 {
+    $footer-Color-i: lighten($footer-backgroundColor, 20%);
+}
+
+@if lightness($footer-backgroundColor)<=.5 {
+    $footer-Color-i: darken($footer-backgroundColor, 20%);
+}
 
 .footer {
     width: 100%;
     overflow: hidden;
-
-    * {
-        @include et-transition(2, .5s);
-    }
 }
 
-.footer-inner {
+.footer-in {
     // max-width: 800px;
     margin: 0 auto;
     font-size: 14px;
     text-align: left;
-    color: $footer-link-color;
-    background: $footer-background-color;
+    color: $footer-Color-link;
+    background: $footer-backgroundColor;
 }
 
-// 1 - FOOTER LINK GROUP
-.footer-link-wrapper {
-    max-width: 80%;
+// 1 - NAVBAR
+.footer-navbar {
+    max-width: 90%;
     margin: 0 auto;
-    padding: 0;
+    padding: 15px 9px;
     display: flex;
     flex-wrap: wrap;
     justify-content: flex-start;
-    align-items: flex-start;
+    align-items: center;
 
     @include media-breakpoint-down(md) {
         max-width: 99%;
         padding: 20px 15px;
     }
+}
 
-    .footer-link-group {
-        display: flex;
-        flex-wrap: wrap;
-        margin: 0 5%;
+.footer-nav {
+    margin: 0;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
 
-        ul {
-            padding-left: 0;
-            margin-bottom: 0;
-            list-style: none;
-        }
+    li {
+        float: left;
+        margin: 0 3px;
 
-        li {
-            float: left;
-            margin: 0 3px;
-            background: #cfd8dc15;
-        }
-
-        a {
-            font-size: 28px;
-            color: $footer-link-color;
-
-            &:hover {
-                color: $footer-link-color-highlight;
-            }
-        }
-
-
-        // padding: 24px;
         @include media-breakpoint-down(sm) {
-            width: 100%;
-            margin: 0;
-            padding: 0;
+            // padding: 5px;
+            // margin-bottom: 3px;
+            font-size: 15px;
+        }
+    }
 
-            li {
-                padding: 5px;
-                margin-bottom: 3px;
-                color: #222;
-                font-size: 15px;
-                background: #cfd8dc15;
-            }
+    a {
+        display: block;
+        font-size: 28px;
+        border-color: darken($footer-backgroundColor, 5%);
+        border-style: dashed;
+        border-width: 5px;
+        color: $footer-Color-link;
+        @include et-transition(2, .3s);
 
-            a {
-                display: block;
-
-                &:hover {
-                    background: #cfd8dc08;
-                }
-            }
+        &:hover {
+            background-color: adjust-color($footer-backgroundColor, 90);
+            border-top-color: transparent;
+            border-bottom-color: transparent;
+            color: $footer-Color-hyper;
         }
     }
 }
 
-// 2 - SOCIAL LINK BAR
-.footer-social {
-    margin: 0 auto;
-    padding: 3px 0;
-    // display: flex;
-    // flex-direction: row;
-    // justify-content: center;
-    // align-items: center;
-    background: #292d2e;
-    text-align: center;
+// 2 - RAILS VERSION
+.footer-inav {
+    margin: 0;
+    padding-left: 0;
+    list-style: none;
+    flex-grow: 1;
 
-    span {
-        font-weight: 700;
+    a {
+        float: right;
+        display: inline-block;
+        height: 100%;
+        margin: 0 5px;
+        color: $footer-Color-i;
+        font-size: 28px;
+        line-height: 28px;
+
+        @include et-transition(1, 1s);
+
+        @include media-breakpoint-down(sm) {
+            margin: 0 2px;
+            font-size: 1.5rem;
+            clear: both;
+        }
+
+        &:hover {
+            color: lighten($footer-Color-i, 25%);
+        }
     }
+
+    @include media-breakpoint-down(sm) {
+        width: 100%;
+        margin-top: 20px;
+    }
+
 }

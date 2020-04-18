@@ -1,10 +1,10 @@
 /* Sketch Container */
-.examples-container {
+.sketches-container {
     max-width: 100%;
-    overflow: hidden;
+    overflow-y: scroll;
     margin: 0px 0px 0px 0px;
     border-top: .125rem solid #f1f3f5;
-    min-height: calc(100vh - 60px);
+    height: calc(100vh - 60px);
     display: flex;
     justify-content: center;
     align-items: flex-start;
@@ -16,7 +16,8 @@
         flex-wrap: wrap;
     }
 
-    .examples-aside-wrapper {
+    .sketches-aside-wrapper {
+        height: 100%;
         padding-top: 3rem;
         flex-shrink: 0;
         flex-grow: 0;
@@ -25,10 +26,11 @@
         background-color: #f8f9fa;
         z-index: 1;
 
-        .examples-aside {
+        .sketches-aside {
             padding: 20px 20px;
             display: flex;
-            justify-content: center;
+            flex-wrap: wrap;
+            justify-content: flex-start;
             align-items: flex-start;
             color: #4C4C4C;
         }
@@ -38,46 +40,18 @@
             list-style-type: none;
         }
 
-        li {
-            padding-left: 2rem;
-            padding-right: 2rem;
-            padding-top: .5rem;
-            padding-bottom: .5rem;
-            color: #495057;
-            font-weight: 600;
-            transition: all .1s ease-in;
-
-            a {
-                width: 100%;
-                display: block;
-                color: inherit;
-                transition: all .1s ease-in;
-            }
-
-            &:hover {
-                color: #607d8b;
-                background: #fff;
-
-                a {
-                    color: #33691e;
-                }
-
-            }
-
-        }
-
         @include media-breakpoint-down(lg) {
             padding: 0;
             order: -1;
             flex-basis: 100%;
+            height: auto;
 
         }
-
-        @include media-breakpoint-down(md) {}
-
     }
 
-    .examples {
+    .sketches {
+        overflow-y: scroll;
+        min-height: 100%;
         padding: 2rem;
         flex-basis: 600px;
         flex-shrink: 1;
@@ -85,17 +59,12 @@
         background-color: #fff;
         z-index: 1;
 
-        .example-header {
-            max-width: 65%;
-            overflow: hidden;
-            margin: 0 auto;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: .25rem solid #e9ecef;
+        @include media-breakpoint-down(lg) {
+            padding: 0;
         }
     }
 
-    .example-results {
+    .sketches-stream {
         display: flex;
         flex-wrap: wrap;
         justify-content: flex-start;
@@ -108,152 +77,105 @@
             flex-wrap: wrap;
         }
 
-        .example-item {
-            margin: 0 15px 30px 15px;
-            width: calc(25% - 30px);
-            max-width: 240px;
-            min-width: 240px;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            overflow: hidden;
-            border-radius: .25rem .25rem .25rem .25rem;
-            box-shadow: 4px 3px 0px 0px #00000029;
-            @include et-transition(0, .25s);
+    }
 
-            .example-shot {
-                width: 100%;
-                height: 120px;
-                overflow: hidden;
-                position: relative;
-                background: #222;
-                border-radius: .25rem .25rem 0 0;
 
-                .example-link {
-                    cursor: pointer;
-                    position: absolute;
-                    top: 0;
-                    bottom: 30px;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
-                    margin: 0;
-                    padding: 20px;
-                    line-height: 2;
-                    box-sizing: border-box;
-                    text-decoration: none;
-                    padding: 10px;
-                    z-index: 1;
-                    @include et-transition(0, .25s);
-                }
+    .sketch-item {
+        // margin: 0 15px 30px 15px;
+        position: relative;
+        overflow: hidden;
+        margin: 0;
+        margin-left: 2%;
+        margin-bottom: 12px;
+        padding-left: 30px;
+        min-width: 80%;
+        min-height: 100px;
+        border-radius: .25rem .25rem .25rem .25rem;
+        border-width: thin;
+        border-style: solid;
+        border-color: rgba(0, 0, 0, .05);
+        cursor: pointer;
+        // box-shadow: 4px 3px 0px 0px #00000029;
 
-                .example-date {
-                    position: absolute;
-                    top: 0;
-                    right: 5px;
-                    margin-bottom: .25rem;
-                    font-size: 25px;
-                    font-weight: 900;
-                    color: #fff;
-                    padding: 10px;
-                    user-select: none;
-                    z-index: 0;
-                    @include et-transition(0, .25s);
-                }
-
-            }
-
-            .example-name {
-                width: 100%;
-                position: relative;
-                background: #fff;
-                padding: 8px;
-                border-radius: 0 0 .25rem .25rem;
-
-                .example-title {
-                    color: #2d3436;
-                    margin-bottom: 2px;
-                    font-size: 18px;
-                    @include et-transition(0, .25s);
-                }
-
-                .example-id {
-                    margin: 0;
-                    color: #bbb;
-                    font-size: 15px;
-                    font-weight: 800;
-                    @include et-transition(0, .25s);
-                }
-
-                .example-options {
-                    position: absolute;
-                    right: 0;
-                    top: 0;
-                    margin: 10px 0;
-                    z-index: 2;
-                    @include et-transition(0, .25s);
-
-                    span {
-                        display: block;
-                        height: 15px;
-                        line-height: 15px;
-                        margin-right: 5px;
-                    }
-
-                    i {
-                        margin-right: 5px;
-                        padding-left: 15px;
-                        color: #555;
-                    }
-
-                }
-
-            }
-
+        &:hover {
+            border-color: rgba(0, 0, 0, .25);
         }
 
+        @include et-transition(0, .25s);
+
+        @include media-breakpoint-down(lg) {
+            width: 100%;
+            margin: 0;
+            margin-bottom: 12px;
+            padding-left: 0px;
+        }
+
+        .sketch-sidebar {
+            position: absolute;
+            overflow: hidden;
+            left: 0;
+            top: 0;
+            width: 30px;
+            height: 100%;
+            padding: 8px 4px 8px 0;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            background: #fff;
+            border-radius: .25rem 0 0 .25rem;
+
+            @include media-breakpoint-down(lg) {
+                display: none;
+            }
+        }
+
+        .sketch-a {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            @include et-transition(0, .25s);
+        }
+
+        .sketch-stuff {
+            position: relative;
+            padding-top: 8px;
+            background: #fff;
+            border-radius: 0 0 .25rem .25rem;
+        }
+
+        .sketch-timestamp {
+            position: relative;
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 16px;
+            display: flex;
+            flex-flow: row nowrap;
+            margin: 0 8px 8px;
+            color: #2d3436;
+        }
+
+        .sketch-h {
+            margin: 0 8px;
+        }
+
+        .sketch-p {
+            margin: 0 8px;
+            color: #2C3A47;
+        }
     }
 
     @include media-breakpoint-down(md) {
         padding: 0px;
 
-        .examples {
+        .sketches {
             flex-basis: 100%;
             padding: 60px 15px 15px 15px;
             border-radius: 0;
-
-            .example-item {
-                min-width: 300px;
-                max-width: 300px;
-
-                .example-shot {
-                    height: 100px;
-
-                    .example-date {
-                        font-size: 25px;
-                    }
-
-                }
-
-                .example-name {
-                    .example-title {
-                        font-size: 15px;
-                    }
-
-                    .example-id {
-                        font-size: 12px;
-                    }
-
-                }
-
-            }
-
         }
-
     }
-
 }
 
 /* Sketch */
@@ -614,4 +536,20 @@
 
     }
 
+}
+
+.sketched {
+
+    html,
+    body {
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        background-color: #263238;
+    }
+
+    .p5 {
+        width: 100%;
+        height: 100vh;
+    }
 }

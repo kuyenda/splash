@@ -4,13 +4,6 @@
     <div class="modal-dialog">
     </div>
   </div>
-  <div class="row py-2 bg-gray">
-    <div class="col px-5 text-center">
-      <p class="text-white m-0 py-5">
-        尚未完成的内容
-      </p>
-    </div>
-  </div>
 </section>
 <section id="popForm" class="row center-modal">
   <div class="pt-3 pb-4 px-2 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
@@ -22,12 +15,14 @@
     <%= render partial: 'form', object: Sketch.new %>
   </div>
 </section>
-<section class="examples-container">
-  <aside class="examples-aside-wrapper">
-    <div class="examples-aside">
-      <div style="border-bottom: 3px dashed #b0bec5">
+<section class="sketches-container">
+  <aside class="sketches-aside-wrapper">
+    <div class="sketches-aside">
+      <div class="w-100" style="border-bottom: 3px dashed #b0bec5">
         <h5>程式库列表</h5>
-        <p>点击<strong>新建</strong>，创建一个新的数据</p>
+        <p>点击<strong>新建</strong>，创建一个新的数据<br>
+          <%= FFaker::Lorem.sentence %>
+        </p>
         <a href="/sketches/new" data-switch="#popForm" data-by="open">
           <i class="icon48 i--hv i--green ion-md-add-circle-outline"></i>
         </a>
@@ -35,39 +30,27 @@
           <i class="icon48 i--hv i--black ion-md-help-circle-outline"></i>
         </a>
       </div>
-    </div>
-    <ul>
-      <li>
-        <a href="#">
-          <%= FFaker::LoremJA.word.html_safe %>
+      <div class="w-100">
+        <form class="ffpx" action="">
+          <input class="m-0 mt-2" type="search" name="q" placeholder="筛选" value="">
+        </form>
+      </div>
+      <div class="w-100">
+        <h6 class="my-1 d-block fw5 gray ffpx"><%= Sketch.all.count %> Founded</h6>
+      </div>
+      <div class="w-100">
+        <a href="#" class="d-block link hover-beta hover-bg-gray0">
+          仅限自己
         </a>
-      </li>
-      <li>
-        <a href="#">
-          <%= FFaker::LoremJA.word.html_safe %>
+        <a href="#" class="d-block link hover-beta hover-bg-gray0">
+          仅限他人
         </a>
-      </li>
-    </ul>
-    <ul>
-      <li>
-        <%= FFaker::LoremJA.paragraph.html_safe %>
-      </li>
-      <li>
-        <%= FFaker::LoremJA.paragraph.html_safe %>
-      </li>
-      <li>
-        <%= FFaker::LoremJA.paragraph.html_safe %>
-      </li>
-    </ul>
-  </aside>
-  <main class="examples">
-    <section class="example-header">
-      <span class="mb-3 d-block fw5 f6 tc gray8">All <%= Sketch.all.count %> Sketches</span>
-      <div>
         <!-- <%= pie_by_week %> -->
       </div>
-    </section>
-    <section class="example-results">
+    </div>
+  </aside>
+  <main class="sketches">
+    <section class="sketches-stream">
       <%= render partial: "sketch", object: @sketches %>
     </section>
   </main>

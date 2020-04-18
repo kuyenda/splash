@@ -8,4 +8,7 @@ module SketchesHelper
       dataset: { borderWidth: 1 },
       library: { cutoutPercentage: 50 }
   end
+  def string_color(t="helloworld")
+    color = Digest::MD5.hexdigest(t)[0..5]
+  end
 end

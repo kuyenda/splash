@@ -1,35 +1,33 @@
 <div class="example-page help-page py-lg-3 px-lg-4 p-2">
   <h6 class="blog-date">Fri Dec 14. kuyenda</h6>
-  <h2 class="font-weight-bold text-right mb-0">Start Coding</h2>
+  <h2 class="font-weight-bold text-right mb-0">简易指南</h2>
   <div class="row header-image mb-3">
   </div>
-  <h2>Sketch</h2>
+  <h3>什么是草图</h3>
   <p class="lead">
-    p5.j​​s是一个用JavaScript语言编写的程式库，其致力于使编写复杂程序的过程变得简单和通用，因此艺术家，设计师，教育者，初学者以及其他任何人都可以轻松学习！p5.j​​s是免费和开源的，因为我们相信它可以给任何人带来便利。
-    正如草图(sketch)的意思，p5.js具有一整套绘图功能。您也可以将整个浏览器页面视为草图，渲染文本，输入，视频，网络摄像头和声音。
+    所谓草图是利用p5.j​​s框架和JavaScript语言编写的程式集合。p5致力于使编写复杂程序的过程变得简单。 艺术家，设计师，教育者，初学者以及其他任何人都可以轻松学习！因此您也无需为不具备编程知识而感到困惑。p5拥有一整套绘图功能。您也可以将整个浏览器页面作为草图，渲染文本，输入，视频，摄像头和声音。
   </p>
-  <h5 class="font-weight-light pl-3">📕 Read more...</h5>
+  <h6>入门</h6>
   <ul>
     <li>
-      <%= link_to "p5.js offical tutorial", "https://p5js.org/zh-Hans/get-started/" %>
+      <%= link_to "p5 官方教程", "https://p5js.org/zh-Hans/get-started/" %>
     </li>
     <li>
-      <%= link_to "api document", "https://p5js.org/zh-Hans/reference/" %>
+      <%= link_to "p5 中文文档", "https://p5js.org/zh-Hans/reference/" %>
     </li>
   </ul>
-  <h2>Options</h2>
-  <p>在Splash，我们添加了一些简单的自适应辅助方法来操作DOM元素</p>
+  <h3>splash的意义</h3>
+  <p>splash将帮助更多人开启这个领域的大门，在中国传播创意编程！开发者（K）只是提供一些日常维护和储存</p>
+  <h3>辅助方法</h3>
+  <p>考虑到部分用户可能会在其他库的使用上遇到一些困难。我们会更新一些简单的辅助方法来方便操作<br>
+    当然您也可以自己编写这部分的内容，下面是一个其中一个方法
+  </p>
   <pre class="language-javascript"><code>function setup() {
   render(0, 0); 
 }</code></pre>
-  <p>例如可以使用 <span>render</span> 代替原来的 <span>createCanvas</span> 方法。
+  <p><span>render</span> vs <span>createCanvas</span>。
     这样做的好处是可以获得一个响应式的草图。 宽度和高度都为0以及缺省时，草图将会默认铺满整个容器，传入第三个参数WEBGL，会启用3D渲染。
-    全部辅助方法的信息已编写成单独的页面
+    其他辅助方法的信息将在之后的更新中编写成单独的页面
   </p>
-  <ul>
-    <li>
-      <%= link_to "UTP-Helper api document", sketches_path %>
-    </li>
-  </ul>
-  <h5><a href="">帮助编辑此页</a></h5>
+  <h5><a href="">帮助提交错误</a></h5>
 </div>
