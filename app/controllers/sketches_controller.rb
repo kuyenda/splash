@@ -1,51 +1,46 @@
 class SketchesController < ApplicationController
-  protect_from_forgery :except => [:save_code]
-
-  layout false, only: [:new, :edit, :sandbox, :preview, :help]
-
-  # static page
-  def help
-  end
+  layout false, only: [:create]
 
   def sandbox
+    render html: "".html_safe
   end
-
-  def preview
-  end
-
   #
   def index
     @sketches = Sketch.all
-  end
-
-  def new
-    @sketch = Sketch.new
+    # 获取字符串查询数据
+    @query = params["q"]
+    # 寻找关键词
+    if @query.present?
+      keyword = @query["keyword"]
+      unless keyword.blank?
+        @sketches = Sketch.where("#{@query["by"]} LIKE ?", "%#{keyword}%")
+      end
+    end
+    # 处理分页
+    @sketches = @sketches.paginate(page: params[:page], per_page: 10)
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @sketches}
+    end
+    # @sketches = Sketch.ransack(params[:q]).result(distinct: true)
   end
 
   def create
     @sketch = Sketch.new(sketch_params)
-    @sketch.digit = Sketch.sample_digit
-    @sketch.view = 0
-    @sketch.clap = 0
+    @sketch.digest = Sketch.create_digests
     if @sketch.save
-      create_code_file(@sketch.digit)
       redirect_to @sketch
     else
-      render :new
+      redirect_to @sketch
     end
   end
 
   def show
     @sketch = Sketch.friendly.find(params[:id])
-    if @sketch.view
-      @sketch.update(view: @sketch.view + 1)
-      @sketch.save
+    respond_to do |format|
+      format.html { render layout: "blank" } # show.html.erb
+      format.json { render json: @sketch}
     end
-    render layout: "blank"
-  end
-
-  def edit
-    @sketch = Sketch.friendly.find(params[:id])
   end
 
   def update
@@ -59,46 +54,12 @@ class SketchesController < ApplicationController
   end
 
   def destroy
-    delete_code_file(Sketch.friendly.find(params[:id]).digit)
     Sketch.friendly.find(params[:id]).destroy
     redirect_to sketches_url
-  end
-
-  def json
-    @all = Sketch.all
-    render json: @all
-  end
-
-  def save_code
-    save_code_file(params[:digit], params[:code])
-    redirect_to Sketch.friendly.find_by digit: params[:digit]
   end
 
   private
   def sketch_params
     params.require(:sketch).permit(:title, :description)
-  end
-  # save codes
-  def code_path(*arg)
-    File::join(Rails.root.to_s, "public", "sketches", arg, "")
-  end
-  def create_code_file(digit, format=".js")
-    path = code_path "users"
-    template_file = code_path + "template.js"
-    f = File.new(path + digit + format, "w+")
-    f.puts(File.read(template_file))
-    f.close
-  end
-  def save_code_file(digit, content, format=".js")
-    path = code_path "users"
-    f = File.open(path + digit + format, "wb")
-    f.write(content)
-    f.close
-  end
-  def delete_code_file(digit, format=".js")
-    path = code_path("users") + digit + format
-    if File::exist?(path)
-      File.delete(path)
-    end
   end
 end

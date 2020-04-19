@@ -1,8 +1,8 @@
 // google fonts
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;700');
 // config
-@import "config/bootstrap";
-@import "config/font";
+@import "configs/bootstrap";
+@import "configs/font";
 // framework
 @import "normalize.css/normalize";
 @import "animate.css/animate";
@@ -10,8 +10,10 @@
 @import "prismjs/themes/prism-okaidia";
 @import "font-awesome";
 @import "spinkit/spinkit.min";
+@import "configs/fconfig";
+// mixins
+@import "mixins/mixin";
 // common
-@import "mixin/mixin";
 @import "animation";
 @import "type";
 @import "alert";
@@ -20,11 +22,12 @@
 @import "form";
 @import "splash";
 // components
-@import "config/config";
-@import "component/header";
-@import "component/footer";
-@import "component/hero";
-@import "component/blog";
-@import "component/sketch";
-@import "component/profile";
-@import "component/pagination";
+@import "components/hero";
+@import "components/blog";
+@import "components/profile";
+@import "components/pagination";
+// sections
+@import "sections/header";
+@import "sections/footer";
+// models
+@import "models/sketch";

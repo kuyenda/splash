@@ -19,7 +19,7 @@ $var in zip(b l normal, bold lighter normal) {
 
 // font-family
 @each $key,
-$var in zip(''mono sp ht yy px, Steradian Hack 'Noto Sans SC'Chht Chyy Chpx) {
+$var in zip(''mono sp ht px, Steradian Hack 'Noto Sans SC'Chht Chpx) {
     .ff#{$key} {
         font-family: unquote($var)
     }

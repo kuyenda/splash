@@ -11,7 +11,7 @@ User.create!(name: "kuyenda",
 
 99.times do |n|
   name = FFaker::NameJA.name
-  email = "example-#{n+1}@railstutorial.org"
+  email = "robot-#{n+1}@splash.io"
   password = "password"
   User.create!(name: name,
                email: email,
@@ -28,8 +28,23 @@ end
 
 # Sketches
 Sketch.create!(title: "hello world",
-               view: 100,
-               clap: 99,
-               description: "welcome to splash!",
-               digit: "aEF53yXp",
-               slug: "aef53yxp")
+               description: "welcome to splash alpha!",
+               digest: "0x000000",
+               slug: "0x000000")
+
+25.times do |n|
+  title = "s-#{n}"
+  digest = Sketch.create_digests
+  Sketch.create!(title: title,
+                 digest: digest,
+                 slug: digest)
+end
+
+# Codes
+sketches = Sketch.all
+sketches.each do |s|
+  rand(3).times do
+    code = FFaker::Lorem.characters
+    s.codes.create!(code: code)
+  end
+end

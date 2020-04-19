@@ -73,7 +73,7 @@ $colors: map-merge(("red": $red,
 "dark-gray": $gray-800),
 $colors);
 
-$primary: $red;
+$primary: #3f51b5;
 $secondary: $gray-800;
 $success: $green;
 $info: $blue;
@@ -111,7 +111,6 @@ $emphasized-link-hover-darken-percentage: 15%;
 // stylelint-disable value-keyword-case
 $font-family-sans-serif: Steradian,
 Chpx,
-Chyy,
 Chht,
 sans-serif;
 $font-family-monospace: Hack,
@@ -143,3 +142,4 @@ $pre-color: $gray-900;
 $pre-scrollable-max-height: 340px;
 
 //
+$input-btn-focus-box-shadow: none;

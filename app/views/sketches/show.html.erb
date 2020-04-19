@@ -1,21 +1,19 @@
 <% provide(:title, @sketch.title) %>
 <script>
-  window._p5jsExample = '<%= "/sketches/users/#{@sketch.digit}.js"  %>'
-  window._p5jsExampleDigits = '<%= @sketch.digit %>'
-  $(document).ready(function() {
-    if (typeof(window._p5jsExample) !== 'undefined') {
-      window.examples.init(window._p5jsExample);
-    }
+  $(function() {
+    var sketchObject = <%= @sketch.to_json.to_s.html_safe %>
+    var codeObject = <%= @sketch.codes.to_json.to_s.html_safe %>
+    window.app.init(sketchObject, codeObject);
   });
 </script>
 <div id="popForm" class="center-modal">
   <div class="pt-3 pb-4 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
-    <h1 class="text-center mt-3"><%= @sketch.digit  %>
+    <h1 class="text-center mt-3"><%= @sketch.digest  %>
       <a href="#" data-switch="#popForm" data-by="open">
         <i class="icon36 i--hv ion-md-close ml-2"></i>
       </a>
     </h1>
-    <%= render partial: 'form', object: @sketch %>
+    <%= render partial: 'sketches/form/edition', object: @sketch %>
   </div>
 </div>
 <div class="example-page frame-page">
@@ -61,7 +59,7 @@
   </div>
   <div class="sketch-info" id="sketch-info">
     <div class="sketch-para">
-      <h1 class="font-weight-normal"><%= @sketch.title %><span>/<%= @sketch.digit %></span></h1>
+      <h1 class="font-weight-normal"><%= @sketch.title %><span>/<%= @sketch.digest %></span></h1>
       <hr style="border-top: 4px dashed #fff;">
       <p><%= @sketch.description %></p>
     </div>
@@ -70,10 +68,10 @@
     <div class="sketch-info-btns">
       <%= link_to "", sketches_url, class:'icon36 i--hv i--white ion-md-arrow-back' %>
       <i class="icon36 i--hv i--white ion-md-information-circle-outline" id="sketch-info-btn" data-switch="#sketch-info #sketch-info-btn" data-by="open opened"></i>
-      <%= link_to "", edit_sketch_path(@sketch), class:'icon36 i--hv i--white ion-md-options', data: { switch: "#popForm", by: "open"} %>
+      <%= link_to "", "#", class:'icon36 i--hv i--white ion-md-options', data: { switch: "#popForm", by: "open"} %>
     </div>
     <div class="row frame">
-      <iframe src="/sketches/sandbox" id="exampleFrame" frameborder="0" class="frame-win col p-0">
+      <iframe src="/sketches/sb" id="exampleFrame" frameborder="0" class="frame-win col p-0">
       </iframe>
       <div class="frame-mobile-options">
         <a id="runButton-m" class="icon -md36 ion-md-refresh"></a>

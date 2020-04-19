@@ -1,33 +1,42 @@
-var examples = {
-	init: function(file) {
-		examples.editor = ace.edit('exampleEditor');
-		examples.editor.setOptions({
-			mode: "ace/mode/javascript",
-			// maxLines: 30,
-			enableLiveAutocompletion: true,
-			enableSnippets: true,
-			fontSize: 18,
-		});
-		examples.editor.setTheme("ace/theme/monokai");
-		examples.editor.getSession().setMode('ace/mode/javascript');
-		examples.editor.getSession().setTabSize(2);
+var app = {}
 
+app.init = function(sketchData, codeData) {
+	app.sketch = sketchData;
+	app.code = codeData;
+	console.log(this);
+	this.initEditor();
+}
+
+app.initEditor = function() {
+	engine.editor = ace.edit('exampleEditor');
+	engine.editor.setOptions({
+		mode: "ace/mode/javascript",
+		enableLiveAutocompletion: true,
+		enableSnippets: true,
+		fontSize: 18,
+	});
+	engine.editor.setTheme("ace/theme/monokai");
+	engine.editor.getSession().setMode('ace/mode/javascript');
+	engine.editor.getSession().setTabSize(2);
+}
+
+var engine = {
+	init: function(obj) {
 		$('#textSizeSlider').change(function() {
-			examples.editor.setOptions({
+			engine.editor.setOptions({
 				fontSize: $(this).val() + 'px'
 			})
 		});
-
 		// Button
 		$('#runButton').click(function() {
-			examples.runExample();
+			engine.runExample();
 
 		});
 		$('#runButton-m').click(function() {
-			examples.runExample();
+			engine.runExample();
 		});
 		$('#resetButton').click(function() {
-			examples.resetExample();
+			engine.resetExample();
 		});
 		$('#copyButton').click(function() {
 			// don't know why we need this twice, or the setTimeout
@@ -40,7 +49,7 @@ var examples = {
 			}, 200);
 		});
 		$('#saveButton').click(function() {
-			examples.saveExample();
+			engine.saveExample();
 		});
 		$('#optionsButton').click(function() {});
 
@@ -54,26 +63,29 @@ var examples = {
 				$('#exampleFrame').show();
 				$('#exampleFrame').ready(function() {
 					// alert('exampleFrame load')
-					examples.loadExample(true);
+					engine.loadExample(true);
 				});
 			});
 		} else {
 			$('#exampleFrame').on("load", function() {
-				examples.loadExample(false);
+				engine.loadExample(false);
 			});
 		}
 
 		// Capture clicks
-		$.ajax({
-				type: "GET",
-				url: file,
-				dataType: 'text'
-			})
-			.done(function(data) {
-				examples.loadLib();
-				examples.resetData = data;
-				examples.showExample();
-			})
+		// $.ajax({
+		// 		type: "GET",
+		// 		url: obj,
+		// 		dataType: 'text'
+		// 	})
+		// 	.done(function(data) {
+		// 		engine.loadLib();
+		// 		engine.resetData = data;
+		// 		engine.showExample();
+		// 	})
+		engine.loadLib();
+		engine.resetData = data;
+		engine.showExample();
 	},
 	loadLib: function() {
 		var script_tag = document.createElement('script');
@@ -81,15 +93,15 @@ var examples = {
 		$('#exampleFrame').contents().find("body").appendChild(script_tag);
 	},
 	showExample: function(norender) {
-		examples.editor.getSession().setValue(examples.resetData);
+		engine.editor.getSession().setValue(engine.resetData);
 
 		//resize height of editor
-		// var rows = examples.editor.getSession().$rowLengthCache.length;
-		// var lineH = examples.editor.renderer.lineHeight;
+		// var rows = engine.editor.getSession().$rowLengthCache.length;
+		// var lineH = engine.editor.renderer.lineHeight;
 		// $('#exampleEditor').height(rows * lineH + 'px');
 
-		if (examples.resetData.indexOf('<!DOCTYPE html>') !== -1) {
-			examples.editor.getSession().setMode('ace/mode/html');
+		if (engine.resetData.indexOf('<!DOCTYPE html>') !== -1) {
+			engine.editor.getSession().setMode('ace/mode/html');
 		}
 
 		if (norender) {
@@ -98,22 +110,22 @@ var examples = {
 			$('#runButton').hide();
 			$('#copyButton').hide();
 		} else {
-			examples.runExample();
+			engine.runExample();
 			$('#exampleDisplay').show();
 		}
 	},
 	// display iframe
 	runExample: function() {
 		$('#exampleFrame').attr('src', $('#exampleFrame').attr('src'));
-		examples.resizeExample();
+		engine.resizeExample();
 	},
 	resetExample: function() {
-		examples.showExample();
+		engine.showExample();
 	},
 	// load script into iframe
 	loadExample: function(isMobile) {
 
-		var exampleCode = examples.editor.getSession().getValue();
+		var exampleCode = engine.editor.getSession().getValue();
 		if (exampleCode.indexOf('new p5()') === -1) {
 			exampleCode += '\nnew p5();';
 		}
@@ -133,7 +145,7 @@ var examples = {
 		}, 400);
 	},
 	saveExample: function() {
-		var code = examples.editor.getSession().getValue();
+		var code = engine.editor.getSession().getValue();
 		$.ajax({
 			url: "/sketches/save",
 			type: "POST",

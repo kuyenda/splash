@@ -1,0 +1,6 @@
+<!-- <%= render 'layouts/sections/debug' %> -->
+<%= simple_form_for :q, url: sketches_path, method: "GET", class: 'form-inline' do |f| %>
+  <%= f.input :keyword, label: false, placeholder: '关键词' %>
+  <h6>检索方式</h6>
+  <%= f.input :by, label: false, collection: [["标题", :title], ["摘要", :digest]], selected: "标题" %>
+<% end %>

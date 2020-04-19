@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root 'application#home'
   get 'css', to: 'application#css'
   get 'debug', to: 'application#debug'
+  get 'sp', to: 'application#static'
+  get 'h', to: 'application#help'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -10,13 +12,10 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
 
   get 'sketches', to: 'sketches#index'
-  get 'sketches/sandbox', to: 'sketches#sandbox'
-  get 'sketches/preview', to: 'sketches#preview'
-  get 'sketches/data', to: 'sketches#json'
-  get 'sketches/help', to: 'sketches#help'
-  post 'sketches/save', to: 'sketches#save_code'
+  get 'sketches/sb', to: 'sketches#sandbox'
 
   resources :users
   resources :sketches
   resources :topics, only: [:create, :destroy]
+  resources :codes, only: [:create, :destroy]
 end

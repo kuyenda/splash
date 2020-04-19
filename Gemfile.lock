@@ -308,8 +308,10 @@ DEPENDENCIES
   rails (~> 5.2.3)
   rails-controller-testing
   rails_db (= 2.3.0)
+  ransack
   sass-rails (~> 5.0)
   selenium-webdriver
+  simple_form
   sqlite3
   turbolinks (~> 5)
   tzinfo-data
