@@ -6,7 +6,7 @@ class SketchesController < ApplicationController
   end
   #
   def index
-    @sketches = Sketch.all
+    @sketches = Sketch.all.order(created_at: :desc)
     # 获取字符串查询数据
     @query = params["q"]
     # 寻找关键词

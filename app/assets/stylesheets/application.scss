@@ -13,6 +13,7 @@
 @import "configs/fconfig";
 // mixins
 @import "mixins/mixin";
+@import "mixins/function";
 // common
 @import "animation";
 @import "type";
@@ -20,7 +21,7 @@
 @import "button";
 @import "icon";
 @import "form";
-@import "splash";
+@import "app";
 // components
 @import "components/hero";
 @import "components/blog";
@@ -29,5 +30,6 @@
 // sections
 @import "sections/header";
 @import "sections/footer";
-// models
-@import "models/sketch";
+// modules
+@import "modules/sketches/sketch";
+@import "modules/sketches/render";

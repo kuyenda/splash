@@ -5,9 +5,9 @@
   </head>
   <body>
     <%= render 'layouts/sections/header' %>
-    <main id="app">
+    <section id="app">
       <%= yield %>
-    </main>
+    </section>
     <%= render 'layouts/sections/footer' if @show_footer %>
   </body>
 </html>

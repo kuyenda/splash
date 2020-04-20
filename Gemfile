@@ -57,6 +57,7 @@ gem 'ransack'
 # gem 'bootstrap-sass', '~> 3.4.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem "font-awesome-rails"
 # Editor
 gem 'ace-rails-ap'
