@@ -1,64 +1,11 @@
-@mixin btn-background($background, $background-hover, $text:#fff, $text-hover:#fff) {
-    color: $text;
-    background-color: $background;
+@each $index,
+$color in $colors {
+    .btn-#{$index} {
+        color: contrast($color) !important;
+        background: $color;
 
-    &:hover {
-        color: $text-hover;
-        background-color: $background-hover;
+        &:hover {
+            background: darken($color, 5);
+        }
     }
-
-}
-
-@mixin btn-border($border, $border-hover, $text:#000, $text-hover:#222) {
-    border: 2px solid $border;
-    color: $text;
-
-    &:hover {
-        border: 2px solid $border-hover;
-        color: $text-hover;
-    }
-
-}
-
-.ebtn {
-    @extend .btn;
-    padding: 4px 30px;
-    font-size: 18px;
-    line-height: 40px;
-    min-width: 140px;
-
-    &.ruby {
-        @include btn-background(#ff1744, #dc143c);
-    }
-
-    &.white {
-        @include btn-background(#fff, #fff, #ff1744, #dc143c);
-    }
-
-    &.black {
-        @include btn-background(#363636, #222);
-    }
-
-    &.orange {
-        @include btn-background(#ff3800, #E61F00);
-    }
-
-    &.transparent {
-        @include btn-background(transparent, inherit);
-    }
-
-    &.small {
-        padding: 10px 15px 11px;
-        font-size: 16px;
-        font-weight: 500;
-        line-height: 17px;
-        letter-spacing: .02em;
-        border: none;
-        text-decoration: none;
-        border-radius: 4px;
-        appearance: none;
-        position: relative;
-        min-width: auto;
-    }
-
 }

@@ -2,6 +2,7 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
+//= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
 //= require animejs/lib/anime.min

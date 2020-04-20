@@ -1,57 +1,40 @@
 <% provide(:title, 'Discover') %>
-<section class="container-fluid">
-  <div class="modal fade p-0" id="helpModal">
-    <div class="modal-dialog">
-    </div>
-  </div>
-</section>
-<section id="popForm" class="row center-modal">
-  <div class="pt-3 pb-4 px-2 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
-    <h1 class="text-center mt-3">Create
-      <a href="#" data-switch="#popForm" data-by="open">
-        <i class="icon36 i--hv ion-md-close ml-2"></i>
-      </a>
-    </h1>
-    <%= render partial: 'form', object: Sketch.new %>
-  </div>
-</section>
+<%= render partial: 'sketches/groups/help_group', object: @sketch %>
+<%= render partial: 'sketches/groups/create_group', object: @sketch %>
 <section class="sketches-container">
   <aside class="sketches-aside-wrapper">
     <div class="sketches-aside">
-      <div class="w-100" style="border-bottom: 3px dashed #b0bec5">
+      <div class="w-100 mb-sm-2" style="border-bottom: 3px dashed #b0bec5">
         <h5>程式库列表</h5>
         <p>点击<strong>新建</strong>，创建一个新的数据<br>
-          <%= FFaker::Lorem.sentence %>
         </p>
-        <a href="/sketches/new" data-switch="#popForm" data-by="open">
-          <i class="icon48 i--hv i--green ion-md-add-circle-outline"></i>
+        <a href="#" data-switch="#createGroup" data-by="open", class="d-inline-block">
+          <ion-icon name="add-circle-outline" class="icon-48 icon-green"></ion-icon>
         </a>
-        <a href="/sketches/help" id="#getHelp" data-get="/sketches/help" data-to="#helpModal" data-toggle="modal" data-target="#helpModal">
-          <i class="icon48 i--hv i--black ion-md-help-circle-outline"></i>
+        <a href="#" data-get="<%= h_url %>?i=1" data-to="#helpGroup" data-toggle="modal" data-target="#helpGroup">
+          <ion-icon name="information-circle-outline" class="icon-48 icon-dark"></ion-icon>
         </a>
       </div>
       <div class="w-100">
-        <form class="ffpx" action="">
-          <input class="m-0 mt-2" type="search" name="q" placeholder="筛选" value="">
-        </form>
+        <%= render 'sketches/forms/query' %>
       </div>
       <div class="w-100">
-        <h6 class="my-1 d-block fw5 gray ffpx"><%= Sketch.all.count %> Founded</h6>
+        <h6 class="my-1 d-block fw5 gray ffpx"><%= @sketches.count %> Founded</h6>
       </div>
-      <div class="w-100">
-        <a href="#" class="d-block link hover-beta hover-bg-gray0">
-          仅限自己
-        </a>
-        <a href="#" class="d-block link hover-beta hover-bg-gray0">
-          仅限他人
-        </a>
-        <!-- <%= pie_by_week %> -->
+      <div class="w-100 p-5">
+        <% debug(@sketches) %>
+        <%= chart_for(@sketches) %>
       </div>
     </div>
   </aside>
   <main class="sketches">
     <section class="sketches-stream">
-      <%= render partial: "sketch", object: @sketches %>
+      <% if @sketches.any? %>
+        <%= render partial: "sketches/datas/sketch", object: @sketches %>
+      <% else %>
+        <h1>什么也没找到</h1>
+      <% end %>
+      <%= will_paginate @sketches, class:'pagination w-100 ml-1 mt-3 ml-md-4 page-info', previous_label: '上页', next_label:'下页' %>
     </section>
   </main>
 </section>

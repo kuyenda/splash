@@ -1,116 +1,25 @@
 <% provide(:title, @sketch.title) %>
 <script>
-  window._p5jsExample = '<%= "/sketches/users/#{@sketch.digit}.js"  %>'
-  window._p5jsExampleDigits = '<%= @sketch.digit %>'
-  $(document).ready(function() {
-    if (typeof(window._p5jsExample) !== 'undefined') {
-      window.examples.init(window._p5jsExample);
-    }
+  $(function() {
+    var sketchObject = <%= @sketch.to_json.to_s.html_safe %>
+    var codeObject = <%= @sketch.codes.to_json.to_s.html_safe %>
+    window.app.init(sketchObject, codeObject);
+    $("#resizable").resizable();
   });
 </script>
-<div id="popForm" class="center-modal">
-  <div class="pt-3 pb-4 px-md-4 br2 bw1 b--solid shadow-3" style="width: 450px;">
-    <h1 class="text-center mt-3"><%= @sketch.digit  %>
-      <a href="#" data-switch="#popForm" data-by="open">
-        <i class="icon36 i--hv ion-md-close ml-2"></i>
-      </a>
-    </h1>
-    <%= render partial: 'form', object: @sketch %>
-  </div>
-</div>
-<div class="example-page frame-page">
-  <div id="sketchConfigPanel">
-    <ul role="tablist" class="nav nav-tabs">
-      <li>
-        <a href="#editor-options" data-toggle="tab" aria-controls="editor-options">Editor</a>
-      </li>
-      <li>
-        <a href="#sketch-options" data-toggle="tab" aria-controls="sketch-options">Sketch</a>
-      </li>
-      <li>
-        <a href="#storage-options" data-toggle="tab" aria-controls="storage-options">Storage</a>
-      </li>
-    </ul>
-    <div class="tab-content">
-      <div id="editor-options" class="tab-pane">
-        <div class="row">
-          <div class="col-6">
-            <h6>Text Size</h6>
-          </div>
-          <div class="col-6">
-            <input id="textSizeSlider" type="range" min="12" max="36" step="2" value="16">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <h6>Theme</h6>
-          </div>
-          <div class="col-6">
-          </div>
-        </div>
-      </div>
-      <div id="sketch-options" class="tab-pane">
-        <h6>Experimental features</h6>
-        <i class="icon36 i--hv ion-md-flask"></i>
-      </div>
-      <div id="storage-options" class="tab-pane">
-        <h6>Experimental features</h6>
-        <i class="icon36 i--hv ion-md-flask"></i>
-      </div>
+<%= render partial: 'sketches/groups/edit_group', object: @sketch %>
+<div class="render">
+  <%= render partial: 'sketches/render/navbar' %>
+  <div class="render-tab-wrapper">
+    <div class="render-tab d-flex justify-content-center" id="copyrightTab">
+      <%= render partial: 'sketches/render/cover' %>
     </div>
-  </div>
-  <div class="sketch-info" id="sketch-info">
-    <div class="sketch-para">
-      <h1 class="font-weight-normal"><%= @sketch.title %><span>/<%= @sketch.digit %></span></h1>
-      <hr style="border-top: 4px dashed #fff;">
-      <p><%= @sketch.description %></p>
+    <div class="render-tab" id="frameTab">
+      <%= render partial: 'sketches/render/frame' %>
     </div>
-  </div>
-  <div class="side-frame">
-    <div class="sketch-info-btns">
-      <%= link_to "", sketches_url, class:'icon36 i--hv i--white ion-md-arrow-back' %>
-      <i class="icon36 i--hv i--white ion-md-information-circle-outline" id="sketch-info-btn" data-switch="#sketch-info #sketch-info-btn" data-by="open opened"></i>
-      <%= link_to "", edit_sketch_path(@sketch), class:'icon36 i--hv i--white ion-md-options', data: { switch: "#popForm", by: "open"} %>
+    <div class="render-tab" id="editorTab">
+      <%= render partial: 'sketches/render/editor' %>
     </div>
-    <div class="row frame">
-      <iframe src="/sketches/sandbox" id="exampleFrame" frameborder="0" class="frame-win col p-0">
-      </iframe>
-      <div class="frame-mobile-options">
-        <a id="runButton-m" class="icon -md36 ion-md-refresh"></a>
-        <%= link_to "", sketches_path, class:'icon36 i--hv ion-md-arrow-round-back' %>
-      </div>
-    </div>
-  </div>
-  <div class="side-editor">
-    <div class="row toolbar">
-      <div class="tool-options">
-        <button id="toggleTextOutput" class="sr-only">toggle text output</button>
-        <button id="runButton" class="btn ebtn transparent" data-toggle="tooltip" data-placement="top" title="Run sketch">
-          <i class="icon36 i--hv i--green ion-md-play"></i>
-          run
-        </button>
-        <button id="copyButton" class="btn ebtn transparent">
-          <i class="icon36 i--hv i--green ion-md-copy"></i>
-          copy</button>
-        <button id="resetButton" class="btn ebtn transparent">
-          <i class="icon36 i--hv i--green ion-md-refresh"></i>
-          reset
-        </button>
-        <button id="saveButton" class="btn ebtn transparent">
-          <i class="icon36 i--hv i--green ion-md-save"></i>
-          save</button>
-        <button id="optionsButton" class="btn ebtn transparent" data-switch="#sketchConfigPanel" data-by="active">
-          <i class="icon36 i--hv i--green ion-md-cog"></i>
-          options</button>
-      </div>
-    </div>
-    <div class="row editor">
-      <div class="col p-0">
-        <div id="exampleEditor">
-        </div>
-      </div>
-    </div>
-    <div class="editor-options">
-    </div>
+    <!-- <%= render partial: 'sketches/render/side_panel' %> -->
   </div>
 </div>

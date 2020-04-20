@@ -32,10 +32,10 @@
 </script>
 <section class="enrique">
   <div class="enrique-sketch-in o-0">
-    <form id="sketchForm" target="sketchIframe494102" action="/sketch/preview/?random=0.136692849057525" method="POST">
+    <form id="sketchForm" target="sketchIframe494102" action="/?random=0.136692849057525" method="POST">
       <input id="sketchConfig" type="hidden" name="config" value="">
     </form>
-    <iframe class="enrique-sketch" src="/sketches/preview" frameborder="0">
+    <iframe class="enrique-sketch" src="/sp" frameborder="0">
     </iframe>
   </div>
   <div class="enrique-in o-0">
@@ -58,7 +58,7 @@
     <% end %>
   </div>
   <div class="enrique-attribution">
-    <a href="#" class="link link-underline-light glow fw6"><%= FFaker::NameJA.name %></a>
+    <a href="#" class="link link-underline-light glow fw6">v_<%= RUBY_VERSION %></a>
   </div>
   <div class="spinner absolute p-2 z-9">
     <div class="sk-chase" style="--sk-size:40px;--sk-color:#fff">
@@ -102,7 +102,7 @@
             <a href="/css" class="link link-underline-dark glow">样式编写风格指南</a>
           </li>
           <li>
-            <%= link_to "探索", sketches_path, class: "btn ebtn ruby small" %>
+            <%= link_to "探索", sketches_path, class: "btn btn-primary btn-sm" %>
           </li>
         </ul>
       </div>
@@ -128,7 +128,7 @@
           </div>
         </div>
       </div>
-      <div class="container md-page mb-md-3 mb-lg-5 ffht b">
+      <div class="container md-page mb-md-3 mb-lg-5 b">
         <h2 class="gray">
           <ion-icon name="radio-button-on-outline"></ion-icon>
           sparklemotion/nokogiri
