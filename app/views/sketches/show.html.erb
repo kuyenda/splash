@@ -5,6 +5,15 @@
     var codeObject = <%= @sketch.codes.to_json.to_s.html_safe %>
     window.app.init(sketchObject, codeObject);
     $("#resizable").resizable();
+  
+    // animateCSS('.alert', 'bounce',function() {
+    // })
+    // fade errors
+    // $('.alert').delay(500).fadeIn('normal', function() {
+    //   $(this).delay(2500).fadeOut();
+    //   var snd = new Audio("<%= audio_path('emotion08.wav') %>");
+    //   snd.play();
+    // });
   });
 </script>
 <%= render partial: 'sketches/groups/edit_group', object: @sketch %>

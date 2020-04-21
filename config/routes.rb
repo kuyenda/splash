@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
-  root 'application#home'
-  get 'css', to: 'application#css'
-  get 'debug', to: 'application#debug'
-  get 'sp', to: 'application#static'
-  get 'h', to: 'application#help'
+  root 'application#app'
+  get 'bar', to: 'application#bar'
+  get 'box', to: 'application#box'
 
   get '/signup', to: 'users#new'
   post '/signup', to: 'users#create'
@@ -11,8 +9,6 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   delete '/logout', to: 'sessions#destroy'
 
-  get 'sketches', to: 'sketches#index'
-  get 'sketches/sb', to: 'sketches#sandbox'
 
   resources :users
   resources :sketches

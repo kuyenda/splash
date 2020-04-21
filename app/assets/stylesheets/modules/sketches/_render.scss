@@ -30,6 +30,7 @@
     }
 
     .render-tab-wrapper {
+        position: relative;
         overflow-y: hidden;
         width: 100%;
         height: calc(100% - 50px);

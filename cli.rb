@@ -17,4 +17,12 @@ bin/rails db:migrate RAILS_ENV=test
 bin/rails db:migrate RAILS_ENV=production
 
 # 测试生产环境
+rails db:drop DISABLE_DATABASE_ENVIRONMENT_CHECK=1 RAILS_ENV=production && rails db:migrate RAILS_ENV=production && RAILS_ENV=production rails db:seed
 rails s -e production -p 3000
+
+# 进入数据库的命令行界面
+rails db
+# 回滚最后一个迁移
+bin/rails db:rollback
+# 以非交互的方式在 Rails 中运行 Ruby 代码
+rails runner
