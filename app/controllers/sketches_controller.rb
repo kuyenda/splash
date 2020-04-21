@@ -1,10 +1,6 @@
 class SketchesController < ApplicationController
   layout false, only: [:create]
 
-  def sandbox
-    render html: "".html_safe
-  end
-  #
   def index
     @sketches = Sketch.all.order(created_at: :desc)
     # 获取字符串查询数据
@@ -31,6 +27,8 @@ class SketchesController < ApplicationController
     if @sketch.save
       redirect_to @sketch
     else
+      # redirect_to @sketches, flash: { info: @sketch.errors.full_messages.to_sentence }
+      flash[:danger] = "请检查输入错误"
       redirect_to @sketch
     end
   end
@@ -49,7 +47,7 @@ class SketchesController < ApplicationController
       # 处理更新成功的情况
       redirect_to @sketch
     else
-      render 'edit'
+      redirect_to @sketch, flash: { danger: "请检查输入错误" }
     end
   end
 

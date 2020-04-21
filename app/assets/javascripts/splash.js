@@ -36,6 +36,22 @@ $(document).on('ready turbolinks:load', function() {
 		return injectContent(this, getUrl, to);
 	});
 	/* ------------------------------------------------------ */
+	// Animate.css
+	/* ------------------------------------------------------ */
+	window.animateCSS = function(element, animationName, callback) {
+		const node = document.querySelector(element)
+		node.classList.add('animated', animationName)
+
+		function handleAnimationEnd() {
+			node.classList.remove('animated', animationName)
+			node.removeEventListener('animationend', handleAnimationEnd)
+
+			if (typeof callback === 'function') callback()
+		}
+
+		node.addEventListener('animationend', handleAnimationEnd)
+	};
+	/* ------------------------------------------------------ */
 	// Load Player
 	/* ------------------------------------------------------ */
 	if (!window._splash_radio) {

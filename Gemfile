@@ -51,6 +51,8 @@ gem 'nokogiri'
 gem 'simple_form'
 # Object-based searching
 gem 'ransack'
+# Easily include static pages in Rails app
+gem 'high_voltage', '~> 3.1'
 #==============================================================================
 # Assets adapter for rails
 #==============================================================================
