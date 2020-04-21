@@ -1,41 +1,9 @@
-<script>
-  $(function() {
-    var heading = '.enrique-in'
-    var sketch = '.enrique-sketch-in'
-    var spinner = '.spinner'
-    // SHOW LOADER
-    anime({
-      targets: spinner,
-      duration: 200,
-      opacity: 1
-    });
-  
-    $('<div class="enrique-sketch"></div>').ready(function() {
-      setTimeout(function() {
-        anime({
-          targets: spinner,
-          easing: 'cubicBezier(.5, .05, .1, .3)',
-          duration: 3000,
-          opacity: 0
-        });
-      }
-      , 1000)
-      anime({
-        targets: [sketch, heading],
-        easing: 'cubicBezier(.5, .05, .1, .3)',
-        delay: anime.stagger(1500),
-        duration: 1000,
-        opacity: 1,
-      });
-    });
-  })
-</script>
 <section class="enrique">
   <div class="enrique-sketch-in o-0">
-    <form id="sketchForm" target="sketchIframe494102" action="/?random=0.136692849057525" method="POST">
+    <form id="sketchForm">
       <input id="sketchConfig" type="hidden" name="config" value="">
     </form>
-    <iframe class="enrique-sketch" src="/sp" frameborder="0">
+    <iframe class="enrique-sketch" src="<%= page_path('example') %>" frameborder="0">
     </iframe>
   </div>
   <div class="enrique-in o-0">
@@ -99,7 +67,7 @@
         <p class="f4 b">请注意这是一个实验版本，数据不被保证储存。</p>
         <ul class="f4">
           <li>
-            <a href="/css" class="link link-underline-dark glow">样式编写风格指南</a>
+            <%= link_to "样式编写风格指南", page_path("style"), class:"link link-underline-dark glow" %>
           </li>
           <li>
             <%= link_to "探索", sketches_path, class: "btn btn-primary btn-sm" %>
@@ -121,18 +89,57 @@
                 <th><%= i+1 %></th>
                 <th><%= e.name %></th>
                 <th><%= e.version %></th>
-                <tr>
-                <% end %>
-              </tbody>
-            </table>
-          </div>
-        </div>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
       </div>
-      <div class="container md-page mb-md-3 mb-lg-5 b">
-        <h2 class="gray">
-          <ion-icon name="radio-button-on-outline"></ion-icon>
-          sparklemotion/nokogiri
-        </h2>
-        <p class="gray9 f4 fw5">Nokogiri (鋸) is a Rubygem providing HTML, XML, SAX, and Reader parsers with XPath and CSS selector support. <a class="link link-underline-light o-90 glow" href="https://nokogiri.org/">https://nokogiri.org</a></p>
-      </div>
-    </section>
+    </div>
+  </div>
+  <div class="container md-page mb-md-3 mb-lg-5 b bg-dark0 ffpx">
+    <div class="p-4">
+      <p class="gray9 f4 b"><span class="badge badge-secondary mr-1">high_voltage</span>Easily include static pages in Rails.</p>
+      <hr>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <% HighVoltage.page_ids.sort{|a, b| b.size <=> a.size}.reverse.each do |i|  %>
+            <li class="breadcrumb-item active"><%= link_to(i, page_path(i), class:"f3 link-underline-light o-90 glow") %></li>
+          <% end %>
+        </ol >
+      </nav>
+      <a class="link link-underline-light o-90 glow btn btn-primary" href="http://thoughtbot.github.io/high_voltage">Get</a>
+    </div>
+  </div>
+</section>
+<script>
+  $(function() {
+    var heading = '.enrique-in'
+    var sketch = '.enrique-sketch-in'
+    var spinner = '.spinner'
+    // SHOW LOADER
+    anime({
+      targets: spinner,
+      duration: 200,
+      opacity: 1
+    });
+  
+    $('<div class="enrique-sketch"></div>').ready(function() {
+      setTimeout(function() {
+        anime({
+          targets: spinner,
+          easing: 'cubicBezier(.5, .05, .1, .3)',
+          duration: 3000,
+          opacity: 0
+        });
+      }
+      , 1000)
+      anime({
+        targets: [sketch, heading],
+        easing: 'cubicBezier(.5, .05, .1, .3)',
+        delay: anime.stagger(1500),
+        duration: 1000,
+        opacity: 1,
+      });
+    });
+  })
+</script>
