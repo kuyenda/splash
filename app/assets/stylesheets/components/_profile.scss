@@ -1,16 +1,14 @@
 $content-max-width: 1140px !default;
 
-.profile-header {}
-
-.profile-header-image {
-    height: 16rem;
-    margin: 0 auto;
-    max-height: 400px;
-    background-color: #212121;
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-image: image-url('profile.jpg');
+.profile-header {
+    img {
+        width: 100%;
+        /*height: 300px;  optional, you can remove it, but in my case it was good */
+        height: 16rem;
+        max-height: 100px;
+        object-fit: cover;
+        background-color: #212121;
+    }
 }
 
 .profile-card {
@@ -142,7 +140,6 @@ $content-max-width: 1140px !default;
     grid-template-rows: auto auto 1fr auto;
     grid-row-gap: 20px;
     max-width: $content-max-width;
-    min-height: 1000px;
     margin: 0 auto;
     padding: 20px;
 

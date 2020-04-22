@@ -5,16 +5,18 @@
 //= require jquery-ui
 //= require popper
 //= require bootstrap-sprockets
-//= require animejs/lib/anime.min
 //= require chartkick
 //= require Chart.bundle
+
 //= require prismjs/prism
 //= require ace-rails-ap
 //= require ace/theme-monokai
 //= require ace/mode-javascript
 //= require ace/ext-language_tools
 //= require ace/snippets/javascript
-//= require p5/lib/p5.min
-//= require sketch/main
-//= require sketch/extension
+//= require animejs/lib/anime.min
+//= require p5/lib/p5.js
+
+//= require flowengine/flow
+//= require flowengine/api
 //= require splash

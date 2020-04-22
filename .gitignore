@@ -21,11 +21,13 @@
 /storage/*
 !/storage/.keep
 
+# Ignore master key for decrypting credentials and more.
+/config/master.key
+
+# 忽略纱线
 /node_modules
 /yarn-error.log
 
+# 忽略生产环境的资产
 /public/assets
 .byebug_history
-
-# Ignore master key for decrypting credentials and more.
-/config/master.key

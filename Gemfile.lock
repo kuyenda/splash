@@ -308,7 +308,7 @@ DEPENDENCIES
   jquery-ui-rails
   mini_magick (= 4.7.0)
   nokogiri
-  pg (= 0.20.0)
+  pg
   puma (~> 3.11)
   rails (~> 5.2.3)
   rails-controller-testing
