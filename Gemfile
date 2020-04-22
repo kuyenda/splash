@@ -7,7 +7,7 @@ gem 'rails', '~> 5.2.3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
+gem 'sassc-rails', '~> 6.0.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -61,7 +61,6 @@ gem 'high_voltage', '~> 3.1'
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem "font-awesome-rails"
 gem 'ace-rails-ap'
 gem "chartkick"
 
