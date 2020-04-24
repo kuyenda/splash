@@ -9,7 +9,7 @@
           <%= f.email_field :email, placeholder: "Email" %>
           <%= f.password_field :password, placeholder: "Password" %>
           <%= f.password_field :password_confirmation, placeholder: "Confirmation" %>
-          <%= flash_form_error @user, class: 'alert alert-danger' %>
+          <%= error_tag @user, class: 'alert alert-danger' %>
           <%= f.submit "Send" %>
           <p class="tl my-3 bt b--black-05">
             <%= link_to "Login", login_path, class:"d-block mt-2 link green5 hover-green9" %></p>
