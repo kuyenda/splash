@@ -69,7 +69,7 @@ $footer-Color-hyper: lighten($footer-Color-link, 25);
         @include et-transition(2, .3s);
 
         &:hover {
-            background-color: adjust-color($footer-backgroundColor, 90);
+            background-color: adjust-hue($footer-backgroundColor, 90);
             border-top-color: transparent;
             border-bottom-color: transparent;
             color: $footer-Color-hyper;

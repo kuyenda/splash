@@ -25,21 +25,15 @@
     @else if $type==3 {
         transition-timing-function: cubic-bezier(1, 0, .5, 1);
     }
+}
 
+@mixin transition($duration:.5, $function:ease, $props:all) {
+    transition-duration: #{$duration}s;
+    transition-timing-function: $function;
+    transition-property: $props;
 }
 
 @mixin link-animation {
     transition: all .1s ease-in;
 
-}
-
-@mixin stroke($color: #000, $size: 1px) {
-    text-shadow: -#{$size} -#{$size} 0 $color,
-    0 -#{$size} 0 $color,
-    #{$size} -#{$size} 0 $color,
-    #{$size} 0 0 $color,
-    #{$size} #{$size} 0 $color,
-    0 #{$size} 0 $color,
-    -#{$size} #{$size} 0 $color,
-    -#{$size} 0 0 $color;
 }
