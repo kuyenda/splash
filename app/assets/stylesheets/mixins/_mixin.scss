@@ -25,7 +25,12 @@
     @else if $type==3 {
         transition-timing-function: cubic-bezier(1, 0, .5, 1);
     }
+}
 
+@mixin transition($duration:.5, $function:ease, $props:all) {
+    transition-duration: #{$duration}s;
+    transition-timing-function: $function;
+    transition-property: $props;
 }
 
 @mixin link-animation {

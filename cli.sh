@@ -3,10 +3,12 @@ yarn add --modules-folder ./vendor/assets/components
 # gem 'bcrypt', '~> 3.1.7'
 
 # 编译
+rake assets:clobber assets:precompile
 RAILS_ENV=production bin/rails assets:precompile
 rails assets:clean
 rails assets:clobber
 rails tmp:clear
+rails log:clear
 
 # 迁移
 rails db:reset / rails db:drop db:setup
