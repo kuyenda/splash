@@ -1,24 +1,17 @@
 <% provide(:title, 'Log in') %>
-<section class="bg-gray3">
-  <div class="container overflow-hidden">
-    <div class="row mx-auto justify-content-center align-items-center" style="height: 100vh;max-width: 800px;">
-      <div class="col-9 col-sm-8 col-md-7 col-lg-6 pt-3 pb-4 px-md-4 bg-white overflow-hidden">
-        <%= form_for(:session, url: login_path) do |f| %>
-          <h1 class="f7 mb-4 underline gray6">Login</h1>
-          <%= f.email_field :email, placeholder: "Email" %>
-          <%= f.password_field :password, placeholder: "Password" %>
-          <%= f.label :remember_me, class: "" do %>
-            <%= f.check_box :remember_me, class: "" %>
-            <span>Remember me on this computer</span>
-          <% end %>
-          <%= flash_tag %>
-          <%= f.submit "Log in" %>
-          <p class="tl my-3 bt b--black-05">
-            <span class="mt-2 d-block">Not a member?
-              <%= link_to "Sign up now!", signup_path, class: "link green5 hover-green9" %>
-            </span>
-          </p>
-        <% end %>
+<section class="container" style="margin-top: 20vh;">
+  <div class="col-10 col-md-auto mx-auto" style="max-width: 500px;">
+    <div class="row">
+      <div class="col form-user">
+        <h1 class="f7 mb-4 underline gray6">Login</h1>
+        <%= render partial: 'sessions/forms/login' %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <br>
+        Not a member?
+        <%= link_to "Sign up now!", signup_path, class: "link link-underline-dark o-90 glow green8 hover-green5" %>
       </div>
     </div>
   </div>

@@ -30,3 +30,7 @@
 @function invert-contrast($base, $color1: white, $color2: black) {
     @return if(brightness_ratio($base, $color1) > brightness_ratio($base, $color2), $color2, $color1);
 }
+
+@function bezier($x1:0, $y1:.75, $x2:0, $y2:1) {
+    @return cubic-bezier($x1, $y1, $x2, $y2);
+}

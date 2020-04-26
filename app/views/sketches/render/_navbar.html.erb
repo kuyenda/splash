@@ -1,21 +1,24 @@
 <div class="navbar">
   <nav class="nav"></nav>
-  <nav class="nav" style="flex: 2">
-    <%= link_to "#", data: { switch: "#sketch-info #sketch-info-btn", by: "open opened", toggle: "tooltip", placement: "top", title: "著作信息" } do %>
-      <span data-toggle="tab" href="#copyrightTab"></span>
-      <ion-icon name="information-outline" class="icon icon-white"></ion-icon>
-    <% end %>
-    <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "运行草图" }, 
+  <nav class="nav" style="flex: 2;flex-wrap: nowrap;">
+    <div data-toggle="tab" href="#copyrightTab">
+      <%= link_to "#", data: { switch: "#sketch-info #sketch-info-btn", by: "open opened", toggle: "tooltip", placement: "top", title: "著作信息" } do %>
+        <ion-icon name="information-outline" class="icon icon-white"></ion-icon>
+      <% end %>
+    </div>
+    <div data-toggle="tab" href="#frameTab">
+      <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "运行草图" }, 
     id: "run", class: "" do %>
-      <span data-toggle="tab" href="#frameTab"></span>
-      <ion-icon name="play-outline" class="icon icon-white"></ion-icon>
-    <% end %>
-    <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "编辑代码" }, class:"" do %>
-      <span data-toggle="tab" href="#editorTab"></span>
-      <ion-icon name="code-slash-outline" class="icon icon-white"></ion-icon>
-    <% end %>
+        <ion-icon name="play-outline" class="icon icon-white"></ion-icon>
+      <% end %>
+    </div >
+    <div data-toggle="tab" href="#editorTab">
+      <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "编辑代码" }, class:"" do %>
+        <ion-icon name="code-slash-outline" class="icon icon-white"></ion-icon>
+      <% end %>
+    </div>
   </nav>
-  <nav class="nav" style="justify-content: flex-end;">
+  <nav class="nav" style="justify-content: flex-end;flex-wrap: nowrap;">
     <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "高级菜单", switch: "#editGroup", by: "open"} do %>
       <ion-icon name="menu-outline" class="icon icon-white"></ion-icon>
     <% end %>

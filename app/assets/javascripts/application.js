@@ -15,8 +15,7 @@
 //= require ace/ext-language_tools
 //= require ace/snippets/javascript
 //= require animejs/lib/anime.min
-//= require p5/lib/p5.js
 
-//= require flowengine/flow
-//= require flowengine/api
+//= require flowengine/app
+//= require flowengine/app-helper
 //= require splash

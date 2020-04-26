@@ -1,0 +1,17 @@
+<div id="render-config">
+  <a href="#" data-switch="#render-config", data-by="active", style="position: absolute;left: -60px;top: 10px;">
+    <ion-icon name="ellipsis-vertical" class="icon-36 icon-white"></ion-icon>
+  </a>
+  <%= render partial: 'sketches/configs/nav' %>
+  <div class="render-config-tab-wrapper">
+    <div class="render-config-tab" id="configSketch">
+      <%= render partial: 'sketches/configs/sketch' %>
+    </div>
+    <div class="render-config-tab" id="configEditor">
+      <%= render partial: 'sketches/configs/editor' %>
+    </div>
+    <div class="render-config-tab" id="configData">
+      <%= render partial: 'sketches/configs/data' %>
+    </div>
+  </div>
+</div>

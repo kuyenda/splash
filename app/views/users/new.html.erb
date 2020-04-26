@@ -1,20 +1,18 @@
-<% provide(:button_text, 'Send') %>
+<% provide(:button_text, 'Sign up') %>
 <% provide(:title, 'Sign up') %>
-<section class="bg-gray0">
-  <div class="container overflow-hidden">
-    <div class="row mx-auto justify-content-center align-items-center" style="height: 100vh;max-width: 800px;">
-      <div class="col-9 col-sm-8 col-md-7 col-lg-6 pt-3 pb-4 px-md-4 bg-white overflow-hidden">
+<section class="container" style="margin-top: 20vh;">
+  <div class="col-10 col-md-auto mx-auto" style="max-width: 500px;">
+    <div class="row">
+      <div class="col form-user">
         <h1 class="f7 mb-4 underline gray6">Become Splashers</h1>
-        <%= form_for(@user, url: signup_path) do |f| %>
-          <%= f.email_field :email, placeholder: "Email" %>
-          <%= f.password_field :password, placeholder: "Password" %>
-          <%= f.password_field :password_confirmation, placeholder: "Confirmation" %>
-          <%= error_tag @user, class: 'alert alert-danger' %>
-          <%= f.submit "Send" %>
-          <p class="tl my-3 bt b--black-05">
-            <%= link_to "Login", login_path, class:"d-block mt-2 link green5 hover-green9" %></p>
-        <% end %>
+        <%= render partial: 'users/forms/creation', object: @user, as: :user %>
       </div>
     </div>
+    <div class="row">
+      <div class="col">
+        Already have an account?
+        <%= link_to "Login", login_path, class:"link link-underline-dark o-90 glow green8 hover-green5" %></p>
+    </div>
   </div>
+</div>
 </section>

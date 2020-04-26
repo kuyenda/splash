@@ -21,9 +21,6 @@ class ApplicationController < ActionController::Base
     #### :content_type :layout :location :status :formats
     # redirect_back fallback_location: root_url
   end
-  def box
-    render html: "".html_safe
-  end
   private
   # 确保用户已登录
   def logged_in_user

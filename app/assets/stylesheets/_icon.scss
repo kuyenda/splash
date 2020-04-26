@@ -6,12 +6,7 @@ ion-icon {
 .icon {
     color: inherit;
     vertical-align: middle;
-    @include et-transition(2, .5s);
-
-    &:hover {
-        filter: hue-rotate(180deg);
-        transform: rotate(360deg);
-    }
+    @include transition(.5, bezier(0, .75, 0, 1));
 }
 
 @each $index,
@@ -29,9 +24,15 @@ $color in map-merge($theme-colors, $colors) {
 }
 
 @each $var in (0, 45, 90, 145, 180) {
-    .icon-hue-#{$var} {
+    .icon-transform-hue-#{$var} {
         &:hover {
             filter: hue-rotate(#{$var}deg);
+        }
+    }
+
+    .icon-transform-rotate-#{$var} {
+        &:hover {
+            transform: rotate(#{$var}deg);
         }
     }
 }

@@ -25,7 +25,7 @@ $header-mobile-menuItem: darken($header-mobileColor, 10);
     align-items: center;
     background: $header-navbarColor;
     font-weight: 500;
-    box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
+    // box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.25);
     z-index: 999;
 
     @include media-breakpoint-down(lg) {

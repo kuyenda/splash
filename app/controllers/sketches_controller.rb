@@ -35,9 +35,14 @@ class SketchesController < ApplicationController
 
   def show
     @sketch = Sketch.friendly.find(params[:id])
+    @data = {
+      url: sketches_path(@sketch),
+      model: @sketch,
+      codes: @sketch.codes
+    }
     respond_to do |format|
       format.html { render layout: "blank" } # show.html.erb
-      format.json { render json: @sketch}
+      format.json { render json: @data }
     end
   end
 

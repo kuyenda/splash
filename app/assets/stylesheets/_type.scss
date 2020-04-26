@@ -61,35 +61,3 @@ h6 {
     background: color();
     color: #fff;
 }
-
-$special_heading_color: #eb3b5a;
-
-.sp {
-    display: inline-block;
-    position: relative;
-    width: auto;
-    color: $special_heading_color;
-    // -webkit-text-stroke: 1px #4b6584;
-    z-index: 1;
-
-    &:after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 33%;
-        background-color: #d1d8e0;
-        // #f5f6fa #dcdde1
-        z-index: -1;
-    }
-}
-
-.spr {
-    @extend .sp;
-    color: #fff;
-
-    &:after {
-        background-color: $special_heading_color;
-    }
-}

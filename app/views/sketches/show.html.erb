@@ -1,34 +1,21 @@
 <% provide(:title, @sketch.title) %>
-<script>
-  $(function() {
-    var sketchObject = <%= @sketch.to_json.to_s.html_safe %>
-    var codeObject = <%= @sketch.codes.to_json.to_s.html_safe %>
-    window.app.init(sketchObject, codeObject);
-    $("#resizable").resizable();
-  
-    // animateCSS('.alert', 'bounce',function() {
-    // })
-    // fade errors
-    // $('.alert').delay(500).fadeIn('normal', function() {
-    //   $(this).delay(2500).fadeOut();
-    //   var snd = new Audio("<%= audio_path('emotion08.wav') %>");
-    //   snd.play();
-    // });
-  });
-</script>
-<%= render partial: 'sketches/groups/edit_group', object: @sketch %>
 <div class="render">
-  <%= render partial: 'sketches/render/navbar' %>
+  <div class="render-nav">
+    <%= render partial: 'sketches/render/navbar' %>
+  </div>
   <div class="render-tab-wrapper">
-    <div class="render-tab d-flex justify-content-center" id="copyrightTab">
+    <div class="render-tab" id="copyrightTab">
       <%= render partial: 'sketches/render/cover' %>
     </div>
-    <div class="render-tab" id="frameTab">
+    <div class="render-tab active" id="frameTab">
       <%= render partial: 'sketches/render/frame' %>
     </div>
     <div class="render-tab" id="editorTab">
       <%= render partial: 'sketches/render/editor' %>
+      <%= render partial: 'sketches/render/config' %>
     </div>
-    <!-- <%= render partial: 'sketches/render/side_panel' %> -->
   </div>
 </div>
+<script>
+  $(function() {window.app.init();});
+</script>
