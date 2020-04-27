@@ -4,22 +4,37 @@ app.init = function() {
 	var url = window.location.href
 	$.getJSON(url, function(json, textStatus) {
 		app.data = json
-		app.initFrame();
-		app.initEditor();
+		app.config = {}
 		app.initEvents();
+		app.initEditor();
+		app.excuteScripts();
 	});
 	console.log(this);
 }
 
 app.initEvents = function() {
-	$("[href='#frameTab']").click(function(event) {
-		app.excuteScripts();
+	app.config.focus = $('#appControls a:nth-child(2)');
+	$('#appControls a').on('click', function(event) {
+		app.config.focus = $(this);
+		if (app.config.focus.attr("href") == "#frameTab") {
+			var icon = app.config.focus.find('ion-icon');
+			if (icon.get(0).name == icon.data("name-focus")) {
+				animate(app.config.focus, 'rotateIn');
+				app.excuteScripts();
+				console.log("EXCUTED");
+			}
+			icon.get(0).name = icon.data("name-focus");
+		} else {
+			var icon = $('#appControls a:nth-child(2)').find('ion-icon')
+			icon.get(0).name = icon.data("name");
+		}
 	});
-	$('a[data-toggle="tab"]').on('shown', function(e) {
-		localStorage['selectedTab'] = $(e.target).attr('href');
-	})
-	var selectedTab = localStorage['selectedTab'];
-	if (selectedTab) $('a[href="' + selectedTab + '"]').tab('show');
+	app.config.focus.tab('show');
+	// $('a[data-toggle="tab"]').on('shown', function(e) {
+	// 	localStorage['selectedTab'] = $(e.target).attr('href');
+	// })
+	// var selectedTab = localStorage['selectedTab'];
+	// if (selectedTab) $('a[href="' + selectedTab + '"]').tab('show');
 }
 
 app.initFrame = function() {
@@ -27,10 +42,9 @@ app.initFrame = function() {
 	if (app.frame) {
 		app.frame.remove();
 		app.frame = null;
-		$('#frameTab').append($('<iframe id="frame">/'))
 	}
+	$('#frameTab').append($('<iframe id="frame">/'))
 	app.frame = $("#frame")
-	// app.frame.height("calc(100% - 8px)");
 	// http://hemin.cn/jq/contents.html
 	app.frame.contents().find("body").attr({
 		style: "margin:0;position: absolute;top: 50%;left: 50%;transform: translate(-50%, -50%);",

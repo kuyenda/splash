@@ -12,6 +12,14 @@ $header-mobile-hamb: #fff;
 $header-mobile-menuColor: #3f51b5;
 $header-mobile-menuItem: darken($header-mobileColor, 10);
 
+#app {
+    padding-top: 60px;
+
+    @include media-breakpoint-down(lg) {
+        padding: 0;
+    }
+}
+
 .navbar-app {
     position: fixed;
     top: 0;

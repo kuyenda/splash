@@ -15,6 +15,7 @@
 //= require ace/ext-language_tools
 //= require ace/snippets/javascript
 //= require animejs/lib/anime.min
+//= require stacktrace-js/stacktrace
 
 //= require flowengine/app
 //= require flowengine/app-helper

@@ -23,7 +23,7 @@ $color in map-merge($theme-colors, $colors) {
     }
 }
 
-@each $var in (0, 45, 90, 145, 180) {
+@each $var in (0, 45, 90, 145, 180, 360) {
     .icon-transform-hue-#{$var} {
         &:hover {
             filter: hue-rotate(#{$var}deg);

@@ -38,42 +38,26 @@ $(document).on('ready turbolinks:load', function() {
 	/* ------------------------------------------------------ */
 	// Animate.css
 	/* ------------------------------------------------------ */
-	window.animateCSS = function(element, animationName, callback) {
-		const node = document.querySelector(element)
-		node.classList.add('animated', animationName)
-
-		function handleAnimationEnd() {
-			node.classList.remove('animated', animationName)
-			node.removeEventListener('animationend', handleAnimationEnd)
-
-			if (typeof callback === 'function') callback()
-		}
-
-		node.addEventListener('animationend', handleAnimationEnd)
+	window.animate = function(element, animationName, callback) {
+		var node = element;
+		node.addClass('animated ' + animationName);
+		node.on('animationend', function(event) {
+			node.removeClass('animated ' + animationName);
+			if (typeof callback === 'function') callback();
+			node.off('animationend');
+		});
 	};
-	/* ------------------------------------------------------ */
-	// Load Player
-	/* ------------------------------------------------------ */
-	if (!window._splash_radio) {
-		window._splash_radio = {
-			history_player: undefined,
-			playlist: [],
-			rand: function(max) {
-				return Math.floor(Math.random() * Math.floor(max));
-			},
-			play: function(player) {
-				if (this.history_player) {
-					this.history_player.pause();
-				}
-				if (this.playlist.length == 0) {
-					return;
-				}
-				this.history_player = player
-				this.history_player.src = this.playlist[this.rand(this.playlist.length)];
-				this.history_player.loop = true;
-				this.history_player.volume = 0.5;
-				setTimeout(() => this.history_player.play(), 200);
-			},
-		}
-	}
+	// window.animateCSS = function(element, animationName, callback) {
+	// 	const node = document.querySelector(element)
+	// 	node.classList.add('animated', animationName)
+
+	// 	function handleAnimationEnd() {
+	// 		node.classList.remove('animated', animationName)
+	// 		node.removeEventListener('animationend', handleAnimationEnd)
+
+	// 		if (typeof callback === 'function') callback()
+	// 	}
+
+	// 	node.addEventListener('animationend', handleAnimationEnd)
+	// };
 });

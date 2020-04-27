@@ -5,6 +5,7 @@
     "normalize.css": "^8.0.1",
     "p5": "^1.0.0",
     "prismjs": "^1.19.0",
-    "spinkit": "^2.0.1"
+    "spinkit": "^2.0.1",
+    "stacktrace-js": "^2.0.2"
   }
 }

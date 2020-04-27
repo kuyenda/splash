@@ -1,15 +1,19 @@
-// *CONFIG*
-$footer-backgroundColor: #2f3542;
+// *CONFIG*#2f3542
+$footer-backgroundColor: #303952;
 $footer-Color-i: transparent;
-$footer-Color-link: hsl(0, 0, 100% - lightness($footer-backgroundColor));
-$footer-Color-hyper: lighten($footer-Color-link, 25);
+$footer-Color-hypo: transparent;
+$footer-Color-hyper: transparent;
 
 @if lightness($footer-backgroundColor)>.5 {
     $footer-Color-i: lighten($footer-backgroundColor, 20%);
+    $footer-Color-hyper: #fff;
+    $footer-Color-hypo: darken($footer-Color-hyper, 15);
 }
 
 @if lightness($footer-backgroundColor)<=.5 {
     $footer-Color-i: darken($footer-backgroundColor, 20%);
+    $footer-Color-hyper: #000;
+    $footer-Color-hypo: lighten($footer-Color-hyper, 15);
 }
 
 .footer {
@@ -22,7 +26,7 @@ $footer-Color-hyper: lighten($footer-Color-link, 25);
     margin: 0 auto;
     font-size: 14px;
     text-align: left;
-    color: $footer-Color-link;
+    color: $footer-Color-hyper;
     background: $footer-backgroundColor;
 }
 
@@ -65,11 +69,11 @@ $footer-Color-hyper: lighten($footer-Color-link, 25);
         border-color: darken($footer-backgroundColor, 5%);
         border-style: dashed;
         border-width: 5px;
-        color: $footer-Color-link;
+        color: $footer-Color-hypo;
         @include et-transition(2, .3s);
 
         &:hover {
-            background-color: adjust-hue($footer-backgroundColor, 90);
+            background-color: adjust-hue($footer-backgroundColor, 10);
             border-top-color: transparent;
             border-bottom-color: transparent;
             color: $footer-Color-hyper;

@@ -1,78 +1,24 @@
-<section class="enrique">
-  <div class="enrique-sketch-in o-0">
-    <form id="sketchForm">
-      <input id="sketchConfig" type="hidden" name="config" value="">
-    </form>
-    <iframe class="enrique-sketch" src="<%= page_path('example') %>" frameborder="0">
-    </iframe>
-  </div>
-  <div class="enrique-in o-0">
-    <% if !logged_in? %>
-      <div class="enrique-primary">
-        <h1 class="enrique-heading">
-        </h1>
-        <div>
-          <h3 class="enrique-paragraph ffht">
-          </h3>
-          <div class="enrique-button-group ffht">
-          </div>
-        </div>
-      </div>
-    <% end %>
-    <% if !logged_in? %>
-      <div class="enrique-secondary">
-        <p class="m-0 fw7"></p>
-      </div>
-    <% end %>
-  </div>
-  <div class="enrique-attribution">
-    <a href="#" class="link link-underline-light glow fw6">おかず</a>
-  </div>
-  <div class="spinner absolute p-2 z-9">
-    <div class="sk-chase" style="--sk-size:40px;--sk-color:#fff">
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-      <div class="sk-chase-dot"></div>
-    </div>
-  </div>
-</section>
-<% if !logged_in? %>
-  <section class="d-flex align-items-center justify-content-center py-3 px-5 tc bg-gray0">
-    <a href="https://github.com/kuyenda/splash" target="_blank" class="d-inline-block link hover-red8 ffpx">
-      <ion-icon name="cube-outline"></ion-icon>
-      帮助构建应用
-    </a>
-    <div class="d-inline-block pl-3">
-      <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=star&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe> <iframe src="https://ghbtns.com/github-btn.html?user=kuyenda&amp;repo=splash&amp;type=fork&amp;count=true" frameborder="0" scrolling="0" width="80px" height="20px"></iframe>
-    </div>
-  </section>
-<% end %>
-<section class="wrapper py-md-5">
-  <div class="container md-page bg-dark0">
-    <nav class="nav nav-tabs nav-fill">
-      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">
-        新闻
-      </a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">
-        开发
-      </a>
+<%= render partial: "application/home/enrique" %>
+<section class="py-md-5 py-3" style="min-height: 700px">
+  <div class="container mt-5">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <% HighVoltage.page_ids.sort{|a, b| b.size <=> a.size}.reverse.each do |i|  %>
+          <li class="breadcrumb-item active"><%= link_to(i, page_path(i), class:"f3 link-underline-light o-90 glow") %></li>
+        <% end %>
+      </ol >
     </nav>
-    <div class="tab-content dark7 overflow-hidden">
+  </div>
+  <div class="container">
+    <nav class="nav nav-tabs nav-fill">
+      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">新闻</a>
+      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">开发</a>
+    </nav>
+    <div class="tab-content dark7 overflow-hidden ba b-black-10">
       <div class="tab-pane show active ffpx fade p-4" id="patch">
-        <h1>欢迎来到splash.io！</h1>
-        <h2>🙆‍任何人都能学习和分享的无门槛创意编程</h2>
-        <p class="f4 b">请注意这是一个实验版本，数据不被保证储存。</p>
-        <ul class="f4">
-          <li>
-            <%= link_to "样式编写风格指南", page_path("style"), class:"link link-underline-dark glow" %>
-          </li>
-          <li>
-            <%= link_to "探索", sketches_path, class: "btn btn-primary btn-sm" %>
-          </li>
-        </ul>
+        <h1>欢迎来到splash！</h1>
+        <h6>无门槛创意编程的<b>中文社区</b></h6>
+        <%= link_to "探索", sketches_path, class: "btn btn-primary btn-sm" %>
       </div>
       <div class="tab-pane fade p-4" id="patch2">
         <table class="table table-sm table-hover table-bordered">
@@ -96,50 +42,14 @@
       </div>
     </div>
   </div>
-  <div class="container md-page mb-md-3 mb-lg-5 b bg-dark0 ffpx">
-    <div class="p-4">
-      <p class="gray9 f4 b"><span class="badge badge-secondary mr-1">high_voltage</span>Easily include static pages in Rails.</p>
-      <hr>
-      <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-          <% HighVoltage.page_ids.sort{|a, b| b.size <=> a.size}.reverse.each do |i|  %>
-            <li class="breadcrumb-item active"><%= link_to(i, page_path(i), class:"f3 link-underline-light o-90 glow") %></li>
-          <% end %>
-        </ol >
-      </nav>
-      <a class="link link-underline-light o-90 glow btn btn-primary" href="http://thoughtbot.github.io/high_voltage">Get</a>
+  <div class="container mt-2">
+    <div class="card">
+      <div class="card-header bg-blue0">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">alpha1.00a</h5>
+        <p class="card-text">请注意这是一个实验版本，数据不被保证储存。</p>
+      </div>
     </div>
   </div>
 </section>
-<script>
-  $(function() {
-    var heading = '.enrique-in'
-    var sketch = '.enrique-sketch-in'
-    var spinner = '.spinner'
-    // SHOW LOADER
-    anime({
-      targets: spinner,
-      duration: 200,
-      opacity: 1
-    });
-  
-    $('<div class="enrique-sketch"></div>').ready(function() {
-      setTimeout(function() {
-        anime({
-          targets: spinner,
-          easing: 'cubicBezier(.5, .05, .1, .3)',
-          duration: 3000,
-          opacity: 0
-        });
-      }
-      , 1000)
-      anime({
-        targets: [sketch, heading],
-        easing: 'cubicBezier(.5, .05, .1, .3)',
-        delay: anime.stagger(1500),
-        duration: 1000,
-        opacity: 1,
-      });
-    });
-  })
-</script>

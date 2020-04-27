@@ -1,26 +1,19 @@
 <div class="navbar">
   <nav class="nav"></nav>
-  <nav class="nav" style="flex: 2;flex-wrap: nowrap;">
-    <div data-toggle="tab" href="#copyrightTab">
-      <%= link_to "#", data: { switch: "#sketch-info #sketch-info-btn", by: "open opened", toggle: "tooltip", placement: "top", title: "著作信息" } do %>
-        <ion-icon name="information-outline" class="icon icon-white"></ion-icon>
-      <% end %>
-    </div>
-    <div data-toggle="tab" href="#frameTab">
-      <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "运行草图" }, 
-    id: "run", class: "" do %>
-        <ion-icon name="play-outline" class="icon icon-white"></ion-icon>
-      <% end %>
-    </div >
-    <div data-toggle="tab" href="#editorTab">
-      <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "编辑代码" }, class:"" do %>
-        <ion-icon name="code-slash-outline" class="icon icon-white"></ion-icon>
-      <% end %>
-    </div>
+  <nav class="nav" id="appControls" style="flex: 2;flex-wrap: nowrap;">
+    <%= link_to "#copyrightTab", data: { toggle: "tab" } do %>
+      <ion-icon name="information-outline" class="icon icon-white"></ion-icon>
+    <% end %>
+    <%= link_to "#frameTab", data: { toggle: "tab" } do %>
+      <ion-icon name="sync-outline" data-name="play-circle-outline" data-name-focus="sync-outline" class="icon icon-white"></ion-icon>
+    <% end %>
+    <%= link_to "#editorTab", data: { toggle: "tab" } do %>
+      <ion-icon name="code-slash-outline" class="icon icon-white"></ion-icon>
+    <% end %>
   </nav>
   <nav class="nav" style="justify-content: flex-end;flex-wrap: nowrap;">
     <%= link_to "#", data: { toggle: "tooltip", placement:"top", title: "高级菜单", switch: "#editGroup", by: "open"} do %>
-      <ion-icon name="menu-outline" class="icon icon-white"></ion-icon>
+      <ion-icon name="options" class="icon icon-white"></ion-icon>
     <% end %>
     <%= link_to sketches_url, data: { toggle: "tooltip", placement:"top", title: "返回" }, class:"" do %>
       <ion-icon name="close-outline" class="icon icon-white"></ion-icon>
