@@ -1,5 +1,6 @@
 class Sketch < ApplicationRecord
   has_many :codes, dependent: :destroy
+  accepts_nested_attributes_for :codes, allow_destroy: true
 
   extend FriendlyId
   friendly_id :digest, use: :slugged

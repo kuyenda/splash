@@ -1,20 +1,22 @@
 <% provide(:title, @sketch.title) %>
-<div class="render">
+<section class="render">
   <div class="render-nav">
     <%= render partial: 'sketches/render/navbar' %>
   </div>
   <div class="render-tab-wrapper">
+    <!--  -->
     <div class="render-tab" id="copyrightTab">
       <%= render partial: 'sketches/render/cover' %>
     </div>
+    <!--  -->
     <div class="render-tab" id="frameTab">
     </div>
+    <!--  -->
     <div class="render-tab" id="editorTab">
-      <%= render partial: 'sketches/render/editor' %>
-      <%= render partial: 'sketches/render/config' %>
+      <%= render partial: 'sketches/render/editor', locals: { codes: @sketch.codes } %>
     </div>
   </div>
-</div>
+</section>
 <script>
-  $(function() {window.app.init();});
+  $(function() { window.app.init(); })
 </script>

@@ -11,7 +11,7 @@
         <span class="badge bg-gray white badge-pill"><%= e.digest %></span>
         <span class="b"><%= e.title %></span>
       </h3>
-      <p class="sketch-p"><%= e.codes.first.code[0..50] if e.codes.any? %></p>
+      <p class="sketch-p"><%= e.description %></p>
     </div>
   </div>
 <% end %>

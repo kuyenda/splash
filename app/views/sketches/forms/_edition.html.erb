@@ -1,8 +1,11 @@
-<%= form_for(edition, html: { class: "" }) do |f| %>
+<%= form_for edition, html: { id: "saveForm" } do |f| %>
   <%= f.label(:title, "标题") %>
   <%= f.text_field :title, placeholder: "", class: "form-control" %>
   <%= f.label(:description, "概述") %>
   <%= f.text_field :description, placeholder: "", class: "form-control" %>
-  <%= f.submit "保存", class: "btn btn-primary my-sm-2 w-50" %>
+  <%= f.fields_for :codes do |code| %>
+    <% code.hidden_field(:code) %>
+  <% end %>
+  <%= f.submit "保存", class: "btn btn-primary my-sm-2 w-50", id: "saveBtn" %>
   <%= link_to "删除", edition, class: "btn btn-danger tc link hover-white", method: :delete, data: { confirm: "请确认" } %>
 <% end %>

@@ -29,12 +29,28 @@ app.initEvents = function() {
 			icon.get(0).name = icon.data("name");
 		}
 	});
+	// for bootstrap 3 use 'shown.bs.tab', for bootstrap 2 use 'shown' in the next line
+	// $('a[data-toggle="tab"]').on('shown.bs.tab', function(e) {
+	// 	// save the latest tab; use cookies if you like 'em better:
+	// 	localStorage.setItem('lastTab', $(this).attr('href'));
+	// });
+	// // go to the latest tab, if it exists:
+	// var lastTab = localStorage.getItem('lastTab');
+	// if (lastTab) {
+	// 	$('[href="' + lastTab + '"]').tab('show');
+	// }
+	// if (!localStorage.getItem('lastTab')) {
+	// }
 	app.config.focus.tab('show');
-	// $('a[data-toggle="tab"]').on('shown', function(e) {
-	// 	localStorage['selectedTab'] = $(e.target).attr('href');
-	// })
-	// var selectedTab = localStorage['selectedTab'];
-	// if (selectedTab) $('a[href="' + selectedTab + '"]').tab('show');
+	// postScripts
+	$('#saveForm').submit(function(e) {
+		var inputs = [];
+		for (var i = 0; i < app.data.codes.length; i++) {
+			inputs.push($('#sketch_codes_attributes_' + i + '_code'));
+			inputs[i].val(app.editor.getSession().getValue());
+			console.log(inputs[i].val());
+		}
+	});
 }
 
 app.initFrame = function() {
@@ -104,25 +120,8 @@ app.excuteScripts = function() {
 	}, )
 }
 
-app.saveScripts = function() {
-	$.ajax({
-		url: app.data.url,
-		type: "POST",
-		data: {
-			digit: window._p5jsExampleDigits,
-			code: code,
-		},
-		success: function(data) {}
-	});
-}
-
 var engine = {
 	init: function(obj) {
-		$('#textSizeSlider').change(function() {
-			engine.editor.setOptions({
-				fontSize: $(this).val() + 'px'
-			})
-		});
 		$('#copyButton').click(function() {
 			// don't know why we need this twice, or the setTimeout
 			// guessing it's some interaction with the editor..
@@ -134,16 +133,4 @@ var engine = {
 			}, 200);
 		});
 	},
-	saveExample: function() {
-		var code = engine.editor.getSession().getValue();
-		$.ajax({
-			url: "/sketches/save",
-			type: "POST",
-			data: {
-				digit: window._p5jsExampleDigits,
-				code: code,
-			},
-			success: function(data) {}
-		});
-	}
 }

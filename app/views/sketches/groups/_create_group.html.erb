@@ -1,4 +1,4 @@
-<section id="createGroup" class="row center-modal">
+<div id="createGroup" class="row center-modal">
   <div class="pt-3 pb-4 px-2 px-md-4 br2 bw1 b-solid shadow-3" style="width: 450px;">
     <h1 class="text-center mt-3">建立新草图
       <a href="#" data-switch="#createGroup" data-by="open">
@@ -6,7 +6,5 @@
       </a>
     </h1>
     <%= render partial: 'sketches/forms/creation', object: Sketch.new %>
-    <!-- flash tag -->
-    <%= flash_tag %>
   </div>
-</section>
+</div>

@@ -27,24 +27,27 @@ users = User.order(:created_at).take(6)
 end
 
 # Sketches
-Sketch.create!(title: "hello world",
-               description: "welcome to splash alpha!",
-               digest: "0x000000",
-               slug: "0x000000")
+Sketch.create!(title: "Welcome to splash",
+               description: "This is an alpha version",
+               digest: "0x123456",
+               slug: "0x123456")
 
 25.times do |n|
-  title = "s-#{n}"
+  title = "lorem#{n}"
   digest = Sketch.create_digests
   Sketch.create!(title: title,
+                 description: "This is an alpha version",
                  digest: digest,
                  slug: digest)
 end
-
-# Codes
 sketches = Sketch.all
-sketches.each do |s|
-  rand(3).times do
-    code = FFaker::Lorem.characters
-    s.codes.create!(code: code)
-  end
+sketches.each do |sketch|
+  code = 'function setup() {
+  
+}
+
+function draw() {
+  
+}'
+  sketch.codes.create!(code: code, filename: "index")
 end

@@ -15,6 +15,7 @@ ActiveRecord::Schema.define(version: 2020_04_19_020223) do
   create_table "codes", force: :cascade do |t|
     t.integer "sketch_id"
     t.text "code"
+    t.string "filename"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["sketch_id"], name: "index_codes_on_sketch_id"

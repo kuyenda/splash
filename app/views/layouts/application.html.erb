@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render 'layouts/sections/meta' %>
+    <%= render 'application/layout/meta' %>
   </head>
   <body>
-    <%= render 'layouts/sections/header' %>
+    <%= render 'application/layout/header' %>
     <div id="app">
+      <%= render 'application/layout/groups' %>
       <%= yield %>
     </div>
-    <%= render 'layouts/sections/footer' if @show_footer %>
+    <%= render 'application/layout/footer' if @show_footer %>
   </body>
 </html>

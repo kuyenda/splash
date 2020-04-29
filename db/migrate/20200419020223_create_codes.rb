@@ -3,6 +3,7 @@ class CreateCodes < ActiveRecord::Migration[5.2]
     create_table :codes do |t|
       t.belongs_to :sketch, index: true
       t.text :code
+      t.string :filename
       t.timestamps
     end
   end
