@@ -3,7 +3,6 @@ class ApplicationController < ActionController::Base
   include SessionsHelper
 
   def app
-    @show_footer = true # app.html.erb
   end
   def bar
     # render :app

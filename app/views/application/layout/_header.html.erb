@@ -1,84 +1,37 @@
-<header class="navbar-app">
-  <div class="nav-logo">
-    <a href="/">Splash</a>
-    <span class="nav-version">alpha-1.00</span>
-  </div>
-  <ul class="nav-menu">
-    <li class="nav-menu-item">
-      <%= link_to '发现', sketches_path, class: "nav-menu-link" %>
-    </li>
-    <li class="nav-menu-item">
-      <%= link_to '话题', topics_path, class: "nav-menu-link" %>
-    </li>
-    <% if logged_in? && current_user.name == "kuyenda" %>
-      <li class="nav-menu-item">
-        <%= link_to '管理', users_path, class: "nav-menu-link" %>
-      </li>
-    <% end %>
+<header class="hnavbar">
+  <section class="hnavbar-grow">
+    <div class="hnavbar-brand">
+      <%= link_to root_path, class: "" do %>
+        <ion-icon name="ellipse" class="icon-24 icon-transform-hue-90"></ion-icon>
+        <span class="nav-version">1.00a</span>
+      <% end %>
+    </div>
+    <div class="hnavbar-search">
+      <%= form_for :search, url: "/search", method: "get" do |f| %>
+        <%= f.text_field :q, class: "form-control" %>
+      <% end %>
+    </div>
+  </section>
+  <section class="hnavbar-menu">
     <% if logged_in? %>
-      <li class="nav-menu-item dropdown">
-        <a href="#" class="dropdown-toggle nav-menu-link" data-toggle="dropdown">
-          账户<b class="caret"></b>
-        </a>
-        <ul class="dropdown-menu">
-          <li><%= link_to current_user.name, current_user, class: "nav-menu-link dropdown-link" %></li>
-          <li><%= link_to "设定", edit_user_path(current_user), class: "nav-menu-link dropdown-link" %></li>
-          <li class="divider"></li>
-          <li>
-            <%= link_to "登出", logout_path, class: "nav-menu-link dropdown-link", method: :delete %>
-          </li>
-        </ul>
-      </li>
-    <% else %>
-      <li class="nav-menu-item">
-        <%= link_to '登入', login_path, class: "nav-menu-link" %>
-      </li>
-    <% end %>
-  </ul>
-  <div class="nav-mobile-button">
-    <a data-switch="#mobile-menu .hamburger" data-by="open is-active">
-      <div class="hamburger">
-        <div class="hamburger-box">
-          <div class="hamburger-inner"></div>
+      <%= link_to '浏览', sketches_path, class: "btn btn-primary btn-hnavbar" %>
+      <div class="dropdown">
+        <button class="btn btn-secondary btn-hnavbar dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <%= current_user.name %><b class="caret"></b>
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+          <%= link_to "主页", current_user, class: "dropdown-item" %>
+          <%= link_to "账号设定", edit_user_path(current_user), class: "dropdown-item" %>
+          <%= link_to "登出", logout_path, class: "dropdown-item", method: :delete %>
+          <% if current_user.name == "kuyenda" %>
+            <h6 class="dropdown-header">其他</h6>
+            <%= link_to '管理', users_path, class: "dropdown-item" %>
+          <% end %>
         </div>
       </div>
-    </a>
-  </div>
-  <div class="nav-mobile" id="mobile-menu">
-    <form class="nav-mobile-form ffpx" action="">
-      <ion-icon name="search" class="white"></ion-icon>
-      <input class="nav-mobile-input" type="search" name="q" placeholder="" value="">
-    </form>
-    <ul class="nav-mobile-menu">
-      <li>
-        <a href="#" class="nav-mobile-dropdown-toggle" data-sub-nav="explore">
-          发现
-        </a>
-        <ul class="nav-mobile-dropdown">
-          <li>
-            <%= link_to 'Sketch', sketches_path, class: "mobile-link" %>
-          </li>
-        </ul>
-      </li>
-      <% if logged_in? %>
-        <ul>
-          <li>
-            <%= link_to "我", current_user, class: "mobile-link" %>
-          </li>
-          <li>
-            <%= link_to "登出", logout_path, class: "mobile-link", method: :delete %>
-          </li>
-        </ul>
-      <% else %>
-        <ul>
-          <li>
-            <%= link_to '登录', login_path, class: "mobile-link" %>
-          </li>
-          <li>
-            <%= link_to "注册", signup_path, class: "mobile-link" %>
-          </li>
-        </ul>
-      <% end %>
-    </ul>
-  </div>
+    <% else %>
+      <%= link_to '登入', login_path, class: "btn btn-outline-primary btn-hnavbar" %>
+      <%= link_to "注册", signup_path, class: "btn btn-primary btn-hnavbar" %>
+    <% end %>
+  </section>
 </header>

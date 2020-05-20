@@ -6,7 +6,7 @@ ion-icon {
 .icon {
     color: inherit;
     vertical-align: middle;
-    @include transition(.5, bezier(0, .75, 0, 1));
+    @include transition(1, bezier(0, .75, 0, 1));
 }
 
 @each $index,

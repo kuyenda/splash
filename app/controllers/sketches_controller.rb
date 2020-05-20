@@ -45,7 +45,7 @@ class SketchesController < ApplicationController
       codes: @sketch.codes
     }
     respond_to do |format|
-      format.html { render layout: "blank" }
+      format.html { render layout: "content" }
       format.json { render json: data }
     end
   end

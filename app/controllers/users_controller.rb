@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   # 布局
-  layout "blank", except: [:show, :index]
+  layout "content", except: [:show, :index]
   # 前置过滤器
   before_action :logged_in_user, only: [:index, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]

@@ -4,11 +4,9 @@
     <%= render 'application/layout/meta' %>
   </head>
   <body>
-    <%= render 'application/layout/header' %>
-    <div id="app">
-      <%= render 'application/layout/groups' %>
-      <%= yield %>
-    </div>
+    <%= render 'application/layout/header' if @show_header %>
+    <%= render 'application/layout/groups' %>
+    <%= yield %>
     <%= render 'application/layout/footer' if @show_footer %>
   </body>
 </html>

@@ -33,4 +33,4 @@ rails runner
 heroku pg:reset DATABASE
 heroku run rake db:migrate
 heroku run rake db:seed
-heroku restart && heroku pg:reset DATABASE --confirm kuyenda && heroku run rake db:migrate
+heroku restart -a kuyenda && heroku pg:reset DATABASE -a kuyenda --confirm kuyenda && heroku run rake db:migrate -a kuyenda && heroku run rake db:seed -a kuyenda

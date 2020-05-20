@@ -1,12 +1,11 @@
 <%= form_for(:session, url: login_path) do |f| %>
   <%= f.email_field :email, placeholder: "Email" %>
   <%= f.password_field :password, placeholder: "Password" %>
-  <%= flash_tag %>
-  <%= f.submit "Log in", class:"btn btn-primary" %>
+  <%= f.submit "登入", class:"btn btn-primary" %>
   <div class="form-check">
     <%= f.label :remember_me, class: "form-check-label" do %>
       <%= f.check_box :remember_me, class: "form-check-input" %>
-      <span>Remember me on this computer</span>
+      <span>保持登入状态</span>
     <% end %>
   </div>
 <% end %>

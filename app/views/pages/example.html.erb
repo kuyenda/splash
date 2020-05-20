@@ -1,96 +1,139 @@
 <html>
   <head>
     <script crossorigin="anonymous" language="javascript" type="text/javascript" src="https://cdn.jsdelivr.net/npm/p5@0.5.16/lib/p5.min.js"></script>
-    <!--     <script type="text/javascript"></script>
-    <script language="javascript" crossorigin="anonymous" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script crossorigin="anonymous" language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/attrchange/2.0.1/attrchange.min.js"></script>
-    <script crossorigin="anonymous" language="javascript" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mousetrap/1.6.2/mousetrap.min.js"></script>
-    <script language="javascript" crossorigin="anonymous" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/stacktrace.js/2.0.0/stacktrace.min.js"></script> -->
-    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.6/processing.min.js" integrity="sha256-NLLibs1jQZNnV59vwp+9dMxTdhKAeqKbl3XzgYzQyso=" crossorigin="anonymous"> -->
-  </script>
-  <style>
-    body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-    }
-  </style>
-</head>
-<body>
-  <script>
-    palette = ["#f75c03", "#2191fb", "#d90368", "#820263", "#f3de2c"];
-    function setup() {
-      createCanvas(windowWidth, windowHeight);
-      noLoop();
-      rectMode(CENTER);
-    }
-    
-    function draw() {
-      background(10);
-      grid();
-      tile();
-    }
-    
-    function grid() {
-      let c = 50;
-      let w = width / c;
-      let col = random(palette);
-      for (let i = 0; i <= c; i++) {
-        for (let j = 0; j <= c; j++) {
-          let x = i * w;
-          let y = j * w;
-          col = random(palette);
-          noStroke();
-          fill(col);
-          rect(x, y, w * 0.3, w * 0.3);
-          strokeWeight(2);
-          stroke(col);
-          noiseLine(x, y);
-        }
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/processing.js/1.6.0/processing.min.js"></script> -->
+    <style>
+      body {
+          margin: 0;
+          padding: 0;
+          overflow: hidden;
       }
-    }
-    
-    function tile() {
-      let c = 400;
-      let w = width / c;
-      noFill();
-      stroke(180, 50);
-      strokeWeight(0.5);
-      for (let i = 0; i < c; i++) {
-        for (let j = 0; j < c; j++) {
-          let x = i * w;
-          let y = j * w;
-          rect(x, y, w, w);
-        }
+    </style>
+  </head>
+  <body>
+    <script>
+      function setup() {
+          initializeFields();
+          createCanvas(1920, 1080);
+          pixelDensity(2);
+          noLoop();
+          rectMode(CENTER);
       }
-    }
-    
-    function noiseLine(x, y) {
-      let c = 50;
-      let px = x;
-      let py = y;
-      for (let i = 0; i < c; i++) {
-        let ns = 0.0025;
-        let n = 10;
-        let angle = int(noise(x * ns, y * ns, i * 0.0001) * 20) * PI / 4;
-        line(x, y, px, py);
-        px = x;
-        py = y;
-        x += cos(angle) * 4;
-        y += sin(angle) * 4;
+      
+      function draw() {
+          background(0);
+          var c = 20;
+          var w = width / c;
+          for (var j = 0; j < c + 1; j++) {
+              for (var i = 0; i < c + 1; i++) {
+                  var noiseS = 0.07;
+                  var angle = map(noise(i * noiseS, j * noiseS), 0, 1, 0, TAU);
+                  push();
+                  translate(i * w, j * w);
+                  rotate(angle);
+                  stroke(0);
+                  fill(getCol());
+                  arrow(0, 0, w);
+                  pop();
+              }
+          }
+          powder();
       }
-    }
-    
-    function getCol() {
-      let n = hue + 180 * int(random(2));
-      let col = color(n, random(80), random(90, 100));
-      if (random(1) < 0.15) {
-        col = color(n, random(90, 100), random(90, 100));
-      } else if (random(1) < 0.16) {
-        col = color(random(20));
+      
+      function arrow(x, y, s) {
+          var b = int(random(6));
+          var hs = s / 2;
+          fill(getCol());
+          stroke(getCol());
+          strokeWeight(1);
+          if (b == 0) {
+              line(x + hs, y, x - hs, y);
+              line(x + hs, y, x, y - hs / 2);
+              line(x + hs, y, x, y + hs / 2);
+          } else if (b == 1) {
+              noStroke();
+              beginShape();
+              vertex(x + hs, y);
+              vertex(x, y + hs);
+              vertex(x, y + hs / 2);
+              vertex(x - hs, y + hs / 2);
+              vertex(x - hs, y - hs / 2);
+              vertex(x, y - hs / 2);
+              vertex(x, y - hs);
+              vertex(x + hs, y);
+              endShape();
+          } else if (b == 2) {
+              noStroke();
+              beginShape();
+              vertex(x + hs, y);
+              vertex(x, y + hs / 2);
+              vertex(x, y + hs / 4);
+              vertex(x - hs, y);
+              vertex(x, y - hs / 4);
+              vertex(x, y - hs / 2);
+              vertex(x + hs, y);
+              endShape();
+          } else if (b == 3) {
+              for (var i = hs; i > -hs; i -= s / 4) {
+                  line(x + i, y, x + i - s / 5, y + hs / 2);
+                  line(x + i, y, x + i - s / 5, y - hs / 2);
+              }
+          } else if (b == 4) {
+              noStroke();
+              beginShape();
+              for (var a = 0; a < TAU; a += TAU / 360) {
+                  vertex(x + hs * cos(a), y + hs * sin(a));
+              }
+              beginContour();
+              for (var a = TAU; a > 0; a -= TAU / 3) {
+                  vertex(x + hs * 0.7 * cos(a), y + hs * 0.7 * sin(a));
+              }
+              endContour();
+              endShape();
+          } else {
+              noFill();
+              beginShape();
+              vertex(x, y + hs * 0.1);
+              vertex(x, y + hs);
+              vertex(x + hs, y + hs * 0.1);
+              vertex(x - hs, y + hs * 0.1);
+              endShape();
+              beginShape();
+              vertex(x, y - hs * 0.1);
+              vertex(x, y - hs);
+              vertex(x + hs, y - hs * 0.1);
+              vertex(x - hs, y - hs * 0.1);
+              endShape();
+          }
       }
-      return col;
-    }
-  </script>
-</body>
+      
+      function powder() {
+          for (var i = 0; i < 500000; i++) {
+              stroke(255, 60);
+              strokeWeight(0.4);
+              point(random(width), random(height));
+          }
+      }
+      
+      function mousePressed() {
+          redraw();
+          noiseSeed(int(random(100000)));
+      }
+      
+      function keyPressed() {
+          if (key == 's')
+              saveFrame("####.png");
+      }
+      
+      var colors;
+      
+      function getCol() {
+          return colors[int(random(colors.length))];
+      }
+      
+      function initializeFields() {
+          colors = [ color(0xff, 0x59, 0x5e), color(0xff, 0xca, 0x3a), color(0x8a, 0xc9, 0x26), color(0x19, 0x82, 0xc4), color(0x6a, 0x4c, 0x93) ];
+      }
+    </script>
+  </body>
 </html>

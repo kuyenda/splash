@@ -1,4 +1,5 @@
 <% provide(:title, 'Discover') %>
+<% show_header %>
 <%= content_for(:groups) do %>
   <%= render partial: 'sketches/groups/help_group', object: @sketch %>
   <%= render partial: 'sketches/groups/create_group', object: @sketch %>
@@ -6,26 +7,18 @@
 <section class="sketches-container">
   <aside class="sketches-aside-wrapper">
     <div class="sketches-aside">
-      <div class="w-100 mb-sm-2" style="border-bottom: 3px dashed #b0bec5">
-        <h5>程式库列表</h5>
-        <p>点击<strong>新建</strong>，创建一个新的数据<br>
-        </p>
-        <a href="#" data-switch="#createGroup" data-by="open", class="d-inline-block">
-          <ion-icon name="add-circle-outline" class="icon-48 icon-green"></ion-icon>
-        </a>
-        <a href="#" data-get="<%= page_path('guides/1') %>" data-to="#helpGroup" data-toggle="modal" data-target="#helpGroup">
-          <ion-icon name="information-circle-outline" class="icon-48 icon-dark"></ion-icon>
-        </a>
+      <div class="container mb-sm-2">
+        <button class="btn btn-primary btn-sm" data-switch="#createGroup" data-by="open">
+          <ion-icon name="add-circle" class="icon"></ion-icon>
+          <span>新建</span>
+        </button>
+        <button class="btn btn-primary btn-sm" data-get="<%= page_path('guides/1') %>" data-to="#helpGroup" data-toggle="modal" data-target="#helpGroup">
+          <span>指南</span>
+        </button>
       </div>
-      <div class="w-100">
+      <div class="container">
         <%= render 'sketches/forms/query' %>
-      </div>
-      <div class="w-100">
-        <h6 class="my-1 d-block fw5 gray ffpx"><%= @sketches.count %> Founded</h6>
-      </div>
-      <div class="w-100 p-5">
-        <% debug(@sketches) %>
-        <%= chart_for(@sketches) %>
+        <h6 class="my-1 gray"><%= @sketches.count %> Founded</h6>
       </div>
     </div>
   </aside>

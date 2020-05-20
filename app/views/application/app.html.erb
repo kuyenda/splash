@@ -1,54 +1,41 @@
-<%= render partial: "application/home/enrique" %>
-<section class="py-md-5 py-3" style="min-height: 700px">
-  <div class="container mt-5">
-    <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-        <% HighVoltage.page_ids.sort{|a, b| b.size <=> a.size}.reverse.each do |i|  %>
-          <li class="breadcrumb-item active"><%= link_to(i, page_path(i), class:"f3 link-underline-light o-90 glow") %></li>
-        <% end %>
-      </ol >
-    </nav>
-  </div>
-  <div class="container">
-    <nav class="nav nav-tabs nav-fill">
-      <a class="nav-item nav-link active" data-toggle="tab" href="#patch">新闻</a>
-      <a class="nav-item nav-link" data-toggle="tab" href="#patch2">开发</a>
-    </nav>
-    <div class="tab-content dark7 overflow-hidden ba b-black-10">
-      <div class="tab-pane show active ffpx fade p-4" id="patch">
-        <h1>欢迎来到splash！</h1>
-        <h6>无门槛创意编程的<b>中文社区</b></h6>
-        <%= link_to "探索", sketches_path, class: "btn btn-primary btn-sm" %>
-      </div>
-      <div class="tab-pane fade p-4" id="patch2">
-        <table class="table table-sm table-hover table-bordered">
-          <thead>
-            <tr>
-              <th scope="col">序列</th>
-              <th scope="col">宝石</th>
-              <th scope="col">版本</th>
-            </tr>
-          </thead>
-          <tbody>
-            <% Gem::Specification.all.each.with_index do |e, i| %>
-              <tr>
-                <th><%= i+1 %></th>
-                <th><%= e.name %></th>
-                <th><%= e.version %></th>
-              </tr>
+<section class="h-100">
+  <div class="container-fluid h-75 bg-dark9">
+    <div class="relative row h-100 justify-content-center align-items-center">
+      <div class="col-10 col-md-6 z-2 white text-center">
+        <h1 class="f8">op<span class="underline">en</span> <span class="f6 fw8">sketch</span></h1>
+        <p class="gray3">创意编程的<b>中文社区</b></p>
+        <div class="row justify-content-center">
+          <div class="col" style="max-width: 350px">
+            <% unless logged_in? %>
+              <%= link_to "注册", signup_path, class: "btn btn-primary btn-block br5" %>
+              <%= link_to '登入', login_path, class: "btn btn-dark btn-block br5" %>
+            <% else %>
+              <h6 class="tl mt-2">您好！<%= current_user.name %></h6>
+              <%= link_to '发现', sketches_path, class: "btn btn-outline-success btn-block br5" %>
+              <%= link_to "退出登录", logout_path, class: "mt-1 link white-50 glow d-block tl", method: :delete %>
             <% end %>
-          </tbody>
-        </table>
+          </div>
+        </div>
+      </div>
+      <div class="absolute w-100 h-100 home-img">
       </div>
     </div>
   </div>
-  <div class="container mt-2">
-    <div class="card">
-      <div class="card-header bg-blue0">
-      </div>
-      <div class="card-body">
-        <h5 class="card-title">alpha1.00a</h5>
-        <p class="card-text">请注意这是一个实验版本，数据不被保证储存。</p>
+  <div class="container-fluid h-25 bg-dark9">
+    <div class="row">
+      <div class="col">
+        <p class="white-20 f2">
+          MIT 开源许可协议<br>
+          版权所有 (c) 2020 @kuyenda
+        </p>
+        <div class="white f4">
+          <a href="/" data-toggle="tooltip" onclick="return false;" data-placement="top" title="基于Rails<%= Rails.version %>">
+            <ion-icon name="information-circle-outline"></ion-icon>
+          </a>
+          <a href="https://github.com/kuyenda/splash" data-toggle="tooltip" data-placement="top" title="克隆项目">
+            <ion-icon name="git-branch"></ion-icon>
+          </a>
+        </div>
       </div>
     </div>
   </div>

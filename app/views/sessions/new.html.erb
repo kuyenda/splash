@@ -1,17 +1,17 @@
-<% provide(:title, 'Log in') %>
+<% provide(:title, '登入') %>
 <section class="container" style="margin-top: 20vh;">
   <div class="col-10 col-md-auto mx-auto" style="max-width: 500px;">
     <div class="row">
       <div class="col form-user">
-        <h1 class="f7 mb-4 underline gray6">Login</h1>
+        <h1 class="f6 mb-4 underline gray6">账号和密码</h1>
         <%= render partial: 'sessions/forms/login' %>
       </div>
     </div>
     <div class="row">
       <div class="col">
         <br>
-        Not a member?
-        <%= link_to "Sign up now!", signup_path, class: "link link-underline-dark o-90 glow green8 hover-green5" %>
+        没有账号？
+        <%= link_to "注册", signup_path, class: "link link-underline-dark o-90 glow green8 hover-green5" %>
       </div>
     </div>
   </div>

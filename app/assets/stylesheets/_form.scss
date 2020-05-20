@@ -25,7 +25,8 @@
         textarea {
             display: block;
             width: 100%;
-            padding: 14px 10px;
+            padding: 7px 5px;
+
             border: 0;
             border-radius: 6px;
             background: #f5f6f7;
@@ -34,13 +35,6 @@
             outline: none;
             color: #111;
             @include transition(1, bezier(0, .75, 0, 1));
-
-            &:hover {}
-
-            @include media-breakpoint-down(md) {
-                padding: 7px 5px;
-            }
-
         }
 
         input[type='checkbox'] {
