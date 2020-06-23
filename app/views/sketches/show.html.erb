@@ -1,19 +1,19 @@
 <% provide(:title, @sketch.title) %>
 <section class="render">
   <div class="render-nav">
-    <%= render partial: 'sketches/render/navbar' %>
+    <%= render partial: 'sketches/show_partial/navbar' %>
   </div>
-  <div class="render-tab-wrapper">
+  <div class="render-tab-wrapper bg-dark9">
     <!--  -->
     <div class="render-tab" id="copyrightTab">
-      <%= render partial: 'sketches/render/cover' %>
+      <%= render partial: 'sketches/show_partial/cover' %>
     </div>
     <!--  -->
     <div class="render-tab" id="frameTab">
     </div>
     <!--  -->
     <div class="render-tab" id="editorTab">
-      <%= render partial: 'sketches/render/editor', locals: { codes: @sketch.codes } %>
+      <%= render partial: 'sketches/show_partial/editor', locals: { codes: @sketch.codes } %>
     </div>
   </div>
 </section>

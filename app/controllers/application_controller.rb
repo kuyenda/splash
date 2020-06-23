@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   # layout false, only: [:bar]
   include SessionsHelper
 
-  def app
+  def root
   end
   def bar
     # render :app
@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
     # render inline: '<h1>Hye!</h1>'
     # render plain: "OK"
     # render html: "<strong>Not Found</strong>".html_safe
-    # render json: (1..9).map{rand(5)}.to_json
+    # render json: { numbers: (1..9).map{rand(5)} }
     # render js: "alert('Hello Rails');"
     # render body: "raw"
     #### 选项

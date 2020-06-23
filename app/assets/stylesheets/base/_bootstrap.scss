@@ -1,0 +1,142 @@
+// *,
+// *:active,
+// *:hover {
+//     outline: none !important;
+// }
+
+// Color system
+$white: #fff;
+$gray-100: #f8f9fa;
+$gray-200: #e9ecef;
+$gray-300: #dee2e6;
+$gray-400: #ced4da;
+$gray-500: #adb5bd;
+$gray-600: #6c757d;
+$gray-700: #495057;
+$gray-800: #343a40;
+$gray-900: #212529;
+$black: #000;
+
+$grays: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$grays: map-merge(("100": $gray-100,
+"200": $gray-200,
+"300": $gray-300,
+"400": $gray-400,
+"500": $gray-500,
+"600": $gray-600,
+"700": $gray-700,
+"800": $gray-800,
+"900": $gray-900),
+$grays);
+
+$red: #ff1744;
+$pink: #ff4081;
+$purple: #aa00ff;
+$grape: #651fff;
+$indigo: #536dfe;
+$blue: #2962ff;
+$light-blue: #0091ea;
+$cyan: #00acc1;
+$teal: #1de9b6;
+$green: #28a745;
+$light-green: #64dd17;
+$lime: #c6ff00;
+$yellow: #ffea00;
+$amber: #ffc400;
+$orange: #e65100;
+$dark-orange: #ff3d00;
+$brown: #3e2723;
+
+$colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$colors: map-merge(("red": $red,
+"pink": $pink,
+"purple": $purple,
+"grape": $grape,
+"indigo": $indigo,
+"blue": $blue,
+"light-blue": $light-blue,
+"cyan": $cyan,
+"teal": $teal,
+"green": $green,
+"light-green": $light-green,
+"lime": $lime,
+"yellow": $yellow,
+"amber": $amber,
+"orange": $orange,
+"dark-orange": $dark-orange,
+"brown": $brown,
+"white": $white,
+"gray": $gray-600,
+"dark-gray": $gray-800),
+$colors);
+
+$primary: #3f51b5;
+$secondary: $gray-800;
+$success: $green;
+$info: $blue;
+$warning: $amber;
+$danger: #d32f2f;
+$light: $gray-100;
+$dark: $gray-800;
+
+$theme-colors: ();
+// stylelint-disable-next-line scss/dollar-variable-default
+$theme-colors: map-merge(("primary": $primary,
+"secondary": $secondary,
+"success": $success,
+"info": $info,
+"warning": $warning,
+"danger": $danger,
+"light": $light,
+"dark": $dark),
+$theme-colors);
+
+// Set a specific jump point for requesting color jumps
+$theme-color-interval: 8%;
+
+$link-color: inherit;
+$link-decoration: inherit;
+$link-hover-color: inherit;
+$link-hover-decoration: inherit;
+// Darken percentage for links with `.text-*` class (e.g. `.text-success`)
+$emphasized-link-hover-darken-percentage: 15%;
+
+// Typography
+//
+// Font, line-height, and color for body text, headings, and more.
+
+// stylelint-disable value-keyword-case
+$font-family-sans-serif: Steradian,
+XiangHe,
+ProximaSans,
+sans-serif;
+$font-family-monospace: Menlo,
+Consolas,
+monospace;
+$font-family-base: $font-family-sans-serif;
+
+// Alerts
+$alert-padding-y: .75rem;
+$alert-padding-x: 1.25rem;
+$alert-margin-bottom: 1rem;
+$alert-bg-level: -10;
+$alert-border-level: -9;
+$alert-color-level: 6;
+
+// Code
+$code-font-size: 87.5%;
+$code-color: $pink;
+
+$kbd-padding-y: .2rem;
+$kbd-padding-x: .4rem;
+$kbd-font-size: $code-font-size;
+$kbd-color: $white;
+$kbd-bg: $gray-900;
+
+$pre-color: $gray-900;
+$pre-scrollable-max-height: 340px;
+
+//
+$input-btn-focus-box-shadow: none;

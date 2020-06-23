@@ -21,12 +21,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.name = 'User'
-    if @user.save
-      log_in @user
-      redirect_to @user
-    else
-      render 'new'
+    @user.name = @user.email
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+        format.js
+        log_in @user
+      else
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
   end
 

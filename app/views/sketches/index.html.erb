@@ -1,14 +1,13 @@
 <% provide(:title, 'Discover') %>
 <% show_header %>
 <%= content_for(:groups) do %>
-  <%= render partial: 'sketches/groups/help_group', object: @sketch %>
-  <%= render partial: 'sketches/groups/create_group', object: @sketch %>
+  <%= render partial: 'sketches/forms/create_remote', object: Sketch.new, as: :sketch %>
 <% end %>
 <section class="sketches-container">
   <aside class="sketches-aside-wrapper">
     <div class="sketches-aside">
-      <div class="container mb-sm-2">
-        <button class="btn btn-primary btn-sm" data-switch="#createGroup" data-by="open">
+      <div class="container mb-2">
+        <button class="btn btn-primary btn-sm" data-toggle="modal" data-target="#sketchCreateGroup">
           <ion-icon name="add-circle" class="icon"></ion-icon>
           <span>新建</span>
         </button>
@@ -25,7 +24,7 @@
   <main class="sketches">
     <section class="sketches-stream">
       <% if @sketches.any? %>
-        <%= render partial: "sketches/datas/sketch", object: @sketches %>
+        <%= render partial: "sketches/collections/sketch", object: @sketches %>
       <% else %>
         <h1>什么也没找到</h1>
       <% end %>

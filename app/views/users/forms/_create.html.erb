@@ -1,0 +1,7 @@
+<%= form_for(user, url: signup_path) do |f| %>
+  <%= f.email_field :email, class: "form-control", placeholder: "邮箱" %>
+  <%= f.password_field :password, class: "form-control", placeholder: "密码" %>
+  <%= f.password_field :password_confirmation, class: "form-control", placeholder: "确认密码" %>
+  <%= error_tag(user) %>
+  <%= f.submit '注册', class: "btn btn-primary" %>
+<% end %>

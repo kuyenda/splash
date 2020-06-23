@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "animate.css": "^3.7.2",
+    "animate.css": "^4.1.0",
     "animejs": "^3.1.0",
     "normalize.css": "^8.0.1",
     "p5": "^1.0.0",

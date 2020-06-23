@@ -25,13 +25,17 @@ class SketchesController < ApplicationController
     @sketch = Sketch.new(sketch_params)
     @sketch.digest = Sketch.create_digests
     # 创建至少一个空脚本
-    if @sketch.save
-      @sketch.codes.create!
-      redirect_to @sketch
-    else
-      # redirect_to @sketches, flash: { info: @sketch.errors.full_messages.to_sentence }
-      flash[:danger] = "请检查输入错误"
-      redirect_to @sketch
+    respond_to do |format|
+      if @sketch.save
+        @sketch.codes.create!
+        format.html { redirect_to @sketch, notice: 'User was successfully created.' }
+        format.json { render json: @sketch, status: :created, location: @sketch }
+        format.js
+      else
+        format.html { redirect_to @sketches, flash: { info: @sketch.errors.full_messages.to_sentence } }
+        format.json { render json: @sketch.errors, status: :unprocessable_entity }
+        format.js
+      end
     end
   end
 

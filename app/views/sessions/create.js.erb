@@ -1,0 +1,14 @@
+// 清除字段错误信息
+$(".invalid-feedback").remove();
+$("input[id^='session']").removeClass('is-invalid');
+<% if @errors && !@errors.empty? %>
+  <% @errors.each do |key, value| %>
+    var input = $("#session_"+'<%= key %>')
+    input.addClass('is-invalid').after(
+      $("<div>", { class: "invalid-feedback" }).html('<%= value %>')
+    );
+  <% end %>
+<% else %>
+  $("#loginGroup").modal('hide');
+  setTimeout(function(){ location.reload(); }, 1000);
+<% end %>

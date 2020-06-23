@@ -1,0 +1,14 @@
+// 清除字段错误信息
+$(".invalid-feedback").remove();
+$("input[id^='user']").removeClass('is-invalid');
+<% if @user.errors.any? %>
+  <% @user.errors.each do |key, value| %>
+    var input = $("#user_"+'<%= key %>')
+    input.addClass('is-invalid').after(
+      $("<div>", { class: "invalid-feedback" }).html('<%= [key, value].join(' ') %>')
+    );
+  <% end %>
+<% else %>
+  $("#signupGroup").modal('hide');
+  setTimeout(function(){ location.reload(); }, 1000);
+<% end %>

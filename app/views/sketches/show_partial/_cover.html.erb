@@ -1,0 +1,38 @@
+<div class="container d-flex flex-column justify-content-center align-items-center d-md-block">
+  <div class="row white bg-dark8 p-3 my-lg-3">
+    <div class="col-12">
+      <p class="m-0 b gray4 badge badge-secondary">
+        <button type="button" class="btn btn-primary">分享二维码</button>
+        <button id="darkModeButton" type="button" class="btn btn-success">夜间模式</button>
+        <button type="button" class="btn btn-info">文档</button>
+      </p>
+    </div>
+    <div class="col-12">
+      <h1 class="underline">
+        <%= @sketch.title %>
+      </h1>
+      <p>
+        <% if @sketch.description.present? %>
+          <%= @sketch.description %>
+        <% else %>
+          ...
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <div class="row white my-lg-3">
+    <div class="col-12 col-md-3 p-3 f2">
+      <h3 class="f3">被特許人權利</h3>
+      <p>被特許人有權利使用、複製、修改、合併、出版發行、散佈、再特許和/或販售軟件及軟件的副本，及授予被供應人同等權利，惟服從以下義務。
+      </p>
+      <h3 class="f3">被特許人義務</h3>
+      <p>在軟件和軟件的所有副本中都必須包含以上版權聲明和本許可聲明。</p>
+    </div>
+    <div class="col-12 col-md-4 p-3 f2">
+      <h3 class="f3">其他重要特性</h3>
+      <p>此特許條款並非屬copyleft的自由軟體授權條款，允許在自由及開放原始碼軟件或非自由軟件（proprietary software）所使用。 </p>
+      <p>MIT的內容可依照程式版權者的需求更改內容。此亦為MIT與BSD（The BSD license, 3-clause BSD license）本質上不同處。 </p>
+      <p>MIT特許條款可與其他特許條款並存。另外，MIT條款也是自由軟件基金會（FSF）所認可的自由軟體授權條款，與GPL相容。</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,155 @@
+/* ------------------------------------------------------ */
+//... Color 
+/* ------------------------------------------------------ */
+// opacity
+@each $key,
+$var in ('100':1, '90':.9, '80':.8, '70':.7, '60':.6,
+'50':.5, '40':.4, '30':.3, '20':.2, '10':.1,
+'05':.05, '025':.25, '0':0,
+'75':.75, '25':.25, '15':.15, '0125':.0125) {
+    .o-#{$key} {
+        opacity: $var
+    }
+}
+
+// black and white
+$wheel-alpha: ('': 1,
+'-90': .9,
+'-80': .8,
+'-70': .7,
+'-60': .6,
+'-50': .5,
+'-40': .4,
+'-30': .3,
+'-20': .2,
+'-15': .15,
+'-10': .1,
+'-05': .05,
+'-02': .02,
+'-01': .01,
+'-025': .025,
+'-0125': .0125);
+
+@each $key,
+$var in $wheel-alpha {
+
+    .white#{$key},
+    .hover-white#{$key}:hover,
+    .hover-white#{$key}:focus,
+        {
+        color: rgba(255, 255, 255, $var)
+    }
+
+    .bg-white#{$key},
+    .hover-bg-white#{$key}:hover,
+    .hover-bg-white#{$key}:focus,
+        {
+        background-color: rgba(255, 255, 255, $var)
+    }
+
+    .b-white#{$key} {
+        border-color: rgba(255, 255, 255, $var)
+    }
+
+    .black#{$key},
+    .hover-black#{$key}:hover,
+    .hover-black#{$key}:focus {
+        color: rgba(0, 0, 0, $var)
+    }
+
+    .bg-black#{$key},
+    .hover-bg-black#{$key}:hover,
+    .hover-bg-black#{$key}:focus {
+        background-color: rgba(0, 0, 0, $var)
+    }
+
+    .b-black#{$key} {
+        border-color: rgba(0, 0, 0, $var)
+    }
+}
+
+@mixin colorize($name, $colors) {
+    $index: null;
+
+    @each $color in $colors {
+
+        .#{$name}#{$index},
+        .hover-#{$name}#{$index}:hover,
+        .hover-#{$name}#{$index}:focus {
+            color: $color
+        }
+
+
+        .bg-#{$name}#{$index},
+        .hover-bg-#{$name}#{$index}:hover,
+        .hover-bg-#{$name}#{$index}:focus {
+            background-color: $color
+        }
+
+        .b-#{$name}#{$index} {
+            border-color: $color
+        }
+
+        @if $index==null {
+            $index: 0;
+        }
+
+        @else {
+            $index: $index+1;
+
+        }
+
+    }
+}
+
+/*
+0        1        2        3        4        5        6        7        8        9
+96.08    75.1     66.08    67.45    54.51    58.43    55.29    41.76    46.67    41.37
+*/
+$app-colors: ("red": (#ff1744,
+#ffebee, #ff8a80, #ff5252, #e57373, #ff1744, #f44336, #e53935, #d50000, #c62828, #b71c1c),
+"pink": (#f50057,
+#fce4ec, #ff80ab, #ff4081, #f06292, #f50057, #e91e63, #d81b60, #c51162, #ad1457, #880e4f),
+"magenta": (#d500f9,
+#f3e5f5, #ea80fc, #e040fb, #ba68c8, #d500f9, #9c27b0, #8e24aa, #aa00ff, #6a1b9a, #4a148c),
+"grape": (#651fff,
+#ede7f6, #b388ff, #7c4dff, #9575cd, #651fff, #673ab7, #5e35b1, #6200ea, #4527a0, #311b92),
+"indigo": (#3d5afe,
+#e8eaf6, #8c9eff, #536dfe, #7986cb, #3d5afe, #3f51b5, #3949ab, #304ffe, #283593, #1a237e),
+"blue": (#2979ff,
+#e3f2fd, #82b1ff, #448aff, #64b5f6, #2979ff, #2196f3, #1e88e5, #2962ff, #1565c0, #0d47a1),
+"light-blue": (#00b0ff,
+#e1f5fe, #80d8ff, #40c4ff, #4fc3f7, #00b0ff, #03a9f4, #039be5, #0091ea, #0277bd, #01579b),
+"cyan": (#00e5ff,
+#e0f7fa, #84ffff, #18ffff, #4dd0e1, #00e5ff, #00bcd4, #00acc1, #00b8d4, #00838f, #006064),
+"teal": (#1de9b6,
+#e0f2f1, #a7ffeb, #64ffda, #4db6ac, #1de9b6, #009688, #00897b, #00bfa5, #00695c, #004d40),
+"green": (#00e676,
+#e8f5e9, #b9f6ca, #69f0ae, #81c784, #00e676, #4caf50, #43a047, #00c853, #2e7d32, #1b5e20),
+"light-green": (#76ff03,
+#f1f8e9, #ccff90, #b2ff59, #aed581, #76ff03, #8bc34a, #7cb342, #64dd17, #558b2f, #33691e),
+"lime": (#c6ff00,
+#f9fbe7, #f4ff81, #eeff41, #c6ff00, #dce775, #cddc39, #c0ca33, #aeea00, #9e9d24, #827717),
+"yellow": (#ffea00,
+#fffde7, #ffff8d, #ffff00, #fff176, #ffea00, #ffeb3b, #fdd835, #ffd600, #f9a825, #f57f17),
+"amber": (#ffc400,
+#fff8e1, #ffe57f, #ffd740, #ffd54f, #ffc400, #ffc107, #ffb300, #ffab00, #ff8f00, #ff6f00),
+"orange": (#ff9100,
+#fff3e0, #ffd180, #ffab40, #ffb74d, #ff9100, #ff9800, #fb8c00, #ff6d00, #ef6c00, #e65100),
+"dark-orange": (#ff3d00,
+#fbe9e7, #ff9e80, #ff6e40, #ff8a65, #ff3d00, #ff5722, #f4511e, #dd2c00, #d84315, #bf360c),
+"brown": (#5d4037,
+#efebe9, #d7ccc8, #bcaaa4, #a1887f, #8d6e63, #795548, #6d4c41, #5d4037, #4e342e, #3e2723),
+"dark": (#616161,
+#fafafa, #f5f5f5, #eeeeee, #e0e0e0, #bdbdbd, #9e9e9e, #757575, #616161, #424242, #212121),
+"gray": (#455a64,
+#eceff1, #cfd8dc, #b0bec5, #90a4ae, #78909c, #607d8b, #546e7a, #455a64, #37474f, #263238));
+
+@each $key,
+$var in map-merge($theme-colors, $app-colors) {
+    @include colorize($key, $var);
+}
+
+@include colorize("grass", (#40c057, #ebfbee, #d3f9d8, #b2f2bb, #8ce99a, #69db7c, #51cf66, #40c057, #37b24d, #2f9e44, #2b8a3e));
+@include colorize("fire", (#e03131, #fff5f5, #ffe3e3, #ffc9c9, #ffa8a8, #ff8787, #ff6b6b, #fa5252, #f03e3e, #e03131, #c92a2a));
+@include colorize("text", (#212529, #212529, #343a40, #495057, #6c757d, #adb5bd, #ced4da, #dee2e6, #e9ecef, #f8f9fa, #ffffff));

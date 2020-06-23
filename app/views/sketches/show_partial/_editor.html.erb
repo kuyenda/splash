@@ -1,0 +1,36 @@
+<div class="dark" id="editorBar" style="position: relative;height: 35px;width: 100%;background: #222;border-bottom: 1px solid #fff">
+  <div class="btn-group btn-group-toggle" data-toggle="buttons" style="height: 100%">
+    <label class="btn btn-secondary active">
+      <input type="radio" name="options" id="option1" autocomplete="off" checked><%= codes[0].filename %>
+    </label>
+    <label class="btn btn-secondary">
+      <input type="radio" name="options" id="option2" autocomplete="off">+
+    </label>
+  </div>
+</div>
+<div id="editor" style="height: calc(100% - 35px)"></div>
+<div id="render-config">
+  <a href="#" data-switch="#render-config", data-by="active", style="position: absolute;left: 0;top: 0;transform: translateX(-100%);">
+    <ion-icon name="ellipsis-vertical" class="icon icon-white" style="display: block;width: 25px;height: 25px;padding: 5px;"></ion-icon>
+  </a>
+  <nav class="nav render-config-nav">
+    <a data-toggle="tab" href="#configEditor">编辑器</a>
+    <a data-toggle="tab" href="#configSketch">草图</a>
+    <a data-toggle="tab" href="#configData">存储</a>
+  </nav>
+  <div class="render-config-tab-wrapper">
+    <div class="render-config-tab" id="configSketch">
+    </div>
+    <div class="render-config-tab" id="configEditor">
+    </div>
+    <div class="render-config-tab" id="configData">
+      <div class="container">
+        <div class="row mt-3">
+          <div class="col white">
+            <%= render partial: 'sketches/forms/edit', object: @sketch, as: :sketch %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

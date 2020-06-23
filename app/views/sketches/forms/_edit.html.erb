@@ -1,0 +1,15 @@
+<div id="sketchEditGroup">
+  <div class="br2 bw1 b--solid shadow-3">
+    <%= form_for sketch, html: { id: "saveForm" } do |f| %>
+      <%= f.label(:title, "标题") %>
+      <%= f.text_field :title, placeholder: "", class: "form-control" %>
+      <%= f.label(:description, "概述") %>
+      <%= f.text_field :description, placeholder: "", class: "form-control" %>
+      <%= f.fields_for :codes do |code| %>
+        <% code.hidden_field(:code) %>
+      <% end %>
+      <%= f.submit "保存", class: "btn btn-primary my-sm-2 w-50", id: "saveBtn" %>
+      <%= link_to "删除", sketch, class: "btn btn-danger tc link hover-white", method: :delete, data: { confirm: "请确认" } %>
+    <% end %>
+  </div>
+</div>

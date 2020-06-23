@@ -38,8 +38,8 @@ $(document).on('ready turbolinks:load', function() {
 	/* ------------------------------------------------------ */
 	// Animate.css
 	/* ------------------------------------------------------ */
-	window.animate = function(element, animationName, callback) {
-		var node = element;
+	window.animate = function(selector, animationName, callback) {
+		var node = typeof(selector) == "string" ? $(selector) : selector;
 		node.addClass('animated ' + animationName);
 		node.on('animationend', function(event) {
 			node.removeClass('animated ' + animationName);

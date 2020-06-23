@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root 'application#app'
+  root 'application#root'
   get 'bar', to: 'application#bar'
 
   get '/signup', to: 'users#new'

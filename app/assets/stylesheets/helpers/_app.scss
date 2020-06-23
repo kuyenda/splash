@@ -1,0 +1,363 @@
+/* ------------------------------------------------------ */
+//... Font, Text
+/* ------------------------------------------------------ */
+// font-weight
+@each $key,
+$var in zip(b l normal, bold lighter normal) {
+    .#{$key} {
+        font-weight: $var
+    }
+}
+
+@each $var in (100 200 300 400 500 600 700 800 900) {
+    .fw#{$var / 100} {
+        font-weight: $var;
+    }
+}
+
+// font-family
+@each $key,
+$var in ('en':Steradian, 'en2':ProximaSans, 'cn':Xianghe, 'mono':menlo, 'serif':'Noto Serif', 'sp':Kaiju) {
+    .ff#{$key} {
+        font-family: unquote($var)
+    }
+}
+
+// font-size
+@each $key,
+$var in ("0": 0,
+"1": .64,
+"2": .8,
+"3": 1,
+"4": 1.25,
+"5": 1.5625,
+"6": 1.95312,
+"7": 2.441411,
+"8": 3.05176,
+"9": 3.8147,
+"10": 4.76837,
+"11": 5.96046,
+"12": 7.45058) {
+    .f#{$key} {
+        font-size: #{$var}rem;
+    }
+}
+
+// text-align
+@each $var in (left right center) {
+    .t#{str-slice($var, 1, 1)} {
+        text-align: $var
+    }
+}
+
+// text-transform
+@each $var in (capitalize lowercase uppercase none) {
+    .tt#{str-slice($var, 1, 1)} {
+        text-transform: $var
+    }
+}
+
+// text-decoration
+@each $key,
+$var in zip((stike, underline, no-underline), (line-through, underline, none)) {
+    .#{$key} {
+        text-decoration: $var
+    }
+}
+
+// text-color
+.color-inherit {
+    color: inherit
+}
+
+/* ------------------------------------------------------ */
+//... Positioning
+/* ------------------------------------------------------ */
+// position
+@each $var in (absolute, relative, static, fixed, sticky) {
+    .#{$var} {
+        position: $var
+    }
+}
+
+// top, right, bottom, left
+@each $key in (top right bottom left) {
+
+    @each $key2,
+    $var in zip((0 '025''050''075'1 2 3 4 -1 -2 -3 -4), (0 .25 .5 .75 1 2 3 4 -1 -2 -3 -4)) {
+        .#{$key}-#{$key2} {
+            #{$key}: #{$var}rem
+        }
+    }
+}
+
+// float
+@each $var in (left right none) {
+    .f#{str-slice($var, 1, 1)} {
+        float: $var
+    }
+}
+
+// clear
+@each $var in (left right both none) {
+    .c#{str-slice($var, 1, 1)} {
+        float: $var
+    }
+}
+
+// overflow
+@each $var in (visible hidden scroll auto) {
+    @each $var2 in ('''-x''-y') {
+        .overflow#{$var2}-#{$var} {
+            overflow#{$var2}: $var
+        }
+    }
+}
+
+// display
+
+// z-index
+@each $var in (0,
+1,
+2,
+3,
+4,
+5,
+6,
+7,
+8,
+9,
+999,
+inherit,
+initial,
+unset) {
+    .z-#{$var} {
+        z-index: $var;
+    }
+}
+
+/* ------------------------------------------------------ */
+//... Dimension
+/* ------------------------------------------------------ */
+@each $key,
+$prop in zip((w ht), (width, height)) {
+    $var: 1;
+
+    @for $i from 1 through 8 {
+        $var: $var * 2;
+
+        .#{$key}#{$i} {
+            #{$prop}: #{$var}rem
+        }
+    }
+
+    @each $var in (5 10 20 25 33 34 40 50 60 70 75 80 90 95 100) {
+        .#{$key}-#{$var} {
+            #{$prop}: #{$var}#{'%'}
+        }
+    }
+}
+
+/* ------------------------------------------------------ */
+//... Border
+/* ------------------------------------------------------ */
+// border(direction)
+@each $key,
+$var in ("t":top, "r":right, "b":bottom, "l":left) {
+    .b#{$key}-0 {
+        border-#{$var}-width: 0
+    }
+
+    .b#{$key} {
+        border-#{$var}-width: 1px;
+        border-#{$var}-style: solid;
+    }
+}
+
+// border(all directions)
+.bn {
+    border-style: none;
+    border-width: 0
+}
+
+.ba {
+    border-style: solid;
+    border-width: 1px
+}
+
+// outline
+@each $key,
+$var in zip('''-transparent''-0', '1px solid''1px solid transparent''0') {
+    .outline#{$key} {
+        outline: unquote($var)
+    }
+}
+
+// border-radius, border-width
+@each $key,
+$var in ("0":0, "1":.125, "2":.25, "3":.5, "4":1, "5":2) {
+    .br#{$key} {
+        border-radius: #{$var}rem;
+    }
+
+    .bw#{$key} {
+        border-width: #{$var}rem;
+    }
+}
+
+// border-style
+@each $var in (dotted, dashed, solid, double, none) {
+    .b-#{$var} {
+        border-style: #{$var};
+    }
+}
+
+// box-shadow
+@each $key,
+$var in (0:0, 1:.025, 2:0.05, 3:0.1, 4:0.2, 5:0.4, 6:0.5) {
+    @if $key==0 {
+        .shadow-#{$key} {
+            box-shadow: none
+        }
+    }
+
+    @else {
+        .shadow-#{$key} {
+            box-shadow: 0 .25rem .125rem 0 rgba(0, 0, 0, $var)
+        }
+
+        .shadow-inset-#{$key} {
+            box-shadow: inset 0 .25rem .125rem 0 rgba(0, 0, 0, $var)
+        }
+
+    }
+}
+
+/* ------------------------------------------------------ */
+//... Link
+/* ------------------------------------------------------ */
+.link {
+    text-decoration: none;
+    @include link-animation;
+
+    &:link,
+    &:visited,
+    &:hover,
+    &:active,
+    &:focus {
+        @include link-animation;
+    }
+
+    &-dotted {
+        text-decoration-style: dotted;
+        text-decoration-skip: unset
+    }
+
+    &-link-solid:hover {
+        text-decoration-style: solid
+    }
+
+    &-underline-dark {
+        text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.15);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: initial
+        }
+    }
+
+    &-underline-light {
+        text-decoration: underline;
+        text-decoration-color: rgba(255, 255, 255, 0.25);
+
+        &:hover {
+            text-decoration: underline;
+            text-decoration-color: initial
+        }
+    }
+}
+
+.dim {
+    opacity: 1;
+    transition: opacity .1s ease-in;
+
+    &:hover,
+    &:focus {
+        opacity: .5;
+        transition: opacity .1s ease-in
+    }
+
+    &:active {
+        opacity: .8;
+        transition: opacity .1s ease-out
+    }
+}
+
+
+.glow {
+    transition: opacity .15s ease-in;
+
+    &:hover,
+    &:focus {
+        opacity: 1;
+        transition: opacity .15s ease-in
+    }
+}
+
+/* ------------------------------------------------------ */
+//... Transition
+/* ------------------------------------------------------ */
+@each $key,
+$var in zip('b-''bg''color''all', border-color background-color color all) {
+    .#{$key}-animated {
+
+        &:hover,
+        &:focus,
+        & {
+            transition: $var .1s ease-in-out
+        }
+    }
+}
+
+/* ------------------------------------------------------ */
+//... List
+/* ------------------------------------------------------ */
+.list {
+    list-style-type: none;
+}
+
+/* ------------------------------------------------------ */
+//... Background
+/* ------------------------------------------------------ */
+// background-size
+@each $var in (cover contain) {
+    .#{$var} {
+        background-size: $var;
+    }
+}
+
+.bg {
+    background-repeat: no-repeat;
+
+    &-center {
+        @extend .bg;
+        background-position: center center
+    }
+
+    &-top {
+        @extend .bg;
+        background-position: top center
+    }
+
+    &-right {
+        @extend .bg;
+        background-position: center right
+    }
+
+    &-bottom {
+        @extend .bg;
+        background-position: bottom center
+    }
+
+}

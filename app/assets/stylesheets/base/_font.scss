@@ -1,0 +1,31 @@
+// 请在这里定义所需要的web字体
+// 无衬线体：Steradian， ProximaSans
+// 衬线体：NotoSerif
+// 中文：XiangHe
+// 等宽：Menlo
+// 标题：Kaiju
+@import url('https://fonts.font.im/css?family=Noto+Serif:400,400i,700,700i');
+
+@mixin font-face($name, $path, $format, $weight: 400, $style: normal) {
+    @font-face {
+        font-family: quote($name);
+        font-style: $style;
+        font-weight: $weight;
+        src: asset-url($path) format(quote($format));
+    }
+}
+
+@include font-face(Steradian, 'Steradian/Steradian-100.otf', opentype, 100);
+@include font-face(Steradian, 'Steradian/Steradian-200.otf', opentype, 200);
+@include font-face(Steradian, 'Steradian/Steradian-300.otf', opentype, 300);
+@include font-face(Steradian, 'Steradian/Steradian-400.otf', opentype, 400);
+@include font-face(Steradian, 'Steradian/Steradian-500.otf', opentype, 500);
+@include font-face(Steradian, 'Steradian/Steradian-700.otf', opentype, 700);
+@include font-face(Steradian, 'Steradian/Steradian-900.otf', opentype, 900);
+@include font-face(ProximaSans, 'ProximaSans/ProximaSans-400.ttf', truetype, 400);
+@include font-face(ProximaSans, 'ProximaSans/ProximaSans-900.ttf', truetype, 900);
+@include font-face(XiangHe, 'XiangHe/XiangHe-400.ttf', truetype, 400);
+@include font-face(XiangHe, 'XiangHe/XiangHe-700.ttf', truetype, 700);
+@include font-face(Menlo, 'Menlo/Menlo-400.ttf', truetype, 400);
+@include font-face(Menlo, 'Menlo/Menlo-700.ttf', truetype, 700);
+@include font-face(Kaiju, 'Title/Kaiju.ttf', truetype);

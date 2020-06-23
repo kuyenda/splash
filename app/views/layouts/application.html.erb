@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <%= render 'application/layout/meta' %>
+    <%= render 'layouts/sections/meta' %>
   </head>
-  <body>
-    <%= render 'application/layout/header' if @show_header %>
-    <%= render 'application/layout/groups' %>
+  <body class="bg-gray0">
+    <%= render 'layouts/sections/header' %>
+    <%= render 'layouts/sections/groups' %>
     <%= yield %>
-    <%= render 'application/layout/footer' if @show_footer %>
+    <%= render 'layouts/sections/footer' if @show_footer %>
   </body>
 </html>
