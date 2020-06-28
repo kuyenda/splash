@@ -1,0 +1,91 @@
+//--------------------------------------------------------------------------
+// ● fwb fwl fwn
+// ● fw1
+//--------------------------------------------------------------------------
+@each $key,
+$var in zip(b l n, bold lighter normal) {
+    .fw#{$key} {
+        font-weight: $var
+    }
+}
+
+@each $var in (100 200 300 400 500 600 700 800 900) {
+    .fw#{$var / 100} {
+        font-weight: $var
+    }
+}
+
+//--------------------------------------------------------------------------
+// ● ffen ffcn ffmono ffserif ffsp
+//--------------------------------------------------------------------------
+@each $key,
+$var in ('en':Steradian, 'en2':ProximaSans, 'cn':Xianghe, 'mono':menlo, 'serif':'Noto Serif', 'sp':Kaiju) {
+    .ff#{$key} {
+        font-family: unquote($var)
+    }
+}
+
+//--------------------------------------------------------------------------
+// ● f0 f12
+//--------------------------------------------------------------------------
+@each $key,
+$var in ("0": .512,
+"1": .64,
+"2": .8,
+"3": 1,
+"4": 1.25,
+"5": 1.5625,
+"6": 1.95312,
+"7": 2.441411,
+"8": 3.05176,
+"9": 3.8147,
+"10": 4.76837,
+"11": 5.96046,
+"12": 7.45058) {
+    .f#{$key} {
+        font-size: #{$var}rem
+    }
+}
+
+//--------------------------------------------------------------------------
+// ● tl tc tr
+//--------------------------------------------------------------------------
+@each $var in (left right center) {
+    .t#{str-slice($var, 1, 1)} {
+        text-align: $var
+    }
+}
+
+//--------------------------------------------------------------------------
+// ● ttc ttl ttu
+// ● tti
+//--------------------------------------------------------------------------
+@each $var in (capitalize lowercase uppercase none) {
+    .tt#{str-slice($var, 1, 1)} {
+        text-transform: $var
+    }
+}
+
+.tti {
+    font-style: italic;
+}
+
+//--------------------------------------------------------------------------
+// ● stike underline no-underline
+// ● word and space wrap
+// NOTE :THESE CLASSES SHOULD BE CLEARLY STATED
+//--------------------------------------------------------------------------
+@each $key,
+$var in zip((line-through, underline, no-underline), (line-through, underline, none)) {
+    .#{$key} {
+        text-decoration: $var
+    }
+}
+
+.no-break {
+    white-space: nowrap;
+}
+
+.break {
+    word-break: break-all;
+}

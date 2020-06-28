@@ -1,0 +1,115 @@
+<h1 class="icon tc">😊<ion-icon name="document-text-outline" class="ml-3"></ion-icon></h1>
+<hr>
+<h2 class="greenh">1. 颜色(Colors)</h2>
+<p>设置任何元素的<code>color</code>, <code>border-color</code>或者<code>background-color</code>属性</p>
+<p>
+  <code>bg(颜色)</code>适用于<strong class="bggreen white">背景</strong>
+  <code>b(颜色)</code>适用于<strong class="bgreen ba">边框</strong>
+</p>
+<ul>
+  <li>
+    <code>class="primary"</code>
+    <p>文本颜色变为<span class="primary">主色</span></p>
+  </li>
+  <li>
+    <code>class="primaryh"</code>
+    <p class="primaryh">悬浮时文本变为主色</p>
+  </li>
+</ul>
+<h4 id="initial_color">1.1.1 初始颜色</h4>
+<p>初始颜色是一组内置的颜色空间，用于快速构建概念。 </p>
+<p>通过修改<code>$helper-colors</code>定制这些颜色</p>
+<strong><code>(颜色)(深浅)(大小)</code>修饰能够扩展更多的深色和浅色，如下表</strong>
+<table class="table table-bordered table-responsive-sm bgwhite my-2 no-break" style="width: auto">
+  <thead>
+    <tr>
+      <th scope="col">类</th>
+      <th scope="col">主色</th>
+      <th scope="col">深色</th>
+      <th scope="col">浅色</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% colors = ["red","blue","green","dark","gray", "lead"] %>
+    <% colors.each do |color|  %>
+      <tr>
+        <td><code class="bgblack0125 primary p-2">bg<%=color%></code></td>
+        <td>
+          <div class="bg<%=color%> p-2 d-inline-block br1"></div>
+        </td>
+        <td>
+          <% (1..5).to_a.each do |index|  %>
+            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1"></div>
+          <% end %>
+        </td>
+        <td>
+          <% (1..5).to_a.each do |index|  %>
+            <div class="bg<%=color%>0<%=index%> p-2 d-inline-block br1"></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<p>包含5个深色和浅色</p>
+<h4 id="user_color">1.1.2 提示用户</h4>
+<p>用户颜色从Boostrap继承而来，因为它定义了某些用户行为所需要的颜色。 每个颜色都包含2个深色和浅色</p>
+<table class="table table-bordered table-responsive-sm bgwhite my-2 no-break" style="width: auto">
+  <thead>
+    <tr>
+      <th scope="col">类</th>
+      <th scope="col">主色</th>
+      <th scope="col">深色</th>
+      <th scope="col">浅色</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% colors = ["primary","secondary","success","info","warning","danger","light", "dark"] %>
+    <% colors.each do |color|  %>
+      <tr>
+        <td><code class="bgblack0125 primary p-2">bg<%=color%></code></td>
+        <td>
+          <div class="bg<%=color%> p-2 d-inline-block br1"></div>
+        </td>
+        <td>
+          <% (1..2).to_a.each do |index|  %>
+            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1"></div>
+          <% end %>
+        </td>
+        <td>
+          <% (1..2).to_a.each do |index|  %>
+            <div class="bg<%=color%>0<%=index%> p-2 d-inline-block br1"></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<h4 id="typography_color">1.1.3 用于排版</h4>
+<p>排版色有多个级别，创造层次丰富的页面时会很有用</p>
+<table class="table table-bordered table-responsive-sm bgwhite my-2 no-break" style="width: auto">
+  <thead>
+    <tr>
+      <th scope="col">黑</th>
+      <th scope="col">类</th>
+      <th scope="col">浓度</th>
+      <th scope="col">白</th>
+      <th scope="col">类</th>
+      <th scope="col">浓度</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% colors = ["black", "white"] %>
+    <% ['','90','80','70','60','50','40','30','20','15','10','05','02','01','025','0125'].each do |index|  %>
+      <tr>
+        <% colors.each do |color|  %>
+          <td class="<%= 'bgdark' if color=='white' %>">
+            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1"></div>
+          </td>
+          <td><code class="bgblack0125 primary p-2">bg<%=color%><%=index%></code></td>
+          <td><code class="bgblack0125 primary p-2"><%=index%><%='100' if index.empty?%></code></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -1,3 +1,7 @@
+//--------------------------------------------------------------------------
+// ● 通用样式
+//--------------------------------------------------------------------------
+
 html {
     position: relative;
     width: 100%;
@@ -12,6 +16,11 @@ body {
 
 code {
     font-family: $font-family-monospace !important;
+}
+
+::selection {
+    background: $primary;
+    color: #fff;
 }
 
 :root {}

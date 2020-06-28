@@ -1,7 +1,7 @@
 @charset "utf-8";
-/* ------------------------------------------------------ */
-/* Splash v1 */
-/* ------------------------------------------------------ */
+//--------------------------------------------------------------------------
+// ● Splash v1
+//--------------------------------------------------------------------------
 
 // Reset and configurations
 @import "base/bootstrap";
@@ -16,6 +16,7 @@
 @import "spinkit/spinkit.min";
 
 // Utilities
+@import "utilities/variable";
 @import "utilities/mixin";
 @import "utilities/function";
 @import "utilities/animation";
@@ -28,11 +29,13 @@
 
 // Helpers
 @import "helpers/app";
+@import "helpers/border";
 @import "helpers/color";
+@import "helpers/typography";
+@import "helpers/other";
 
 // Layouts and components
 @import "components/alert";
-@import "components/article";
 @import "components/profile";
 @import "components/pagination";
 @import "components/sketch";

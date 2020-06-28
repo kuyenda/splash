@@ -1,6 +1,6 @@
 module ApplicationHelper
   # 根据所在的页面返回完整的标题
-  def full_title(page_title = '')
+  def title(page_title = '')
     title = "MappingGraphics"
     return page_title.empty? ? title : page_title
   end

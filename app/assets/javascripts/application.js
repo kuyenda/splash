@@ -9,6 +9,7 @@
 //= require Chart.bundle
 
 //= require prismjs/prism
+//= require prismjs/components/prism-ruby
 //= require ace-rails-ap
 //= require ace/theme-monokai
 //= require ace/mode-javascript

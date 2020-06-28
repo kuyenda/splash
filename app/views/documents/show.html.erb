@@ -1,0 +1,54 @@
+<script>
+  $(document).ready(function() {
+    $('.typography').find('a').removeClass().addClass('link o50 glow underline');
+    $('.typography').find(`a[href="${location.href}"]`).removeClass().addClass('primary primary1h');
+  });
+</script>
+<section class="container-fluid">
+  <div class="row p-3 p-sm-4 p-md-5 bb bgblue5 white">
+    <div class="col p-3 p-sm-4 p-md-5">
+      <div class="p-3 p-sm-4 p-md-5 tc">
+        <h1 class="f7 break">元素优先的CSS辅助框架</h1>
+        <p>基于Bootstrap和Sass</p>
+      </div>
+    </div>
+  </div>
+  <div class="row ofh typography bgblack0125">
+    <div class="col">
+      <div class="mx-auto my-3 my-sm-4 my-md-5 p-3 p-sm-4 p-md-5">
+        <code class="language-ruby"><%= params %></code>
+        <ul class="nav flex-column bgblack05 p-2 p-md-3">
+          <li class="nav-item">
+            <%= link_to("命名规范", document_url('naming_convention') , class: "nav-link") %>
+          </li>
+          <li class="nav-item">
+            <%= link_to("1. 颜色", document_url('color') , class: "nav-link") %>
+            <ul>
+              <li><%= link_to("1.1.1 初始颜色", document_url('color')+'#initial_color') %></li>
+              <li><%= link_to("1.1.2 提示用户", document_url('color')+'#user_color') %></li>
+              <li><%= link_to("1.1.3 用于排版", document_url('color')+'#typography_color') %></li>
+            </ul>
+          </li>
+        </ul>
+        <div class="p-lg-5 p-md-3 p-2 bgblack02">
+          <%= render 'documents/documentation/' + @id %>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 col-lg-4 p-3 p-sm-4 p-md-5 bggreen white">
+      <div class="p-3 p-sm-4 p-md-5">
+        <h1><%= FFaker::LoremFR.sentence %></h1>
+        <p><%= FFaker::LoremFR.paragraph %></p>
+      </div>
+    </div>
+    <div class="col-12 col-lg-8 p-3 p-sm-4 p-md-5 bglead05 black">
+      <div class="p-3 p-sm-4 p-md-5">
+        <h1><%= FFaker::LoremJA.paragraph %></h1>
+        <a href="" class="link underline">阅读</a>
+      </div>
+    </div>
+  </div>
+</section>
+<%= render 'layouts/sections/footer' %>

@@ -1,8 +1,8 @@
 //--------------------------------------------------------------------------
-// ● icon 将图标包含在居中的容器中
+// ● 初始值
 //--------------------------------------------------------------------------
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-}
+$helper-breakpoints: (xs: 0,
+sm: 576px,
+md: 768px,
+lg: 992px,
+xl: 1200px) !default;

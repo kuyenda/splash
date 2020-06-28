@@ -1,0 +1,83 @@
+/* ------------------------------------------------------ */
+/* 数据类型 (Data Types)
+/* ------------------------------------------------------ */
+  数字，1, 2, 13, 10px
+  字符串，有引号字符串与无引号字符串，"foo", 'bar', baz
+  颜色，blue, #04a3f9, rgba(255,0,0,0.5)
+  布尔型，true, false
+  空值，null
+  数组 (list)，用空格或逗号作分隔符，1.5em 1em 0 2em, Helvetica, Arial, sans-serif
+  maps, 相当于 JavaScript 的 object，(key1: value1, key2: value2)
+/* ------------------------------------------------------ */
+/* 颜色
+/* ------------------------------------------------------ */
+color.red() 用于获取颜色的红色通道
+color.green() 用于获取颜色的绿色通道
+color.blue() 用于获取颜色的蓝色通道
+color.alpha() 用于获取颜色的Alpha通道
+color.hue() 用于获取颜色的色调。
+color.saturation() 用于获取颜色的饱和度
+color.lightness() 用于获取颜色的亮度
+通过RGBAHSL调整颜色
+color.change($color,
+  $red: null, $green: null, $blue: null,
+  $hue: null, $saturation: null, $lightness: null,
+  $alpha: null)
+color.adjust()
+color.scale()
+color.adjust-hue($color, $degrees) 旋转色相
+color.complement($color) 返回RGB补色，相当于色相旋转180°
+color.desaturate($color, $amount) 降低饱和度
+color.saturate($color, $amount) 增加饱和度
+color.darken($color, $amount) 暗化颜色
+color.lighten($color, $amount) 亮化颜色
+color.grayscale($color) 返回亮度与相同的灰色
+color.invert($color, $weight: 100%) 反色
+color.mix($color1, $color2, $weight: 50%) 混色
+color.transparentize($color, $amount)
+/* ------------------------------------------------------ */
+/* 数组
+/* ------------------------------------------------------ */
+list.append($list, $val, $separator: auto)
+list.index($list, $value)
+list.is-bracketed($list)
+list.join($list1, $list2, $separator: auto, $bracketed: auto)
+list.length($list)
+list.separator($list)
+list.nth($list, $n)
+list.set-nth($list, $n, $value)
+list.zip($lists...)
+/* ------------------------------------------------------ */
+/* 哈希 map-*
+/* ------------------------------------------------------ */
+map.get($map, $key)
+map.has-key($map, $key)
+map.keys($map)
+map.values($map)
+map.merge($map1, $map2)
+map.remove($map, $keys...)
+/* ------------------------------------------------------ */
+/* 字符串 str-*
+/* ------------------------------------------------------ */
+string.quote($string)
+string.unique-id()
+string.index($string, $substring)
+string.insert($string, $insert, $index)
+string.length($string)
+string.slice($string, $start-at, $end-at: -1)
+string.to-upper-case($string)
+string.to-lower-case($string)
+string.unique-id()
+/* ------------------------------------------------------ */
+/* 数学
+/* ------------------------------------------------------ */
+math.$e            // 2.7182818285
+math.$pi           // 3.1415926536
+math.ceil(4.2)     // 5
+math.floor(4.2)    // 4
+math.max(1px, 4px) // 4px
+math.min(1px, 4px) // 1px
+math.round(4.2)    // 4
+math.round(4.9)    // 5
+math.abs(-10px)    // 10px
+math.random($limit: null)

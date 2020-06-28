@@ -1,10 +1,12 @@
-<% if flash.any? %>
-  <div id="flashGroup" class="modal fade">
-    <% flash.each do |message_type, message| %>
-      <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-    <% end %>
-  </div>
-<% end %>
-<%= yield(:groups) %>
-<%= render partial: 'users/forms/create_remote', object: User.new, as: :user %>
-<%= render partial: 'sessions/forms/create_remote' %>
+<section class="groups">
+  <% if flash.any? %>
+    <div id="flashGroup" class="modal fade">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+    </div>
+  <% end %>
+  <%= yield(:groups) %>
+  <%= render partial: 'users/forms/create_remote', object: User.new, as: :user %>
+  <%= render partial: 'sessions/forms/create_remote' %>
+</section>

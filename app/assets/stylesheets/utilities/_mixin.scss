@@ -1,3 +1,96 @@
+//--------------------------------------------------------------------------
+// ● 断点混合
+// media-up      查询大于此断点
+// media-down    查询小于此断点
+// media-betwwen 查询任意两个断点
+// media-only    查询单个断点和下一级
+//--------------------------------------------------------------------------
+@mixin media-up($name, $breakpoints: $helper-breakpoints) {
+    $min: media-min($name, $breakpoints);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+@mixin media-down($name, $breakpoints: $helper-breakpoints) {
+    $max: media-max($name, $breakpoints);
+
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+@mixin media-between($lower, $upper, $breakpoints: $helper-breakpoints) {
+    $min: media-min($lower, $breakpoints);
+    $max: media-max($upper, $breakpoints);
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else if $max==null {
+        @include media-up($lower, $breakpoints) {
+            @content;
+        }
+    }
+
+    @else if $min==null {
+        @include media-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+@mixin media-only($name, $breakpoints: $helper-breakpoints) {
+    $min: media-min($name, $breakpoints);
+    $max: media-max($name, $breakpoints);
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else if $max==null {
+        @include media-up($name, $breakpoints) {
+            @content;
+        }
+    }
+
+    @else if $min==null {
+        @include media-down($name, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+@mixin media {
+    @each $breakpoint in map-keys($helper-breakpoints) {
+        @include media-up($breakpoint) {
+            $infix: media-infix($breakpoint, $helper-breakpoints);
+            @content;
+        }
+    }
+}
+
+//--------------------------------------------------------------------------
+// ● 动画
+//--------------------------------------------------------------------------
 @mixin et-animation($type, $time) {
     animation-duration: $time;
 
