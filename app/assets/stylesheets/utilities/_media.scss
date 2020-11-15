@@ -1,0 +1,121 @@
+/*******************************
+● 断点查询
+    xs: 0,
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px
+    media-next  返回下一级断点
+    media-min   返回此断点的值
+    media-max   返回此断点下一级减去0.02像素的值
+    media-infix 返回断点插值
+*******************************/
+@function media-next($name, $breakpoints: $xMediaBreakpoints, $breakpoint-names: map-keys($breakpoints)) {
+    $n: index($breakpoint-names, $name);
+    @return if($n !=null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
+}
+
+@function media-min($name, $breakpoints: $xMediaBreakpoints) {
+    $min: map-get($breakpoints, $name);
+    @return if($min !=0, $min, null);
+}
+
+@function media-max($name, $breakpoints: $xMediaBreakpoints) {
+    $next: media-next($name, $breakpoints);
+    @return if($next, media-min($next, $breakpoints) - .02, null);
+}
+
+@function media-infix($name, $breakpoints: $xMediaBreakpoints) {
+    @return if(media-min($name, $breakpoints)==null, "", "-#{$name}");
+}
+
+/*******************************
+● 断点混合
+    media-up      查询大于此断点
+    media-down    查询小于此断点
+    media-betwwen 查询任意两个断点
+    media-only    查询单个断点和下一级
+*******************************/
+@mixin media-up($name, $breakpoints: $xMediaBreakpoints) {
+    $min: media-min($name, $breakpoints);
+
+    @if $min {
+        @media (min-width: $min) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+@mixin media-down($name, $breakpoints: $xMediaBreakpoints) {
+    $max: media-max($name, $breakpoints);
+
+    @if $max {
+        @media (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else {
+        @content;
+    }
+}
+
+@mixin media-between($lower, $upper, $breakpoints: $xMediaBreakpoints) {
+    $min: media-min($lower, $breakpoints);
+    $max: media-max($upper, $breakpoints);
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else if $max==null {
+        @include media-up($lower, $breakpoints) {
+            @content;
+        }
+    }
+
+    @else if $min==null {
+        @include media-down($upper, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+@mixin media-only($name, $breakpoints: $xMediaBreakpoints) {
+    $min: media-min($name, $breakpoints);
+    $max: media-max($name, $breakpoints);
+
+    @if $min !=null and $max !=null {
+        @media (min-width: $min) and (max-width: $max) {
+            @content;
+        }
+    }
+
+    @else if $max==null {
+        @include media-up($name, $breakpoints) {
+            @content;
+        }
+    }
+
+    @else if $min==null {
+        @include media-down($name, $breakpoints) {
+            @content;
+        }
+    }
+}
+
+// @include xBaseMedia using ($media)
+@mixin xBaseMedia {
+    @each $breakpoint in map-keys($xMediaBreakpoints) {
+        @include media-up($breakpoint) {
+            $media: media-infix($breakpoint, $xMediaBreakpoints);
+            @content($media);
+        }
+    }
+}

@@ -1,7 +1,6 @@
-/* ------------------------------------------------------ */
-//... Positioning
-/* ------------------------------------------------------ */
-// position
+/*******************************
+● 图层
+*******************************/
 @each $var in (absolute, relative, static, fixed, sticky) {
     .#{$var} {
         position: $var
@@ -108,78 +107,6 @@ $var in (0:0, 1:.025, 2:0.05, 3:0.1, 4:0.2, 5:0.4, 6:0.5) {
 }
 
 /* ------------------------------------------------------ */
-//... Link
-/* ------------------------------------------------------ */
-.link {
-    text-decoration: none;
-    @include link-animation;
-
-    &:link,
-    &:visited,
-    &:hover,
-    &:active,
-    &:focus {
-        @include link-animation;
-    }
-
-    &-dotted {
-        text-decoration-style: dotted;
-        text-decoration-skip: unset
-    }
-
-    &-link-solid:hover {
-        text-decoration-style: solid
-    }
-
-    &-underline-dark {
-        text-decoration: underline;
-        text-decoration-color: rgba(0, 0, 0, 0.15);
-
-        &:hover {
-            text-decoration: underline;
-            text-decoration-color: initial
-        }
-    }
-
-    &-underline-light {
-        text-decoration: underline;
-        text-decoration-color: rgba(255, 255, 255, 0.25);
-
-        &:hover {
-            text-decoration: underline;
-            text-decoration-color: initial
-        }
-    }
-}
-
-.dim {
-    opacity: 1;
-    transition: opacity .1s ease-in;
-
-    &:hover,
-    &:focus {
-        opacity: .5;
-        transition: opacity .1s ease-in
-    }
-
-    &:active {
-        opacity: .8;
-        transition: opacity .1s ease-out
-    }
-}
-
-
-.glow {
-    transition: opacity .15s ease-in;
-
-    &:hover,
-    &:focus {
-        opacity: 1;
-        transition: opacity .15s ease-in
-    }
-}
-
-/* ------------------------------------------------------ */
 //... Transition
 /* ------------------------------------------------------ */
 @each $key,
@@ -234,4 +161,13 @@ $var in zip('b-''bg''color''all', border-color background-color color all) {
         background-position: bottom center
     }
 
+}
+
+//--------------------------------------------------------------------------
+// ● 溢出
+//--------------------------------------------------------------------------
+@each $var in (auto, hidden, scroll) {
+    .of#{str-slice($var, 1, 1)} {
+        overflow: $var;
+    }
 }

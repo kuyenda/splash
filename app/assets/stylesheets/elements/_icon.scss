@@ -1,8 +1,11 @@
-//--------------------------------------------------------------------------
-// ● icon 将图标包含在居中的容器中
-//--------------------------------------------------------------------------
-.icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
+.bi {
+    display: inline-block;
+    font-size: inherit;
+    color: inherit;
+    vertical-align: -0.125em;
+    fill: currentColor;
+}
+
+.x {
+    &.icon {}
 }

@@ -1,26 +1,99 @@
-<h1 class="icon tc">😊<ion-icon name="document-text-outline" class="ml-3"></ion-icon></h1>
-<hr>
-<h2 class="greenh">1. 颜色(Colors)</h2>
-<p>设置任何元素的<code>color</code>, <code>border-color</code>或者<code>background-color</code>属性</p>
-<p>
-  <code>bg(颜色)</code>适用于<strong class="bggreen white">背景</strong>
-  <code>b(颜色)</code>适用于<strong class="bgreen ba">边框</strong>
+<!--  -->
+<h3 class="x header"><%= bootstrap_icon "hash" %>锚点
+  <p class="x header lead">color background-color border-color</p>
+</h3>
+<p class="x header block">
+  <code>.$colorName</code><strong class="teal">文本</strong>
+  <code>.bg$colorName</code><strong class="bgteal white">背景</strong>
+  <code>.b$colorName</code><strong class="bteal ba">边框</strong>
 </p>
-<ul>
-  <li>
+<div class="row row-cols-3">
+  <div class="col">
+    <p class="primary">静止</p>
     <code>class="primary"</code>
-    <p>文本颜色变为<span class="primary">主色</span></p>
-  </li>
-  <li>
+  </div>
+  <div class="col">
+    <p class="primaryh">悬浮</p>
     <code>class="primaryh"</code>
-    <p class="primaryh">悬浮时文本变为主色</p>
-  </li>
-</ul>
-<h4 id="initial_color">1.1.1 初始颜色</h4>
-<p>初始颜色是一组内置的颜色空间，用于快速构建概念。 </p>
-<p>通过修改<code>$helper-colors</code>定制这些颜色</p>
-<strong><code>(颜色)(深浅)(大小)</code>修饰能够扩展更多的深色和浅色，如下表</strong>
-<table class="table table-bordered table-responsive-sm bgwhite my-2 no-break" style="width: auto">
+  </div>
+  <div class="col">
+    <p class="primaryf">焦点</p>
+    <code>class="primaryf"</code>
+  </div>
+</div>
+<h3 class="x header">
+  定制
+  <div class="x header lead">
+    <a href="https://en.wikipedia.org/wiki/List_of_colors:_A%E2%80%93F" class="x link">查询颜色名</a>
+  </div>
+</h3>
+<!--  -->
+<h3 class="x header block">$xSkinPelettesApp
+</h3>
+<table class="table table-bordered table-responsive-sm my-2 no-break" style="width: auto">
+  <thead>
+    <tr>
+      <th scope="col">类</th>
+      <th scope="col">主色</th>
+      <th scope="col">深色</th>
+      <th scope="col">浅色</th>
+      <th scope="col">协调色</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ["red","pink","purple","grape","indigo","blue","skyblue","cyan","teal","green","chartreuse","lime","yellow","amber","orange","deeporange"].each do |color| %>
+      <tr>
+        <td><code class="bgblack0125 primary p-2">bg<%=color%></code></td>
+        <td>
+          <div class="bg<%=color%> p-2 d-inline-block br1 shadow"></div>
+        </td>
+        <td>
+          <% (1..5).to_a.each do |index| %>
+            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1 shadow"></div>
+          <% end %>
+        </td>
+        <td>
+          <% (1..5).to_a.each do |index| %>
+            <div class="bg<%=color%>0<%=index%> p-2 d-inline-block br1 shadow"></div>
+          <% end %>
+        </td>
+        <td>
+          <% (0..1).to_a.each do |index|  %>
+            <div class="bg<%=color%>A<%=index%> p-2 d-inline-block br1 shadow"></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--  -->
+<table class="table table-bordered table-responsive-sm my-2 no-break" style="width: auto">
+  <thead>
+    <tr>
+      <th scope="col">类</th>
+      <th scope="col">主色</th>
+      <th scope="col">浅色</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% ["gray", "dark", "lead"].each do |color| %>
+      <tr>
+        <td><code class="bgblack0125 primary p-2">bg<%=color%></code></td>
+        <td>
+          <div class="bg<%=color%> p-2 d-inline-block br1 shadow"></div>
+        </td>
+        <td>
+          <% (1..9).to_a.each do |index| %>
+            <div class="bg<%=color%>0<%=index%> p-2 d-inline-block br1 shadow"></div>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--  -->
+<h4 class="x header block">$xSkinPelettesTachyons</h4>
+<table class="table table-bordered table-responsive-sm my-2 no-break" style="width: auto">
   <thead>
     <tr>
       <th scope="col">类</th>
@@ -30,64 +103,31 @@
     </tr>
   </thead>
   <tbody>
-    <% colors = ["red","blue","green","dark","gray", "lead"] %>
-    <% colors.each do |color|  %>
+    <% ["red","orange","gold","yellow","purple","pink","green","navy","blue"].each do |color|  %>
       <tr>
-        <td><code class="bgblack0125 primary p-2">bg<%=color%></code></td>
+        <td><code class="bgblack0125 primary p-2">bgT<%=color%></code></td>
         <td>
-          <div class="bg<%=color%> p-2 d-inline-block br1"></div>
+          <div class="bgT<%=color%> p-2 d-inline-block br1 shadow"></div>
         </td>
         <td>
-          <% (1..5).to_a.each do |index|  %>
-            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1"></div>
+          <% (1..1).to_a.each do |index|  %>
+            <div class="bgT<%=color%><%=index%> p-2 d-inline-block br1 shadow"></div>
           <% end %>
         </td>
         <td>
-          <% (1..5).to_a.each do |index|  %>
-            <div class="bg<%=color%>0<%=index%> p-2 d-inline-block br1"></div>
+          <% (1..1).to_a.each do |index|  %>
+            <div class="bgT<%=color%>0<%=index%> p-2 d-inline-block br1 shadow"></div>
           <% end %>
         </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-<p>包含5个深色和浅色</p>
-<h4 id="user_color">1.1.2 提示用户</h4>
-<p>用户颜色从Boostrap继承而来，因为它定义了某些用户行为所需要的颜色。 每个颜色都包含2个深色和浅色</p>
-<table class="table table-bordered table-responsive-sm bgwhite my-2 no-break" style="width: auto">
-  <thead>
-    <tr>
-      <th scope="col">类</th>
-      <th scope="col">主色</th>
-      <th scope="col">深色</th>
-      <th scope="col">浅色</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% colors = ["primary","secondary","success","info","warning","danger","light", "dark"] %>
-    <% colors.each do |color|  %>
-      <tr>
-        <td><code class="bgblack0125 primary p-2">bg<%=color%></code></td>
-        <td>
-          <div class="bg<%=color%> p-2 d-inline-block br1"></div>
-        </td>
-        <td>
-          <% (1..2).to_a.each do |index|  %>
-            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1"></div>
-          <% end %>
-        </td>
-        <td>
-          <% (1..2).to_a.each do |index|  %>
-            <div class="bg<%=color%>0<%=index%> p-2 d-inline-block br1"></div>
-          <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<h4 id="typography_color">1.1.3 用于排版</h4>
-<p>排版色有多个级别，创造层次丰富的页面时会很有用</p>
-<table class="table table-bordered table-responsive-sm bgwhite my-2 no-break" style="width: auto">
+<!--  -->
+<h4 class="x header block">
+  $xSkinShades
+</h4>
+<table class="table table-bordered table-responsive-sm my-2 no-break" style="width: auto">
   <thead>
     <tr>
       <th scope="col">黑</th>
@@ -104,11 +144,47 @@
       <tr>
         <% colors.each do |color|  %>
           <td class="<%= 'bgdark' if color=='white' %>">
-            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1"></div>
+            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1 shadow"></div>
           </td>
           <td><code class="bgblack0125 primary p-2">bg<%=color%><%=index%></code></td>
           <td><code class="bgblack0125 primary p-2"><%=index%><%='100' if index.empty?%></code></td>
         <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<!--  -->
+<h3 class="x header block">
+  $theme-colors
+  <div class="x header lead">Bootstrap</div>
+</h3>
+<table class="table table-bordered table-responsive-sm my-2 no-break" style="width: auto">
+  <thead>
+    <tr>
+      <th scope="col">类</th>
+      <th scope="col">主色</th>
+      <th scope="col">深色</th>
+      <th scope="col">浅色</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% colors = ["primary","secondary","success","info","warning","danger"] %>
+    <% colors.each do |color|  %>
+      <tr>
+        <td><code class="bgblack0125 primary p-2">bg<%=color%></code></td>
+        <td>
+          <div class="bg<%=color%> p-2 d-inline-block br1 shadow"></div>
+        </td>
+        <td>
+          <% (1..1).to_a.each do |index|  %>
+            <div class="bg<%=color%><%=index%> p-2 d-inline-block br1 shadow"></div>
+          <% end %>
+        </td>
+        <td>
+          <% (1..1).to_a.each do |index|  %>
+            <div class="bg<%=color%>0<%=index%> p-2 d-inline-block br1 shadow"></div>
+          <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>

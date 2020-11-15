@@ -1,0 +1,52 @@
+/*******************************
+            a.link
+*******************************/
+.x {
+    &.link {
+        text-decoration: underline;
+        text-decoration-color: rgba(0, 0, 0, 0.20);
+
+        &:link,
+        &:visited,
+        &:hover,
+        &:active,
+        &:focus {
+            @include xBaseTransformed(.1s);
+            @include xBaseTransformedMethod(ease-in-out);
+        }
+
+        &:hover {
+            text-decoration-color: initial
+        }
+    }
+
+    &.link.invert {
+        text-decoration-color: rgba(255, 255, 255, 0.25);
+    }
+
+    &.link.dim {
+        opacity: 1;
+        @include xBaseTransformed(.1s);
+        @include xBaseTransformedMethod(ease-in-out);
+
+        &:hover,
+        &:focus {
+            opacity: .7 !important;
+        }
+
+        &:active {
+            opacity: .85;
+        }
+    }
+
+    &.link.glow {
+        opacity: .8;
+        @include xBaseTransformed(.1s);
+        @include xBaseTransformedMethod(ease-in-out);
+
+        &:hover,
+        &:focus {
+            opacity: 1 !important;
+        }
+    }
+}

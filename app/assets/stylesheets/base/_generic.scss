@@ -1,6 +1,6 @@
-//--------------------------------------------------------------------------
-// ● 通用样式
-//--------------------------------------------------------------------------
+/*******************************
+● 通用样式
+*******************************/
 
 html {
     position: relative;
@@ -16,6 +16,11 @@ body {
 
 code {
     font-family: $font-family-monospace !important;
+    font-size: 90%;
+    white-space: pre-wrap;
+    border-radius: 4px;
+    padding: .2em .4em;
+    background: var(--code);
 }
 
 ::selection {
@@ -23,7 +28,9 @@ code {
     color: #fff;
 }
 
-:root {}
+:root {
+    --code: #e9ecef;
+}
 
 .turbolinks-progress-bar {
     background-color: darken($primary, 10);

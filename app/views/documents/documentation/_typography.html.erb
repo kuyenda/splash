@@ -1,0 +1,159 @@
+<!--  -->
+<h3 class="x header block">标签
+  <div class="x header lead">
+    常用文本标签
+  </div>
+</h3>
+<h1 class="my-0">h1. heading</h1>
+<h2 class="my-0">h2. heading</h2>
+<h3 class="my-0">h3. heading</h3>
+<h4 class="my-0">h4. heading</h4>
+<h5 class="my-0">h5. heading</h5>
+<h6 class="my-0">h6. heading</h6>
+<p class="my-0">You can use the mark tag to <mark>highlight</mark> text.</p>
+<p class="my-0"><del>This line of text is meant to be treated as deleted text.</del></p>
+<p class="my-0"><s>This line of text is meant to be treated as no longer accurate.</s></p>
+<p class="my-0"><ins>This line of text is meant to be treated as an addition to the document.</ins></p>
+<p class="my-0"><u>This line of text will render as underlined</u></p>
+<p class="my-0"><small>This line of text is meant to be treated as fine print.</small></p>
+<p class="my-0"><strong>This line rendered as bold text.</strong></p>
+<p class="my-0"><em>This line rendered as italicized text.</em></p>
+<!--  -->
+<h3 class="x header">副标题
+  <div class="x header lead">.x header lead</div>
+</h3>
+<!--  -->
+<h3 class="x header block">块
+  <div class="x header lead">
+    .x header block
+  </div>
+</h3>
+<!--  -->
+<h3 class="x header segement">段落
+  <div class="x header lead">
+    .x header segement
+  </div>
+</h3>
+<!--  -->
+<h3 class="x header">分割
+  <div class="x header lead">
+    .x header divider
+  </div>
+  <div class="x header divider"></div>
+</h3>
+<!--  -->
+<h3>链接
+  <div class="x header lead">link帮助器</div>
+</h3>
+<ul>
+  <li>
+    <a href="">I'm a link</a>
+  </li>
+  <li>
+    <a href="" class="x link">x link</a>
+  </li>
+  <li>
+    <a href="" class="x link invert bgdark white whiteh">x link invert bgdark white whiteh</a>
+  </li>
+  <li>
+    <a href="" class="x link dim">x link dim</a>
+  </li>
+  <li>
+    <a href="" class="x link glow">x link glow</a>
+  </li>
+  <li>
+    <a href="" class="x link dim redh">x link dim redh</a>
+  </li>
+  <li>
+    <a href="" class="x link blue greenh">x link blue greenh</a>
+  </li>
+  <li>
+    <a href="" class="x link transformed infoh">x link transformed infoh</a>
+  </li>
+</ul>
+<!--  -->
+<h4 class="x header block">
+  <%= bootstrap_icon "geo" %>
+  <%= FFaker::AddressJA.county %>
+  <div class="x header lead"><%= FFaker::AddressJA.designated_city %></div>
+</h4>
+<!--  -->
+<h3 class="x header block">大小写、水平对齐
+  <p class="x header lead">text-align text-transform</p>
+</h3>
+<div class="row row-cols-1">
+  <div class="col x text left capitalize bggray0">
+    <span>x text left capitalize</span>
+  </div>
+  <div class="col x text center lowercase bggray0">
+    <span>x text center lowercase</span>
+  </div>
+  <div class="col x text right uppercase bggray0">
+    <span>x text right uppercase</span>
+  </div>
+</div>
+<!--  -->
+<h3 class="x header block">文本装饰
+  <p class="x header lead">text-decoration</p>
+</h3>
+<div class="row row-cols-1">
+  <div class="col x text strike">
+    <p>x text strike</p>
+  </div>
+  <div class="col x text underline">
+    <p>x text underline</p>
+  </div>
+  <div class="col x text no-underline">
+    <p>x text no-underline</p>
+  </div>
+</div>
+<!--  -->
+<h3 class="x header block">垂直对齐
+  <p class="x header lead">text-decoration</p>
+</h3>
+<table class="table" style="height: 100px;">
+  <tbody>
+    <tr>
+      <td class="x text baseline">x text baseline</td>
+      <td class="x text top">x text top</td>
+      <td class="x text middle">x text middle</td>
+      <td class="x text bottom">x text bottom</td>
+    </tr>
+  </tbody>
+</table>
+<!--  -->
+<h3 class="x header block table-bordered">字号
+  <p class="x header lead">font-size</p>
+</h3>
+<table class="table table-responsive">
+  <tbody>
+    <tr>
+      <% for i in 1..6 %>
+        <td class="x font size<%= i %>">x font size<%= i %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<h3 class="x header block table-bordered">字重
+  <p class="x header lead">font-weight</p>
+</h3>
+<table class="table table-responsive">
+  <tbody>
+    <tr>
+      <% for i in 1..9 %>
+        <td class="x font weight<%= i %>">x font weight<%= i %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
+<h3 class="x header block table-bordered">字体
+  <p class="x header lead">font-family</p>
+</h3>
+<% {'EN':"Steradian",
+'EN2':"ProximaSans",
+'CN':"Xianghe",
+'MONO':"menlo",
+'SERIF':"Noto Serif",
+'TITLE':"Ramona"}.each do |k, v| %>
+  <p class="x font <%= k %> weight5 size5">x font <%= k %>: Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea consequatur rerum eligendi id totam ex laboriosam laborum reiciendis, alias autem dolor amet voluptates nostrum optio, dolores tenetur necessitatibus. Mollitia, totam!</p>
+<% end %>

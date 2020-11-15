@@ -1,54 +1,66 @@
-<script>
-  $(document).ready(function() {
-    $('.typography').find('a').removeClass().addClass('link o50 glow underline');
-    $('.typography').find(`a[href="${location.href}"]`).removeClass().addClass('primary primary1h');
-  });
-</script>
-<section class="container-fluid">
-  <div class="row p-3 p-sm-4 p-md-5 bb bgblue5 white">
-    <div class="col p-3 p-sm-4 p-md-5">
-      <div class="p-3 p-sm-4 p-md-5 tc">
-        <h1 class="f7 break">元素优先的CSS辅助框架</h1>
-        <p>基于Bootstrap和Sass</p>
+<!--  -->
+<% if @id.nil? %>
+  <section class="container-fluid">
+    <div class="row p-3 p-sm-4 p-md-5 x bb bgblue5 white">
+      <div class="col p-3 p-sm-4 p-md-5">
+        <div class="p-3 p-sm-4 p-md-5 x text center">
+          <h1 class="x text break font size3 size2-md">.xCSS语义文档</h1>
+          <p>v<%= DocumentsController::DOC_VERSION %><%= RUBY_PLATFORM %></p>
+        </div>
       </div>
     </div>
-  </div>
-  <div class="row ofh typography bgblack0125">
-    <div class="col">
-      <div class="mx-auto my-3 my-sm-4 my-md-5 p-3 p-sm-4 p-md-5">
-        <code class="language-ruby"><%= params %></code>
-        <ul class="nav flex-column bgblack05 p-2 p-md-3">
-          <li class="nav-item">
-            <%= link_to("命名规范", document_url('naming_convention') , class: "nav-link") %>
-          </li>
-          <li class="nav-item">
-            <%= link_to("1. 颜色", document_url('color') , class: "nav-link") %>
-            <ul>
-              <li><%= link_to("1.1.1 初始颜色", document_url('color')+'#initial_color') %></li>
-              <li><%= link_to("1.1.2 提示用户", document_url('color')+'#user_color') %></li>
-              <li><%= link_to("1.1.3 用于排版", document_url('color')+'#typography_color') %></li>
-            </ul>
-          </li>
-        </ul>
-        <div class="p-lg-5 p-md-3 p-2 bgblack02">
+  </section>
+<% end %>
+<!-- Icon Directory -->
+<section class="container my-sm-2 my-md-3">
+  <ul class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list bgblack0125 pt-2">
+    <% @docs.each do |doc| %>
+      <li class="col mb-4" data-tags="<%= doc[:icon_name] %>">
+        <%= link_to(document_url(doc[:href]), class: "d-block text-decoration-none x transformed primaryh") do %>
+          <div class="p-2 py-3 mb-2 bgblack02 text-center rounded x transformed bglead07h">
+            <%= bootstrap_icon doc[:icon_name], width: 48, height: 48 %>
+          </div>
+          <div class="text-muted text-decoration-none text-center pt-1"><%= doc[:text] %></div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</section>
+<!-- Sidebar Directory & Contents-->
+<% if @id %>
+  <section class="container mb-5">
+    <div class="row justify-content-center rounded x headerWrapper skindark spacing bgblack0125">
+      <div class="col col-lg-4 bgblack02 d-none d-lg-block">
+        <div class="mx-auto my-3 my-sm-4 my-md-5 p-3 p-sm-4 p-md-5">
+          <code class="language-ruby"><%= params %></code>
+          <%= render 'documents/sidebar_directory' %>
+        </div>
+      </div>
+      <div class="w-100 d-block d-lg-none"></div>
+      <div class="col col-lg-8">
+        <div class="p-lg-5 p-md-4 p-3">
           <%= render 'documents/documentation/' + @id %>
         </div>
       </div>
     </div>
-  </div>
-  <div class="row">
-    <div class="col-12 col-lg-4 p-3 p-sm-4 p-md-5 bggreen white">
-      <div class="p-3 p-sm-4 p-md-5">
-        <h1><%= FFaker::LoremFR.sentence %></h1>
-        <p><%= FFaker::LoremFR.paragraph %></p>
+  </section>
+<% end %>
+<!-- Info -->
+<% if @id.nil? %>
+  <section class="container">
+    <div class="row row-cols-1">
+      <div class="col p-sm-4 p-md-1 x bglead09 gray04">
+        <div class="p-3 p-sm-4 p-md-5">
+          <p>基于SASS编译的辅助<strong>样式框架</strong></p>
+          <div class="x header">
+            <code class="css">.x font size3 transformed gray02h</code>
+          </div>
+          <div class="x header block">
+            <h1 class="x font size2 transformed gray02h"><%= FFaker::LoremJA.paragraph %></h1>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-12 col-lg-8 p-3 p-sm-4 p-md-5 bglead05 black">
-      <div class="p-3 p-sm-4 p-md-5">
-        <h1><%= FFaker::LoremJA.paragraph %></h1>
-        <a href="" class="link underline">阅读</a>
-      </div>
-    </div>
-  </div>
-</section>
+  </section>
+<% end %>
 <%= render 'layouts/sections/footer' %>

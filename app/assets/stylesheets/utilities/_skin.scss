@@ -1,0 +1,251 @@
+$xSkinPelettesApp: ((),
+("red", #ff1744, [#ff5252, #d50000], [#f44336, #e53935, #d32f2f, #c62828, #b71c1c], [#ef5350, #e57373, #ef9a9a, #ffcdd2, #ffebee]),
+("pink", #f50057, [#ff4081, #c51162], [#e91e63, #d81b60, #c2185b, #ad1457, #880e4f], [#ec407a, #f06292, #f48fb1, #f8bbd0, #fce4ec]),
+("purple", #d500f9, [#e040fb, #aa00ff], [#9c27b0, #8e24aa, #7b1fa2, #6a1b9a, #4a148c], [#ab47bc, #ba68c8, #ce93d8, #e1bee7, #f3e5f5]),
+("grape", #651fff, [#7c4dff, #6200ea], [#673ab7, #5e35b1, #512da8, #4527a0, #311b92], [#7e57c2, #9575cd, #b39ddb, #d1c4e9, #ede7f6]),
+("indigo", #3d5afe, [#536dfe, #304ffe], [#3f51b5, #3949ab, #303f9f, #283593, #1a237e], [#5c6bc0, #7986cb, #9fa8da, #c5cae9, #e8eaf6]),
+("blue", #2979ff, [#448aff, #2962ff], [#2196f3, #1e88e5, #1976d2, #1565c0, #0d47a1], [#42a5f5, #64b5f6, #90caf9, #bbdefb, #e3f2fd]),
+("skyblue", #00b0ff, [#40c4ff, #0091ea], [#03a9f4, #039be5, #0288d1, #0277bd, #01579b], [#29b6f6, #4fc3f7, #81d4fa, #b3e5fc, #e1f5fe]),
+("cyan", #00e5ff, [#18ffff, #00b8d4], [#00bcd4, #00acc1, #0097a7, #00838f, #006064], [#26c6da, #4dd0e1, #80deea, #b2ebf2, #e0f7fa]),
+("teal", #1de9b6, [#64ffda, #00bfa5], [#009688, #00897b, #00796b, #00695c, #004d40], [#26a69a, #4db6ac, #80cbc4, #b2dfdb, #e0f2f1]),
+("green", #00e676, [#69f0ae, #00c853], [#4caf50, #43a047, #388e3c, #2e7d32, #1b5e20], [#66bb6a, #81c784, #a5d6a7, #c8e6c9, #e8f5e9]),
+("chartreuse", #76ff03, [#b2ff59, #64dd17], [#8bc34a, #7cb342, #689f38, #558b2f, #33691e], [#9ccc65, #aed581, #c5e1a5, #dcedc8, #f1f8e9]),
+("lime", #c6ff00, [#eeff41, #aeea00], [#cddc39, #c0ca33, #afb42b, #9e9d24, #827717], [#d4e157, #dce775, #e6ee9c, #f0f4c3, #f9fbe7]),
+("yellow", #ffea00, [#ffff00, #ffd600], [#ffeb3b, #fdd835, #fbc02d, #f9a825, #f57f17], [#ffee58, #fff176, #fff59d, #fff9c4, #fffde7]),
+("amber", #ffc400, [#ffd740, #ffab00], [#ffc107, #ffb300, #ffa000, #ff8f00, #ff6f00], [#ffca28, #ffd54f, #ffe082, #ffecb3, #fff8e1]),
+("orange", #ff9100, [#ffab40, #ff6d00], [#ff9800, #fb8c00, #f57c00, #ef6c00, #e65100], [#ffa726, #ffb74d, #ffcc80, #ffe0b2, #fff3e0]),
+("deeporange", #ff3d00, [#ff6e40, #dd2c00], [#ff5722, #f4511e, #e64a19, #d84315, #bf360c], [#ff7043, #ff8a65, #ffab91, #ffccbc, #fbe9e7]),
+("brown", #795548, null, [#795548, #6d4c41, #5d4037, #4e342e, #3e2723], [#8d6e63, #a1887f, #bcaaa4, #d7ccc8, #efebe9]),
+("gray", #263238, null, [null], [#37474f, #455a64, #546e7a, #607d8b, #78909c, #90a4ae, #b0bec5, #cfd8dc, #eceff1]),
+("dark", #181c24, null, [null], [#1f232c, #252932, #2a2e37, #2e3138, #41454e, #5b606b, #797f8c, #989eab, #b5bbc6]),
+("lead", #6e798e, null, [null], [#9199aa, #b0b6c2, #c8ccd4, #d5d7dd, #d9dbe0, #e0e2e7, #e9ebee, #f2f3f5, #f8f9fa]),
+());
+
+$xSkinPelettesTachyons: ((),
+("test", #19A974, null, null, null),
+("red", #FF4136, null, [#E7040F], [#FF725C]),
+("orange", #FF6300, null, null, null),
+("gold", #FFB700, null, null, null),
+("yellow", #FFD700, null, null, #FBF1A9),
+("purple", #5E2CA5, null, null, [#A463F2]),
+("pink", #FF80CC, null, [#D5008F], [#FFA3D7]),
+("green", #19A974, null, [#137752], [#9EEBCF]),
+("navy", #001B44, null, null, null),
+("blue", #357EDD, null, [#00449E], [#96CCFF]),
+());
+
+$xSkinShades: ('': 1,
+'90': .9,
+'80': .8,
+'70': .7,
+'60': .6,
+'50': .5,
+'40': .4,
+'30': .3,
+'20': .2,
+'15': .15,
+'10': .1,
+'05': .05,
+'02': .02,
+'01': .01,
+'025': .025,
+'0125': .0125);
+
+/*******************************
+● 颜色对象 xSkinPaletteObject < Map
+    此方法可以产生颜色字典，参数种类有误时会返回空字典
+    根据输入的基色可以依据最大颜色数产生若干个深浅颜色列表
+(...) =>
+{
+    'class': grass;
+    'hex': 000,
+    'accentHex': (000);
+    'darkHex': (000),
+    'lightHex': (000),
+}
+*******************************/
+@function xSkinPaletteObject($class,
+$hex,
+$accentHex: null,
+$darkHex: null,
+$lightHex: null) {
+
+    // 检查基本参数
+    @if type-of($class)=="string"and type-of($hex)=="color" {
+        $obj: ("class": $class, "hex": $hex);
+
+        // 未指定
+        @if $darkHex==null and $lightHex==null {
+            $obj: map-merge($obj,
+                ("darkHex": (), "lightHex":()));
+        }
+
+        // 指定
+        @if type-of($darkHex)=="list"and type-of($lightHex)=="list" {
+            $obj: map-merge($obj,
+                ("darkHex": $darkHex, "lightHex":$lightHex));
+        }
+
+        // 指定数量
+        @if type-of($darkHex)=="number"and type-of($lightHex)=="number" {
+
+            $darkAuto: [$hex];
+            $lightAuto: [$hex];
+
+            @for $v from 1 through $darkHex {
+                $darkAuto: append($darkAuto, darken(nth($darkAuto, length($darkAuto)), 10%));
+            }
+
+            @for $v from 1 through $lightHex {
+                $lightAuto: append($lightAuto, lighten(nth($lightAuto, length($lightAuto)), 5%));
+            }
+
+            $darkAuto: nth-delete($darkAuto, 1);
+            $lightAuto: nth-delete($lightAuto, 1);
+            $obj: map-merge($obj,
+            ("darkHex": $darkAuto, "lightHex":$lightAuto));
+        }
+
+        // 指定副色
+        @if type-of($accentHex)=="list" {
+            $obj: map-merge($obj,
+                ("accentHex": $accentHex));
+        }
+
+        @return $obj;
+    }
+
+    @return null;
+}
+
+@mixin xSkinPeletteWrite($obj, $namespace: null) {
+    @if type-of($obj)=="map" {
+        $class: map-get($obj, 'class');
+        $hex: map-get($obj, 'hex');
+        $darkHex: map-get($obj, 'darkHex');
+        $lightHex: map-get($obj, 'lightHex');
+        $accentHex: map-get($obj, 'accentHex');
+
+        @for $index from -(length($lightHex)) through length($darkHex) {
+
+            $color: $hex;
+
+            @if $index < 0 {
+                $color: nth($lightHex, abs($index));
+                $index: '0'+ abs($index);
+            }
+
+            @else if $index>0 {
+                $color: nth($darkHex, abs($index));
+            }
+
+            @else {
+                $index: null;
+            }
+
+            .#{$namespace}#{$class}#{$index},
+            .#{$namespace}#{$class}#{$index}h:hover,
+            .#{$namespace}#{$class}#{$index}f:focus {
+                color: $color
+            }
+
+            .bg#{$namespace}#{$class}#{$index},
+            .bg#{$namespace}#{$class}#{$index}h:hover,
+            .bg#{$namespace}#{$class}#{$index}f:focus {
+                background-color: $color
+            }
+
+            .b#{$namespace}#{$class}#{$index} {
+                border-color: $color
+            }
+        }
+
+        @if length($accentHex)>0 {
+
+            @for $index from 1 through length($accentHex) {
+                $color: nth($accentHex, $index);
+                $index: $index - 1;
+
+                .#{$namespace}#{$class}A#{$index},
+                .#{$namespace}#{$class}A#{$index}h:hover,
+                .#{$namespace}#{$class}A#{$index}f:focus {
+                    color: $color
+                }
+
+                .bg#{$namespace}#{$class}A#{$index},
+                .bg#{$namespace}#{$class}A#{$index}h:hover,
+                .bg#{$namespace}#{$class}A#{$index}f:focus {
+                    background-color: $color
+                }
+
+                .b#{$namespace}#{$class}A#{$index} {
+                    border-color: $color
+                }
+
+            }
+        }
+    }
+}
+
+@mixin xSkinPeletteWriteCollection($meta, $namespace: null) {
+
+    @each $v1,
+    $v2,
+    $v3,
+    $v4,
+    $v5 in $meta {
+        $obj: xSkinPaletteObject($v1, $v2, $v3, $v4, $v5);
+        @include xSkinPeletteWrite($obj, $namespace);
+    }
+}
+
+@mixin xSkinPeletteWriteAll() {
+    // 
+    $bootstrapMeta: $theme-colors;
+
+    @each $class,
+    $hex in $bootstrapMeta {
+        $bootstrapMeta: append($bootstrapMeta, ($class, $hex, null, 1, 1));
+    }
+
+    @include xSkinPeletteWriteCollection($bootstrapMeta, $namespace: null);
+
+    // 
+    $appMeta: $xSkinPelettesApp;
+    @include xSkinPeletteWriteCollection($appMeta, null);
+
+    // 
+    $tachyonsMeta: $xSkinPelettesTachyons;
+    @include xSkinPeletteWriteCollection($xSkinPelettesTachyons, "T");
+}
+
+@mixin xSkinShadeWriteAll() {
+
+    @each $key,
+    $var in $xSkinShades {
+
+        @each $color,
+        $luminance in ("white": 100%, "black":0%) {
+
+            .#{$color}#{$key},
+            .#{$color}#{$key}h:hover,
+            .#{$color}#{$key}f:focus {
+                color: hsla(0, 0, $luminance, $var);
+            }
+
+            .bg#{$color}#{$key},
+            .bg#{$color}#{$key}h:hover,
+            .bg#{$color}#{$key}f:focus {
+                background-color: hsla(0, 0, $luminance, $var);
+            }
+
+            .b#{$color}#{$key} {
+                border-color: hsla(0, 0, $luminance, $var);
+            }
+
+        }
+    }
+}
+
+@include xSkinShadeWriteAll();
+@include xSkinPeletteWriteAll();

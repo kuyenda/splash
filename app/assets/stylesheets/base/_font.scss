@@ -4,7 +4,7 @@
 // ● 衬线体：NotoSerif
 // ● 中文：XiangHe
 // ● 等宽：Menlo
-// ● 标题：Kaiju
+// ● 标题：Ramona
 //--------------------------------------------------------------------------
 @import url('https://fonts.font.im/css?family=Noto+Serif:400,400i,700,700i');
 
@@ -30,4 +30,5 @@
 @include font-face(XiangHe, 'XiangHe/XiangHe-700.ttf', truetype, 700);
 @include font-face(Menlo, 'Menlo/Menlo-400.ttf', truetype, 400);
 @include font-face(Menlo, 'Menlo/Menlo-700.ttf', truetype, 700);
-@include font-face(Kaiju, 'Title/Kaiju.ttf', truetype);
+@include font-face(Ramona, 'Ramona/Ramona-300.ttf', truetype, 300);
+@include font-face(Ramona, 'Ramona/Ramona-700.ttf', truetype, 700);

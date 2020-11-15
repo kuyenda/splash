@@ -1,0 +1,102 @@
+/*******************************
+● 排版、字体、文本
+*******************************/
+$xTypographyFonts: ('EN':Steradian,
+'EN2':ProximaSans,
+'CN':Xianghe,
+'MONO':menlo,
+'SERIF':'Noto Serif',
+'TITLE':Ramona) !default;
+
+@include xBaseMedia using ($media) {
+    .x {
+        &.text {
+
+            // Align
+            @each $var in (left right center) {
+
+                // str-slice($var, 1, 1)
+                &.#{$var}#{$media} {
+                    text-align: $var
+                }
+            }
+
+            // Transform
+            @each $var in (capitalize lowercase uppercase none) {
+                &.#{$var}#{$media} {
+                    text-transform: $var
+                }
+            }
+
+            // Decoration
+            @each $key,
+            $var in zip((strike underline no-underline), (line-through, underline, none)) {
+                &.#{$key}#{$media} {
+                    text-decoration: #{$var}
+                }
+            }
+
+            // Vertical Align
+            @each $var in (baseline middle top bottom) {
+                &.#{$var}#{$media} {
+                    vertical-align: #{$var};
+                }
+            }
+
+            // Break
+            &.nobreak#{$media} {
+                white-space: nowrap;
+            }
+
+            &.break#{$media} {
+                word-break: break-all;
+            }
+        }
+    }
+}
+
+/*******************************
+● CLEARLY STATED
+*******************************/
+@include xBaseMedia using ($media) {
+    .x {
+        &.font {
+
+            // Size
+            @each $key,
+            $var in ("": 3,
+                "1": 3,
+                "2": 2.25,
+                "3": 1.5,
+                "4": 1.25,
+                "5": 1,
+                "6": .875) {
+                &.size#{$key}#{$media} {
+                    font-size: #{$var}rem
+                }
+            }
+
+            // Weight
+            @each $key,
+            $var in zip(bold lighter normal, bold lighter normal) {
+                &.#{$key}#{$media} {
+                    font-weight: $var
+                }
+            }
+
+            @each $var in (100 200 300 400 500 600 700 800 900) {
+                &.weight#{$var / 100}#{$media} {
+                    font-weight: $var
+                }
+            }
+
+            // Family
+            @each $key,
+            $var in $xTypographyFonts {
+                &.#{$key}#{$media} {
+                    font-family: unquote($var)
+                }
+            }
+        }
+    }
+}

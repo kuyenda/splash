@@ -1,3 +1,60 @@
+/*******************************
+● 动画
+*******************************/
+$xAnimatedBezier: (bezier(0, .75, 0, 1), bezier(.25, .1, 0, 1), bezier(1, 0, .5, 1));
+$xAnimatedBezierBase: ();
+$xAnimatedBezierBase: map-merge(("ease-in": ease-in,
+"ease-out": ease-out,
+"ease-in-out": ease-in-out,
+"linear": linear,
+"step-start": step-start,
+"step-end": step-end),
+$xAnimatedBezierBase);
+$xAnimatedDurationBase: ();
+$xAnimatedDurationBase: map-merge(("": 1,
+"0": 100,
+"1": 4,
+"2": 2,
+"3": 1.5,
+"4": 1,
+"5": .5,
+"6": .25,
+"7": .1),
+$xAnimatedDurationBase);
+
+@mixin xBaseTransformed($duration: .3s, $method:ease-in-out) {
+    transition-property: all;
+    transition: $duration;
+    transition-timing-function: $method;
+}
+
+@mixin xBaseTransformedOn($properties: (all)) {
+    transition-property: $method !important;
+}
+
+@mixin xBaseTransformedMethod($method:cubic-bezier(0, .75, 0, 1)) {
+    transition-timing-function: $method !important;
+}
+
+@mixin xBaseTransformedDelay($deley:.5s) {
+    transition-delay: $deley !important;
+}
+
+@mixin xBaseTransformedDuration($deley:.5s) {
+    transition-duration: $deley !important;
+}
+
+.x.transformed {
+    @include xBaseTransformed;
+}
+
+@each $methodKey,
+$method in $xAnimatedBezierBase {
+    .x.transformed #{$methodKey} {
+        @include xBaseTransformedMethod($method);
+    }
+}
+
 @keyframes hue {
     0% {
         filter: hue-rotate(0deg);
@@ -132,55 +189,4 @@
 
 .pulseOpacity {
     animation-name: pulseOpacity
-}
-
-$animated: ();
-$animated: map-merge(("": 1,
-"0": 100,
-"1": 4,
-"2": 2,
-"3": 1.5,
-"4": 1,
-"5": .5,
-"6": .25,
-"7": .1),
-$animated);
-
-@each $name,
-$duration in $animated {
-    .animated#{$name} {
-        animation-duration: #{$duration}s;
-    }
-
-    .animated-delay#{$name} {
-        animation-delay: #{$duration}s;
-    }
-}
-
-$aniamtions: ();
-$aniamtions: map-merge(("ease-in": ease-in,
-"ease-out": ease-out,
-"ease-in-out": ease-in-out,
-"linear": linear,
-"step-start": step-start,
-"step-end": step-end),
-$aniamtions);
-
-@each $name,
-$function in $aniamtions {
-    .#{$name} {
-        animation-timing-function: $function;
-    }
-}
-
-.animated-sp {
-    animation-timing-function: cubic-bezier(0, .75, 0, 1);
-}
-
-.animted-sp2 {
-    animation-timing-function: cubic-bezier(.25, .1, 0, 1);
-}
-
-.animated-inf {
-    animation-iteration-count: infinite;
 }

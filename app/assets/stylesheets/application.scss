@@ -3,13 +3,13 @@
 // ● Splash v1
 //--------------------------------------------------------------------------
 
-// Reset and configurations
+// Resets and configurations
 @import "base/bootstrap";
 @import "base/font";
 @import "base/generic";
 @import "base/normalize";
 
-// Workships
+// Packages
 @import "bootstrap";
 @import "animate.css/animate.compat";
 @import "prismjs/themes/prism-okaidia";
@@ -17,26 +17,27 @@
 
 // Utilities
 @import "utilities/variable";
-@import "utilities/mixin";
+@import "utilities/media";
 @import "utilities/function";
-@import "utilities/animation";
+@import "utilities/animate";
+@import "utilities/typography";
+@import "utilities/skin";
+@import "utilities/opacity";
+@import "utilities/border";
+@import "utilities/layout";
+@import "utilities/debug";
+@import "utilities/other";
 
 // Elements
+@import "elements/link";
+@import "elements/header";
 @import "elements/button";
-@import "elements/form";
-@import "elements/heading";
 @import "elements/icon";
+@import "elements/form";
 
-// Helpers
-@import "helpers/app";
-@import "helpers/border";
-@import "helpers/color";
-@import "helpers/typography";
-@import "helpers/other";
-
-// Layouts and components
-@import "components/alert";
-@import "components/profile";
-@import "components/pagination";
-@import "components/sketch";
-@import "components/render";
+// Components
+// @import "components/alert";
+// @import "components/profile";
+// @import "components/pagination";
+// @import "components/sketch";
+// @import "components/render";

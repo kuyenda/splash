@@ -1,0 +1,32 @@
+<script>
+  $(document).ready(function() {
+    $('#directoryList').find('a').removeClass().addClass('x link o40 glow');
+    $('#directoryList').find(`a[href="${location.href}"]`).removeClass().addClass('dark primary1h');
+  });
+</script>
+<ul class="p-2 p-md-3" id='directoryList'>
+  <li>
+    <%= link_to("命名规范", document_url('naming') , class: "") %>
+  </li>
+  <li>
+    <%= link_to("选择器注解", document_url('selector') , class: "") %>
+  </li>
+  <li>
+    <%= link_to("段落", document_url('typography') , class: "") %>
+  </li>
+  <li>
+    <%= link_to("颜色", document_url('color') , class: "") %>
+  </li>
+  <li>
+    <%= link_to("边框", document_url('border') , class: "") %>
+  </li>
+  <li>
+    <%= link_to("图层", document_url('layout') , class: "") %>
+  </li>
+  <li>
+    <%= link_to("图标", document_url('icon') , class: "") %>
+  </li>
+  <li>
+    <%= link_to("调试", document_url('icon') , class: "") %>
+  </li>
+</ul>

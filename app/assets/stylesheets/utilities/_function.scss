@@ -1,6 +1,6 @@
-//--------------------------------------------------------------------------
-// ● 数组计算
-//--------------------------------------------------------------------------
+/*******************************
+● 基础函数扩展
+*******************************/
 @function nth-delete($list, $n) {
     $result: ();
     $n: if($n < 0, length($list) + $n + 1, $n);
@@ -16,9 +16,9 @@
     @return join((), $result, $separator, $bracketed);
 }
 
-//--------------------------------------------------------------------------
-// ● 颜色值计算
-//--------------------------------------------------------------------------
+/*******************************
+● 基础颜色值计算
+*******************************/
 @function color-invert($color) {
     @if lightness($color)>55% {
         @return rgba(#000, 0.7);
@@ -56,40 +56,9 @@
     @return $text-strong;
 }
 
-//--------------------------------------------------------------------------
-// ● 动画计算
-//--------------------------------------------------------------------------
+/*******************************
+● 基础动画计算
+*******************************/
 @function bezier($x1:0, $y1:.75, $x2:0, $y2:1) {
     @return cubic-bezier($x1, $y1, $x2, $y2);
-}
-
-//--------------------------------------------------------------------------
-// ● 断点查询
-// xs: 0,
-// sm: 576px,
-// md: 768px,
-// lg: 992px,
-// xl: 1200px
-// media-next  返回下一级断点
-// media-min   返回此断点的值
-// media-max   返回此断点下一级减去0.02像素的值
-// media-infix 返回断点插值
-//--------------------------------------------------------------------------
-@function media-next($name, $breakpoints: $helper-breakpoints, $breakpoint-names: map-keys($breakpoints)) {
-    $n: index($breakpoint-names, $name);
-    @return if($n !=null and $n < length($breakpoint-names), nth($breakpoint-names, $n + 1), null);
-}
-
-@function media-min($name, $breakpoints: $helper-breakpoints) {
-    $min: map-get($breakpoints, $name);
-    @return if($min !=0, $min, null);
-}
-
-@function media-max($name, $breakpoints: $helper-breakpoints) {
-    $next: media-next($name, $breakpoints);
-    @return if($next, media-min($next, $breakpoints) - .02, null);
-}
-
-@function media-infix($name, $breakpoints: $helper-breakpoints) {
-    @return if(media-min($name, $breakpoints)==null, "", "-#{$name}");
 }
