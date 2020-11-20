@@ -1,4 +1,3 @@
-<!--  -->
 <% if @id.nil? %>
   <section class="container-fluid">
     <div class="row p-3 p-sm-4 p-md-5 x bb bgblue5 white">
@@ -11,56 +10,63 @@
     </div>
   </section>
 <% end %>
-<!-- Icon Directory -->
-<section class="container my-sm-2 my-md-3">
-  <ul class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list bgblack0125 pt-2">
-    <% @docs.each do |doc| %>
-      <li class="col mb-4" data-tags="<%= doc[:icon_name] %>">
-        <%= link_to(document_url(doc[:href]), class: "d-block text-decoration-none x transformed primaryh") do %>
-          <div class="p-2 py-3 mb-2 bgblack02 text-center rounded x transformed bglead07h">
-            <%= bootstrap_icon doc[:icon_name], width: 48, height: 48 %>
-          </div>
-          <div class="text-muted text-decoration-none text-center pt-1"><%= doc[:text] %></div>
+<nav class="d-flex flex-column">
+  <!-- Section Icon Directory -->
+  <section class="container my-sm-2 my-md-3 <%= 'order-3' if @id %>">
+    <ul class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list bgblack0125 pt-2">
+      <% @docs.each do |doc| %>
+        <% if doc[:icon] %>
+          <li class="col mb-4" data-tags="<%= doc[:icon_name] %>">
+            <%= link_to(document_url(doc[:href]), class: "d-block text-decoration-none x transformed primaryh") do %>
+              <div class="p-2 py-3 mb-2 bgblack02 text-center rounded x transformed bglead07h">
+                <%= bootstrap_icon doc[:icon], width: 48, height: 48 %>
+              </div>
+              <div class="text-muted text-decoration-none text-center pt-1"><%= doc[:text] %></div>
+            <% end %>
+          </li>
         <% end %>
-      </li>
-    <% end %>
-  </ul>
-</section>
-<!-- Sidebar Directory & Contents-->
-<% if @id %>
-  <section class="container mb-5">
-    <div class="row justify-content-center rounded x headerWrapper skindark spacing bgblack0125">
-      <div class="col col-lg-4 bgblack02 d-none d-lg-block">
-        <div class="mx-auto my-3 my-sm-4 my-md-5 p-3 p-sm-4 p-md-5">
-          <code class="language-ruby"><%= params %></code>
-          <%= render 'documents/sidebar_directory' %>
-        </div>
-      </div>
-      <div class="w-100 d-block d-lg-none"></div>
-      <div class="col col-lg-8">
-        <div class="p-lg-5 p-md-4 p-3">
-          <%= render 'documents/documentation/' + @id %>
-        </div>
-      </div>
-    </div>
+      <% end %>
+    </ul>
   </section>
-<% end %>
-<!-- Info -->
-<% if @id.nil? %>
-  <section class="container">
-    <div class="row row-cols-1">
-      <div class="col p-sm-4 p-md-1 x bglead09 gray04">
-        <div class="p-3 p-sm-4 p-md-5">
-          <p>基于SASS编译的辅助<strong>样式框架</strong></p>
-          <div class="x header">
-            <code class="css">.x font size3 transformed gray02h</code>
-          </div>
-          <div class="x header block">
-            <h1 class="x font size2 transformed gray02h"><%= FFaker::LoremJA.paragraph %></h1>
+  <!-- Section Sidebar & Contents-->
+  <% if @id %>
+    <section class="container-fluid mb-5 x header stacked">
+      <div class="row">
+        <div class="col-lg-3 d-none d-lg-block bgblack05">
+          <div class="ml-auto mt-5 p-2" style="max-width: 300px">
+            <div class="mb-2">
+              <code class="language-ruby x text break"><%= params %></code>
+            </div>
+            <%= render 'documents/sidebar_directory' %>
           </div>
         </div>
+        <div class="col-12 col-lg-9 col-xl-7 x headerWrapper skindark spacing bgblack0125">
+          <div class="p-lg-2 p-md-2 p-1">
+            <%= render 'documents/documentation/' + @id %>
+          </div>
+        </div>
+        <div class="col-xl-2 d-xl-block d-none x debugGrid16">
+        </div>
       </div>
-    </div>
-  </section>
-<% end %>
+    </section>
+  <% end %>
+  <!-- Section Example -->
+  <% if @id.nil? %>
+    <section class="container">
+      <div class="row row-cols-1">
+        <div class="col p-sm-4 p-md-1 x bglead09 gray04">
+          <div class="p-3 p-sm-4 p-md-5">
+            <p>基于SASS编译的辅助<strong>样式框架</strong></p>
+            <div class="x header">
+              <code class="css">.x font size3 transformed gray02h</code>
+            </div>
+            <div class="x header block">
+              <h1 class="x font size2 transformed gray02h"><%= FFaker::LoremJA.paragraph %></h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  <% end %>
+</nav>
 <%= render 'layouts/sections/footer' %>
