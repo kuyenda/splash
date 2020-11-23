@@ -5,15 +5,15 @@
   });
 </script>
 <% DocumentsController::DOC_MAP.keys.each do |header|  %>
-  <div class="ml-2">
-    <strong class="x font bold gray02"><%= header %></strong>
+  <div class="ml-2 mb-3">
+    <strong class="p-1 px-2 x font bold gray02"><%= header %></strong>
     <ul class="list-unstyled">
       <% DocumentsController::DOC_MAP[header].each do |doc|  %>
-        <li class="ml-5">
+        <li>
           <% if doc[:href] == @id %>
-            <%= link_to(doc[:text], document_url(doc[:href]) , class: "d-inline-block w-100 rounded p-1 x transformed bgblack05h primary") %>
+            <%= link_to(doc[:text], document_url(doc[:href]) , class: "d-inline-block w-100 rounded p-1 px-2 x transformed bgblack05h primary") %>
           <% else %>
-            <%= link_to(doc[:text], document_url(doc[:href]) , class: "d-inline-block w-100 rounded p-1 x transformed bgblack05h lead02") %>
+            <%= link_to(doc[:text], document_url(doc[:href]) , class: "d-inline-block w-100 rounded p-1 px-2 x transformed bgblack05h lead02") %>
           <% end %>
         </li>
       <% end %>

@@ -1,0 +1,68 @@
+<!--  -->
+<h3 class="x header segement my-5 x font TITLE size1 weight9 text uppercase lead05">
+  <span class="badge badge-warning mr-2">Note </span>This module is in dispute and has not yet been implemented
+</h3>
+<!--  -->
+<h3 class="x header block">边框
+  <p class="x header lead">.x bound</p>
+</h3>
+<!--  -->
+<div class="row">
+  <div class="col">
+    <div class="card x bound bblack left">
+      <div class="card-body">
+        <p class="card-text">.x bound bred <code>b$color</code></p>
+      </div>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card x bound nobound">
+      <div class="card-body">
+        <p class="card-text">.x bound nobound</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<h3 class="x header block">方向和厚度
+  <p class="x header lead">width left right top bottom</p>
+</h3>
+<table class="table table-striped my-2">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">$xBound</th>
+      <th scope="col">厚度</th>
+      <th scope="col">类</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% {"0": 0, "1":0.125, "2":0.25, "3":0.5, "4":1, "5":2}.each do |k,v| %>
+      <tr>
+        <th scope="row"><%= k %></th>
+        <td><%= v %> <code>rem</code></td>
+        <td>.x left<%= k %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<div class="row row-cols-3">
+  <div class="col-12 col-md-5 my-1">
+    <div class="card x bound left3 bpink">
+      <div class="card-body">
+        <p class="card-text">.x bound left3 bpink</p>
+      </div>
+    </div>
+  </div>
+  <div class="w-100 d-block d-md-none"></div>
+  <div class="col-12 col-md-5 my-1">
+    <div class="card x bound top2 bgreen">
+      <div class="card-body">
+        <p class="card-text">.x bound top2 bgreen</p>
+      </div>
+    </div>
+  </div>
+</div>
+<!--  -->
+<h3 class="x header block">圆度
+  <p class="x header lead">radius</p>
+</h3>

@@ -8,7 +8,7 @@ class DocumentsController < ApplicationController
     "其他": [
       { href: "typography", text: "段落", icon: "type" },
       { href: "color", text: "颜色", icon: "droplet-half" },
-      { href: "border", text: "边框", icon: "app" },
+      { href: "bound", text: "边框", icon: "app" },
       { href: "layout", text: "图层", icon: "layers-half" },
       { href: "icon", text: "图标", icon: "bootstrap-fill" },
       { href: "debug", text: "调试", icon: "terminal-fill" },
