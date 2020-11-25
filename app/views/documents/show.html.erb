@@ -13,7 +13,7 @@
 <nav class="d-flex flex-column">
   <!-- Section Icon Directory -->
   <section class="container my-sm-2 my-md-3 <%= 'order-3' if @id %>">
-    <ul class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list bgblack0125 pt-2">
+    <ul class="row row-cols-3 row-cols-sm-4 row-cols-lg-6 row-cols-xl-8 list-unstyled list pt-2 bgblack0125">
       <% @docs.each do |doc| %>
         <% if doc[:icon] %>
           <li class="col mb-4" data-tags="<%= doc[:icon_name] %>">
@@ -32,8 +32,8 @@
   <% if @id %>
     <section class="container-fluid mb-5 x header stacked">
       <div class="row">
-        <div class="col-lg-3 d-none d-lg-block bgblack0125 br">
-          <div class="ml-auto mt-5 p-2" style="max-width: 300px">
+        <div class="col-lg-3 d-none d-lg-block x bgblack0125">
+          <div class="ml-auto mt-5 p-2 x bound right1 bblack" style="max-width: 300px">
             <div class="mb-2">
               <code class="language-ruby x text break"><%= params %></code>
             </div>
