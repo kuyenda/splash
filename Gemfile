@@ -42,7 +42,7 @@ gem 'will_paginate', '~> 3.1.0'
 # Color manipulation and palette generation
 gem 'chroma'
 # Classier solution for file uploads for Rails
-gem 'carrierwave', '1.1.0'
+gem 'carrierwave', '1.3.2'
 gem 'mini_magick', '4.7.0'
 gem 'fog-aws', '2.0.0'
 gem 'nokogiri'
